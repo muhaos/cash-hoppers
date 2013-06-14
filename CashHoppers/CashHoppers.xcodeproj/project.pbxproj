@@ -18,12 +18,18 @@
 		56401561176B40D100C028CE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56401560176B40D100C028CE /* Default-568h@2x.png */; };
 		56401564176B40D100C028CE /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56401562176B40D100C028CE /* MainStoryboard_iPhone.storyboard */; };
 		56401567176B40D100C028CE /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56401565176B40D100C028CE /* MainStoryboard_iPad.storyboard */; };
-		5640156A176B40D100C028CE /* CHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56401569176B40D100C028CE /* CHViewController.m */; };
 		56401572176B40D100C028CE /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56401571176B40D100C028CE /* SenTestingKit.framework */; };
 		56401573176B40D100C028CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640154A176B40D000C028CE /* UIKit.framework */; };
 		56401574176B40D100C028CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640154C176B40D000C028CE /* Foundation.framework */; };
 		5640157C176B40D100C028CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5640157A176B40D100C028CE /* InfoPlist.strings */; };
 		5640157F176B40D100C028CE /* CashHoppersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5640157E176B40D100C028CE /* CashHoppersTests.m */; };
+		5640158A176B422D00C028CE /* CHStartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56401589176B422D00C028CE /* CHStartVC.m */; };
+		5640158D176B433C00C028CE /* bg_gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 5640158C176B433C00C028CE /* bg_gradient.png */; };
+		5640158F176B452600C028CE /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5640158E176B452600C028CE /* logo.png */; };
+		56401591176B468E00C028CE /* button_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 56401590176B468E00C028CE /* button_login.png */; };
+		56401595176B47A500C028CE /* button_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 56401592176B47A500C028CE /* button_facebook.png */; };
+		56401596176B47A500C028CE /* button_signup.png in Resources */ = {isa = PBXBuildFile; fileRef = 56401593176B47A500C028CE /* button_signup.png */; };
+		56401597176B47A500C028CE /* button_twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 56401594176B47A500C028CE /* button_twitter.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,14 +58,20 @@
 		56401560176B40D100C028CE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		56401563176B40D100C028CE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		56401566176B40D100C028CE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		56401568176B40D100C028CE /* CHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHViewController.h; sourceTree = "<group>"; };
-		56401569176B40D100C028CE /* CHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHViewController.m; sourceTree = "<group>"; };
 		56401570176B40D100C028CE /* CashHoppersTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CashHoppersTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56401571176B40D100C028CE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		56401579176B40D100C028CE /* CashHoppersTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CashHoppersTests-Info.plist"; sourceTree = "<group>"; };
 		5640157B176B40D100C028CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5640157D176B40D100C028CE /* CashHoppersTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashHoppersTests.h; sourceTree = "<group>"; };
 		5640157E176B40D100C028CE /* CashHoppersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashHoppersTests.m; sourceTree = "<group>"; };
+		56401588176B422D00C028CE /* CHStartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHStartVC.h; sourceTree = "<group>"; };
+		56401589176B422D00C028CE /* CHStartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHStartVC.m; sourceTree = "<group>"; };
+		5640158C176B433C00C028CE /* bg_gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_gradient.png; sourceTree = "<group>"; };
+		5640158E176B452600C028CE /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		56401590176B468E00C028CE /* button_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_login.png; sourceTree = "<group>"; };
+		56401592176B47A500C028CE /* button_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_facebook.png; sourceTree = "<group>"; };
+		56401593176B47A500C028CE /* button_signup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_signup.png; sourceTree = "<group>"; };
+		56401594176B47A500C028CE /* button_twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_twitter.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,13 +131,14 @@
 		56401550176B40D000C028CE /* CashHoppers */ = {
 			isa = PBXGroup;
 			children = (
+				5640158B176B433B00C028CE /* Images */,
 				56401559176B40D100C028CE /* CHAppDelegate.h */,
 				5640155A176B40D100C028CE /* CHAppDelegate.m */,
 				56401562176B40D100C028CE /* MainStoryboard_iPhone.storyboard */,
 				56401565176B40D100C028CE /* MainStoryboard_iPad.storyboard */,
-				56401568176B40D100C028CE /* CHViewController.h */,
-				56401569176B40D100C028CE /* CHViewController.m */,
 				56401551176B40D000C028CE /* Supporting Files */,
+				56401588176B422D00C028CE /* CHStartVC.h */,
+				56401589176B422D00C028CE /* CHStartVC.m */,
 			);
 			path = CashHoppers;
 			sourceTree = "<group>";
@@ -162,6 +175,19 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		5640158B176B433B00C028CE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				56401592176B47A500C028CE /* button_facebook.png */,
+				56401593176B47A500C028CE /* button_signup.png */,
+				56401594176B47A500C028CE /* button_twitter.png */,
+				56401590176B468E00C028CE /* button_login.png */,
+				5640158E176B452600C028CE /* logo.png */,
+				5640158C176B433C00C028CE /* bg_gradient.png */,
+			);
+			path = Images;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -241,6 +267,12 @@
 				56401561176B40D100C028CE /* Default-568h@2x.png in Resources */,
 				56401564176B40D100C028CE /* MainStoryboard_iPhone.storyboard in Resources */,
 				56401567176B40D100C028CE /* MainStoryboard_iPad.storyboard in Resources */,
+				5640158D176B433C00C028CE /* bg_gradient.png in Resources */,
+				5640158F176B452600C028CE /* logo.png in Resources */,
+				56401591176B468E00C028CE /* button_login.png in Resources */,
+				56401595176B47A500C028CE /* button_facebook.png in Resources */,
+				56401596176B47A500C028CE /* button_signup.png in Resources */,
+				56401597176B47A500C028CE /* button_twitter.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +309,7 @@
 			files = (
 				56401557176B40D000C028CE /* main.m in Sources */,
 				5640155B176B40D100C028CE /* CHAppDelegate.m in Sources */,
-				5640156A176B40D100C028CE /* CHViewController.m in Sources */,
+				5640158A176B422D00C028CE /* CHStartVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

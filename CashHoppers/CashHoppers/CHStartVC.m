@@ -1,23 +1,26 @@
 //
-//  CHViewController.m
+//  CHStartVC.m
 //  CashHoppers
 //
 //  Created by Vova Musiienko on 14.06.13.
 //  Copyright (c) 2013 swanteams.com. All rights reserved.
 //
 
-#import "CHViewController.h"
+#import "CHStartVC.h"
 
-@interface CHViewController ()
+@interface CHStartVC ()
 
 @end
 
-@implementation CHViewController
+@implementation CHStartVC
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg_gradient"]];
+    self.view.backgroundColor = background;
 }
 
 - (void)didReceiveMemoryWarning

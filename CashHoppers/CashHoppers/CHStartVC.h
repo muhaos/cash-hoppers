@@ -1,5 +1,5 @@
 //
-//  CHViewController.h
+//  CHStartVC.h
 //  CashHoppers
 //
 //  Created by Vova Musiienko on 14.06.13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHViewController : UIViewController
+@interface CHStartVC : UIViewController
 
 @end
