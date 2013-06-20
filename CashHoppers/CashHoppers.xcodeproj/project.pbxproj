@@ -33,6 +33,8 @@
 		5640159A176B595500C028CE /* CHLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56401599176B595500C028CE /* CHLoginVC.m */; };
 		5640159C176B5ED600C028CE /* input_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5640159B176B5ED600C028CE /* input_bg.png */; };
 		5640159E176B647C00C028CE /* button_forget_passwd.png in Resources */ = {isa = PBXBuildFile; fileRef = 5640159D176B647C00C028CE /* button_forget_passwd.png */; };
+		AA9991AA177329D7005A56EF /* CHResetPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9991A9177329D7005A56EF /* CHResetPasswordVC.m */; };
+		AA9991AC177332BD005A56EF /* button_sign_in.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9991AB177332BD005A56EF /* button_sign_in.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,9 @@
 		56401599176B595500C028CE /* CHLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHLoginVC.m; sourceTree = "<group>"; };
 		5640159B176B5ED600C028CE /* input_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input_bg.png; sourceTree = "<group>"; };
 		5640159D176B647C00C028CE /* button_forget_passwd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_forget_passwd.png; sourceTree = "<group>"; };
+		AA9991A8177329D7005A56EF /* CHResetPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHResetPasswordVC.h; sourceTree = "<group>"; };
+		AA9991A9177329D7005A56EF /* CHResetPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHResetPasswordVC.m; sourceTree = "<group>"; };
+		AA9991AB177332BD005A56EF /* button_sign_in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_sign_in.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +153,8 @@
 				56401589176B422D00C028CE /* CHStartVC.m */,
 				56401598176B595500C028CE /* CHLoginVC.h */,
 				56401599176B595500C028CE /* CHLoginVC.m */,
+				AA9991A8177329D7005A56EF /* CHResetPasswordVC.h */,
+				AA9991A9177329D7005A56EF /* CHResetPasswordVC.m */,
 			);
 			path = CashHoppers;
 			sourceTree = "<group>";
@@ -188,6 +195,7 @@
 		5640158B176B433B00C028CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AA9991AB177332BD005A56EF /* button_sign_in.png */,
 				5640159D176B647C00C028CE /* button_forget_passwd.png */,
 				5640159B176B5ED600C028CE /* input_bg.png */,
 				56401592176B47A500C028CE /* button_facebook.png */,
@@ -286,6 +294,7 @@
 				56401597176B47A500C028CE /* button_twitter.png in Resources */,
 				5640159C176B5ED600C028CE /* input_bg.png in Resources */,
 				5640159E176B647C00C028CE /* button_forget_passwd.png in Resources */,
+				AA9991AC177332BD005A56EF /* button_sign_in.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +333,7 @@
 				5640155B176B40D100C028CE /* CHAppDelegate.m in Sources */,
 				5640158A176B422D00C028CE /* CHStartVC.m in Sources */,
 				5640159A176B595500C028CE /* CHLoginVC.m in Sources */,
+				AA9991AA177329D7005A56EF /* CHResetPasswordVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +530,7 @@
 				56401584176B40D100C028CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		56401585176B40D100C028CE /* Build configuration list for PBXNativeTarget "CashHoppersTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +539,7 @@
 				56401587176B40D100C028CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
