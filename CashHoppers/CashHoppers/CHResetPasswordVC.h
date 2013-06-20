@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface CHResetPasswordVC : UIViewController <UITextFieldDelegate>
+
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
+
 - (IBAction)signInTapped:(id)sender;
 
 @end
