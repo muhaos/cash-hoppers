@@ -12,7 +12,6 @@
 
 @property (assign, nonatomic) BOOL oldNavBarStatus;
 
-
 @end
 
 @implementation CHRegisterVC
@@ -75,6 +74,14 @@
 
 
 - (IBAction)registerTapped:(id)sender {
+}
+
+
+- (IBAction)addPhotoTapped:(id)sender {
+    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 

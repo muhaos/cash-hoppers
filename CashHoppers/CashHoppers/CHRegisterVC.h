@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHRegisterVC : UIViewController <UITextFieldDelegate>
+@interface CHRegisterVC : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *requiredLabel;
 
@@ -23,5 +23,6 @@
 @property (strong, nonatomic) IBOutlet UIView *zipView;
 
 - (IBAction)registerTapped:(id)sender;
+- (IBAction)addPhotoTapped:(id)sender;
 
 @end

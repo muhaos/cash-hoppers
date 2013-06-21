@@ -494,6 +494,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addPhotoTapped:" destination="nSy-Mj-aOQ" eventType="touchUpInside" id="iPU-zi-edy"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="image_avatar.png" id="GVI-Iw-dg9">
                                         <rect key="frame" x="158" y="373" width="50" height="50"/>
