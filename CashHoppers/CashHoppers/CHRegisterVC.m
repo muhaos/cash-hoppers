@@ -16,7 +16,7 @@
 
 @implementation CHRegisterVC
 
-@synthesize emailView, zipView, requiredLabel, zipTextField, userNameTextField, passwordTextField;
+@synthesize emailView, zipView, requiredLabel, zipTextField, userNameTextField, passwordTextField, photoImageView;
 
 
 - (void)viewDidLoad
@@ -69,6 +69,7 @@
     [self setPasswordTextField:nil];
     [self setEmailView:nil];
     [self setZipView:nil];
+    [self setPhotoImageView:nil];
     [super viewDidUnload];
 }
 
@@ -82,6 +83,16 @@
     picker.delegate = self;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:picker animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+	[picker dismissModalViewControllerAnimated:YES];
+	photoImageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+}
+
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 

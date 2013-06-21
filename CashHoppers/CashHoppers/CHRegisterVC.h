@@ -21,6 +21,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *emailView;
 @property (strong, nonatomic) IBOutlet UIView *zipView;
+@property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
 
 - (IBAction)registerTapped:(id)sender;
 - (IBAction)addPhotoTapped:(id)sender;

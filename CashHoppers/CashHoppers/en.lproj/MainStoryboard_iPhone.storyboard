@@ -529,6 +529,7 @@
                         <outlet property="firstNameTextField" destination="9zd-f3-wOY" id="FmH-UD-xzx"/>
                         <outlet property="lastNameTextField" destination="2Z5-YJ-fPw" id="XC7-Rk-ry5"/>
                         <outlet property="passwordTextField" destination="nRT-AU-IUQ" id="3VA-Sf-wJI"/>
+                        <outlet property="photoImageView" destination="GVI-Iw-dg9" id="vbT-JP-dHu"/>
                         <outlet property="requiredLabel" destination="Zke-Sr-a0o" id="Ttt-FS-Mxb"/>
                         <outlet property="userNameTextField" destination="O50-FZ-3CE" id="Goc-qm-FGj"/>
                         <outlet property="zipTextField" destination="dEJ-tY-BIz" id="khn-YG-HD2"/>
