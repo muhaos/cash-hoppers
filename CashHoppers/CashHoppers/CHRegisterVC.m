@@ -12,22 +12,33 @@
 
 @property (assign, nonatomic) BOOL oldNavBarStatus;
 
-
 @end
 
 @implementation CHRegisterVC
 
-@synthesize emailView, zipView, requiredLabel, zipTextField, userNameTextField, passwordTextField;
+@synthesize emailView, zipView, requiredLabel, zipTextField, userNameTextField, passwordTextField, photoImageView;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [emailView setBackgroundColor:[UIColor redColor]];
-    [zipView setBackgroundColor:[UIColor redColor]];
+    [emailView setBackgroundColor:[UIColor clearColor]];
+    [zipView setBackgroundColor:[UIColor clearColor]];
     [requiredLabel setTextColor:[UIColor redColor]];
+    
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *backBtnImage = [UIImage imageNamed:@"button_nav_back"];
+    [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(backButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.frame = CGRectMake(0, 0, 20, 20);
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
 }
 
+
+- (void) backButtonTapped {
+    [[self navigationController] popViewControllerAnimated:YES];
+}
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -58,11 +69,30 @@
     [self setPasswordTextField:nil];
     [self setEmailView:nil];
     [self setZipView:nil];
+    [self setPhotoImageView:nil];
     [super viewDidUnload];
 }
 
 
 - (IBAction)registerTapped:(id)sender {
+}
+
+
+- (IBAction)addPhotoTapped:(id)sender {
+    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+	[picker dismissModalViewControllerAnimated:YES];
+	photoImageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+}
+
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 
