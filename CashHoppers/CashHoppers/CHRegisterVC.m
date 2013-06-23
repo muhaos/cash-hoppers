@@ -85,6 +85,7 @@
     [self presentViewController:picker animated:YES completion:nil];
 }
 
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 	[picker dismissModalViewControllerAnimated:YES];
 	photoImageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];

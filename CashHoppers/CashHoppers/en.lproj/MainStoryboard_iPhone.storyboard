@@ -515,6 +515,7 @@
                                         </state>
                                         <connections>
                                             <action selector="registerTapped:" destination="nSy-Mj-aOQ" eventType="touchUpInside" id="5tx-xs-r7u"/>
+                                            <segue destination="OQS-M6-2zs" kind="push" id="WXs-hh-8ZD"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -540,6 +541,143 @@
             </objects>
             <point key="canvasLocation" x="635" y="430"/>
         </scene>
+        <!--Hops ListVC - Title-->
+        <scene sceneID="kdF-Dx-EJ0">
+            <objects>
+                <viewController id="OQS-M6-2zs" customClass="CHHopsListVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cC2-34-Mqv">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="34" sectionFooterHeight="22" id="qJP-nY-0El">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="yourHops" rowHeight="60" id="uKF-OK-A1v" customClass="CHHopsListCell">
+                                        <rect key="frame" x="0.0" y="34" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="DuD-YX-bG8">
+                                                    <rect key="frame" x="0.0" y="0.0" width="7" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Daily Hop:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="beq-IX-vx5">
+                                                    <rect key="frame" x="20" y="16" width="78" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Jackpot:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DbU-UH-ysE">
+                                                    <rect key="frame" x="20" y="34" width="66" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hr7-iK-dTn">
+                                                    <rect key="frame" x="106" y="16" width="131" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JvV-Il-Llb">
+                                                    <rect key="frame" x="85" y="34" width="131" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="vgZ-X1-q4l">
+                                                    <rect key="frame" x="143" y="0.0" width="15" height="8"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="yourDailyHopLable" destination="hr7-iK-dTn" id="6UJ-zI-pnw"/>
+                                            <outlet property="yourImageView" destination="DuD-YX-bG8" id="MKC-fA-3am"/>
+                                            <outlet property="yourJackpotLabel" destination="JvV-Il-Llb" id="R12-On-hG0"/>
+                                            <outlet property="your_delta" destination="vgZ-X1-q4l" id="bZf-HZ-of5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="availableHops" rowHeight="60" id="CU7-BS-e4B" customClass="CHHopsListCell">
+                                        <rect key="frame" x="0.0" y="94" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="U9B-Ga-ccB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="7" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Daily Hop:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oow-Ca-VZX">
+                                                    <rect key="frame" x="20" y="16" width="78" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Jackpot:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Fh-XN-bAJ">
+                                                    <rect key="frame" x="20" y="35" width="66" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Egl-AB-yqo">
+                                                    <rect key="frame" x="106" y="16" width="131" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zy6-o1-Yxi">
+                                                    <rect key="frame" x="85" y="35" width="131" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="cyZ-S7-hBB">
+                                                    <rect key="frame" x="143" y="0.0" width="15" height="8"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="avDailyHopLabel" destination="Egl-AB-yqo" id="Dc3-qf-zl8"/>
+                                            <outlet property="avJackpotLabel" destination="Zy6-o1-Yxi" id="MFw-a8-Am8"/>
+                                            <outlet property="av_delta" destination="cyZ-S7-hBB" id="WvE-CU-2LG"/>
+                                            <outlet property="availableImageView" destination="U9B-Ga-ccB" id="dth-b2-Unt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="OQS-M6-2zs" id="Oiq-k3-xSr"/>
+                                    <outlet property="delegate" destination="OQS-M6-2zs" id="jd6-Fs-0jv"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="dlG-SZ-OmO"/>
+                    <connections>
+                        <outlet property="hopsTable" destination="qJP-nY-0El" id="DNS-qU-EMv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lev-E1-JN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1120" y="430"/>
+        </scene>
     </scenes>
     <resources>
         <image name="button_facebook.png" width="497" height="81"/>
@@ -554,6 +692,57 @@
         <image name="input_bg.png" width="574" height="72"/>
         <image name="logo.png" width="484" height="211"/>
     </resources>
+    <classes>
+        <class className="CHHopsListCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHHopsListCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="avDailyHopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="avJackpotLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="av_delta" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="availableImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="yourDailyHopLable" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yourImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="yourJackpotLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="your_delta" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="CHHopsListVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHHopsListVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="hopsTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CHLoginVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHLoginVC.h"/>
+        </class>
+        <class className="CHRegisterVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHRegisterVC.h"/>
+            <relationships>
+                <relationship kind="action" name="addPhotoTapped:"/>
+                <relationship kind="action" name="registerTapped:"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="emailView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="requiredLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="zipTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="zipView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="CHResetPasswordVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHResetPasswordVC.h"/>
+            <relationships>
+                <relationship kind="action" name="signInTapped:"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CHStartVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHStartVC.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
