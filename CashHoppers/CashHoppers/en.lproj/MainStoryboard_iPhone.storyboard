@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -173,7 +173,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="lLm-ac-WKs" kind="push" id="Jyz-3D-bwz"/>
+                                    <segue destination="vPl-9l-Hgv" kind="modal" id="Jyz-3D-bwz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qxt-sb-iKy">
@@ -347,6 +347,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="R7Q-Wk-aGG" kind="push" id="wfE-Hr-K1s"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ht_alt_logo.png" id="YGC-y9-TCI">
                                         <rect key="frame" x="34" y="82" width="61" height="61"/>
@@ -495,7 +498,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGH-14-oXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1140" y="-282"/>
+            <point key="canvasLocation" x="1666" y="-282"/>
         </scene>
         <!--RegisterVC - CASH HOPPERS-->
         <scene sceneID="BLv-G0-8RP">
@@ -820,6 +823,7 @@
                                             <outlet property="yourImageView" destination="DuD-YX-bG8" id="MKC-fA-3am"/>
                                             <outlet property="yourJackpotLabel" destination="JvV-Il-Llb" id="R12-On-hG0"/>
                                             <outlet property="your_delta" destination="vgZ-X1-q4l" id="bZf-HZ-of5"/>
+                                            <segue destination="R7Q-Wk-aGG" kind="push" id="knc-bJ-y4c"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="availableHops" rowHeight="60" id="CU7-BS-e4B" customClass="CHHopsListCell">
@@ -895,11 +899,165 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lev-E1-JN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1565" y="-282"/>
+            <point key="canvasLocation" x="2215" y="322"/>
+        </scene>
+        <!--New HopVC-->
+        <scene sceneID="4cq-9a-pkc">
+            <objects>
+                <viewController id="R7Q-Wk-aGG" customClass="CHNewHopVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bIb-Gh-RTm">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="title_holder.png" id="T8A-Mb-sZc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DAILY HOP - MONDAY, 5/13/13" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Z1-dT-ad6">
+                                <rect key="frame" x="10" y="7" width="301" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ht_alt_logo.png" id="AbB-D9-dV5">
+                                <rect key="frame" x="20" y="51" width="85" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="T-Shirt Time: Take a pic wearing your favourite t-shirt." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sdg-3f-YDR">
+                                <rect key="frame" x="153" y="51" width="147" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView contentMode="scaleToFill" image="Take-Photo.png" id="61U-zc-veO">
+                                <rect key="frame" x="20" y="169" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="tbS-xx-VPN" appends="YES" id="v5f-do-xDb"/>
+                                </connections>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="vZe-8s-o8S">
+                                <rect key="frame" x="128" y="169" width="172" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="R7Q-Wk-aGG" id="f6g-5g-1da"/>
+                                </connections>
+                            </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="140" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H6Y-n4-9hF">
+                                <rect key="frame" x="274" y="252" width="22" height="13"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.01176470588" green="0.58823529409999997" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="share_gray_bg.png" id="Vcf-UB-UjF">
+                                <rect key="frame" x="20" y="281" width="280" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="k5p-E1-HzS" userLabel="Submit - Button">
+                                <rect key="frame" x="20" y="352" width="280" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="SUBMIT YOUR PHOTO" backgroundImage="yellow_button.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitPressed:" destination="R7Q-Wk-aGG" eventType="touchUpInside" id="gKf-4e-ro9"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="dtN-RC-jWo">
+                                <rect key="frame" x="0.0" y="149" width="320" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="P9F-Bo-Abq">
+                                <rect key="frame" x="180" y="293" width="45" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="facebook_icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bmT-Kq-SDx">
+                                <rect key="frame" x="238" y="293" width="45" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="twitter_icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="9WE-6m-c9Z" appends="YES" id="ucx-oo-z39"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="hCi-dS-che"/>
+                    <connections>
+                        <outlet property="charCountLabel" destination="H6Y-n4-9hF" id="aSc-pc-BRm"/>
+                        <outlet property="photoImView" destination="61U-zc-veO" id="2QA-ei-xau"/>
+                        <outlet property="separatorView" destination="dtN-RC-jWo" id="lOG-26-9u4"/>
+                        <outlet property="submitButton" destination="k5p-E1-HzS" id="bEX-qy-rW6"/>
+                        <outlet property="textView" destination="vZe-8s-o8S" id="Aef-EB-Gn4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4SM-LA-NC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9WE-6m-c9Z" userLabel="Background Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="resignResponder:" destination="R7Q-Wk-aGG" id="QF0-cz-a2O"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="tbS-xx-VPN" userLabel="Photo Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="photoTapped:" destination="R7Q-Wk-aGG" id="oiD-M0-ney"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2648" y="-274"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3ua-8b-Nct">
+            <objects>
+                <navigationController id="vPl-9l-Hgv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="wFJ-hv-gAA"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DDm-Wv-wpc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.01176470588" green="0.58823529409999997" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lLm-ac-WKs" kind="relationship" relationship="rootViewController" id="ufk-wQ-4TA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8xl-aB-tu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1140" y="-282"/>
         </scene>
     </scenes>
     <resources>
         <image name="Bottom-Nav.png" width="653" height="169"/>
+        <image name="Take-Photo.png" width="191" height="180"/>
         <image name="banner.png" width="649" height="90"/>
         <image name="bk_round.png" width="148" height="149"/>
         <image name="button_facebook.png" width="497" height="81"/>
@@ -910,18 +1068,97 @@
         <image name="button_sign_in.png" width="255" height="68"/>
         <image name="button_signup.png" width="405" height="30"/>
         <image name="button_twitter.png" width="497" height="81"/>
+        <image name="facebook_icon.png" width="96" height="76"/>
         <image name="green_button.png" width="234" height="109"/>
         <image name="ht_alt_logo.png" width="124" height="122"/>
         <image name="image_avatar.png" width="102" height="102"/>
         <image name="input_bg.png" width="574" height="72"/>
         <image name="logo.png" width="484" height="211"/>
         <image name="our_time.png" width="1456" height="1456"/>
+        <image name="share_gray_bg.png" width="579" height="124"/>
         <image name="title_holder.png" width="661" height="89"/>
+        <image name="twitter_icon.png" width="96" height="76"/>
         <image name="yellow_button.png" width="234" height="109"/>
     </resources>
+    <classes>
+        <class className="CHHomeScreenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHHomeScreenViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="bannerImView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="CHHopsListCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHHopsListCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="avDailyHopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="avJackpotLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="av_delta" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="availableImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="yourDailyHopLable" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yourImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="yourJackpotLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="your_delta" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="CHHopsListVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHHopsListVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="hopsTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CHLoginVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHLoginVC.h"/>
+        </class>
+        <class className="CHNewHopVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHNewHopVC.h"/>
+            <relationships>
+                <relationship kind="action" name="photoTapped:"/>
+                <relationship kind="action" name="resignResponder:"/>
+                <relationship kind="action" name="submitPressed:"/>
+                <relationship kind="outlet" name="charCountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoImView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="separatorView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="submitButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="CHRegisterVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHRegisterVC.h"/>
+            <relationships>
+                <relationship kind="action" name="addPhotoTapped:"/>
+                <relationship kind="action" name="registerTapped:"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="emailView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="requiredLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="zipTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="zipView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="CHResetPasswordVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHResetPasswordVC.h"/>
+            <relationships>
+                <relationship kind="action" name="signInTapped:"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CHStartVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHStartVC.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="knc-bJ-y4c"/>
+    </inferredMetricsTieBreakers>
 </document>
