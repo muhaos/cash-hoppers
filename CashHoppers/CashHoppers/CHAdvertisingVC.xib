@@ -394,8 +394,8 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="buton_cancel_reclama.png">{16, 16}</string>
-			<string key="reclama.png">{16, 16}</string>
+			<string key="buton_cancel_reclama.png">{32, 32}</string>
+			<string key="reclama.png">{321, 322}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
