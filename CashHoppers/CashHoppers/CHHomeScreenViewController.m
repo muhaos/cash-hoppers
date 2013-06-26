@@ -7,6 +7,7 @@
 //
 
 #import "CHHomeScreenViewController.h"
+#import "CHAppDelegate.h"
 
 @interface CHHomeScreenViewController ()
 
@@ -42,6 +43,15 @@
 
 - (IBAction)backButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)dailyHopPressed:(id)sender {
+    [DELEGATE switchViewTo:CHFeed];
+    
+}
+
+- (IBAction)playNowPressed:(id)sender {
+    [DELEGATE switchViewTo:CHNewHop];
 }
 - (void)viewDidUnload {
     [self setBackButton:nil];

@@ -7,12 +7,14 @@
 //
 
 #import "CHAppDelegate.h"
-
+#import "MHCustomTabBarController.h"
 @implementation CHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    self.tabBarController = [[[[self window]rootViewController]storyboard]instantiateViewControllerWithIdentifier:@"tabBar"];
     return YES;
 }
 							
@@ -41,6 +43,40 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)switchViewTo:(enum CHView)view{
+    
+    UIButton *but =  (UIButton*)[_tabBarController.buttonView.subviews objectAtIndex:view];
+    [but sendActionsForControlEvents:UIControlEventTouchUpInside];
+    
+    //    NSString *segueID;
+    //    switch (view) {
+    //        case CHHome:{
+    //            segueID = @"homeScreen";
+    //            break;
+    //        }
+    //        case CHFeed:{
+    //            segueID = @"feed";
+    //            break;
+    //        }
+    //        case CHMessage:{
+    //            segueID = @"";
+    //            break;
+    //        }
+    //        case CHNewHop:{
+    //            segueID = @"newHop";
+    //            break;
+    //        }
+    //        case CHPicture:{
+    //            segueID = @"";
+    //            break;
+    //        }
+    //        default:
+    //            break;
+    //    }
+    //    NSLog(@"id =%@",segueID);
+    //    [self performSegueWithIdentifier:segueID sender:[_buttonView.subviews objectAtIndex:0]];
 }
 
 @end

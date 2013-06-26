@@ -45,6 +45,7 @@
     
     _separatorView.backgroundColor = CH_GRAY_COLOR;
 	// Do any additional setup after loading the view.
+   
 }
 
 #pragma mark - textView delegate

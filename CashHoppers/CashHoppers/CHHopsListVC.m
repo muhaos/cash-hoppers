@@ -8,6 +8,8 @@
 
 #import "CHHopsListVC.h"
 #import "CHHopsListCell.h"
+#import "CHAppDelegate.h"
+#import "MHCustomTabBarController.h"
 
 @interface CHHopsListVC ()
 
@@ -106,6 +108,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    [DELEGATE switchViewTo:CHNewHop];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

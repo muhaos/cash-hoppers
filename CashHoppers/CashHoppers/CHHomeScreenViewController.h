@@ -13,5 +13,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *bannerImView;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 - (IBAction)backButtonPressed:(id)sender;
+- (IBAction)dailyHopPressed:(id)sender;
+- (IBAction)playNowPressed:(id)sender;
 
 @end
