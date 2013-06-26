@@ -10,8 +10,11 @@
 #import "CHHopsListCell.h"
 #import "CHAppDelegate.h"
 #import "MHCustomTabBarController.h"
+#import "CHAdvertisingVC.h"
 
 @interface CHHopsListVC ()
+
+@property (assign, nonatomic) BOOL oldNavBarStatus;
 
 @end
 
@@ -23,12 +26,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *backBtnImage = [UIImage imageNamed:@"button_nav_back"];
+    [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(backButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.frame = CGRectMake(0, 0, 20, 20);
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
+
+    [[CHAdvertisingVC sharedAdverticingVC] showInController:self
+                                            withHeaderLabel:@"VISIT BOOTH 315"
+                                                  withImage:[UIImage imageNamed:@"reclama"]
+                                      withBottomHeaderLabel:@"FOR A FREE T-SHIRT!"
+                                            withBottomLabel:@"Next 10 visitors only"];
+}
+
+
+- (void) backButtonTapped {
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.oldNavBarStatus = self.navigationController.navigationBarHidden;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 

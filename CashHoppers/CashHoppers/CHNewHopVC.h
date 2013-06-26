@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *photoImView;
 @property (strong, nonatomic) IBOutlet UIButton *submitButton;
 @property (strong, nonatomic) IBOutlet UIImageView *separatorView;
+@property (strong, nonatomic) IBOutlet UIScrollView *myScroolView;
 - (IBAction)resignResponder:(id)sender;
 - (IBAction)photoTapped:(id)sender;
 - (IBAction)submitPressed:(id)sender;
