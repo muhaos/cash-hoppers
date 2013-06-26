@@ -14,6 +14,7 @@
 @interface CHFriendsListVC ()
 
 @property (assign, nonatomic) BOOL oldNavBarStatus;
+@property (assign, nonatomic) BOOL friendsButtonActive;
 
 @end
 
@@ -30,6 +31,10 @@
     backBtn.frame = CGRectMake(0, 0, 20, 20);
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
     self.navigationItem.leftBarButtonItem = backButton;
+    
+    [self.friendsButton setImage:[UIImage imageNamed:@"button_friends_ac"] forState:UIControlStateNormal];
+    [self.allHoppersButton setImage:[UIImage imageNamed:@"button_all_hops_no"] forState:UIControlStateNormal];
+    
 }
 
 
@@ -133,7 +138,23 @@
 
 - (void)viewDidUnload {
     [self setFriendsTable:nil];
+    [self setFriendsButton:nil];
+    [self setAllHoppersButton:nil];
     [super viewDidUnload];
 }
 
+
+- (IBAction)friendsButtonTapped:(id)sender {
+    self.friendsButtonActive = YES;
+    [self.friendsButton setImage:[UIImage imageNamed:@"button_friends_ac"] forState:UIControlStateNormal];
+    [self.allHoppersButton setImage:[UIImage imageNamed:@"button_all_hops_no"] forState:UIControlStateNormal];
+}
+
+
+- (IBAction)allHopppersButtonTapped:(id)sender {
+    self.friendsButtonActive = NO;
+    [self.friendsButton setImage:[UIImage imageNamed:@"button_friends_no"] forState:UIControlStateNormal];
+    [self.allHoppersButton setImage:[UIImage imageNamed:@"button_all_hops_ac"] forState:UIControlStateNormal];
+
+}
 @end
