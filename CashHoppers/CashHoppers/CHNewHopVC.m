@@ -46,7 +46,7 @@
     _separatorView.backgroundColor = CH_GRAY_COLOR;
 	// Do any additional setup after loading the view.
     
-    _myScroolView.frame = (CGRect){_myScroolView.frame.origin, CGSizeMake(320, 480)};
+    _myScroolView.frame = (CGRect){_myScroolView.frame.origin, CGSizeMake(320, 502)};
     _myScroolView.contentSize = CGSizeMake(320, 504);
 }
 
