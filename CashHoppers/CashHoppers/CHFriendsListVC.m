@@ -32,9 +32,8 @@
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
     self.navigationItem.leftBarButtonItem = backButton;
     
-    [self.friendsButton setImage:[UIImage imageNamed:@"button_friends_ac"] forState:UIControlStateNormal];
-    [self.allHoppersButton setImage:[UIImage imageNamed:@"button_all_hops_no"] forState:UIControlStateNormal];
-    
+    self.friendsButtonActive = YES;
+    [self activeButton:YES];
 }
 
 
@@ -98,20 +97,38 @@
     [[cell photoHopImageView] setImage:[UIImage imageNamed:@"photo_hop"]];
     [[cell photoPersonImageView] setImage:[UIImage imageNamed:@"photo_BrianKelly"]];
     [[cell taskCompletedLabel] setText:@"Screen Printer"];
-    
+    [[cell addFriendButton] setImage:[UIImage imageNamed:@"button_add_friend"] forState:UIControlStateNormal];
     [cell numberCommentsLabel].layer.cornerRadius = 3.0f;
     [cell numberLikesLabel].layer.cornerRadius = 3.0f;
     
-    if (indexPath.row == 0) {
-        [[cell commentButton] setBackgroundImage:[UIImage imageNamed:@"comment_icon_n"] forState:UIControlStateNormal];
-        [[cell likeButton] setBackgroundImage:[UIImage imageNamed:@"like_icon_n"] forState:UIControlStateNormal];
+    if (self.friendsButtonActive == YES) {
+        
+        [[cell commentButton] setHidden:NO];
+        [[cell likeButton] setHidden:NO];
+        [[cell numberCommentsLabel] setHidden:NO];
+        [[cell numberLikesLabel] setHidden:NO];
+        [[cell verticalSeparatorImageView] setHidden:NO];
+        [[cell addFriendButton] setHidden:YES];
+        
+        if ([[cell numberCommentsLabel] isEqual: @""]  &&  [[cell numberLikesLabel] isEqual: @""]) {
+            [[cell commentButton] setBackgroundImage:[UIImage imageNamed:@"comment_icon_n"] forState:UIControlStateNormal];
+            [[cell likeButton] setBackgroundImage:[UIImage imageNamed:@"like_icon_n"] forState:UIControlStateNormal];
+            [[cell numberCommentsLabel] setHidden:YES];
+            [[cell numberLikesLabel] setHidden:YES];
+        } else {
+            [[cell commentButton] setBackgroundImage:[UIImage imageNamed:@"comment_icon_on"] forState:UIControlStateNormal];
+            [[cell likeButton] setBackgroundImage:[UIImage imageNamed:@"like_icon_on"] forState:UIControlStateNormal];
+            [[cell numberCommentsLabel] setText:@"10"];
+            [[cell numberLikesLabel] setText:@"5"];
+        }
+    } else {
+        [[cell commentButton] setHidden:YES];
+        [[cell likeButton] setHidden:YES];
         [[cell numberCommentsLabel] setHidden:YES];
         [[cell numberLikesLabel] setHidden:YES];
-    } else {
-        [[cell commentButton] setBackgroundImage:[UIImage imageNamed:@"comment_icon_on"] forState:UIControlStateNormal];
-        [[cell likeButton] setBackgroundImage:[UIImage imageNamed:@"like_icon_on"] forState:UIControlStateNormal];
-        [[cell numberCommentsLabel] setText:@"10"];
-        [[cell numberLikesLabel] setText:@"5"];
+        [[cell verticalSeparatorImageView] setHidden:YES];
+        [[cell addFriendButton] setHidden:NO];
+        
     }
     return cell;
 }
@@ -146,15 +163,30 @@
 
 - (IBAction)friendsButtonTapped:(id)sender {
     self.friendsButtonActive = YES;
-    [self.friendsButton setImage:[UIImage imageNamed:@"button_friends_ac"] forState:UIControlStateNormal];
-    [self.allHoppersButton setImage:[UIImage imageNamed:@"button_all_hops_no"] forState:UIControlStateNormal];
+    [self activeButton:self.friendsButtonActive];
+    [friendsTable reloadData];
 }
 
 
 - (IBAction)allHopppersButtonTapped:(id)sender {
     self.friendsButtonActive = NO;
-    [self.friendsButton setImage:[UIImage imageNamed:@"button_friends_no"] forState:UIControlStateNormal];
-    [self.allHoppersButton setImage:[UIImage imageNamed:@"button_all_hops_ac"] forState:UIControlStateNormal];
-
+    [self activeButton:self.friendsButtonActive];
+    [friendsTable reloadData];
 }
+
+- (IBAction)addFriendTapped:(id)sender {
+}
+
+
+-(void)activeButton:(BOOL)friendsButton {
+    if (friendsButton == YES) {
+        [self.friendsButton setImage:[UIImage imageNamed:@"button_friends_ac"] forState:UIControlStateNormal];
+        [self.allHoppersButton setImage:[UIImage imageNamed:@"button_all_hops_no"] forState:UIControlStateNormal];
+    } else {
+        [self.friendsButton setImage:[UIImage imageNamed:@"button_friends_no"] forState:UIControlStateNormal];
+        [self.allHoppersButton setImage:[UIImage imageNamed:@"button_all_hops_ac"] forState:UIControlStateNormal];
+    }
+}
+
+
 @end

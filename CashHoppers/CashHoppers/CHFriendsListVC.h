@@ -14,7 +14,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *friendsButton;
 @property (strong, nonatomic) IBOutlet UIButton *allHoppersButton;
 
+
 - (IBAction)friendsButtonTapped:(id)sender;
 - (IBAction)allHopppersButtonTapped:(id)sender;
+
 
 @end

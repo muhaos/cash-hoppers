@@ -33,4 +33,7 @@
 
 - (IBAction)likeTapped:(id)sender {
 }
+
+- (IBAction)addFriendTapped:(id)sender {
+}
 @end

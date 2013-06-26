@@ -20,9 +20,12 @@
 @property (strong, nonatomic) IBOutlet UIButton *likeButton;
 @property (strong, nonatomic) IBOutlet UILabel *numberCommentsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *numberLikesLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *verticalSeparatorImageView;
+@property (strong, nonatomic) IBOutlet UIButton *addFriendButton;
 
 
 - (IBAction)commentTapped:(id)sender;
 - (IBAction)likeTapped:(id)sender;
+- (IBAction)addFriendTapped:(id)sender;
 
 @end
