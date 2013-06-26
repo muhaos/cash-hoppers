@@ -38,6 +38,8 @@
 		AA00273A177AE56A00D9D204 /* button_friends_ac.png in Resources */ = {isa = PBXBuildFile; fileRef = AA002736177AE56A00D9D204 /* button_friends_ac.png */; };
 		AA00273B177AE56A00D9D204 /* button_friends_no.png in Resources */ = {isa = PBXBuildFile; fileRef = AA002737177AE56A00D9D204 /* button_friends_no.png */; };
 		AA00273D177AF76E00D9D204 /* button_add_friend.png in Resources */ = {isa = PBXBuildFile; fileRef = AA00273C177AF76E00D9D204 /* button_add_friend.png */; };
+		AA00273F177B034800D9D204 /* photo_brian.png in Resources */ = {isa = PBXBuildFile; fileRef = AA00273E177B034800D9D204 /* photo_brian.png */; };
+		AA002742177B067A00D9D204 /* CHWinnerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA002741177B067A00D9D204 /* CHWinnerVC.m */; };
 		AA1161F217784F5A00D0E750 /* CHHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1161F117784F5A00D0E750 /* CHHomeScreenViewController.m */; };
 		AA1161F61778514F00D0E750 /* CHAdvertisingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1161F41778514F00D0E750 /* CHAdvertisingVC.m */; };
 		AA1161F71778514F00D0E750 /* CHAdvertisingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1161F51778514F00D0E750 /* CHAdvertisingVC.xib */; };
@@ -134,6 +136,9 @@
 		AA002736177AE56A00D9D204 /* button_friends_ac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_friends_ac.png; sourceTree = "<group>"; };
 		AA002737177AE56A00D9D204 /* button_friends_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_friends_no.png; sourceTree = "<group>"; };
 		AA00273C177AF76E00D9D204 /* button_add_friend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_add_friend.png; sourceTree = "<group>"; };
+		AA00273E177B034800D9D204 /* photo_brian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo_brian.png; sourceTree = "<group>"; };
+		AA002740177B067A00D9D204 /* CHWinnerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHWinnerVC.h; sourceTree = "<group>"; };
+		AA002741177B067A00D9D204 /* CHWinnerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWinnerVC.m; sourceTree = "<group>"; };
 		AA1161F017784F5A00D0E750 /* CHHomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHomeScreenViewController.h; sourceTree = "<group>"; };
 		AA1161F117784F5A00D0E750 /* CHHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHomeScreenViewController.m; sourceTree = "<group>"; };
 		AA1161F31778514F00D0E750 /* CHAdvertisingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAdvertisingVC.h; sourceTree = "<group>"; };
@@ -276,6 +281,8 @@
 				AA36440B1779B9B30064787F /* CHFriendsListVC.m */,
 				AA36440F1779BA160064787F /* CHFriendsListCell.h */,
 				AA3644101779BA160064787F /* CHFriendsListCell.m */,
+				AA002740177B067A00D9D204 /* CHWinnerVC.h */,
+				AA002741177B067A00D9D204 /* CHWinnerVC.m */,
 			);
 			path = CashHoppers;
 			sourceTree = "<group>";
@@ -316,6 +323,7 @@
 		5640158B176B433B00C028CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AA00273E177B034800D9D204 /* photo_brian.png */,
 				AA00273C177AF76E00D9D204 /* button_add_friend.png */,
 				AA002734177AE56A00D9D204 /* button_all_hops_ac.png */,
 				AA002735177AE56A00D9D204 /* button_all_hops_no.png */,
@@ -495,6 +503,7 @@
 				AA00273A177AE56A00D9D204 /* button_friends_ac.png in Resources */,
 				AA00273B177AE56A00D9D204 /* button_friends_no.png in Resources */,
 				AA00273D177AF76E00D9D204 /* button_add_friend.png in Resources */,
+				AA00273F177B034800D9D204 /* photo_brian.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +551,7 @@
 				E1B074DA1778679700D7BCD0 /* CHNewHopVC.m in Sources */,
 				AA36440D1779B9B30064787F /* CHFriendsListVC.m in Sources */,
 				AA3644111779BA160064787F /* CHFriendsListCell.m in Sources */,
+				AA002742177B067A00D9D204 /* CHWinnerVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
