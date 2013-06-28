@@ -22,6 +22,7 @@
 
 #import "MHCustomTabBarController.h"
 #import "CHAppDelegate.h"
+#import "CHHopChooserVC.h"
 
 @implementation MHCustomTabBarController
 
@@ -114,5 +115,11 @@
     }
     NSLog(@"amount of children: %d", [self.childViewControllers count]);
 }
+
+
+- (IBAction)hopChooseTapped:(id)sender {
+    [[CHHopChooserVC sharedHopChooserVC] showInController:self];
+}
+
 
 @end

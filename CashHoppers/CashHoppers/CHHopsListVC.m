@@ -11,6 +11,7 @@
 #import "CHAppDelegate.h"
 #import "MHCustomTabBarController.h"
 #import "CHAdvertisingVC.h"
+#import "CHNewHopVC.h"
 
 @interface CHHopsListVC ()
 
@@ -51,7 +52,7 @@
 {
     [super viewWillAppear:animated];
     self.oldNavBarStatus = self.navigationController.navigationBarHidden;
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 
@@ -130,8 +131,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    [DELEGATE switchViewTo:CHNewHop];
+  //  [DELEGATE switchViewTo:CHNewHop];
+ //   CHNewHopVC *newHops = [[UIViewController alloc] init];
+ //   [self presentModalViewController:newHops animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

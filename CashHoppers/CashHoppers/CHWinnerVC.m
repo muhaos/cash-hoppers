@@ -7,6 +7,7 @@
 //
 
 #import "CHWinnerVC.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface CHWinnerVC ()
 
@@ -15,6 +16,7 @@
 @end
 
 @implementation CHWinnerVC
+@synthesize photoImageView;
 
 
 - (void)viewDidLoad
@@ -27,6 +29,10 @@
     backBtn.frame = CGRectMake(0, 0, 20, 20);
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
     self.navigationItem.leftBarButtonItem = backButton;
+    
+    [photoImageView setImage:[UIImage imageNamed:@"photo_brian"]];
+    photoImageView.layer.cornerRadius = 70;
+    photoImageView.clipsToBounds = YES;
 }
 
 

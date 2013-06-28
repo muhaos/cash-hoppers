@@ -349,7 +349,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Wxm-Xc-2xf" kind="push" id="U4e-pH-9wF"/>
+                                            <segue destination="Wxm-Xc-2xf" kind="push" id="ocE-iC-zKw"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ht_alt_logo.png" id="YGC-y9-TCI">
@@ -441,7 +441,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="dailyHopPressed:" destination="lLm-ac-WKs" eventType="touchUpInside" id="BRl-IV-NBg"/>
+                                            <segue destination="OQS-M6-2zs" kind="push" id="jjY-9a-f7U"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t5X-RS-lCV">
@@ -499,7 +499,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGH-14-oXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1714" y="859"/>
+            <point key="canvasLocation" x="1676" y="1283"/>
         </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="5dK-CV-bSf">
@@ -564,7 +564,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="R7Q-Wk-aGG" kind="custom" identifier="newHop" customClass="MHTabBarSegue" id="V7U-8t-ofX"/>
+                                            <action selector="hopChooseTapped:" destination="gG8-FJ-thx" eventType="touchUpInside" id="xk2-KL-lGe"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oDr-V0-aoG" userLabel="picture - Button">
@@ -602,6 +602,7 @@
                         <outlet property="buttonView" destination="Cze-DT-LY1" id="0S8-jX-Elb"/>
                         <outlet property="container" destination="UOX-NJ-ulS" id="31A-B3-0kh"/>
                         <outlet property="view" destination="Qgl-gi-oxx" id="gDz-nJ-wbZ"/>
+                        <segue destination="Wxm-Xc-2xf" kind="custom" identifier="otherHops" customClass="MHTabBarSegue" id="TAf-db-UdC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2P-l5-qTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -876,7 +877,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Aqv-xD-jWt">
-                                <rect key="frame" x="0.0" y="44" width="320" height="451"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1042,10 +1043,6 @@
                                     <outlet property="delegate" destination="jk9-u6-mkP" id="fHh-wg-OME"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Bottom-Nav.png" id="rYq-fe-cxW">
-                                <rect key="frame" x="0.0" y="457" width="320" height="91"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ucw-dV-7ux">
                                 <rect key="frame" x="0.0" y="0.0" width="160" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1231,13 +1228,13 @@
         <!--Other Hops ListVC-->
         <scene sceneID="Ljo-oV-Gi0">
             <objects>
-                <viewController id="Wxm-Xc-2xf" customClass="CHOtherHopsListVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="choose_hop" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wxm-Xc-2xf" customClass="CHOtherHopsListVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="coY-Gu-01s">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="axM-EH-loF">
-                                <rect key="frame" x="0.0" y="36" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="36" width="320" height="512"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1471,10 +1468,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Bottom-Nav.png" id="cpM-qW-yVf">
-                                <rect key="frame" x="0.0" y="458" width="320" height="90"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1487,7 +1480,7 @@
             </objects>
             <point key="canvasLocation" x="2253" y="1283"/>
         </scene>
-        <!--New HopVC - Item-->
+        <!--New HopVC-->
         <scene sceneID="4cq-9a-pkc">
             <objects>
                 <viewController id="R7Q-Wk-aGG" customClass="CHNewHopVC" sceneMemberID="viewController">
@@ -1618,8 +1611,8 @@
                             <outletCollection property="gestureRecognizers" destination="9WE-6m-c9Z" appends="YES" id="ucx-oo-z39"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="6Vr-qb-RaN"/>
                     <navigationItem key="navigationItem" id="hCi-dS-che"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="charCountLabel" destination="H6Y-n4-9hF" id="aSc-pc-BRm"/>
                         <outlet property="myScroolView" destination="fRE-mQ-GGT" id="q6c-ao-IiY"/>
@@ -1641,14 +1634,14 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2862" y="-56"/>
+            <point key="canvasLocation" x="3388" y="-56"/>
         </scene>
         <!--WinnerVC-->
         <scene sceneID="LwL-Zo-FJG">
             <objects>
                 <viewController id="Z75-u4-mIE" customClass="CHWinnerVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WDz-X4-0LQ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="YESTERDAY'S WINNER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rxu-Uz-vaO">
@@ -1659,34 +1652,35 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Brian K." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aJx-qO-fjf">
-                                <rect key="frame" x="20" y="190" width="280" height="21"/>
+                                <rect key="frame" x="21" y="173" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.043137254899999998" green="0.58039215690000001" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Monday HOP 5/20 ($10 JACKPOT)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ufy-ty-ggk">
-                                <rect key="frame" x="20" y="113" width="280" height="21"/>
+                                <rect key="frame" x="21" y="102" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Randomly selected from all the eligible entries." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sdj-qY-kxk">
-                                <rect key="frame" x="20" y="219" width="280" height="21"/>
+                                <rect key="frame" x="21" y="199" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="photo_brian.png" id="j1R-8G-F7c">
-                                <rect key="frame" x="57" y="260" width="207" height="207"/>
+                                <rect key="frame" x="58" y="255" width="208" height="188"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="fBu-Wk-zn9"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="dateLabel" destination="Ufy-ty-ggk" id="dLW-V1-a4z"/>
                         <outlet property="descrLabel" destination="Sdj-qY-kxk" id="pHP-sB-fbq"/>
@@ -1696,11 +1690,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJU-8h-g9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3318" y="-56"/>
+            <point key="canvasLocation" x="3844" y="-56"/>
+        </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="OJE-iX-J5f">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="mLy-u2-tzB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="6Vr-qb-RaN"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="39E-ht-rAh"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eqC-3O-tSq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="R7Q-Wk-aGG" kind="relationship" relationship="rootViewController" id="BIy-OB-tZ8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9XW-me-TUl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2862" y="-56"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Bottom-Nav.png" width="653" height="169"/>
         <image name="Take-Photo.png" width="191" height="180"/>
         <image name="banner.png" width="649" height="90"/>
         <image name="bk_round.png" width="148" height="149"/>
@@ -1762,6 +1776,7 @@
         <class className="CHFriendsListVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHFriendsListVC.h"/>
             <relationships>
+                <relationship kind="action" name="addFriendTapped:"/>
                 <relationship kind="action" name="allHopppersButtonTapped:"/>
                 <relationship kind="action" name="friendsButtonTapped:"/>
                 <relationship kind="outlet" name="allHoppersButton" candidateClass="UIButton"/>
@@ -1898,4 +1913,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="jjY-9a-f7U"/>
+        <segue reference="ocE-iC-zKw"/>
+    </inferredMetricsTieBreakers>
 </document>

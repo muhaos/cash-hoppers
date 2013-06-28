@@ -11,7 +11,7 @@
 enum CHView{
     CHHome = 1,
     CHFeed,
-    CHNewHop,
+    CHHopChooser,
     CHPicture,
     CHMessage
 };
