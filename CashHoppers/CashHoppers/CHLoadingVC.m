@@ -18,7 +18,7 @@
 + (CHLoadingVC*) sharedLoadingVC {
     static CHLoadingVC* instance = nil;
     if (instance == nil) {
-        instance = [[CHLoadingVC alloc] initWithNibName:@"WDLoadingVC" bundle:nil];
+        instance = [[CHLoadingVC alloc] initWithNibName:@"CHLoadingVC" bundle:nil];
     }
     return instance;
 }
