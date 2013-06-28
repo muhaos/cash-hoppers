@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHLoginVC : UIViewController
+@interface CHLoginVC : UIViewController<UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UITextField *emailField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
+- (IBAction)loginTapped:(id)sender;
+-(IBAction)hideKeyboard:(id)sender;
 
 @end

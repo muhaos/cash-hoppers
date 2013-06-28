@@ -131,9 +131,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  //  [DELEGATE switchViewTo:CHNewHop];
- //   CHNewHopVC *newHops = [[UIViewController alloc] init];
- //   [self presentModalViewController:newHops animated:YES];
+ 
+    [self performSegueWithIdentifier:@"newHop" sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

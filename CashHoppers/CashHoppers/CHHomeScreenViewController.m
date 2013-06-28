@@ -8,6 +8,7 @@
 
 #import "CHHomeScreenViewController.h"
 #import "CHAppDelegate.h"
+#import "MHCustomTabBarController.h"
 
 @interface CHHomeScreenViewController ()
 
@@ -58,6 +59,7 @@
 
 - (IBAction)playNowPressed:(id)sender {
  //   [DELEGATE switchViewTo:CHNewHop];
+    [DELEGATE.tabBarController performSegueWithIdentifier:@"otherHops" sender:[[UIButton alloc] init]];
 }
 
 

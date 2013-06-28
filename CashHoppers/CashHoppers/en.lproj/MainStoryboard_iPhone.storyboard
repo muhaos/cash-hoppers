@@ -133,6 +133,9 @@
                                         <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="lAZ-kz-Iv0" id="nHn-fG-S8u"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -157,7 +160,10 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="lAZ-kz-Iv0" id="46q-1i-Fno"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -174,7 +180,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gG8-FJ-thx" kind="custom" id="eOz-YW-67u"/>
+                                    <action selector="loginTapped:" destination="lAZ-kz-Iv0" eventType="touchUpInside" id="nf7-Xz-ALc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qxt-sb-iKy">
@@ -194,13 +200,27 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="V3P-br-g7t" appends="YES" id="xM3-2L-tkf"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="CASH HOPPERS" id="k7E-J4-KVN"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="emailField" destination="UXK-id-xEh" id="Fyo-st-KAv"/>
+                        <outlet property="passwordField" destination="tPG-97-Oow" id="VXH-qc-alk"/>
+                        <segue destination="gG8-FJ-thx" kind="push" identifier="tabbar" customClass="" id="k6X-sW-pNN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="txv-RA-Eqy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="V3P-br-g7t">
+                    <connections>
+                        <action selector="hideKeyboard:" destination="lAZ-kz-Iv0" id="VFW-ec-yza"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="663" y="-189"/>
+            <point key="canvasLocation" x="711" y="-134"/>
         </scene>
         <!--Reset PasswordVC - CASH HOPPERS-->
         <scene sceneID="XK5-Z3-m4Y">
@@ -349,7 +369,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Wxm-Xc-2xf" kind="push" id="ocE-iC-zKw"/>
+                                            <action selector="playNowPressed:" destination="lLm-ac-WKs" eventType="touchUpInside" id="W0K-tc-TAh"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ht_alt_logo.png" id="YGC-y9-TCI">
@@ -372,7 +392,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="jk9-u6-mkP" kind="push" id="W1T-2A-8dq"/>
+                                            <segue destination="jk9-u6-mkP" kind="push" id="JA0-BQ-4Hf"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Grand Prize:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VUV-7g-21L">
@@ -441,7 +461,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="OQS-M6-2zs" kind="push" id="jjY-9a-f7U"/>
+                                            <action selector="dailyHopPressed:" destination="lLm-ac-WKs" eventType="touchUpInside" id="KSx-RB-xbd"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t5X-RS-lCV">
@@ -484,7 +504,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" image="home_icon.png" id="dv1-KR-U8x"/>
                     <navigationItem key="navigationItem" title="CASH HOPPERS" id="0ad-7W-Dgu">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="hly-nV-m13">
                             <connections>
@@ -492,6 +511,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="backButton" destination="hly-nV-m13" id="lbd-5G-H8b"/>
                         <outlet property="scrollView" destination="zSj-vc-cMK" id="a3D-FF-Ebd"/>
@@ -499,23 +519,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGH-14-oXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1676" y="1283"/>
+            <point key="canvasLocation" x="2202" y="1283"/>
         </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="5dK-CV-bSf">
             <objects>
                 <viewController storyboardIdentifier="tabBar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gG8-FJ-thx" customClass="MHCustomTabBarController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qgl-gi-oxx">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" id="UOX-NJ-ulS">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="499"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="458"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </containerView>
                             <view contentMode="scaleToFill" id="Cze-DT-LY1">
-                                <rect key="frame" x="0.0" y="475" width="320" height="73"/>
+                                <rect key="frame" x="0.0" y="431" width="320" height="73"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tabbar_bg.png" id="xjt-G1-IPy">
@@ -534,7 +554,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="lLm-ac-WKs" kind="custom" identifier="homeScreen" customClass="MHTabBarSegue" id="UYk-rn-VM5"/>
+                                            <segue destination="yhV-cW-f9I" kind="custom" identifier="homeScreen" customClass="MHTabBarSegue" id="UYk-rn-VM5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zJv-5n-bC9" userLabel="feed - Button">
@@ -549,7 +569,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="OQS-M6-2zs" kind="custom" identifier="feed" customClass="MHTabBarSegue" id="Piu-Mp-yzb"/>
+                                            <segue destination="LlZ-Yp-umd" kind="custom" identifier="feed" customClass="MHTabBarSegue" id="Piu-Mp-yzb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ha0-k5-1Jp" userLabel="hop - Button">
@@ -578,6 +598,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="pictureTapped:" destination="gG8-FJ-thx" eventType="touchUpInside" id="Ppe-Zs-zfp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bMk-UQ-9Os" userLabel="message - Button">
                                         <rect key="frame" x="277" y="41" width="23" height="17"/>
@@ -607,7 +630,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2P-l5-qTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="-56"/>
+            <point key="canvasLocation" x="1172" y="-56"/>
         </scene>
         <!--RegisterVC - CASH HOPPERS-->
         <scene sceneID="BLv-G0-8RP">
@@ -797,7 +820,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="nSy-Mj-aOQ" id="W2n-WM-sfG"/>
                                                 </connections>
@@ -866,7 +889,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9g-r9-zpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="663" y="488"/>
+            <point key="canvasLocation" x="671" y="506"/>
         </scene>
         <!--Friends ListVC - CASH HOPPERS-->
         <scene sceneID="ywu-Le-if8">
@@ -1085,7 +1108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tU5-Rd-sNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2253" y="555"/>
+            <point key="canvasLocation" x="3325" y="1295"/>
         </scene>
         <!--Hops ListVC - CASH HOPPERS-->
         <scene sceneID="kdF-Dx-EJ0">
@@ -1215,15 +1238,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="MyP-Xw-FVc"/>
                     <navigationItem key="navigationItem" title="CASH HOPPERS" id="dlG-SZ-OmO"/>
                     <connections>
                         <outlet property="hopsTable" destination="qJP-nY-0El" id="DNS-qU-EMv"/>
+                        <segue destination="R7Q-Wk-aGG" kind="push" identifier="newHop" id="zuy-Yq-1dG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lev-E1-JN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2862" y="617"/>
+            <point key="canvasLocation" x="3354" y="-37"/>
         </scene>
         <!--Other Hops ListVC-->
         <scene sceneID="Ljo-oV-Gi0">
@@ -1478,18 +1501,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fb-Uy-WMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2253" y="1283"/>
+            <point key="canvasLocation" x="2135" y="455"/>
         </scene>
         <!--New HopVC-->
         <scene sceneID="4cq-9a-pkc">
             <objects>
                 <viewController id="R7Q-Wk-aGG" customClass="CHNewHopVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bIb-Gh-RTm">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="fRE-mQ-GGT">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="592"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="title_holder.png" id="T8A-Mb-sZc">
@@ -1612,7 +1635,7 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="hCi-dS-che"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="charCountLabel" destination="H6Y-n4-9hF" id="aSc-pc-BRm"/>
                         <outlet property="myScroolView" destination="fRE-mQ-GGT" id="q6c-ao-IiY"/>
@@ -1634,7 +1657,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3388" y="-56"/>
+            <point key="canvasLocation" x="3914" y="-56"/>
         </scene>
         <!--WinnerVC-->
         <scene sceneID="LwL-Zo-FJG">
@@ -1690,28 +1713,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJU-8h-g9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3844" y="-56"/>
+            <point key="canvasLocation" x="4370" y="-56"/>
         </scene>
-        <!--Navigation Controller - Item-->
-        <scene sceneID="OJE-iX-J5f">
+        <!--Navigation Controller-->
+        <scene sceneID="b9H-rL-dBA">
             <objects>
-                <navigationController navigationBarHidden="YES" id="mLy-u2-tzB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="6Vr-qb-RaN"/>
+                <navigationController navigationBarHidden="YES" id="yhV-cW-f9I" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" image="home_icon.png" id="dv1-KR-U8x"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="39E-ht-rAh"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eqC-3O-tSq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QKV-r2-e9h">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="R7Q-Wk-aGG" kind="relationship" relationship="rootViewController" id="BIy-OB-tZ8"/>
+                        <segue destination="lLm-ac-WKs" kind="relationship" relationship="rootViewController" id="6W6-jf-9g4"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9XW-me-TUl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ptp-lV-ToW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2862" y="-56"/>
+            <point key="canvasLocation" x="1676" y="1283"/>
+        </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="A3y-eU-dXD">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="LlZ-Yp-umd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="MyP-Xw-FVc"/>
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="N3c-8F-q3x">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OQS-M6-2zs" kind="relationship" relationship="rootViewController" id="pSg-Ms-3Tn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WNr-bU-JGt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2828" y="-37"/>
         </scene>
     </scenes>
     <resources>
@@ -1776,7 +1818,6 @@
         <class className="CHFriendsListVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHFriendsListVC.h"/>
             <relationships>
-                <relationship kind="action" name="addFriendTapped:"/>
                 <relationship kind="action" name="allHopppersButtonTapped:"/>
                 <relationship kind="action" name="friendsButtonTapped:"/>
                 <relationship kind="outlet" name="allHoppersButton" candidateClass="UIButton"/>
@@ -1816,6 +1857,12 @@
         </class>
         <class className="CHLoginVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHLoginVC.h"/>
+            <relationships>
+                <relationship kind="action" name="hideKeyboard:"/>
+                <relationship kind="action" name="loginTapped:"/>
+                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
+            </relationships>
         </class>
         <class className="CHNewHopVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHNewHopVC.h"/>
@@ -1903,6 +1950,7 @@
         <class className="MHCustomTabBarController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MHCustomTabBarController.h"/>
             <relationships>
+                <relationship kind="action" name="pictureTapped:"/>
                 <relationship kind="outlet" name="buttonView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="container" candidateClass="UIView"/>
             </relationships>
@@ -1913,8 +1961,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="jjY-9a-f7U"/>
-        <segue reference="ocE-iC-zKw"/>
-    </inferredMetricsTieBreakers>
 </document>
