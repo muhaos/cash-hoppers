@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CHLoginVC : UIViewController
+- (IBAction)loginTapped:(id)sender;
+@property (strong, nonatomic) IBOutlet UITextField *emailField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
 
 @end

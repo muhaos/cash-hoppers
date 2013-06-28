@@ -7,7 +7,8 @@
 //
 
 #import "CHLoginVC.h"
-
+#import "CHLoadingVC.h"
+#import "CHAPIClient.h"
 @interface CHLoginVC ()
 
 @property (assign, nonatomic) BOOL oldNavBarStatus;
@@ -52,4 +53,72 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)loginTapped:(id)sender {
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:_emailField.text /*jekahy343@gmail.com"*/ forKey:@"email"];
+    [params setObject:_passwordField.text/*@"12345678"*/ forKey:@"password"];
+    [params setObject:CH_API_KEY forKey:@"api_key"];
+    
+    //Parsing to JSON!
+    NSError *error = nil;
+    NSData *json = [NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
+    
+    //If no error we send the post, voila!
+    if (!error){
+        [[CHLoadingVC sharedLoadingVC] showInController:self withText:@"Processing..."];
+        
+        AFHTTPClient *client = [CHAPIClient sharedClient];
+        NSString *path = [NSString stringWithFormat:@"api/sessions"];
+        NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:path parameters:nil];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:json];
+        [request setHTTPShouldHandleCookies:YES];
+        
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            
+            NSInteger success = [[JSON  objectForKey:@"success"]integerValue];
+            NSString* atoken = [JSON objectForKey:@"authentication_token"];
+            NSString *message;
+            if(success == 1){
+                message = @"Login successfull!";
+                [self goToTabBar];
+                
+            }else{
+                message = [NSString stringWithFormat:@"Login unsuccessfull: %@",[JSON objectForKey:@"errors"]];
+            }
+            
+            
+//            NSLog(@"json=%@",JSON);
+            [[NSUserDefaults standardUserDefaults] setValue:atoken forKey:@"a_token"];
+            
+            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"LOGIN" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            
+            [av show];
+            [[CHLoadingVC sharedLoadingVC] hide];
+        }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+            NSString* errMsg = nil;
+            if (JSON != nil) {
+                errMsg = [JSON  objectForKey:@"info"];
+            } else {
+                errMsg = [error localizedDescription];
+            }
+            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"LOGIN" message:[NSString stringWithFormat:@"Login unsuccessful: %@", errMsg] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [av show];
+            [[CHLoadingVC sharedLoadingVC] hide];
+        }];
+        
+        [operation start];
+    }
+
+}
+
+-(void)goToTabBar{
+    [self performSegueWithIdentifier:@"tabbar" sender:self];
+}
+- (void)viewDidUnload {
+    [self setEmailField:nil];
+    [self setPasswordField:nil];
+    [super viewDidUnload];
+}
 @end

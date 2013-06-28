@@ -174,7 +174,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gG8-FJ-thx" kind="custom" id="eOz-YW-67u"/>
+                                    <action selector="loginTapped:" destination="lAZ-kz-Iv0" eventType="touchUpInside" id="nf7-Xz-ALc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qxt-sb-iKy">
@@ -197,10 +197,15 @@
                     </view>
                     <navigationItem key="navigationItem" title="CASH HOPPERS" id="k7E-J4-KVN"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="emailField" destination="UXK-id-xEh" id="Fyo-st-KAv"/>
+                        <outlet property="passwordField" destination="tPG-97-Oow" id="VXH-qc-alk"/>
+                        <segue destination="gG8-FJ-thx" kind="push" identifier="tabbar" customClass="" id="k6X-sW-pNN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="txv-RA-Eqy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="663" y="-189"/>
+            <point key="canvasLocation" x="711" y="-134"/>
         </scene>
         <!--Reset PasswordVC - CASH HOPPERS-->
         <scene sceneID="XK5-Z3-m4Y">
@@ -499,23 +504,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGH-14-oXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1704" y="878"/>
+            <point key="canvasLocation" x="1708" y="723"/>
         </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="5dK-CV-bSf">
             <objects>
                 <viewController storyboardIdentifier="tabBar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gG8-FJ-thx" customClass="MHCustomTabBarController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qgl-gi-oxx">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" id="UOX-NJ-ulS">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="370"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </containerView>
                             <view contentMode="scaleToFill" id="Cze-DT-LY1">
-                                <rect key="frame" x="0.0" y="387" width="320" height="73"/>
+                                <rect key="frame" x="0.0" y="343" width="320" height="73"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tabbar_bg.png" id="xjt-G1-IPy">
@@ -606,7 +611,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2P-l5-qTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="-56"/>
+            <point key="canvasLocation" x="1172" y="-56"/>
         </scene>
         <!--RegisterVC - CASH HOPPERS-->
         <scene sceneID="BLv-G0-8RP">
@@ -865,7 +870,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9g-r9-zpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="635" y="430"/>
+            <point key="canvasLocation" x="671" y="506"/>
         </scene>
         <!--Friends ListVC - CASH HOPPERS-->
         <scene sceneID="ywu-Le-if8">
@@ -1226,7 +1231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lev-E1-JN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2556" y="761"/>
+            <point key="canvasLocation" x="1708" y="-405"/>
         </scene>
         <!--New HopVC - Item-->
         <scene sceneID="4cq-9a-pkc">
@@ -1416,120 +1421,6 @@
         <image name="twitter_icon.png" width="96" height="76"/>
         <image name="yellow_button.png" width="234" height="109"/>
     </resources>
-    <classes>
-        <class className="CHFriendsListCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHFriendsListCell.h"/>
-            <relationships>
-                <relationship kind="action" name="addFriendTapped:"/>
-                <relationship kind="action" name="commentTapped:"/>
-                <relationship kind="action" name="likeTapped:"/>
-                <relationship kind="outlet" name="addFriendButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="commentButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="likeButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="nameHopLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="namePersonLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numberCommentsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numberLikesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="photoHopImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="photoPersonImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="taskCompletedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="verticalSeparatorImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="CHFriendsListVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHFriendsListVC.h"/>
-            <relationships>
-                <relationship kind="action" name="addFriendTapped:"/>
-                <relationship kind="action" name="allHopppersButtonTapped:"/>
-                <relationship kind="action" name="friendsButtonTapped:"/>
-                <relationship kind="outlet" name="allHoppersButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="friendsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="friendsTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="CHHomeScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHHomeScreenViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="dailyHopPressed:"/>
-                <relationship kind="action" name="playNowPressed:"/>
-                <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="bannerImView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="CHHopsListCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHHopsListCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="avDailyHopLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="avJackpotLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="av_delta" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="availableImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="yourDailyHopLable" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="yourImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="yourJackpotLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="your_delta" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="CHHopsListVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHHopsListVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="hopsTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="CHLoginVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHLoginVC.h"/>
-        </class>
-        <class className="CHNewHopVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHNewHopVC.h"/>
-            <relationships>
-                <relationship kind="action" name="photoTapped:"/>
-                <relationship kind="action" name="resignResponder:"/>
-                <relationship kind="action" name="submitPressed:"/>
-                <relationship kind="outlet" name="charCountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myScroolView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="photoImView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="separatorView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="submitButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="CHRegisterVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHRegisterVC.h"/>
-            <relationships>
-                <relationship kind="action" name="addPhotoTapped:"/>
-                <relationship kind="action" name="registerTapped:"/>
-                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="emailView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="requiredLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="userNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="zipTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="zipView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="CHResetPasswordVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHResetPasswordVC.h"/>
-            <relationships>
-                <relationship kind="action" name="signInTapped:"/>
-                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="CHStartVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHStartVC.h"/>
-        </class>
-        <class className="MHCustomTabBarController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MHCustomTabBarController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="buttonView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="container" candidateClass="UIView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
