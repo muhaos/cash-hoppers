@@ -25,11 +25,12 @@
 
 
 
-@interface MHCustomTabBarController : UIViewController
+@interface MHCustomTabBarController : UIViewController<UIImagePickerControllerDelegate>
 
 @property(weak,nonatomic)UIViewController *currentViewController;
 @property (strong, nonatomic) NSString *currentIdentifier;
 @property (weak, nonatomic) IBOutlet UIView *container;
 @property (weak, nonatomic) IBOutlet UIView *buttonView;
+- (IBAction)pictureTapped:(id)sender;
 
 @end

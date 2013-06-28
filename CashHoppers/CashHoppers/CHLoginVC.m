@@ -53,6 +53,41 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark  - textField delegate
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    
+    [self shiftViewUp];
+    
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    
+    [self shiftViewToDefault];
+    
+}
+
+#pragma mark - shift view up/down methods
+
+-(void)shiftViewUp{
+    CGRect newFrame = self.view.frame;
+    newFrame.origin.y = -40;
+    [UIView animateWithDuration:.2 animations:^{
+        self.view.frame = newFrame;
+    }];
+}
+
+-(void)shiftViewToDefault{
+    CGRect newFrame = self.view.frame;
+    newFrame.origin.y = 0;
+    [UIView animateWithDuration:.2 animations:^{
+        self.view.frame = newFrame;
+    }];
+    
+}
+
+#pragma mark - ibactions
+
 - (IBAction)loginTapped:(id)sender {
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
@@ -87,11 +122,10 @@
             }else{
                 message = [NSString stringWithFormat:@"Login unsuccessfull: %@",[JSON objectForKey:@"errors"]];
             }
-            
-            
+                        
 //            NSLog(@"json=%@",JSON);
             [[NSUserDefaults standardUserDefaults] setValue:atoken forKey:@"a_token"];
-            
+            [[NSUserDefaults standardUserDefaults] synchronize];
             UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"LOGIN" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             
             [av show];
@@ -116,6 +150,12 @@
 -(void)goToTabBar{
     [self performSegueWithIdentifier:@"tabbar" sender:self];
 }
+
+-(IBAction)hideKeyboard:(id)sender{
+    [_passwordField resignFirstResponder];
+    [_emailField resignFirstResponder];
+}
+
 - (void)viewDidUnload {
     [self setEmailField:nil];
     [self setPasswordField:nil];

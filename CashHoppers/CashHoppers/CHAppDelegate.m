@@ -15,6 +15,13 @@
     // Override point for customization after application launch.
     
     self.tabBarController = [[[[self window]rootViewController]storyboard]instantiateViewControllerWithIdentifier:@"tabBar"];
+    NSString *a_token = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+//    NSLog(@"token=%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"]);
+    if(a_token){
+        self.window.rootViewController = self.tabBarController;
+    }
+
+    
     return YES;
 }
 							
