@@ -53,6 +53,8 @@
 - (IBAction)playNowPressed:(id)sender {
     [DELEGATE switchViewTo:CHNewHop];
 }
+
+
 - (void)viewDidUnload {
     [self setBackButton:nil];
     [self setBannerImView:nil];
