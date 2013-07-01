@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -18,7 +18,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RgC-pt-3Qx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-415" y="16"/>
+            <point key="canvasLocation" x="-415" y="-189"/>
         </scene>
         <!--StartVC-->
         <scene sceneID="5">
@@ -93,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="167" y="-189"/>
+            <point key="canvasLocation" x="183" y="-189"/>
         </scene>
         <!--LoginVC - CASH HOPPERS-->
         <scene sceneID="ILU-kZ-HTA">
@@ -220,7 +220,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="711" y="-134"/>
+            <point key="canvasLocation" x="719" y="-189"/>
         </scene>
         <!--Reset PasswordVC - CASH HOPPERS-->
         <scene sceneID="XK5-Z3-m4Y">
@@ -303,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8R-Hl-1A1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1140" y="-968"/>
+            <point key="canvasLocation" x="1260" y="-960"/>
         </scene>
         <!--Home Screen View Controller - CASH HOPPERS-->
         <scene sceneID="EHh-hq-AQC">
@@ -519,7 +519,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGH-14-oXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2202" y="1283"/>
+            <point key="canvasLocation" x="2325" y="951"/>
         </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="5dK-CV-bSf">
@@ -630,7 +630,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2P-l5-qTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1172" y="-56"/>
+            <point key="canvasLocation" x="1260" y="-189"/>
         </scene>
         <!--RegisterVC - CASH HOPPERS-->
         <scene sceneID="BLv-G0-8RP">
@@ -889,7 +889,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9g-r9-zpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="671" y="506"/>
+            <point key="canvasLocation" x="719" y="490"/>
         </scene>
         <!--Friends ListVC - CASH HOPPERS-->
         <scene sceneID="ywu-Le-if8">
@@ -1108,7 +1108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tU5-Rd-sNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3325" y="1295"/>
+            <point key="canvasLocation" x="2884" y="951"/>
         </scene>
         <!--Hops ListVC - CASH HOPPERS-->
         <scene sceneID="kdF-Dx-EJ0">
@@ -1246,7 +1246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lev-E1-JN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3354" y="-37"/>
+            <point key="canvasLocation" x="3288" y="-180"/>
         </scene>
         <!--Other Hops ListVC-->
         <scene sceneID="Ljo-oV-Gi0">
@@ -1501,7 +1501,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fb-Uy-WMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2135" y="455"/>
+            <point key="canvasLocation" x="1799" y="-960"/>
         </scene>
         <!--New HopVC-->
         <scene sceneID="4cq-9a-pkc">
@@ -1657,7 +1657,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3914" y="-56"/>
+            <point key="canvasLocation" x="3837" y="-180"/>
         </scene>
         <!--WinnerVC-->
         <scene sceneID="LwL-Zo-FJG">
@@ -1713,7 +1713,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJU-8h-g9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4370" y="-56"/>
+            <point key="canvasLocation" x="4316" y="-180"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b9H-rL-dBA">
@@ -1733,7 +1733,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ptp-lV-ToW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1676" y="1283"/>
+            <point key="canvasLocation" x="1799" y="951"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="A3y-eU-dXD">
@@ -1753,7 +1753,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WNr-bU-JGt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2828" y="-37"/>
+            <point key="canvasLocation" x="2756" y="-180"/>
         </scene>
     </scenes>
     <resources>
@@ -1818,6 +1818,7 @@
         <class className="CHFriendsListVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHFriendsListVC.h"/>
             <relationships>
+                <relationship kind="action" name="addFriendTapped:"/>
                 <relationship kind="action" name="allHopppersButtonTapped:"/>
                 <relationship kind="action" name="friendsButtonTapped:"/>
                 <relationship kind="outlet" name="allHoppersButton" candidateClass="UIButton"/>
@@ -1950,6 +1951,7 @@
         <class className="MHCustomTabBarController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MHCustomTabBarController.h"/>
             <relationships>
+                <relationship kind="action" name="hopChooseTapped:"/>
                 <relationship kind="action" name="pictureTapped:"/>
                 <relationship kind="outlet" name="buttonView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="container" candidateClass="UIView"/>

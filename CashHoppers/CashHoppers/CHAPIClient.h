@@ -7,5 +7,5 @@
 @interface CHAPIClient : AFRESTClient <AFIncrementalStoreHTTPClient>
 
 + (CHAPIClient *)sharedClient;
-
++ (NSString*)base64stringFromImage:(UIImage*)image;
 @end

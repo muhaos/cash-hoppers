@@ -1,5 +1,6 @@
 #import "CHAPIClient.h"
 #import "AFJSONRequestOperation.h"
+#import "NSDataAdditions.h"
 
 static NSString * const kToDoAPIBaseURLString = @"http://perechin.net:3000/";
 
@@ -73,6 +74,9 @@ static NSString * const kToDoAPIBaseURLString = @"http://perechin.net:3000/";
     }
     return nil;
 }
-
++(NSString*)base64stringFromImage:(UIImage*)image{
+    NSData *dataObj = UIImagePNGRepresentation(image);
+    return [dataObj base64Encoding];
+}
 
 @end

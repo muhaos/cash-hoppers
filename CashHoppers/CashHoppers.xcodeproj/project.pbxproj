@@ -134,6 +134,7 @@
 		E1CF6C0E177CBFF3003D9624 /* TTTStringTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CF6C0A177CBFF3003D9624 /* TTTStringTransformers.m */; };
 		E1CF6C10177CC02D003D9624 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CF6C0F177CC02D003D9624 /* CoreData.framework */; };
 		E1CF6C12177CC03E003D9624 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CF6C11177CC03E003D9624 /* MobileCoreServices.framework */; };
+		E1CF6C1817816F80003D9624 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CF6C1717816F80003D9624 /* NSDataAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -316,6 +317,8 @@
 		E1CF6C0A177CBFF3003D9624 /* TTTStringTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTStringTransformers.m; sourceTree = "<group>"; };
 		E1CF6C0F177CC02D003D9624 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E1CF6C11177CC03E003D9624 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		E1CF6C1617816F80003D9624 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
+		E1CF6C1717816F80003D9624 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,10 +387,6 @@
 				E1CF6BEE177CBE61003D9624 /* CHLoadingVC.m */,
 				E1CF6BEF177CBE62003D9624 /* CHLoadingVC.xib */,
 				E1CF6C13177D7829003D9624 /* Network */,
-				AA1161F017784F5A00D0E750 /* CHHomeScreenViewController.h */,
-				AA1161F117784F5A00D0E750 /* CHHomeScreenViewController.m */,
-				E1B074D81778679700D7BCD0 /* CHNewHopVC.h */,
-				E1B074D91778679700D7BCD0 /* CHNewHopVC.m */,
 				E1B074FB177B58E000D7BCD0 /* Custom Elements */,
 				5640158B176B433B00C028CE /* Images */,
 				56401559176B40D100C028CE /* CHAppDelegate.h */,
@@ -423,6 +422,10 @@
 				AAFF7456177D923B003883BD /* CHHopChooserVC.h */,
 				AAFF7457177D923C003883BD /* CHHopChooserVC.m */,
 				AAFF7458177D923D003883BD /* CHHopChooserVC.xib */,
+				AA1161F017784F5A00D0E750 /* CHHomeScreenViewController.h */,
+				AA1161F117784F5A00D0E750 /* CHHomeScreenViewController.m */,
+				E1B074D81778679700D7BCD0 /* CHNewHopVC.h */,
+				E1B074D91778679700D7BCD0 /* CHNewHopVC.m */,
 			);
 			path = CashHoppers;
 			sourceTree = "<group>";
@@ -640,12 +643,23 @@
 		E1CF6C14177D7855003D9624 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				E1CF6C1517816F80003D9624 /* NSDataAdditions */,
 				E1CF6C01177CBFC9003D9624 /* TransformerKit */,
 				E1CF6BF8177CBF7B003D9624 /* InflectorKit */,
 				E1CF6BC8177C83EE003D9624 /* AFNetworking */,
 				E1CF6BBF177C83EE003D9624 /* AFIncrementalStore */,
 			);
 			name = Libs;
+			sourceTree = "<group>";
+		};
+		E1CF6C1517816F80003D9624 /* NSDataAdditions */ = {
+			isa = PBXGroup;
+			children = (
+				E1CF6C1617816F80003D9624 /* NSDataAdditions.h */,
+				E1CF6C1717816F80003D9624 /* NSDataAdditions.m */,
+			);
+			name = NSDataAdditions;
+			path = 2010_3_NSDataAdditions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -869,6 +883,7 @@
 				AACE4231177C5C7E006E2E46 /* CHOtherHopsListVC.m in Sources */,
 				AACE4234177C5D16006E2E46 /* CHOtherHopsListCell.m in Sources */,
 				AAFF7459177D923D003883BD /* CHHopChooserVC.m in Sources */,
+				E1CF6C1817816F80003D9624 /* NSDataAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
