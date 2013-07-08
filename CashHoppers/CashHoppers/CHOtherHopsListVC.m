@@ -10,6 +10,7 @@
 #import "CHOtherHopsListCell.h"
 #import "CHAppDelegate.h"
 #import "MHCustomTabBarController.h"
+#import "CHTradeShowEntryVC.h"
 
 @interface CHOtherHopsListVC ()
 
@@ -134,7 +135,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+//    [[CHTradeShowEntryVC sharedTradeShowEntryVC] showInController:self
+//                                                         withText:@"NBM TRADE SHOW HOP"
+//                                                        withImage:[UIImage imageNamed:@"image_nbm_show.png"]];
+
     
+    [self performSegueWithIdentifier:@"tradeShowMulti" sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
