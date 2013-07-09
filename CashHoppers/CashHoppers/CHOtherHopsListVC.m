@@ -135,11 +135,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [[CHTradeShowEntryVC sharedTradeShowEntryVC] showInController:self
-//                                                         withText:@"NBM TRADE SHOW HOP"
-//                                                        withImage:[UIImage imageNamed:@"image_nbm_show.png"]];
-
-    
+    [[CHTradeShowEntryVC sharedTradeShowEntryVC] showInController:self
+                                                         withText:@"NBM TRADE SHOW HOP"
+                                                        withImage:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"image_nbm_show.png"]]];
     [self performSegueWithIdentifier:@"tradeShowMulti" sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

@@ -9,6 +9,7 @@
 #import "CHTradeShowMultiHopVC.h"
 #import "CHTradeShowMultiHopCell.h"
 #import "CHTradeShowEntryVC.h"
+#import <CoreText/CoreText.h>
 
 @interface CHTradeShowMultiHopVC ()
 
@@ -37,10 +38,6 @@
     self.scoreLabel.text = @"550 pts";
     self.rankLabel.text = @"3 of 46";
     self.grandPrizeLabel.text = @"$ 550";
-    
-    [[CHTradeShowEntryVC sharedTradeShowEntryVC] showInController:self
-                                                         withText:@"NBM TRADE SHOW HOP"
-                                                        withImage:[UIImage imageNamed:@"image_nbm_show.png"]];
 }
 
 
@@ -105,6 +102,12 @@
         CHTradeShowMultiHopCell *cell = (CHTradeShowMultiHopCell*) [tableView dequeueReusableCellWithIdentifier:completeHopsCellIdentifier];
         
         [[cell compTextView] setText:@"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu."];
+        
+        NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:[cell compTextView].text];
+        [attString setAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:[UIFont systemFontSize]]} range:(NSRange){0,11}];
+        [attString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:102.0f/256 green:102.0f/256 blue:102.0f/256 alpha:1.0f] range:NSMakeRange(0,11)];
+        [cell compTextView].attributedText = attString;
+        
         [[cell compVerticalIndicatorImageView] setImage:[UIImage imageNamed:@"vertical_indicator_green"]];
         [[cell completeIndicatorImageView] setImage:[UIImage imageNamed:@"horizontal_indicator_green"]];
         return cell;
@@ -112,6 +115,10 @@
         CHTradeShowMultiHopCell *cell = (CHTradeShowMultiHopCell*) [tableView dequeueReusableCellWithIdentifier:notCompleteHopsCellIdentifier];
         
         [[cell notCompTextView] setText:@"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu."];
+        NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:[cell notCompTextView].text];
+        [attString setAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:[UIFont systemFontSize]]} range:(NSRange){0,11}];
+        [attString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:102.0f/256 green:102.0f/256 blue:102.0f/256 alpha:1.0f] range:NSMakeRange(0,11)];
+        [cell notCompTextView].attributedText = attString;
         [[cell notCompVerticalIndicatorImageView] setImage:[UIImage imageNamed:@"your_indicator_cell.png"]];
         return cell;
     } else {
@@ -138,6 +145,7 @@
 }
 
 
+
 - (void)viewDidUnload {
     [self setMultiHopTable:nil];
     [self setHopImageView:nil];
@@ -147,6 +155,8 @@
     [self setHopTitleLabel:nil];
     [super viewDidUnload];
 }
+
+
 
 
 @end

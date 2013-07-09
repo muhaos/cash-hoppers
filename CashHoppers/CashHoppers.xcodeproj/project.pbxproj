@@ -40,6 +40,7 @@
 		AA00273D177AF76E00D9D204 /* button_add_friend.png in Resources */ = {isa = PBXBuildFile; fileRef = AA00273C177AF76E00D9D204 /* button_add_friend.png */; };
 		AA00273F177B034800D9D204 /* photo_brian.png in Resources */ = {isa = PBXBuildFile; fileRef = AA00273E177B034800D9D204 /* photo_brian.png */; };
 		AA002742177B067A00D9D204 /* CHWinnerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA002741177B067A00D9D204 /* CHWinnerVC.m */; };
+		AA010544178C10D0004DF5F4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA010543178C10D0004DF5F4 /* CoreText.framework */; };
 		AA1161F217784F5A00D0E750 /* CHHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1161F117784F5A00D0E750 /* CHHomeScreenViewController.m */; };
 		AA1161F61778514F00D0E750 /* CHAdvertisingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1161F41778514F00D0E750 /* CHAdvertisingVC.m */; };
 		AA1161F71778514F00D0E750 /* CHAdvertisingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1161F51778514F00D0E750 /* CHAdvertisingVC.xib */; };
@@ -197,6 +198,7 @@
 		AA00273E177B034800D9D204 /* photo_brian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo_brian.png; sourceTree = "<group>"; };
 		AA002740177B067A00D9D204 /* CHWinnerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHWinnerVC.h; sourceTree = "<group>"; };
 		AA002741177B067A00D9D204 /* CHWinnerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWinnerVC.m; sourceTree = "<group>"; };
+		AA010543178C10D0004DF5F4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		AA1161F017784F5A00D0E750 /* CHHomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHomeScreenViewController.h; sourceTree = "<group>"; };
 		AA1161F117784F5A00D0E750 /* CHHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHomeScreenViewController.m; sourceTree = "<group>"; };
 		AA1161F31778514F00D0E750 /* CHAdvertisingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAdvertisingVC.h; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA010544178C10D0004DF5F4 /* CoreText.framework in Frameworks */,
 				E1CF6C12177CC03E003D9624 /* MobileCoreServices.framework in Frameworks */,
 				E1CF6C10177CC02D003D9624 /* CoreData.framework in Frameworks */,
 				5640154B176B40D000C028CE /* UIKit.framework in Frameworks */,
@@ -369,6 +372,7 @@
 		5640153E176B40D000C028CE = {
 			isa = PBXGroup;
 			children = (
+				AA010543178C10D0004DF5F4 /* CoreText.framework */,
 				AABEE159178B0107008F2DD2 /* CHTradeShowMultiHopCell.h */,
 				AABEE15A178B0107008F2DD2 /* CHTradeShowMultiHopCell.m */,
 				AABEE152178AED80008F2DD2 /* CHTradeShowMultiHopVC.h */,

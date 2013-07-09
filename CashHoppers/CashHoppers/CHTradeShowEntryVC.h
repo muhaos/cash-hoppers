@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHTradeShowEntryVC : UIViewController
+@interface CHTradeShowEntryVC : UIViewController <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *tradeShowImageView;
 @property (strong, nonatomic) IBOutlet UILabel *tradeShowLabel;
