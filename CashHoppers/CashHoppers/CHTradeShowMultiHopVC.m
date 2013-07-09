@@ -134,6 +134,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self performSegueWithIdentifier:@"new_hop" sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

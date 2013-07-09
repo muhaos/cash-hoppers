@@ -141,7 +141,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [self performSegueWithIdentifier:@"detailsFeed" sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
