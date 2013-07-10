@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHDetailsFeedVC : UIViewController <UITextViewDelegate>
+@interface CHDetailsFeedVC : UIViewController <UITextViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UIImageView *photoPersonImageView;
 @property (strong, nonatomic) IBOutlet UILabel *namePersonLabel;
@@ -22,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *commentTable;
 @property (strong, nonatomic) IBOutlet UITextView *addComentTextView;
 @property (strong, nonatomic) IBOutlet UIButton *postCommentButton;
+@property (strong, nonatomic) IBOutlet UIScrollView *myScroolView;
 
 - (IBAction)postCommentTapped:(id)sender;
 
