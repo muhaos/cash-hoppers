@@ -9,12 +9,15 @@
 #import "CHHomeScreenViewController.h"
 #import "CHAppDelegate.h"
 #import "MHCustomTabBarController.h"
+#import "ECSlidingViewController.h"
+#import "CHMenuSlidingVC.h"
 
 @interface CHHomeScreenViewController ()
 
 @end
 
 @implementation CHHomeScreenViewController
+@synthesize menuButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,17 +31,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    self.view.layer.shadowOpacity = 0.75f;
+    self.view.layer.shadowRadius = 10.0f;
+    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
+    if (![self.slidingViewController.underLeftViewController isKindOfClass:[CHMenuSlidingVC class]]) {
+        self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+    }
+//    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+    
+    [menuButton addTarget:self action:@selector(menuTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
     [_scrollView setContentSize:CGSizeMake(340,470)];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillAppear:animated];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
 }
 
@@ -67,6 +81,14 @@
     [self setBackButton:nil];
     [self setBannerImView:nil];
     [self setScrollView:nil];
+    [self setMenuButton:nil];
     [super viewDidUnload];
 }
+
+
+- (IBAction)menuTapped:(id)sender {
+    [self.slidingViewController anchorTopViewTo:ECRight];
+}
+
+
 @end

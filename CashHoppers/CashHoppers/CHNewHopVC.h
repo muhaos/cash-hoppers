@@ -11,14 +11,18 @@
 #import <UIKit/UIKit.h>
 
 @interface CHNewHopVC : UIViewController <UITextViewDelegate,UIImagePickerControllerDelegate>
+
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) IBOutlet UILabel *charCountLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *photoImView;
 @property (strong, nonatomic) IBOutlet UIButton *submitButton;
 @property (strong, nonatomic) IBOutlet UIImageView *separatorView;
+@property (strong, nonatomic) IBOutlet UIButton *menuButton;
 @property (strong, nonatomic) IBOutlet UIScrollView *myScroolView;
+
 - (IBAction)resignResponder:(id)sender;
 - (IBAction)photoTapped:(id)sender;
 - (IBAction)submitPressed:(id)sender;
+- (IBAction)menuTapped:(id)sender;
 
 @end

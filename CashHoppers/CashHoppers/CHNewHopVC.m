@@ -8,12 +8,15 @@
 
 #import "CHNewHopVC.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ECSlidingViewController.h"
+#import "CHMenuSlidingVC.h"
 
 @interface CHNewHopVC ()
 
 @end
 
 @implementation CHNewHopVC
+@synthesize menuButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,17 +51,27 @@
     
     _myScroolView.frame = (CGRect){_myScroolView.frame.origin, CGSizeMake(320, 502)};
     _myScroolView.contentSize = CGSizeMake(320, 504);
+    
+    self.view.layer.shadowOpacity = 0.75f;
+    self.view.layer.shadowRadius = 10.0f;
+    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
+    if (![self.slidingViewController.underLeftViewController isKindOfClass:[CHMenuSlidingVC class]]) {
+        self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+    }
+    
+ //   [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+    [menuButton addTarget:self action:@selector(menuTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
 }
 
 
 -(void)viewWillDisappear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+ //   [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillDisappear:animated];
 }
 
@@ -159,6 +172,7 @@
     [self setSubmitButton:nil];
     [self setSeparatorView:nil];
     [self setMyScroolView:nil];
+    [self setMenuButton:nil];
     [super viewDidUnload];
 }
 
@@ -183,4 +197,9 @@
 
 - (IBAction)submitPressed:(id)sender {
 }
+
+- (IBAction)menuTapped:(id)sender {
+    [self.slidingViewController anchorTopViewTo:ECRight];
+}
+
 @end
