@@ -12,7 +12,6 @@
 @interface CHLoginVC ()
 
 @property (assign, nonatomic) BOOL oldNavBarStatus;
-
 @end
 
 @implementation CHLoginVC
