@@ -88,7 +88,6 @@
 		AA4C1F42178FFAF20071D0F9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4C1F41178FFAF20071D0F9 /* libsqlite3.dylib */; };
 		AA4C1F44178FFAFD0071D0F9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4C1F43178FFAFD0071D0F9 /* Security.framework */; };
 		AA4C1F4617904E3D0071D0F9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4C1F4517904E3D0071D0F9 /* SystemConfiguration.framework */; };
-		AA4C1F4F17904E710071D0F9 /* libGooglePlus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4C1F4D17904E710071D0F9 /* libGooglePlus.a */; };
 		AA4C1F5017904E710071D0F9 /* libGooglePlusUniversal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4C1F4E17904E710071D0F9 /* libGooglePlusUniversal.a */; };
 		AA4C1FAA17904E910071D0F9 /* GTLBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4C1F5417904E910071D0F9 /* GTLBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AA4C1FAB17904E910071D0F9 /* GTLBatchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4C1F5617904E910071D0F9 /* GTLBatchQuery.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -629,7 +628,6 @@
 				5640154D176B40D000C028CE /* Foundation.framework in Frameworks */,
 				5640154F176B40D000C028CE /* CoreGraphics.framework in Frameworks */,
 				AA4C1F39178FFA7B0071D0F9 /* FacebookSDK.framework in Frameworks */,
-				AA4C1F4F17904E710071D0F9 /* libGooglePlus.a in Frameworks */,
 				AA4C1F5017904E710071D0F9 /* libGooglePlusUniversal.a in Frameworks */,
 				AAA6392117930B6A00D929D6 /* libOAuth.a in Frameworks */,
 			);
@@ -1668,6 +1666,7 @@
 		56401583176B40D100C028CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1690,6 +1689,7 @@
 		56401584176B40D100C028CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
