@@ -191,7 +191,8 @@
     UIImagePickerController *poc = [[UIImagePickerController alloc] init];
     [poc setTitle:@"Take a photo."];
     [poc setDelegate:self];
-    [poc setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+
+    [poc setSourceType:UIImagePickerControllerSourceTypeCamera];
     //    poc.showsCameraControls = NO;
     [self presentViewController:poc animated:YES completion:nil];
     
