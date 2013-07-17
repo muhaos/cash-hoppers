@@ -226,4 +226,10 @@
     }
 }
 
+
+-(BOOL)resignWinnerButton
+{
+    winnterButton.hidden = YES;
+}
+
 @end

@@ -28,4 +28,6 @@
 - (IBAction)shareWithFacebookTapped:(id)sender;
 - (IBAction)shareWithTwitterTapped:(id)sender;
 
+-(BOOL)resignWinnerButton;
+
 @end
