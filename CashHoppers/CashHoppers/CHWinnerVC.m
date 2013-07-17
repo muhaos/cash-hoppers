@@ -31,7 +31,7 @@
     self.navigationItem.leftBarButtonItem = backButton;
     
     [photoImageView setImage:[UIImage imageNamed:@"photo_brian"]];
-    photoImageView.layer.cornerRadius = 70;
+//    photoImageView.layer.cornerRadius = 70;
     photoImageView.clipsToBounds = YES;
 }
 

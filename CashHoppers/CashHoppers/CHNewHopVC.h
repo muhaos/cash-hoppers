@@ -19,10 +19,13 @@
 @property (strong, nonatomic) IBOutlet UIImageView *separatorView;
 @property (strong, nonatomic) IBOutlet UIButton *menuButton;
 @property (strong, nonatomic) IBOutlet UIScrollView *myScroolView;
+@property (strong, nonatomic) IBOutlet UIButton *winnterButton;
 
 - (IBAction)resignResponder:(id)sender;
 - (IBAction)photoTapped:(id)sender;
 - (IBAction)submitPressed:(id)sender;
 - (IBAction)menuTapped:(id)sender;
+- (IBAction)shareWithFacebookTapped:(id)sender;
+- (IBAction)shareWithTwitterTapped:(id)sender;
 
 @end

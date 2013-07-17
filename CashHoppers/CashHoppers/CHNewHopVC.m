@@ -10,13 +10,14 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ECSlidingViewController.h"
 #import "CHMenuSlidingVC.h"
+#import <Social/Social.h>
 
 @interface CHNewHopVC ()
 
 @end
 
 @implementation CHNewHopVC
-@synthesize menuButton;
+@synthesize menuButton, winnterButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -173,6 +174,7 @@
     [self setSeparatorView:nil];
     [self setMyScroolView:nil];
     [self setMenuButton:nil];
+    [self setWinnterButton:nil];
     [super viewDidUnload];
 }
 
@@ -200,6 +202,28 @@
 
 - (IBAction)menuTapped:(id)sender {
     [self.slidingViewController anchorTopViewTo:ECRight];
+}
+
+
+- (IBAction)shareWithFacebookTapped:(id)sender {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+    {
+        SLComposeViewController *tw = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        [tw setInitialText:@"Message"];
+        [tw addImage:self.photoImView.image];
+        [self presentViewController:tw animated:YES completion:nil];
+    }
+}
+
+
+- (IBAction)shareWithTwitterTapped:(id)sender {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweetSheet setInitialText:@"Message"];
+        [tweetSheet addImage:self.photoImView.image];
+        [self presentViewController: tweetSheet animated: YES completion: nil];
+    }
 }
 
 @end
