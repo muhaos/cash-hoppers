@@ -11,18 +11,17 @@
 #import <Accounts/Accounts.h>
 #import <Twitter/Twitter.h>
 #import "GTLPlusConstants.h"
-#import "GPPSignInButton.h"
 
 
 @interface CHStartVC ()
 
 - (IBAction)loginWithFBTapped:(id)sender;
 - (IBAction)loginWithTwitterTapped:(id)sender;
-@property (nonatomic) SocialAccountType socialAccountType;
+
 @end
 
 @implementation CHStartVC
-@synthesize socialAccountType = _socialAccountType, loginWithGoogleButton;
+@synthesize loginWithGoogleButton;
 
 - (void)viewDidLoad
 {
@@ -52,13 +51,7 @@
 
 //for twitter
 
-- (id)initWithSocialAccountType:(SocialAccountType)socialAccountType {
-    self = [super init];
-    if(self) {
-        self.socialAccountType = socialAccountType;
-    }
-    return self;
-}
+
 
 
 - (void)didReceiveMemoryWarning
@@ -82,19 +75,6 @@
 
 
 - (IBAction)loginWithTwitterTapped:(id)sender {
-    //Get a reference to the application delegate.
-    CHAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    
-    //Get Twitter account, stored in on the device, for the first time.
-    [appDelegate getTwitterAccountOnCompletion:^(ACAccount *twitterAccount){
-        //If we successfully retrieved a Twitter account
-        if(twitterAccount) {
-            //Make sure anything UI related happens on the main queue
-            dispatch_async(dispatch_get_main_queue(), ^{
-                CHStartVC *startVC = [[CHStartVC alloc] initWithSocialAccountType:SocialAccountTypeTwitter];
-                [self.navigationController pushViewController:startVC animated:YES];
-            });
-        }
-    }];}
+}
 
 @end

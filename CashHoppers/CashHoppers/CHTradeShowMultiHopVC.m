@@ -10,6 +10,7 @@
 #import "CHTradeShowMultiHopCell.h"
 #import "CHTradeShowEntryVC.h"
 #import <CoreText/CoreText.h>
+#import "CHNewHopVC.h"
 
 @interface CHTradeShowMultiHopVC ()
 
@@ -145,6 +146,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"new_hop"]) {
+        segue.destinationViewController;
+        CHNewHopVC* c = (CHNewHopVC*)segue.destinationViewController;
+        c.view;
+        [c resignWinnerButton];
+    }
+}
 
 
 - (void)viewDidUnload {

@@ -11,17 +11,11 @@
 
 static NSString * const kClientId = @"60822672999.apps.googleusercontent.com";
 
-typedef enum SocialAccountType  {
-    SocialAccountTypeFacebook = 1,
-    SocialAccountTypeTwitter = 2
-} SocialAccountType;
-
 @class GPPSignInButton;
 
 @interface CHStartVC : UIViewController <GPPSignInDelegate>
 
 - (void)loginFailed;
-- (id)initWithSocialAccountType:(SocialAccountType)socialAccountType;
 @property (retain, nonatomic) IBOutlet GPPSignInButton *loginWithGoogleButton;
 
 @end
