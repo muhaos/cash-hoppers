@@ -10,8 +10,11 @@
 #import "MHCustomTabBarController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "CHStartVC.h"
-#import <Accounts/Accounts.h>
-#import <Twitter/Twitter.h>
+
+#define kOAuthConsumerKey @"5qks8xAYk7bv5zmS2rsYA";
+#define kOAuthConsumerSecret @"NNaZFVoMthSAwdNMguebPM6akgJS61fCNq1Da5woc8";
+
+SA_OAuthTwitterEngine	*sa_OAuthTwitterEngine;
 
 @implementation CHAppDelegate
 @synthesize homeScreenVC, navController;
@@ -44,7 +47,12 @@
         // No, display the login page.
         [self showLoginView];
     }
+    
+    sa_OAuthTwitterEngine = [[SA_OAuthTwitterEngine alloc] initOAuthWithDelegate: self];
+	sa_OAuthTwitterEngine.consumerKey = kOAuthConsumerKey;
+	sa_OAuthTwitterEngine.consumerSecret = kOAuthConsumerSecret;
 }
+
 
 #pragma mark - Facebook SDK
 - (void)showLoginView
@@ -65,7 +73,6 @@
         [startVC loginFailed];
     }
 }
-
 
 - (void)sessionStateChanged:(FBSession *)session
                       state:(FBSessionState) state
@@ -106,7 +113,6 @@
     }
 }
 
-
 - (void)openSession
 {
     [FBSession sessionOpenWithPermissions:nil
@@ -117,37 +123,80 @@
 }
 
 
-#pragma mark - Twitter SDK
-- (void)getTwitterAccountOnCompletion:(void (^)(ACAccount *))completionHandler {
-    ACAccountStore *store = [[ACAccountStore alloc] init];
-    ACAccountType *twitterType = [store accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    [store requestAccessToAccountsWithType:twitterType withCompletionHandler:^(BOOL granted, NSError *error) {
-        if(granted) {
-            // Remember that twitterType was instantiated above
-            NSArray *twitterAccounts = [store accountsWithAccountType:twitterType];
-            
-            // If there are no accounts, we need to pop up an alert
-            if(twitterAccounts == nil || [twitterAccounts count] == 0) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Twitter Accounts"
-                                                                message:@"There are no Twitter accounts configured. You can add or create a Twitter account in Settings."
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-                [alert show];
-            } else {
-                //Get the first account in the array
-                ACAccount *twitterAccount = [twitterAccounts objectAtIndex:0];
-                //Save the used SocialAccountType so it can be retrieved the next time the app is started.
-                [[NSUserDefaults standardUserDefaults] setInteger:SocialAccountTypeTwitter forKey:kSocialAccountTypeKey];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-                //Call the completion handler so the calling object can retrieve the twitter account.
-                completionHandler(twitterAccount);
-            }
-        }
-    }];
+////////////////////////////////////////////////////////////////////////
+#pragma mark - Twitter
+#pragma mark SA_OAuthTwitterEngineDelegate
+
+- (void) storeCachedTwitterOAuthData: (NSString *) data forUsername: (NSString *) username {
+	NSUserDefaults			*defaults = [NSUserDefaults standardUserDefaults];
+	
+	[defaults setObject: data forKey: @"authData"];
+	[defaults synchronize];
 }
 
+- (NSString *) cachedTwitterOAuthDataForUsername: (NSString *) username {
+	return [[NSUserDefaults standardUserDefaults] objectForKey: @"authData"];
+}
 
+- (void) twitterOAuthConnectionFailedWithData: (NSData *) data {
+	NSLog(@"twitterOAuthConnectionFailedWithData");
+}
+
+#pragma mark -
+#pragma mark MGTwitterEngineDelegate methods
+
+- (void)requestSucceeded:(NSString *)connectionIdentifier {
+    NSLog(@"Request succeeded for connectionIdentifier = %@", connectionIdentifier);
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
+- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error {
+    NSLog(@"Request failed for connectionIdentifier = %@, error = %@ (%@)",
+          connectionIdentifier,
+          [error localizedDescription],
+          [error userInfo]);
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
+- (void)statusesReceived:(NSArray *)statuses forRequest:(NSString *)connectionIdentifier {
+	NSLog(@"Status received for connectionIdentifier = %@, %@", connectionIdentifier, [statuses description]);
+}
+
+- (void)directMessagesReceived:(NSArray *)messages forRequest:(NSString *)connectionIdentifier {
+	NSLog(@"Direct message for connectionIdentifier = %@", connectionIdentifier);
+}
+
+- (void)userInfoReceived:(NSArray *)userInfo forRequest:(NSString *)connectionIdentifier {
+	NSLog(@"User info for connectionIdentifier = %@", connectionIdentifier);
+}
+
+- (void)miscInfoReceived:(NSArray *)miscInfo forRequest:(NSString *)connectionIdentifier {
+	NSLog(@"Misc info for connectionIdentifier = %@", connectionIdentifier);
+}
+
+- (void)socialGraphInfoReceived:(NSArray *)socialGraphInfo forRequest:(NSString *)connectionIdentifier {
+	NSLog(@"Social graph for connectionIdentifier = %@", connectionIdentifier);
+}
+
+- (void)accessTokenReceived:(OAToken *)token forRequest:(NSString *)connectionIdentifier {
+	NSLog(@"Access token for connectionIdentifier = %@", connectionIdentifier);
+}
+
+- (void)imageReceived:(UIImage *)image forRequest:(NSString *)connectionIdentifier {
+	NSLog(@"Image receieved for connectionIdentifier = %@", connectionIdentifier);
+}
+
+- (void)connectionStarted:(NSString *)connectionIdentifier {
+	NSLog(@"Connection started for connectionIdentifier = %@", connectionIdentifier);
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+
+- (void)connectionFinished:(NSString *)connectionIdentifier {
+	NSLog(@"Connection finished for connectionIdentifier = %@", connectionIdentifier);
+}
 
 
 #pragma mark - Google+ SDK
