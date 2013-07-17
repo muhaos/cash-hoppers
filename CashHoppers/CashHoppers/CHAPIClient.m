@@ -24,6 +24,8 @@ static NSString * const kToDoAPIBaseURLString = @"http://perechin.net:3000/";
     
     [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
     [self setDefaultHeader:@"Accept" value:@"application/json"];
+    [self setDefaultHeader:@"Content-Type" value:@"application/json"];
+    [self setParameterEncoding:AFJSONParameterEncoding];
     
     return self;
 }

@@ -11,6 +11,7 @@
 #import "CHAppDelegate.h"
 #import "MHCustomTabBarController.h"
 #import "CHTradeShowEntryVC.h"
+#import "CHHopsManager.h"
 
 @interface CHOtherHopsListVC ()
 
@@ -35,6 +36,8 @@
     self.navigationItem.leftBarButtonItem = backButton;
     
     self.navigationItem.title = @"CASHH HOPPERS";
+    
+    [[CHHopsManager instance] refreshHops];
 }
 
 

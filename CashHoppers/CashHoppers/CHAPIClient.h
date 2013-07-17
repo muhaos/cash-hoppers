@@ -2,7 +2,7 @@
 #import "AFRestClient.h"
 
 
-#define CH_API_KEY @"2WmIrFDLQmYN1KljaCik96tXVlgQ0Z"
+#define CH_API_KEY @"123"
 
 @interface CHAPIClient : AFRESTClient <AFIncrementalStoreHTTPClient>
 

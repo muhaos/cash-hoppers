@@ -33,6 +33,11 @@
 		5640159A176B595500C028CE /* CHLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56401599176B595500C028CE /* CHLoginVC.m */; };
 		5640159C176B5ED600C028CE /* input_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5640159B176B5ED600C028CE /* input_bg.png */; };
 		5640159E176B647C00C028CE /* button_forget_passwd.png in Resources */ = {isa = PBXBuildFile; fileRef = 5640159D176B647C00C028CE /* button_forget_passwd.png */; };
+		56D59AF51796CD4B005A05F3 /* CHBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AF41796CD4B005A05F3 /* CHBaseModel.m */; };
+		56D59AF81796CD6E005A05F3 /* CHHop.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AF71796CD6E005A05F3 /* CHHop.m */; };
+		56D59AFB1796CD80005A05F3 /* CHHopTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AFA1796CD80005A05F3 /* CHHopTask.m */; };
+		56D59AFE1796CDB4005A05F3 /* CHBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AFD1796CDB4005A05F3 /* CHBaseManager.m */; };
+		56D59B011796CDD3005A05F3 /* CHHopsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59B001796CDD2005A05F3 /* CHHopsManager.m */; };
 		AA002738177AE56A00D9D204 /* button_all_hops_ac.png in Resources */ = {isa = PBXBuildFile; fileRef = AA002734177AE56A00D9D204 /* button_all_hops_ac.png */; };
 		AA002739177AE56A00D9D204 /* button_all_hops_no.png in Resources */ = {isa = PBXBuildFile; fileRef = AA002735177AE56A00D9D204 /* button_all_hops_no.png */; };
 		AA00273A177AE56A00D9D204 /* button_friends_ac.png in Resources */ = {isa = PBXBuildFile; fileRef = AA002736177AE56A00D9D204 /* button_friends_ac.png */; };
@@ -257,6 +262,16 @@
 		56401599176B595500C028CE /* CHLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHLoginVC.m; sourceTree = "<group>"; };
 		5640159B176B5ED600C028CE /* input_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input_bg.png; sourceTree = "<group>"; };
 		5640159D176B647C00C028CE /* button_forget_passwd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_forget_passwd.png; sourceTree = "<group>"; };
+		56D59AF31796CD4B005A05F3 /* CHBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHBaseModel.h; sourceTree = "<group>"; };
+		56D59AF41796CD4B005A05F3 /* CHBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHBaseModel.m; sourceTree = "<group>"; };
+		56D59AF61796CD6E005A05F3 /* CHHop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHop.h; sourceTree = "<group>"; };
+		56D59AF71796CD6E005A05F3 /* CHHop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHop.m; sourceTree = "<group>"; };
+		56D59AF91796CD80005A05F3 /* CHHopTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHopTask.h; sourceTree = "<group>"; };
+		56D59AFA1796CD80005A05F3 /* CHHopTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHopTask.m; sourceTree = "<group>"; };
+		56D59AFC1796CDB4005A05F3 /* CHBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHBaseManager.h; sourceTree = "<group>"; };
+		56D59AFD1796CDB4005A05F3 /* CHBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHBaseManager.m; sourceTree = "<group>"; };
+		56D59AFF1796CDD2005A05F3 /* CHHopsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHopsManager.h; sourceTree = "<group>"; };
+		56D59B001796CDD2005A05F3 /* CHHopsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHopsManager.m; sourceTree = "<group>"; };
 		AA002734177AE56A00D9D204 /* button_all_hops_ac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_all_hops_ac.png; sourceTree = "<group>"; };
 		AA002735177AE56A00D9D204 /* button_all_hops_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_all_hops_no.png; sourceTree = "<group>"; };
 		AA002736177AE56A00D9D204 /* button_friends_ac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_friends_ac.png; sourceTree = "<group>"; };
@@ -621,6 +636,7 @@
 		56401550176B40D000C028CE /* CashHoppers */ = {
 			isa = PBXGroup;
 			children = (
+				56D59AF11796CCD6005A05F3 /* Models */,
 				E1CF6C14177D7855003D9624 /* Libs */,
 				E1CF6BED177CBE61003D9624 /* CHLoadingVC.h */,
 				E1CF6BEE177CBE61003D9624 /* CHLoadingVC.m */,
@@ -791,6 +807,31 @@
 			);
 			path = Images;
 			sourceTree = SOURCE_ROOT;
+		};
+		56D59AF11796CCD6005A05F3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				56D59AF21796CCE2005A05F3 /* Hops */,
+				56D59AF31796CD4B005A05F3 /* CHBaseModel.h */,
+				56D59AF41796CD4B005A05F3 /* CHBaseModel.m */,
+				56D59AFC1796CDB4005A05F3 /* CHBaseManager.h */,
+				56D59AFD1796CDB4005A05F3 /* CHBaseManager.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		56D59AF21796CCE2005A05F3 /* Hops */ = {
+			isa = PBXGroup;
+			children = (
+				56D59AF61796CD6E005A05F3 /* CHHop.h */,
+				56D59AF71796CD6E005A05F3 /* CHHop.m */,
+				56D59AF91796CD80005A05F3 /* CHHopTask.h */,
+				56D59AFA1796CD80005A05F3 /* CHHopTask.m */,
+				56D59AFF1796CDD2005A05F3 /* CHHopsManager.h */,
+				56D59B001796CDD2005A05F3 /* CHHopsManager.m */,
+			);
+			name = Hops;
+			sourceTree = "<group>";
 		};
 		AA169454178D941500D09372 /* ECSlidingViewController */ = {
 			isa = PBXGroup;
@@ -1352,6 +1393,11 @@
 				AA4C1FCF17904E920071D0F9 /* GTMOAuth2ViewControllerTouch.m in Sources */,
 				AA4C1FD117904E920071D0F9 /* GTMObjC2Runtime.m in Sources */,
 				AA4C1FD217904E920071D0F9 /* OpenInChromeController.m in Sources */,
+				56D59AF51796CD4B005A05F3 /* CHBaseModel.m in Sources */,
+				56D59AF81796CD6E005A05F3 /* CHHop.m in Sources */,
+				56D59AFB1796CD80005A05F3 /* CHHopTask.m in Sources */,
+				56D59AFE1796CDB4005A05F3 /* CHBaseManager.m in Sources */,
+				56D59B011796CDD3005A05F3 /* CHHopsManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
