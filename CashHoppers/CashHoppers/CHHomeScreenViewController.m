@@ -15,6 +15,8 @@
 
 @interface CHHomeScreenViewController ()
 
+@property (nonatomic, retain) id hopsUpdatedNotification;
+
 @end
 
 @implementation CHHomeScreenViewController
@@ -28,6 +30,7 @@
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -46,8 +49,47 @@
     
     [_scrollView setContentSize:CGSizeMake(340,470)];
     
+    self.hopsUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_HOPS_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
+        [self updateOtherHopsSection];
+    }];
+    
     [[CHHopsManager instance] refreshHops];
+    [self updateOtherHopsSection];
 }
+
+
+- (void) updateOtherHopsSection {
+    int otherHopsCount = [[CHHopsManager instance].otherHops count];
+    if (otherHopsCount > 0) {
+        self.otherHopsIndicator.hidden = YES;
+        
+        self.firstHopContainer.hidden = NO;
+        self.firstHopNameLabel.text = [[CHHopsManager instance].otherHops[0] name];
+        self.firstHopPrizeLabel.text = [NSString stringWithFormat:@"$%i", [[[CHHopsManager instance].otherHops[0] jackpot] intValue]];
+
+        if (otherHopsCount > 1) {
+            self.secondHopContainer.hidden = NO;
+            self.secondHopNameLabel.text = [[CHHopsManager instance].otherHops[1] name];
+            self.secondHopPrizeLabel.text = [NSString stringWithFormat:@"$%i", [[[CHHopsManager instance].otherHops[1] jackpot] intValue]];
+        } else {
+            self.secondHopContainer.hidden = YES;
+        }
+        
+        if (otherHopsCount > 2) {
+            self.otherHopsCountLabel.hidden = NO;
+            self.otherHopsCountLabel.text = [NSString stringWithFormat:@"%i more...", otherHopsCount - 2];
+        } else {
+            self.otherHopsCountLabel.hidden = YES;
+        }
+        
+    } else {
+        self.firstHopContainer.hidden = YES;
+        self.secondHopContainer.hidden = YES;
+        self.otherHopsCountLabel.hidden = YES;
+        self.otherHopsIndicator.hidden = NO;
+    }
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO animated:animated];
@@ -85,6 +127,7 @@
     [self setBannerImView:nil];
     [self setScrollView:nil];
     [self setMenuButton:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self.hopsUpdatedNotification];
     [super viewDidUnload];
 }
 

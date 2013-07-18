@@ -162,6 +162,7 @@
     [self setRankLabel:nil];
     [self setGrandPrizeLabel:nil];
     [self setHopTitleLabel:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self.hopsTasksUpdatedNotification];
     [super viewDidUnload];
 }
 
