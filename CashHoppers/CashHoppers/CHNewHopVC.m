@@ -231,6 +231,7 @@
 -(BOOL)resignWinnerButton
 {
     winnterButton.hidden = YES;
+    return YES;
 }
 
 @end

@@ -11,6 +11,7 @@
 #import "MHCustomTabBarController.h"
 #import "ECSlidingViewController.h"
 #import "CHMenuSlidingVC.h"
+#import "CHHopsManager.h"
 
 @interface CHHomeScreenViewController ()
 
@@ -44,6 +45,8 @@
     [menuButton addTarget:self action:@selector(menuTapped:) forControlEvents:UIControlEventTouchUpInside];
     
     [_scrollView setContentSize:CGSizeMake(340,470)];
+    
+    [[CHHopsManager instance] refreshHops];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

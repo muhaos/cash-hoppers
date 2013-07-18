@@ -11,10 +11,12 @@
 #import "CHTradeShowEntryVC.h"
 #import <CoreText/CoreText.h>
 #import "CHNewHopVC.h"
+#import "CHHopsManager.h"
 
 @interface CHTradeShowMultiHopVC ()
 
 @property (assign, nonatomic) BOOL oldNavBarStatus;
+@property (nonatomic, retain) id hopsTasksUpdatedNotification;
 
 @end
 
@@ -34,11 +36,18 @@
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
     self.navigationItem.leftBarButtonItem = backButton;
     
-    self.hopTitleLabel.text = @"NBM TRADE SHOW HOP - 6/4/13";
+    self.hopTitleLabel.text = self.currentHop.name;
     self.hopImageView.image = [UIImage imageNamed:@"image_nbm_show.png"];
     self.scoreLabel.text = @"550 pts";
     self.rankLabel.text = @"3 of 46";
-    self.grandPrizeLabel.text = @"$ 550";
+    self.grandPrizeLabel.text = [NSString stringWithFormat:@"$%i", [self.currentHop.jackpot intValue]];
+    
+    self.hopsTasksUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_HOPS_TASKS_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
+        // refresh
+        if (note.object == self.currentHop) {
+            [self.multiHopTable reloadData];
+        }
+    }];
 }
 
 
@@ -75,17 +84,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return 1;
-    } else {
-        return 3;
-    }
+    return [self.currentHop.tasks count];
 }
 
 
@@ -99,32 +104,26 @@
     static NSString *completeHopsCellIdentifier = @"complete_cell";
     static NSString *notCompleteHopsCellIdentifier = @"not_complete_cell";
     
-    if (indexPath.section == 0) {
-        CHTradeShowMultiHopCell *cell = (CHTradeShowMultiHopCell*) [tableView dequeueReusableCellWithIdentifier:completeHopsCellIdentifier];
+    CHHopTask* hopTask = [self.currentHop.tasks objectAtIndex:indexPath.row];
+    CHTradeShowMultiHopCell *cell = nil;
+    
+    if (false) { // there must be check of hop task completion
         
-        [[cell compTextView] setText:@"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu."];
-        
-        NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:[cell compTextView].text];
-        [attString setAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:[UIFont systemFontSize]]} range:(NSRange){0,11}];
-        [attString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:102.0f/256 green:102.0f/256 blue:102.0f/256 alpha:1.0f] range:NSMakeRange(0,11)];
-        [cell compTextView].attributedText = attString;
-        
+        cell = (CHTradeShowMultiHopCell*) [tableView dequeueReusableCellWithIdentifier:completeHopsCellIdentifier];
+        [[cell compTextView] setText:hopTask.text];
         [[cell compVerticalIndicatorImageView] setImage:[UIImage imageNamed:@"vertical_indicator_green"]];
         [[cell completeIndicatorImageView] setImage:[UIImage imageNamed:@"horizontal_indicator_green"]];
-        return cell;
-    } else if (indexPath.section == 1) {
-        CHTradeShowMultiHopCell *cell = (CHTradeShowMultiHopCell*) [tableView dequeueReusableCellWithIdentifier:notCompleteHopsCellIdentifier];
-        
-        [[cell notCompTextView] setText:@"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu."];
-        NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:[cell notCompTextView].text];
-        [attString setAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:[UIFont systemFontSize]]} range:(NSRange){0,11}];
-        [attString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:102.0f/256 green:102.0f/256 blue:102.0f/256 alpha:1.0f] range:NSMakeRange(0,11)];
-        [cell notCompTextView].attributedText = attString;
-        [[cell notCompVerticalIndicatorImageView] setImage:[UIImage imageNamed:@"your_indicator_cell.png"]];
-        return cell;
+
     } else {
-        return nil;
+        
+        cell = (CHTradeShowMultiHopCell*) [tableView dequeueReusableCellWithIdentifier:notCompleteHopsCellIdentifier];
+        [[cell notCompTextView] setText:hopTask.text];
+        [[cell notCompVerticalIndicatorImageView] setImage:[UIImage imageNamed:@"your_indicator_cell.png"]];
+
     }
+    
+
+    return cell;
 }
 
 
@@ -149,7 +148,6 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"new_hop"]) {
-        segue.destinationViewController;
         CHNewHopVC* c = (CHNewHopVC*)segue.destinationViewController;
         c.view;
         [c resignWinnerButton];

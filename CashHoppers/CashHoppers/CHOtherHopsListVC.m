@@ -12,10 +12,12 @@
 #import "MHCustomTabBarController.h"
 #import "CHTradeShowEntryVC.h"
 #import "CHHopsManager.h"
+#import "CHTradeShowMultiHopVC.h"
 
 @interface CHOtherHopsListVC ()
 
 @property (assign, nonatomic) BOOL oldNavBarStatus;
+@property (nonatomic, retain) id hopsUpdatedNotification;
 
 @end
 
@@ -34,10 +36,13 @@
     backBtn.frame = CGRectMake(0, 0, 20, 20);
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
     self.navigationItem.leftBarButtonItem = backButton;
-    
     self.navigationItem.title = @"CASHH HOPPERS";
     
-    [[CHHopsManager instance] refreshHops];
+    self.hopsUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_HOPS_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
+        // refresh
+        [self.otherHopsTable reloadData];
+    }];
+
 }
 
 
@@ -75,13 +80,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 1;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [[CHHopsManager instance].otherHops count];
 }
 
 
@@ -96,38 +101,40 @@
     static NSString *previewHopsCellIdentifier = @"preview_hops_list_cell";
     static NSString *joinHopsCellIdentifier = @"join_hops_list_cell";
 
-    if (indexPath.section == 0) {
-        CHOtherHopsListCell *cell = (CHOtherHopsListCell*) [tableView dequeueReusableCellWithIdentifier:completeHopsCellIdentifier];
+    CHHop* hop = [CHHopsManager instance].otherHops[indexPath.row];
+    CHOtherHopsListCell *cell = nil;
+    
+    if ([hop.close boolValue]) {
+
+        // completed hop
+        cell = (CHOtherHopsListCell*) [tableView dequeueReusableCellWithIdentifier:completeHopsCellIdentifier];
+        cell.currentHop = hop;
+        [cell configureCompletedHop];
         
-        [[cell nameHopLabel] setText:@"Memorial Weekend HOP:"];
-        [[cell dateHopLabel] setText:@"5/24 - 5/26"];
-        [[cell namePrizeLabel] setText:@"Grand Prize:"];
-        [[cell countPrizeLabel] setText:@"$100"];
-        [[cell verticalIndicatorImageView] setImage:[UIImage imageNamed:@"vertical_indicator_green"]];
-        [[cell horizontalIndicatorImageView] setImage:[UIImage imageNamed:@"horizontal_indicator_green"]];
-        return cell;
-    } else if (indexPath.section == 1) {
-        CHOtherHopsListCell *cell = (CHOtherHopsListCell*) [tableView dequeueReusableCellWithIdentifier:previewHopsCellIdentifier];
+    } else if (![hop.code isEqualToString:@""]) {
+
+        // hop with password
+        cell = (CHOtherHopsListCell*) [tableView dequeueReusableCellWithIdentifier:joinHopsCellIdentifier];
+        cell.currentHop = hop;
+        [cell configureHopWithCode];
         
-        [[cell prewNameHopLabel] setText:@"Lowes Summer HOP:"];
-        [[cell prewDateHopLabel] setText:@"July"];
-        [[cell prewPrizeHopLabel] setText:@"Grand Prize:"];
-        [[cell prewCountHopLabel] setText:@"$1000"];
-        [[cell prewFeeLabel] setText:@"Entry Fee:"];
-        [[cell prewCountFeeLabel] setText:@"$10"];
-        [[cell prewVerticalIndicator] setImage:[UIImage imageNamed:@"av_indicator_cell"]];
-        return cell;
+    } else if (![hop.price isEqualToString:@""]) {
+
+        // hop with entry fee
+        cell = (CHOtherHopsListCell*) [tableView dequeueReusableCellWithIdentifier:previewHopsCellIdentifier];
+        cell.currentHop = hop;
+        [cell configureHopWithFee];
+
     } else {
-        CHOtherHopsListCell *cell = (CHOtherHopsListCell*) [tableView dequeueReusableCellWithIdentifier:joinHopsCellIdentifier];
-        
-        [[cell joinNameHopLabel] setText:@"NBM Trade Show HOP:"];
-        [[cell joinDateHopLabel] setText:@"05/13/2013"];
-        [[cell joinPrizeHopLabel] setText:@"Grand Prize:"];
-        [[cell joinCountHopLabel] setText:@"$500"];
-        [[cell joinVerticalIndicatorImageView] setImage:[UIImage imageNamed:@"av_indicator_cell"]];
-        return cell;
+
+        // free
+        cell = (CHOtherHopsListCell*) [tableView dequeueReusableCellWithIdentifier:completeHopsCellIdentifier];
+        cell.currentHop = hop;
+        [cell configureFreeHop];
+
     }
-    return nil;
+    
+    return cell;
 }
 
 
@@ -138,16 +145,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[CHTradeShowEntryVC sharedTradeShowEntryVC] showInController:self
-                                                         withText:@"NBM TRADE SHOW HOP"
-                                                        withImage:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"image_nbm_show.png"]]];
-    [self performSegueWithIdentifier:@"tradeShowMulti" sender:self];
+//    [[CHTradeShowEntryVC sharedTradeShowEntryVC] showInController:self
+//                                                         withText:@"NBM TRADE SHOW HOP"
+//                                                        withImage:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"image_nbm_show.png"]]];
+    [self performSegueWithIdentifier:@"tradeShowMulti" sender:[CHHopsManager instance].otherHops[indexPath.row]];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"tradeShowMulti"]) {
+        CHTradeShowMultiHopVC* vc = segue.destinationViewController;
+        vc.currentHop = sender;
+    }
+    
 }
 
 
 - (void)viewDidUnload {
     [self setOtherHopsTable:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self.hopsUpdatedNotification];
     [super viewDidUnload];
 }
 @end

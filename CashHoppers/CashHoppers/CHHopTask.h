@@ -10,4 +10,9 @@
 
 @interface CHHopTask : CHBaseModel
 
+@property (nonatomic, strong) NSNumber* identifier;
+@property (nonatomic, strong) NSString* text;
+
+- (void) updateFromDictionary:(NSDictionary*) dic;
+
 @end
