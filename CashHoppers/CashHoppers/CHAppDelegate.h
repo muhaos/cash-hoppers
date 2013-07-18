@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "CHHomeScreenViewController.h"
-#import "GPPURLHandler.h"
 #import "SA_OAuthTwitterEngine.h"
 
 extern SA_OAuthTwitterEngine	*sa_OAuthTwitterEngine;

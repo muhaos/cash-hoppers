@@ -11,7 +11,9 @@
 #import <Accounts/Accounts.h>
 #import <Twitter/Twitter.h>
 #import "GTLPlusConstants.h"
-
+#import "GTLServicePlus.h"
+#import "GTLQueryPlus.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface CHStartVC ()
 
@@ -47,9 +49,47 @@
     NSLog(@"Received error %@ and auth object %@",error, auth);
 }
 
+- (void)signOut {
+    [[GPPSignIn sharedInstance] signOut];
+}
+
+- (void)disconnect {
+    [[GPPSignIn sharedInstance] disconnect];
+}
+
+- (void)didDisconnectWithError:(NSError *)error {
+    if (error) {
+        NSLog(@"Received error %@", error);
+    } else {
+        // Пользователь вышел и отключился.
+        // Удалим данные пользователя в соответствии с Условиями использования Google+.
+    }
+}
 
 
-//for twitter
+//-(void) date {
+//    
+//    CHAppDelegate *appDelegate = [[CHAppDelegate alloc] init];
+//    GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
+//    plusService.retryEnabled = YES;
+//    [plusService setAuthorizer:appDelegate.authentication];
+//    GTLQueryPlus *query = [GTLQueryPlus queryForPeopleGetWithUserId:@"me"];
+//    
+//    [plusService executeQuery:query
+//            completionHandler:^(GTLServiceTicket *ticket,
+//                                GTLPlusPerson *person,
+//                                NSError *error) {
+//                if (error) {
+//                    GTMLoggerError(@"Error: %@", error);
+//                } else {
+//                    // Извлечем отображаемое имя и содержание раздела "Обо мне"
+//                    [person retain];
+//                    NSString *description = [NSString stringWithFormat:
+//                                             @"%@\n%@", person.displayName,
+//                                             person.aboutMe];
+//                }
+//            }];
+//}
 
 
 
@@ -61,11 +101,27 @@
 }
 
 
+
+////for fb
 - (IBAction)loginWithFBTapped:(id)sender {
     CHAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate openSession];
 }
 
+//- (void)populateUserDetails
+//{
+//    if (FBSession.activeSession.isOpen) {
+//        [[FBRequest requestForMe] startWithCompletionHandler:
+//         ^(FBRequestConnection *connection,
+//           *NSDictionary&lt;FBGraphUser> *user,
+//           NSError *error) {
+//             if (!error) {
+//                 self.userNameLabel.text = user.name;
+//                 self.userProfileImage.profileID = user.id;
+//             }
+//         }];
+//    }
+//}
 
 - (void)loginFailed
 {
@@ -73,6 +129,8 @@
     // stop the spinner.
 }
 
+
+//for twitter
 
 - (IBAction)loginWithTwitterTapped:(id)sender {
 }

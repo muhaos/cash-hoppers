@@ -9,8 +9,9 @@
 #define CH_GRAY_COLOR [UIColor colorWithWhite:.9 alpha:.8]
 
 #import <UIKit/UIKit.h>
+#import "GPPShare.h"
 
-@interface CHNewHopVC : UIViewController <UITextViewDelegate,UIImagePickerControllerDelegate>
+@interface CHNewHopVC : UIViewController <UITextViewDelegate,UIImagePickerControllerDelegate, GPPShareDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) IBOutlet UILabel *charCountLabel;
@@ -27,6 +28,7 @@
 - (IBAction)menuTapped:(id)sender;
 - (IBAction)shareWithFacebookTapped:(id)sender;
 - (IBAction)shareWithTwitterTapped:(id)sender;
+- (IBAction)shareWithGPlusTapped:(id)sender;
 
 -(BOOL)resignWinnerButton;
 

@@ -10,6 +10,8 @@
 #import "MHCustomTabBarController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "CHStartVC.h"
+#import "GPPDeepLink.h"
+#import "GPPURLHandler.h"
 
 #define kOAuthConsumerKey @"5qks8xAYk7bv5zmS2rsYA";
 #define kOAuthConsumerSecret @"NNaZFVoMthSAwdNMguebPM6akgJS61fCNq1Da5woc8";
@@ -40,6 +42,7 @@ SA_OAuthTwitterEngine	*sa_OAuthTwitterEngine;
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
     
+    //fb
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         // Yes, so just open the session (this won't display any UX).
         [self openSession];
@@ -48,9 +51,15 @@ SA_OAuthTwitterEngine	*sa_OAuthTwitterEngine;
         [self showLoginView];
     }
     
+    //tw
     sa_OAuthTwitterEngine = [[SA_OAuthTwitterEngine alloc] initOAuthWithDelegate: self];
 	sa_OAuthTwitterEngine.consumerKey = kOAuthConsumerKey;
 	sa_OAuthTwitterEngine.consumerSecret = kOAuthConsumerSecret;
+    
+    ///gp
+//    [GPPSignIn sharedInstance].clientID = kClientId;
+//    [GPPDeepLink setDelegate:self];
+//    [GPPDeepLink readDeepLinkAfterInstall];
 }
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -635,7 +635,7 @@
                                             <action selector="pictureTapped:" destination="gG8-FJ-thx" eventType="touchUpInside" id="Ppe-Zs-zfp"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bMk-UQ-9Os" userLabel="message - Button">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bMk-UQ-9Os" userLabel="message - Button">
                                         <rect key="frame" x="277" y="41" width="23" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -646,6 +646,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="R0G-5h-eUA" kind="custom" identifier="messages" customClass="MHTabBarSegue" id="Bx5-i5-BTM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1986,7 +1989,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="P9F-Bo-Abq">
-                                        <rect key="frame" x="180" y="293" width="45" height="35"/>
+                                        <rect key="frame" x="198" y="293" width="45" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="facebook_icon.png">
@@ -2001,7 +2004,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bmT-Kq-SDx">
-                                        <rect key="frame" x="238" y="293" width="45" height="35"/>
+                                        <rect key="frame" x="251" y="293" width="45" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="twitter_icon.png">
@@ -2028,6 +2031,21 @@
                                         </state>
                                         <connections>
                                             <segue destination="Z75-u4-mIE" kind="push" id="9r5-Pg-dtQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lSf-bk-UuK">
+                                        <rect key="frame" x="145" y="293" width="45" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="gp" image="gp_icon.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="shareWithGPlusTapped:" destination="R7Q-Wk-aGG" eventType="touchUpInside" id="KKu-o2-ecJ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2159,7 +2177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xp-ku-HUk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613" y="1361"/>
+            <point key="canvasLocation" x="-123" y="1401"/>
         </scene>
         <!--Menu SlidingVC-->
         <scene sceneID="Hwo-MI-aaI">
@@ -2257,7 +2275,121 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNK-pM-GZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1190" y="1361"/>
+            <point key="canvasLocation" x="-514" y="1401"/>
+        </scene>
+        <!--MessagesVC-->
+        <scene sceneID="8dx-hE-8g3">
+            <objects>
+                <viewController id="80p-Jo-zKg" customClass="CHMessagesVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eDK-SZ-d2D">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Iyl-5B-8hf">
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Messages">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="messagesTapped:" destination="80p-Jo-zKg" eventType="touchUpInside" id="BwA-ev-yqk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RNB-6S-Nk3">
+                                <rect key="frame" x="159" y="0.0" width="161" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Notifications">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="notificationsTapped:" destination="80p-Jo-zKg" eventType="touchUpInside" id="Dpt-jZ-DFh"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2V2-el-PU0">
+                                <rect key="frame" x="0.0" y="45" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="messages_cell_id" rowHeight="104" id="f9f-RF-wOn" customClass="CHMessagesCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="104"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="103"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="ygx-Nl-LL0">
+                                                    <rect key="frame" x="20" y="8" width="44" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="nVn-aP-Iw7">
+                                                    <rect key="frame" x="199" y="13" width="21" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4D1-kr-4Y4">
+                                                    <rect key="frame" x="72" y="19" width="115" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xWp-S7-JHM">
+                                                    <rect key="frame" x="226" y="14" width="84" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.66274509803921566" green="0.66274509803921566" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, " id="5xR-Vt-jeO">
+                                                    <rect key="frame" x="10" y="55" width="228" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="image_separator.png" id="7Id-IA-4PI">
+                                                    <rect key="frame" x="0.0" y="103" width="320" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="likeCommentImageView" destination="nVn-aP-Iw7" id="g7f-LC-F59"/>
+                                            <outlet property="messageTextView" destination="5xR-Vt-jeO" id="fTA-eg-c7u"/>
+                                            <outlet property="nameLabel" destination="4D1-kr-4Y4" id="36Q-5o-N4F"/>
+                                            <outlet property="photoImageView" destination="ygx-Nl-LL0" id="jEK-Ls-6ai"/>
+                                            <outlet property="timeLabel" destination="xWp-S7-JHM" id="849-c1-lfV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="80p-Jo-zKg" id="LbP-NP-zF3"/>
+                                    <outlet property="delegate" destination="80p-Jo-zKg" id="3tD-Rf-VFZ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="b1Y-7A-WM0"/>
+                    <connections>
+                        <outlet property="messagesButton" destination="Iyl-5B-8hf" id="zOx-Ch-tRS"/>
+                        <outlet property="messagesTable" destination="2V2-el-PU0" id="Asn-X6-tGH"/>
+                        <outlet property="notificationsButton" destination="RNB-6S-Nk3" id="9Ub-Nn-UXP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KuY-oZ-cAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2320" y="1796"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b9H-rL-dBA">
@@ -2318,6 +2450,24 @@
             </objects>
             <point key="canvasLocation" x="1799" y="-960"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="52O-D0-yPi">
+            <objects>
+                <navigationController id="R0G-5h-eUA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="42F-zq-JAp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="80p-Jo-zKg" kind="relationship" relationship="rootViewController" id="Sp2-TK-HxG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Lg-kR-zAm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1794" y="1796"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Take-Photo.png" width="191" height="180"/>
@@ -2339,6 +2489,7 @@
         <image name="facebook_icon.png" width="96" height="76"/>
         <image name="feed_icon.png" width="42" height="42"/>
         <image name="google_logo.png" width="320" height="108"/>
+        <image name="gp_icon.png" width="512" height="512"/>
         <image name="green_button.png" width="234" height="109"/>
         <image name="home_icon.png" width="47" height="41"/>
         <image name="hop_icon.png" width="77" height="99"/>
@@ -2481,6 +2632,26 @@
                 <relationship kind="outlet" name="menuTable" candidateClass="UITableView"/>
             </relationships>
         </class>
+        <class className="CHMessagesCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHMessagesCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="likeCommentImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="messageTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CHMessagesVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHMessagesVC.h"/>
+            <relationships>
+                <relationship kind="action" name="messagesTapped:"/>
+                <relationship kind="action" name="notificationsTapped:"/>
+                <relationship kind="outlet" name="messagesButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="messagesTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="notificationsButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
         <class className="CHNewHopVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHNewHopVC.h"/>
             <relationships>
@@ -2488,6 +2659,7 @@
                 <relationship kind="action" name="photoTapped:"/>
                 <relationship kind="action" name="resignResponder:"/>
                 <relationship kind="action" name="shareWithFacebookTapped:"/>
+                <relationship kind="action" name="shareWithGPlusTapped:"/>
                 <relationship kind="action" name="shareWithTwitterTapped:"/>
                 <relationship kind="action" name="submitPressed:"/>
                 <relationship kind="outlet" name="charCountLabel" candidateClass="UILabel"/>
