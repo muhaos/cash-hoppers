@@ -231,7 +231,6 @@
                     <connections>
                         <outlet property="emailField" destination="UXK-id-xEh" id="Fyo-st-KAv"/>
                         <outlet property="passwordField" destination="tPG-97-Oow" id="VXH-qc-alk"/>
-                        <segue destination="cu8-3c-EED" kind="push" identifier="tabba" customClass="" id="k6X-sW-pNN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="txv-RA-Eqy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2300,26 +2299,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ptp-lV-ToW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2341" y="899"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="3u6-Uf-YjE">
-            <objects>
-                <navigationController storyboardIdentifier="mainNavController" navigationBarHidden="YES" id="cu8-3c-EED" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="L1u-Ht-CzH"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="76P-6e-juC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="gG8-FJ-thx" kind="relationship" relationship="rootViewController" id="s6U-JJ-7Ln"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bhF-jV-AOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1260" y="-189"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="52O-D0-yPi">

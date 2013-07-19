@@ -32,6 +32,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     DELEGATE.tabBarController = self;
+    [self performSegueWithIdentifier:@"homeScreen" sender:nil];
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -56,9 +57,9 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    if (self.childViewControllers.count < 1) {
-        [self performSegueWithIdentifier:@"homeScreen" sender:[_buttonView.subviews objectAtIndex:1]];
-    }
+//    if (self.childViewControllers.count < 1) {
+//        //[self performSegueWithIdentifier:@"homeScreen" sender:[_buttonView.subviews objectAtIndex:1]];
+//    }
 }
 
 
