@@ -56,18 +56,20 @@ SA_OAuthTwitterEngine	*sa_OAuthTwitterEngine;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:[NSBundle mainBundle]];
 
     self.menuContainerVC = [storyboard instantiateViewControllerWithIdentifier:@"MFSideMenuContainerViewController"];
-    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"mainNavController"];
+    UIViewController *tabBarVC = [storyboard instantiateViewControllerWithIdentifier:@"tabBar"];
     CHMenuSlidingVC *leftMenu = [storyboard instantiateViewControllerWithIdentifier:@"leftSideMenuViewController"];
     
-    [menuContainerVC setCenterViewController:navigationController];
+    [menuContainerVC setCenterViewController:tabBarVC];
     [menuContainerVC setLeftMenuViewController:leftMenu];
     
-    self.tabBarController = [[[[self window]rootViewController]storyboard]instantiateViewControllerWithIdentifier:@"tabBar"];
+    //self.tabBarController = [[[[self window]rootViewController]storyboard]instantiateViewControllerWithIdentifier:@"tabBar"];
     NSString *a_token = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
     //    NSLog(@"token=%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"]);
     if(a_token){
         self.window.rootViewController = self.menuContainerVC;
     }
+    
+    
     return YES;
 
 }
