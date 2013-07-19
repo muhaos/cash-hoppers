@@ -21,13 +21,14 @@ enum CHView{
     CHMessage
 };
 
-@class MHCustomTabBarController, ACAccount;
+@class MHCustomTabBarController, ACAccount,MFSideMenuContainerViewController;
 @interface CHAppDelegate : UIResponder <UIApplicationDelegate, SA_OAuthTwitterEngineDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) MHCustomTabBarController *tabBarController;
 @property (strong, nonatomic) CHHomeScreenViewController *homeScreenVC;
 @property (strong, nonatomic) UINavigationController* navController;
+@property (strong, nonatomic) MFSideMenuContainerViewController *menuContainerVC;
 
 -(void)switchViewTo:(enum CHView)view;
 -(void)openSession;

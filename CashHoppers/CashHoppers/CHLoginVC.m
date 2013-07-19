@@ -9,6 +9,8 @@
 #import "CHLoginVC.h"
 #import "CHLoadingVC.h"
 #import "CHAPIClient.h"
+#import "CHAppDelegate.h"
+
 @interface CHLoginVC ()
 
 @property (assign, nonatomic) BOOL oldNavBarStatus;
@@ -147,7 +149,8 @@
 }
 
 -(void)goToTabBar{
-    [self performSegueWithIdentifier:@"tabbar" sender:self];
+//    [self performSegueWithIdentifier:@"tabbar" sender:self];
+    [self presentViewController:DELEGATE.menuContainerVC animated:YES completion:nil];
 }
 
 -(IBAction)hideKeyboard:(id)sender{

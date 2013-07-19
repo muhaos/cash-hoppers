@@ -12,6 +12,7 @@
 #import "ECSlidingViewController.h"
 #import "CHMenuSlidingVC.h"
 #import "CHHopsManager.h"
+#import "MFSideMenuContainerViewController.h"
 
 @interface CHHomeScreenViewController ()
 
@@ -40,9 +41,9 @@
     self.view.layer.shadowRadius = 10.0f;
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;
     
-    if (![self.slidingViewController.underLeftViewController isKindOfClass:[CHMenuSlidingVC class]]) {
-        self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
-    }
+//    if (![self.slidingViewController.underLeftViewController isKindOfClass:[CHMenuSlidingVC class]]) {
+//        self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+//    }
 //    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
     
     [menuButton addTarget:self action:@selector(menuTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -133,7 +134,9 @@
 
 
 - (IBAction)menuTapped:(id)sender {
-    [self.slidingViewController anchorTopViewTo:ECRight];
+//    [self.slidingViewController anchorTopViewTo:ECRight];
+    [DELEGATE.menuContainerVC toggleLeftSideMenuCompletion:nil];      
+    
 }
 
 
