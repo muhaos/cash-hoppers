@@ -34,10 +34,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.cashHoppers</string>
+			<string>com.muhaos.cashhoppers</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.cashHoppers</string>
+				<string>com.muhaos.cashhoppers</string>
 			</array>
 		</dict>
 	</array>
