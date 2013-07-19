@@ -57,9 +57,9 @@ SA_OAuthTwitterEngine	*sa_OAuthTwitterEngine;
 	sa_OAuthTwitterEngine.consumerSecret = kOAuthConsumerSecret;
     
     ///gp
-//    [GPPSignIn sharedInstance].clientID = kClientId;
-//    [GPPDeepLink setDelegate:self];
-//    [GPPDeepLink readDeepLinkAfterInstall];
+    [GPPSignIn sharedInstance].clientID = kClientId;
+    [GPPDeepLink setDelegate:self];
+    [GPPDeepLink readDeepLinkAfterInstall];
 }
 
 

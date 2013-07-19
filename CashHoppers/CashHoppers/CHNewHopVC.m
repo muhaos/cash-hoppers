@@ -14,6 +14,7 @@
 #import "GPPShare.h"
 #import "GPPSignIn.h"
 #import "CHStartVC.h"
+#import "CHOptionalPopupSharingVC.h"
 
 @interface CHNewHopVC ()
 
@@ -210,6 +211,9 @@
 
 
 - (IBAction)shareWithFacebookTapped:(id)sender {
+    [[CHOptionalPopupSharingVC sharedOptionalPopupVC] showInController:self withText:@"Sharing to facebook will get you"];
+
+    
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
     {
         SLComposeViewController *tw = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
@@ -221,6 +225,8 @@
 
 
 - (IBAction)shareWithTwitterTapped:(id)sender {
+    [[CHOptionalPopupSharingVC sharedOptionalPopupVC] showInController:self withText:@"Sharing to twitter will get you"];
+    
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {
         SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
@@ -230,12 +236,14 @@
     }
 }
 
+
 - (IBAction)shareWithGPlusTapped:(id)sender {
-    id<GPPShareBuilder> shareBuilder = [[GPPShare sharedInstance] shareDialog];
+    [[CHOptionalPopupSharingVC sharedOptionalPopupVC] showInController:self withText:@"Sharing to google plus will get you"];
     
-    [shareBuilder setTitle:@"Some title"
-               description:@"Some description"
-              thumbnailURL:[NSURL URLWithString:@"http://www.gplusinfo.com/wp-content/uploads/2012/02/google-Plus-icon.png"]];
+    [GPPShare sharedInstance].delegate = self;
+    id<GPPShareBuilder> shareBuilder = [[GPPShare sharedInstance] shareDialog];
+    [shareBuilder setPrefillText:@"text"];
+//    [shareBuilder setContentDeepLinkID:kClientId];
     [shareBuilder open];
 }
 

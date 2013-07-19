@@ -32,21 +32,26 @@
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg_gradient"]];
     self.view.backgroundColor = background;
     
+    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
     GPPSignIn *signIn = [GPPSignIn sharedInstance];
     signIn.clientID = kClientId;
     signIn.scopes = [NSArray arrayWithObjects:
                      kGTLAuthScopePlusLogin, // определяется в файле GTLPlusConstants.h
                      nil];
+    signIn.shouldFetchGoogleUserEmail = YES;
     signIn.delegate = self;
     [signIn trySilentAuthentication];
 }
 
 
 //for google+
+
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
-                   error: (NSError *) error
-{
-    NSLog(@"Received error %@ and auth object %@",error, auth);
+                   error: (NSError *)error {
+    if(!error) {
+        // Получим адрес электронной почты.
+ //       NSLog(@"%@", signIn.authentication.userEmail);
+    }
 }
 
 - (void)signOut {
@@ -66,8 +71,32 @@
     }
 }
 
+//-(void)dateForGp {
+//    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
+//    GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
+//    plusService.retryEnabled = YES;
+//    [plusService setAuthorizer:appDelegate.authentication];
+//    GTLQueryPlus *query = [GTLQueryPlus queryForPeopleGetWithUserId:@"me"];
+//    
+//    [plusService executeQuery:query
+//            completionHandler:^(GTLServiceTicket *ticket,
+//                                GTLPlusPerson *person,
+//                                NSError *error) {
+//                if (error) {
+//                    GTMLoggerError(@"Error: %@", error);
+//                } else {
+//                    // Извлечем отображаемое имя и содержание раздела "Обо мне"
+//                    [person retain];
+//                    NSString *description = [NSString stringWithFormat:
+//                                             @"%@\n%@", person.displayName,
+//                                             person.aboutMe];
+//                }
+//            }];
+//}
 
-//-(void) date {
+
+
+//-(void) dateForFb {
 //    
 //    CHAppDelegate *appDelegate = [[CHAppDelegate alloc] init];
 //    GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
