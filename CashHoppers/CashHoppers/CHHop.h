@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSNumber* close; //BOOL
 @property (nonatomic, strong) NSString* event;
 
-
+@property (nonatomic, strong) NSArray* tasks; // CHHopTask
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
 

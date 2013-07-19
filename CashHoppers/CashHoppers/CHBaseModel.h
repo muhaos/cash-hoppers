@@ -10,4 +10,6 @@
 
 @interface CHBaseModel : NSObject
 
+- (NSString*) safeStringFrom:(NSString*) inStr defaultValue:(NSString*) defStr;
+
 @end

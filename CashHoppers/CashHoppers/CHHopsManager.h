@@ -12,12 +12,17 @@
 
 // messages
 #define CH_HOPS_UPDATED @"CH_HOPS_UPDATED"
+#define CH_HOPS_TASKS_UPDATED @"CH_HOPS_TASKS_UPDATED"
 
 
 @interface CHHopsManager : CHBaseManager
 
 + (CHHopsManager*) instance;
 
+@property (nonatomic, retain) CHHop* dailyHop;
+@property (nonatomic, retain) NSMutableArray* otherHops;
+
 - (void) refreshHops;
+
 
 @end

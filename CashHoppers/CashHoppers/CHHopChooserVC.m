@@ -48,7 +48,7 @@
 
 
 - (IBAction)dailyHopTapped:(id)sender {
-    [DELEGATE switchViewTo:CHFeed];
+    //[DELEGATE switchViewTo:CHFeed];
     [self.view removeFromSuperview];
 }
 
@@ -56,7 +56,7 @@
 - (IBAction)specialHopsTapped:(id)sender {
 //    [self.parentViewController presentModalViewController:otherHops animated:YES];\
 //    [DELEGATE.tabBarController.container.= otherHops.view;
-    [DELEGATE.tabBarController performSegueWithIdentifier:@"otherHops" sender:[[UIButton alloc] init]];
+    //[DELEGATE.tabBarController performSegueWithIdentifier:@"otherHops" sender:[[UIButton alloc] init]];
      [self.view removeFromSuperview];
 
 }

@@ -10,4 +10,11 @@
 
 @implementation CHBaseModel
 
+- (NSString*) safeStringFrom:(NSString*) inStr defaultValue:(NSString*) defStr {
+    if (inStr == nil || [inStr isKindOfClass:[NSNull class]] || [inStr isEqualToString:@""]) {
+        return defStr;
+    }
+    return inStr;
+}
+
 @end

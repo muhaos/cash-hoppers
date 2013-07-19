@@ -12,6 +12,8 @@
 #import "CHStartVC.h"
 #import "GPPDeepLink.h"
 #import "GPPURLHandler.h"
+#import "CHMenuSlidingVC.h"
+#import "MFSideMenuContainerViewController.h"
 
 #define kOAuthConsumerKey @"5qks8xAYk7bv5zmS2rsYA";
 #define kOAuthConsumerSecret @"NNaZFVoMthSAwdNMguebPM6akgJS61fCNq1Da5woc8";
@@ -20,21 +22,18 @@ SA_OAuthTwitterEngine	*sa_OAuthTwitterEngine;
 
 @implementation CHAppDelegate
 @synthesize homeScreenVC, navController;
+@synthesize menuContainerVC;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
     // Override point for customization after application launch.
     
-    self.tabBarController = [[[[self window]rootViewController]storyboard]instantiateViewControllerWithIdentifier:@"tabBar"];
-    NSString *a_token = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
-//    NSLog(@"token=%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"]);
-    if(a_token){
-        self.window.rootViewController = self.tabBarController;
-    }
+   
 
-    return YES;
-    
+//    return YES;
+    /*
     self.homeScreenVC = [[CHHomeScreenViewController alloc]
                                initWithNibName:@"CHHomeSreenVC" bundle:nil];
     self.navController = [[UINavigationController alloc]
@@ -42,7 +41,6 @@ SA_OAuthTwitterEngine	*sa_OAuthTwitterEngine;
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
     
-    //fb
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         // Yes, so just open the session (this won't display any UX).
         [self openSession];
@@ -51,15 +49,32 @@ SA_OAuthTwitterEngine	*sa_OAuthTwitterEngine;
         [self showLoginView];
     }
     
-    //tw
     sa_OAuthTwitterEngine = [[SA_OAuthTwitterEngine alloc] initOAuthWithDelegate: self];
 	sa_OAuthTwitterEngine.consumerKey = kOAuthConsumerKey;
 	sa_OAuthTwitterEngine.consumerSecret = kOAuthConsumerSecret;
+    */
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:[NSBundle mainBundle]];
+
+    self.menuContainerVC = [storyboard instantiateViewControllerWithIdentifier:@"MFSideMenuContainerViewController"];
+    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"mainNavController"];
+    CHMenuSlidingVC *leftMenu = [storyboard instantiateViewControllerWithIdentifier:@"leftSideMenuViewController"];
     
-    ///gp
+    [menuContainerVC setCenterViewController:navigationController];
+    [menuContainerVC setLeftMenuViewController:leftMenu];
+    
+    self.tabBarController = [[[[self window]rootViewController]storyboard]instantiateViewControllerWithIdentifier:@"tabBar"];
+    NSString *a_token = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    //    NSLog(@"token=%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"]);
+    if(a_token){
+        self.window.rootViewController = self.menuContainerVC;
+    }
+
     [GPPSignIn sharedInstance].clientID = kClientId;
     [GPPDeepLink setDelegate:self];
     [GPPDeepLink readDeepLinkAfterInstall];
+
+    return YES;
+
 }
 
 

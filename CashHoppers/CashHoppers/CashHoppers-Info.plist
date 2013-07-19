@@ -45,6 +45,8 @@
 	<string>1.0</string>
 	<key>FacebookAppID</key>
 	<string>591578464198064</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>FacebookDisplayName</key>
 	<string>CashHoppers</string>
 	<key>LSRequiresIPhoneOS</key>

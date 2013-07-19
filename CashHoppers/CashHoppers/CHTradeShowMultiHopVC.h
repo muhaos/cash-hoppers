@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class CHHop;
+
 @interface CHTradeShowMultiHopVC : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *multiHopTable;
@@ -16,5 +18,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (strong, nonatomic) IBOutlet UILabel *rankLabel;
 @property (strong, nonatomic) IBOutlet UILabel *grandPrizeLabel;
+
+@property (strong, nonatomic) CHHop* currentHop;
 
 @end

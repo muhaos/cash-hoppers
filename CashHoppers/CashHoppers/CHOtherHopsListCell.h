@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class CHHop;
+
 @interface CHOtherHopsListCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *verticalIndicatorImageView;
@@ -32,6 +34,15 @@
 @property (strong, nonatomic) IBOutlet UIButton *joinButton;
 @property (strong, nonatomic) IBOutlet UIImageView *lockImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *joinVerticalIndicatorImageView;
+
+@property (strong, nonatomic) CHHop* currentHop;
+
+- (void) configureCompletedHop;
+- (void) configureHopWithFee;
+- (void) configureHopWithCode;
+- (void) configureFreeHop;
+
+
 
 - (IBAction)previewButtonTapped:(id)sender;
 - (IBAction)joinButtonTapped:(id)sender;
