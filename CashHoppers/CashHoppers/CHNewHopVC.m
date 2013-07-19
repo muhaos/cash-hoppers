@@ -11,6 +11,9 @@
 #import "ECSlidingViewController.h"
 #import "CHMenuSlidingVC.h"
 #import <Social/Social.h>
+#import "GPPShare.h"
+#import "GPPSignIn.h"
+#import "CHStartVC.h"
 
 @interface CHNewHopVC ()
 
@@ -227,11 +230,28 @@
     }
 }
 
+- (IBAction)shareWithGPlusTapped:(id)sender {
+    id<GPPShareBuilder> shareBuilder = [[GPPShare sharedInstance] shareDialog];
+    
+    [shareBuilder setTitle:@"Some title"
+               description:@"Some description"
+              thumbnailURL:[NSURL URLWithString:@"http://www.gplusinfo.com/wp-content/uploads/2012/02/google-Plus-icon.png"]];
+    [shareBuilder open];
+}
+
+
+- (void)finishedSharing: (BOOL)shared {
+    if (shared) {
+        NSLog(@"User successfully shared!");
+    } else {
+        NSLog(@"User didn't share.");
+    }
+}
+
 
 -(BOOL)resignWinnerButton
 {
-    winnterButton.hidden = YES;
-    return YES;
+    return  winnterButton.hidden = YES;
 }
 
 @end

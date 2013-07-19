@@ -136,6 +136,13 @@
 		AA4C1FD117904E920071D0F9 /* GTMObjC2Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4C1FA717904E910071D0F9 /* GTMObjC2Runtime.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AA4C1FD217904E920071D0F9 /* OpenInChromeController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4C1FA917904E910071D0F9 /* OpenInChromeController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AA4C1FD4179057B00071D0F9 /* google_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4C1FD3179057B00071D0F9 /* google_logo.png */; };
+		AA5505041797ED11009BF936 /* gp_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA5505031797ED11009BF936 /* gp_icon.png */; };
+		AA55050717982009009BF936 /* CHMessagesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA55050617982009009BF936 /* CHMessagesVC.m */; };
+		AA55050A17982551009BF936 /* CHMessagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA55050917982550009BF936 /* CHMessagesCell.m */; };
+		AA55050F17983620009BF936 /* button_messages_act.png in Resources */ = {isa = PBXBuildFile; fileRef = AA55050B1798361F009BF936 /* button_messages_act.png */; };
+		AA55051017983620009BF936 /* button_messages_n.png in Resources */ = {isa = PBXBuildFile; fileRef = AA55050C1798361F009BF936 /* button_messages_n.png */; };
+		AA55051117983620009BF936 /* button_notifications_act.png in Resources */ = {isa = PBXBuildFile; fileRef = AA55050D1798361F009BF936 /* button_notifications_act.png */; };
+		AA55051217983620009BF936 /* button_notifications_n.png in Resources */ = {isa = PBXBuildFile; fileRef = AA55050E17983620009BF936 /* button_notifications_n.png */; };
 		AA9991AA177329D7005A56EF /* CHResetPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9991A9177329D7005A56EF /* CHResetPasswordVC.m */; };
 		AA9991AC177332BD005A56EF /* button_sign_in.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9991AB177332BD005A56EF /* button_sign_in.png */; };
 		AA9991AF1773498B005A56EF /* CHRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9991AE1773498B005A56EF /* CHRegisterVC.m */; };
@@ -456,6 +463,15 @@
 		AA4C1FA817904E910071D0F9 /* OpenInChromeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenInChromeController.h; sourceTree = "<group>"; };
 		AA4C1FA917904E910071D0F9 /* OpenInChromeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenInChromeController.m; sourceTree = "<group>"; };
 		AA4C1FD3179057B00071D0F9 /* google_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google_logo.png; sourceTree = "<group>"; };
+		AA5505031797ED11009BF936 /* gp_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gp_icon.png; sourceTree = "<group>"; };
+		AA55050517982009009BF936 /* CHMessagesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHMessagesVC.h; path = CashHoppers/CHMessagesVC.h; sourceTree = "<group>"; };
+		AA55050617982009009BF936 /* CHMessagesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHMessagesVC.m; path = CashHoppers/CHMessagesVC.m; sourceTree = "<group>"; };
+		AA55050817982550009BF936 /* CHMessagesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHMessagesCell.h; path = CashHoppers/CHMessagesCell.h; sourceTree = "<group>"; };
+		AA55050917982550009BF936 /* CHMessagesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHMessagesCell.m; path = CashHoppers/CHMessagesCell.m; sourceTree = "<group>"; };
+		AA55050B1798361F009BF936 /* button_messages_act.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_messages_act.png; sourceTree = "<group>"; };
+		AA55050C1798361F009BF936 /* button_messages_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_messages_n.png; sourceTree = "<group>"; };
+		AA55050D1798361F009BF936 /* button_notifications_act.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_notifications_act.png; sourceTree = "<group>"; };
+		AA55050E17983620009BF936 /* button_notifications_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_notifications_n.png; sourceTree = "<group>"; };
 		AA9991A8177329D7005A56EF /* CHResetPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHResetPasswordVC.h; sourceTree = "<group>"; };
 		AA9991A9177329D7005A56EF /* CHResetPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHResetPasswordVC.m; sourceTree = "<group>"; };
 		AA9991AB177332BD005A56EF /* button_sign_in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_sign_in.png; sourceTree = "<group>"; };
@@ -668,6 +684,10 @@
 		5640153E176B40D000C028CE = {
 			isa = PBXGroup;
 			children = (
+				AA55050817982550009BF936 /* CHMessagesCell.h */,
+				AA55050917982550009BF936 /* CHMessagesCell.m */,
+				AA55050517982009009BF936 /* CHMessagesVC.h */,
+				AA55050617982009009BF936 /* CHMessagesVC.m */,
 				AA169461178D9F6800D09372 /* CHMenuSlidingCell.h */,
 				AA169462178D9F6800D09372 /* CHMenuSlidingCell.m */,
 				AA16945E178D963E00D09372 /* CHMenuSlidingVC.h */,
@@ -812,6 +832,11 @@
 		5640158B176B433B00C028CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AA55050B1798361F009BF936 /* button_messages_act.png */,
+				AA55050C1798361F009BF936 /* button_messages_n.png */,
+				AA55050D1798361F009BF936 /* button_notifications_act.png */,
+				AA55050E17983620009BF936 /* button_notifications_n.png */,
+				AA5505031797ED11009BF936 /* gp_icon.png */,
 				AA4C1FD3179057B00071D0F9 /* google_logo.png */,
 				AA331438178EB56100593FC3 /* profile_icon.png */,
 				AA331436178EB30300593FC3 /* vertical_shadow.png */,
@@ -1461,6 +1486,11 @@
 				AAA6391F17930B6A00D929D6 /* jQueryInject.txt in Resources */,
 				AAA6392017930B6A00D929D6 /* jQueryInjectLandscape.txt in Resources */,
 				AAA6393217930B6A00D929D6 /* twitter_load.png in Resources */,
+				AA5505041797ED11009BF936 /* gp_icon.png in Resources */,
+				AA55050F17983620009BF936 /* button_messages_act.png in Resources */,
+				AA55051017983620009BF936 /* button_messages_n.png in Resources */,
+				AA55051117983620009BF936 /* button_notifications_act.png in Resources */,
+				AA55051217983620009BF936 /* button_notifications_n.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1607,6 +1637,8 @@
 				56D59AFE1796CDB4005A05F3 /* CHBaseManager.m in Sources */,
 				56D59B011796CDD3005A05F3 /* CHHopsManager.m in Sources */,
 				E176E67E179881FD004BFF02 /* MFSideMenuContainerViewController.m in Sources */,
+				AA55050717982009009BF936 /* CHMessagesVC.m in Sources */,
+				AA55050A17982551009BF936 /* CHMessagesCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

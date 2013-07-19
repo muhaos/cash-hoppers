@@ -1,0 +1,33 @@
+//
+//  CHMessagesCell.m
+//  CashHoppers
+//
+//  Created by Balazh Vasyl on 7/18/13.
+//  Copyright (c) 2013 swanteams.com. All rights reserved.
+//
+
+#import "CHMessagesCell.h"
+
+@implementation CHMessagesCell
+@synthesize photoImageView, nameLabel, likeCommentImageView, messageTextView, timeLabel;
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        // Initialization code
+    }
+    return self;
+}
+
+
+//messages_cell_id
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+@end

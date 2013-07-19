@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GPPSignIn.h"
 
-static NSString * const kClientId = @"60822672999.apps.googleusercontent.com";
+static NSString * const kClientId = @"60822672999-03k0ma5mc5eb51li0rdslm7lgm7i912k.apps.googleusercontent.com";
 
 @class GPPSignInButton;
 
