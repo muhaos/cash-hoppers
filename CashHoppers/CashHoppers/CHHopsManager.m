@@ -35,6 +35,8 @@
 
 
 - (void) refreshHops {
+    [self loadDailyHop];
+    
     //NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
     NSString *path = [NSString stringWithFormat:@"/api/hops.json?api_key=%@", CH_API_KEY];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
@@ -44,7 +46,6 @@
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
         [self.otherHops removeAllObjects];
-        self.dailyHop = nil;
         
         NSArray* hops = [JSON objectForKey:@"hops"];
         if (hops) {
@@ -57,7 +58,7 @@
                 } else {
                     [self.otherHops addObject:newHop];
                 }
-
+                
                 [self loadTasksForHop:newHop];
             }
         }
@@ -88,6 +89,65 @@
         
         [[NSNotificationCenter defaultCenter] postNotificationName:CH_HOPS_UPDATED object:self];
 
+    }];
+    
+    [operation start];
+}
+
+
+- (void) loadDailyHop {
+    //NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/hops/daily?api_key=%@", CH_API_KEY];
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
+    
+    NSLog(@"REQUEST TO : %@", [request.URL description]);
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        self.dailyHop = nil;
+        
+        NSArray* hops = [JSON objectForKey:@"hops"];
+        if (hops) {
+            for (NSDictionary* objDic in hops) {
+                CHHop* newHop = [[CHHop alloc] init];
+                [newHop updateFromDictionary:objDic];
+                
+                if ([newHop.daily_hop boolValue]) {
+                    self.dailyHop = newHop;
+                } else {
+                    [self.otherHops addObject:newHop];
+                }
+                
+                [self loadTasksForHop:newHop];
+            }
+        }
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:CH_HOPS_UPDATED object:self];
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        //[self defaultErrorHandlerForResponce:response :error :JSON];
+        
+        [self.otherHops removeAllObjects];
+        self.dailyHop = nil;
+        
+        NSArray* hops = [JSON objectForKey:@"hops"];
+        if (hops) {
+            for (NSDictionary* objDic in hops) {
+                CHHop* newHop = [[CHHop alloc] init];
+                [newHop updateFromDictionary:objDic];
+                
+                if ([newHop.daily_hop boolValue]) {
+                    self.dailyHop = newHop;
+                } else {
+                    [self.otherHops addObject:newHop];
+                }
+                
+                [self loadTasksForHop:newHop];
+            }
+        }
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:CH_HOPS_UPDATED object:self];
+        
     }];
     
     [operation start];

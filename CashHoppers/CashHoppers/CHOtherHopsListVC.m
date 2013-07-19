@@ -18,6 +18,7 @@
 
 @property (assign, nonatomic) BOOL oldNavBarStatus;
 @property (nonatomic, retain) id hopsUpdatedNotification;
+@property (nonatomic, retain) NSArray* currentHopsList;
 
 @end
 
@@ -40,9 +41,19 @@
     
     self.hopsUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_HOPS_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
         // refresh
-        [self.otherHopsTable reloadData];
+        [self updateTable];
     }];
 
+}
+
+
+- (void) updateTable {
+    if (self.isDailyHops) {
+        self.currentHopsList = @[[CHHopsManager instance].dailyHop];
+    } else {
+        self.currentHopsList = [CHHopsManager instance].otherHops;
+    }
+    [self.otherHopsTable reloadData];
 }
 
 
@@ -55,7 +66,8 @@
 {
     [super viewWillAppear:animated];
     self.oldNavBarStatus = self.navigationController.navigationBarHidden;
-//    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    [self updateTable];
 }
 
 

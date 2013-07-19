@@ -13,6 +13,7 @@
 #import "CHMenuSlidingVC.h"
 #import "CHHopsManager.h"
 #import "MFSideMenuContainerViewController.h"
+#import "CHOtherHopsListVC.h"
 
 @interface CHHomeScreenViewController ()
 
@@ -92,6 +93,16 @@
 }
 
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    id vc = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"daily_hops_segue"]) {
+        ((CHOtherHopsListVC*)vc).isDailyHops = YES;
+    } else if ([segue.identifier isEqualToString:@"other_hops_segue"]) {
+        ((CHOtherHopsListVC*)vc).isDailyHops = NO;
+    }
+}
+
+
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillAppear:animated];
@@ -113,13 +124,9 @@
 }
 
 - (IBAction)dailyHopPressed:(id)sender {
-    [DELEGATE switchViewTo:CHFeed];
-    
 }
 
 - (IBAction)playNowPressed:(id)sender {
- //   [DELEGATE switchViewTo:CHNewHop];
-    [DELEGATE.tabBarController performSegueWithIdentifier:@"otherHops" sender:[[UIButton alloc] init]];
 }
 
 
