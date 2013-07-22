@@ -17,4 +17,20 @@
     return inStr;
 }
 
+
+- (NSNumber*) safeNumberFrom:(NSNumber*) inNum defaultValue:(NSNumber*) defNum {
+    if (inNum == nil || [inNum isKindOfClass:[NSNull class]]) {
+        return defNum;
+    }
+    return inNum;
+}
+
+
+- (NSDate*) safeDateFrom:(NSString*) inDate dateFromatter:(NSDateFormatter*)df defaultValue:(NSDate*) defDate {
+    if (inDate == nil || [inDate isKindOfClass:[NSNull class]] || [inDate isEqualToString:@""]) {
+        return defDate;
+    }
+    return [df dateFromString: inDate];
+}
+
 @end

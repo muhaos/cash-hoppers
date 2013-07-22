@@ -37,8 +37,8 @@
 - (void) refreshHops {
     [self loadDailyHop];
     
-    //NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
-    NSString *path = [NSString stringWithFormat:@"/api/hops.json?api_key=%@", CH_API_KEY];
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/hops/regular.json?api_key=%@&authentication_token=%@", CH_API_KEY, aToken];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
 
     NSLog(@"REQUEST TO : %@", [request.URL description]);
@@ -96,8 +96,8 @@
 
 
 - (void) loadDailyHop {
-    //NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
-    NSString *path = [NSString stringWithFormat:@"/api/hops/daily?api_key=%@", CH_API_KEY];
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/hops/daily?api_key=%@&authentication_token=%@", CH_API_KEY, aToken];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
     NSLog(@"REQUEST TO : %@", [request.URL description]);
@@ -127,7 +127,6 @@
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         //[self defaultErrorHandlerForResponce:response :error :JSON];
         
-        [self.otherHops removeAllObjects];
         self.dailyHop = nil;
         
         NSArray* hops = [JSON objectForKey:@"hops"];
@@ -136,11 +135,7 @@
                 CHHop* newHop = [[CHHop alloc] init];
                 [newHop updateFromDictionary:objDic];
                 
-                if ([newHop.daily_hop boolValue]) {
-                    self.dailyHop = newHop;
-                } else {
-                    [self.otherHops addObject:newHop];
-                }
+                self.dailyHop = newHop;
                 
                 [self loadTasksForHop:newHop];
             }
@@ -156,8 +151,8 @@
 
 - (void) loadTasksForHop:(CHHop*) hop {
     
-    //NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
-    NSString *path = [NSString stringWithFormat:@"/api/get_hop_tasks?api_key=%@&hop_id=%i", CH_API_KEY, [hop.identifier intValue]];
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/get_hop_tasks?api_key=%@&hop_id=%i&authentication_token=%@", CH_API_KEY, [hop.identifier intValue], aToken];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
     NSLog(@"REQUEST TO : %@", [request.URL description]);

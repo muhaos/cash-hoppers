@@ -98,7 +98,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[CHHopsManager instance].otherHops count];
+    return [self.currentHopsList count];
 }
 
 
@@ -113,37 +113,34 @@
     static NSString *previewHopsCellIdentifier = @"preview_hops_list_cell";
     static NSString *joinHopsCellIdentifier = @"join_hops_list_cell";
 
-    CHHop* hop = [CHHopsManager instance].otherHops[indexPath.row];
+    CHHop* hop = self.currentHopsList[indexPath.row];
     CHOtherHopsListCell *cell = nil;
     
-    if ([hop.close boolValue]) {
-
-        // completed hop
-        cell = (CHOtherHopsListCell*) [tableView dequeueReusableCellWithIdentifier:completeHopsCellIdentifier];
-        cell.currentHop = hop;
-        [cell configureCompletedHop];
-        
-    } else if (![hop.code isEqualToString:@""]) {
-
-        // hop with password
-        cell = (CHOtherHopsListCell*) [tableView dequeueReusableCellWithIdentifier:joinHopsCellIdentifier];
-        cell.currentHop = hop;
-        [cell configureHopWithCode];
-        
-    } else if (![hop.price isEqualToString:@""]) {
-
-        // hop with entry fee
-        cell = (CHOtherHopsListCell*) [tableView dequeueReusableCellWithIdentifier:previewHopsCellIdentifier];
-        cell.currentHop = hop;
-        [cell configureHopWithFee];
-
-    } else {
-
-        // free
-        cell = (CHOtherHopsListCell*) [tableView dequeueReusableCellWithIdentifier:completeHopsCellIdentifier];
-        cell.currentHop = hop;
-        [cell configureFreeHop];
-
+    switch ([hop hopType]) {
+        case CHHopTypeCompleted: {
+            cell = (CHOtherHopsListCell*) [tableView dequeueReusableCellWithIdentifier:completeHopsCellIdentifier];
+            cell.currentHop = hop;
+            [cell configureCompletedHop];
+            break;
+        }
+        case CHHopTypeWithCode: {
+            cell = (CHOtherHopsListCell*) [tableView dequeueReusableCellWithIdentifier:joinHopsCellIdentifier];
+            cell.currentHop = hop;
+            [cell configureHopWithCode];
+            break;
+        }
+        case CHHopTypeWithEntryFee: {
+            cell = (CHOtherHopsListCell*) [tableView dequeueReusableCellWithIdentifier:previewHopsCellIdentifier];
+            cell.currentHop = hop;
+            [cell configureHopWithFee];
+            break;
+        }
+        case CHHopTypeFree: {
+            cell = (CHOtherHopsListCell*) [tableView dequeueReusableCellWithIdentifier:completeHopsCellIdentifier];
+            cell.currentHop = hop;
+            [cell configureFreeHop];
+            break;
+        }
     }
     
     return cell;
@@ -160,7 +157,7 @@
 //    [[CHTradeShowEntryVC sharedTradeShowEntryVC] showInController:self
 //                                                         withText:@"NBM TRADE SHOW HOP"
 //                                                        withImage:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"image_nbm_show.png"]]];
-    [self performSegueWithIdentifier:@"tradeShowMulti" sender:[CHHopsManager instance].otherHops[indexPath.row]];
+    [self performSegueWithIdentifier:@"tradeShowMulti" sender:self.currentHopsList[indexPath.row]];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

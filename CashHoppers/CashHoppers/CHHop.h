@@ -8,6 +8,14 @@
 
 #import "CHBaseModel.h"
 
+enum CHHopType {
+    CHHopTypeFree = 0,
+    CHHopTypeWithEntryFee,
+    CHHopTypeWithCode,
+    CHHopTypeCompleted
+};
+
+
 @interface CHHop : CHBaseModel
 
 @property (nonatomic, strong) NSNumber* identifier;
@@ -22,6 +30,7 @@
 @property (nonatomic, strong) NSString* event;
 
 @property (nonatomic, strong) NSArray* tasks; // CHHopTask
+- (enum CHHopType) hopType;
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
 

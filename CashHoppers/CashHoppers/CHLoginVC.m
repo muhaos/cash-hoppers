@@ -113,9 +113,15 @@
         
         AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             
+            NSDictionary* data = [JSON  objectForKey:@"data"];
+            
             NSInteger success = [[JSON  objectForKey:@"success"]integerValue];
-            NSString* atoken = [JSON objectForKey:@"authentication_token"];
+            NSString* atoken = [data objectForKey:@"authentication_token"];
             NSString *message;
+
+            [[NSUserDefaults standardUserDefaults] setValue:atoken forKey:@"a_token"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+
             if(success == 1){
                 message = @"Login successfull!";
                 [self goToTabBar];
@@ -125,8 +131,6 @@
             }
                         
 //            NSLog(@"json=%@",JSON);
-            [[NSUserDefaults standardUserDefaults] setValue:atoken forKey:@"a_token"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
             UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"LOGIN" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             
             [av show];
