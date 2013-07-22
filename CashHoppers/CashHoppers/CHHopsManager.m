@@ -69,7 +69,6 @@
         //[self defaultErrorHandlerForResponce:response :error :JSON];
         
         [self.otherHops removeAllObjects];
-        self.dailyHop = nil;
         
         NSArray* hops = [JSON objectForKey:@"hops"];
         if (hops) {
@@ -77,11 +76,7 @@
                 CHHop* newHop = [[CHHop alloc] init];
                 [newHop updateFromDictionary:objDic];
                 
-                if ([newHop.daily_hop boolValue]) {
-                    self.dailyHop = newHop;
-                } else {
-                    [self.otherHops addObject:newHop];
-                }
+                [self.otherHops addObject:newHop];
             
                 [self loadTasksForHop:newHop];
             }

@@ -19,6 +19,7 @@
 @property (assign, nonatomic) BOOL oldNavBarStatus;
 @property (nonatomic, retain) id hopsUpdatedNotification;
 @property (nonatomic, retain) NSArray* currentHopsList;
+@property (nonatomic, strong) CHTradeShowEntryVC* currentPasswordVC;
 
 @end
 
@@ -50,7 +51,7 @@
 - (void) updateTable {
     if (self.isDailyHops) {
         self.hopsGroupTitleLabel.text = @"DAILY HOPS";
-        self.currentHopsList = @[[CHHopsManager instance].dailyHop];
+        self.currentHopsList = [CHHopsManager instance].dailyHop == nil ? @[] : @[[CHHopsManager instance].dailyHop];
     } else {
         self.hopsGroupTitleLabel.text = @"OTHER HOPS";
         self.currentHopsList = [CHHopsManager instance].otherHops;
@@ -159,10 +160,38 @@
 //    [[CHTradeShowEntryVC sharedTradeShowEntryVC] showInController:self
 //                                                         withText:@"NBM TRADE SHOW HOP"
 //                                                        withImage:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"image_nbm_show.png"]]];
-    [self performSegueWithIdentifier:@"tradeShowMulti" sender:self.currentHopsList[indexPath.row]];
+    
+    //[self performSegueWithIdentifier:@"tradeShowMulti" sender:self.currentHopsList[indexPath.row]];
+    CHHop* tappedHop = self.currentHopsList[indexPath.row];
+    
+    switch ([tappedHop hopType]) {
+        case CHHopTypeCompleted: {
+        }
+        case CHHopTypeFree: {
+        }
+        case CHHopTypeWithEntryFee: {
+            [self performSegueWithIdentifier:@"tradeShowMulti" sender:tappedHop];
+            break;
+        }
+        case CHHopTypeWithCode: {
+            self.currentPasswordVC = [[CHTradeShowEntryVC alloc] initWithNibName:@"CHTradeShowEntryVC" bundle:nil];
+            self.currentPasswordVC.currentHop = tappedHop;
+            self.currentPasswordVC.delegate = self;
+            [self.view.window.rootViewController.view addSubview:self.currentPasswordVC.view];
+            break;
+        }
+    }
+
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+
+- (void) tradeShowEntryVCClosedSucced:(BOOL) succed {
+    if (succed) {
+        [self performSegueWithIdentifier:@"tradeShowMulti" sender:self.currentPasswordVC.currentHop];
+    }
+    self.currentPasswordVC = nil;
+}
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"tradeShowMulti"]) {

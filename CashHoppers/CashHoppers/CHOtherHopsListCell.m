@@ -77,7 +77,7 @@
     [[self dateHopLabel] setText:[self dateString]];
     [[self namePrizeLabel] setText:@"Grand Prize:"];
     [[self countPrizeLabel] setText:[NSString stringWithFormat:@"$%i", [self.currentHop.jackpot integerValue]]];
-    [[self verticalIndicatorImageView] setImage:nil];
+    [[self verticalIndicatorImageView] setImage:[UIImage imageNamed:@"av_indicator_cell"]];
     [[self horizontalIndicatorImageView] setImage:nil];
 }
 

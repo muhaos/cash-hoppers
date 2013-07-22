@@ -7,6 +7,7 @@
 //
 
 #import "CHTradeShowEntryVC.h"
+#import "CHHop.h"
 
 @interface CHTradeShowEntryVC ()
 
@@ -20,36 +21,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    tradeShowLabel.text = self.currentHop.name;
+    tradeShowImageView.image = [UIImage imageNamed:@"image_nbm_show.png"];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-+ (CHTradeShowEntryVC*) sharedTradeShowEntryVC
-{
-    static CHTradeShowEntryVC* instance = nil;
-    if (instance == nil) {
-        instance = [[CHTradeShowEntryVC alloc] initWithNibName:@"CHTradeShowEntryVC" bundle:nil];
-    }
-    return instance;
-}
-
-
-- (void) showInController:(UIViewController*) c
-                 withText:(NSString*) text
-                withImage:(UIImageView*) image;
-{
-    if (self.view.superview != nil) {
-        @throw [NSException exceptionWithName:@"CHTradeShowEntryVC" reason:@"TradeShowEntry controller already showed!" userInfo:nil];
-    }
-    [c.view addSubview:self.view];
-    tradeShowLabel.text = text;
-    tradeShowImageView = image;
 }
 
 
@@ -95,12 +75,19 @@
 
 
 - (IBAction)startPlayingTapped:(id)sender {
-//    [self performSegueWithIdentifier:@"tradeShowMulti" sender:self];
+    if ([self.passcodeTextField.text isEqualToString:self.currentHop.code]) {
+        [self.view removeFromSuperview];
+        [self.delegate tradeShowEntryVCClosedSucced:YES];
+    } else {
+        UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"PASSCODE" message:@"Incorrect passcode." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [av show];
+    }
 }
 
 
 - (IBAction)cancelTapped:(id)sender {
     [self.view removeFromSuperview];
+    [self.delegate tradeShowEntryVCClosedSucced:NO];
 }
 
 
