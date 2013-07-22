@@ -170,7 +170,11 @@
         case CHHopTypeFree: {
         }
         case CHHopTypeWithEntryFee: {
-            [self performSegueWithIdentifier:@"tradeShowMulti" sender:tappedHop];
+            if (self.isDailyHops) {
+                [self performSegueWithIdentifier:@"new_hop_segue" sender:tappedHop];
+            } else {
+                [self performSegueWithIdentifier:@"tradeShowMulti" sender:tappedHop];
+            }
             break;
         }
         case CHHopTypeWithCode: {

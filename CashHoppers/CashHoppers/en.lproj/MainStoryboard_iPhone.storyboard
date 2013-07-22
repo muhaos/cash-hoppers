@@ -1632,6 +1632,7 @@
                         <outlet property="hopsGroupTitleLabel" destination="0Sb-aE-v4n" id="0X7-ck-8j7"/>
                         <outlet property="otherHopsTable" destination="axM-EH-loF" id="D5i-t8-CUK"/>
                         <segue destination="i5p-Hh-cf4" kind="push" identifier="tradeShowMulti" id="Vay-E6-IUO"/>
+                        <segue destination="R7Q-Wk-aGG" kind="push" identifier="new_hop_segue" id="dTN-EH-Ojv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fb-Uy-WMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1797,7 +1798,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsu-wl-MEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3545" y="-180"/>
+            <point key="canvasLocation" x="3689" y="-592"/>
         </scene>
         <!--New HopVC-->
         <scene sceneID="4cq-9a-pkc">
@@ -2615,5 +2616,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="lvk-fo-Rcf"/>
+        <segue reference="dTN-EH-Ojv"/>
     </inferredMetricsTieBreakers>
 </document>
