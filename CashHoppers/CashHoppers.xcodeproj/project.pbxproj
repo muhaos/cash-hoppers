@@ -48,6 +48,9 @@
 		AA010544178C10D0004DF5F4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA010543178C10D0004DF5F4 /* CoreText.framework */; };
 		AA010547178C3C72004DF5F4 /* CHDetailsFeedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA010546178C3C72004DF5F4 /* CHDetailsFeedVC.m */; };
 		AA01054A178C4CD0004DF5F4 /* CHCommentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA010549178C4CD0004DF5F4 /* CHCommentListCell.m */; };
+		AA033B6E179D392600F2B769 /* CHAddFriendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA033B6D179D392600F2B769 /* CHAddFriendVC.m */; };
+		AA033B70179D3DA900F2B769 /* button_add_as_friend.png in Resources */ = {isa = PBXBuildFile; fileRef = AA033B6F179D3DA900F2B769 /* button_add_as_friend.png */; };
+		AA033B72179D506E00F2B769 /* you_are_friends.png in Resources */ = {isa = PBXBuildFile; fileRef = AA033B71179D506E00F2B769 /* you_are_friends.png */; };
 		AA1161F217784F5A00D0E750 /* CHHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1161F117784F5A00D0E750 /* CHHomeScreenViewController.m */; };
 		AA1161F61778514F00D0E750 /* CHAdvertisingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1161F41778514F00D0E750 /* CHAdvertisingVC.m */; };
 		AA1161F71778514F00D0E750 /* CHAdvertisingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1161F51778514F00D0E750 /* CHAdvertisingVC.xib */; };
@@ -317,6 +320,10 @@
 		AA010546178C3C72004DF5F4 /* CHDetailsFeedVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHDetailsFeedVC.m; sourceTree = "<group>"; };
 		AA010548178C4CCF004DF5F4 /* CHCommentListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCommentListCell.h; sourceTree = "<group>"; };
 		AA010549178C4CD0004DF5F4 /* CHCommentListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCommentListCell.m; sourceTree = "<group>"; };
+		AA033B6C179D392600F2B769 /* CHAddFriendVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHAddFriendVC.h; path = CashHoppers/CHAddFriendVC.h; sourceTree = "<group>"; };
+		AA033B6D179D392600F2B769 /* CHAddFriendVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHAddFriendVC.m; path = CashHoppers/CHAddFriendVC.m; sourceTree = "<group>"; };
+		AA033B6F179D3DA900F2B769 /* button_add_as_friend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_add_as_friend.png; sourceTree = "<group>"; };
+		AA033B71179D506E00F2B769 /* you_are_friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = you_are_friends.png; sourceTree = "<group>"; };
 		AA1161F017784F5A00D0E750 /* CHHomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHomeScreenViewController.h; sourceTree = "<group>"; };
 		AA1161F117784F5A00D0E750 /* CHHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHomeScreenViewController.m; sourceTree = "<group>"; };
 		AA1161F31778514F00D0E750 /* CHAdvertisingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAdvertisingVC.h; sourceTree = "<group>"; };
@@ -693,6 +700,8 @@
 		5640153E176B40D000C028CE = {
 			isa = PBXGroup;
 			children = (
+				AA033B6C179D392600F2B769 /* CHAddFriendVC.h */,
+				AA033B6D179D392600F2B769 /* CHAddFriendVC.m */,
 				AA425FD517995EBF008E02E6 /* CHOptionalPopupSharingVC.h */,
 				AA425FD617995EC0008E02E6 /* CHOptionalPopupSharingVC.m */,
 				AA425FD717995EC0008E02E6 /* CHOptionalPopupSharingVC.xib */,
@@ -844,6 +853,8 @@
 		5640158B176B433B00C028CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AA033B71179D506E00F2B769 /* you_are_friends.png */,
+				AA033B6F179D3DA900F2B769 /* button_add_as_friend.png */,
 				AA425FDA1799611A008E02E6 /* button_no.png */,
 				AA425FDB1799611A008E02E6 /* button_yes.png */,
 				AA55050B1798361F009BF936 /* button_messages_act.png */,
@@ -1508,6 +1519,8 @@
 				AA425FD917995EC0008E02E6 /* CHOptionalPopupSharingVC.xib in Resources */,
 				AA425FDC1799611A008E02E6 /* button_no.png in Resources */,
 				AA425FDD1799611B008E02E6 /* button_yes.png in Resources */,
+				AA033B70179D3DA900F2B769 /* button_add_as_friend.png in Resources */,
+				AA033B72179D506E00F2B769 /* you_are_friends.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1657,6 +1670,7 @@
 				AA55050717982009009BF936 /* CHMessagesVC.m in Sources */,
 				AA55050A17982551009BF936 /* CHMessagesCell.m in Sources */,
 				AA425FD817995EC0008E02E6 /* CHOptionalPopupSharingVC.m in Sources */,
+				AA033B6E179D392600F2B769 /* CHAddFriendVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
