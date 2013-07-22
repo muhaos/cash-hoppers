@@ -36,6 +36,16 @@
 {
     [super viewDidLoad];
     
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *backBtnImage = [UIImage imageNamed:@"button_nav_back"];
+    [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(backButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.frame = CGRectMake(0, 0, 20, 20);
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
+    
+    self.title = @"COMPLETE HOP";
+    
     _textView.layer.borderWidth = 1;
     _textView.layer.cornerRadius = 3;
     _textView.layer.borderColor = CH_GRAY_COLOR.CGColor;
@@ -67,6 +77,11 @@
     
  //   [self.view addGestureRecognizer:self.slidingViewController.panGesture];
     [menuButton addTarget:self action:@selector(menuTapped:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+
+- (void) backButtonTapped {
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 

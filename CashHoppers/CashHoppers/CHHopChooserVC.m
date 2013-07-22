@@ -9,7 +9,6 @@
 #import "CHHopChooserVC.h"
 #import "CHAppDelegate.h"
 #import "CHOtherHopsListVC.h"
-#import "CHHopsListVC.h"
 #import "CHAppDelegate.h"
 #import "MHCustomTabBarController.h"
 

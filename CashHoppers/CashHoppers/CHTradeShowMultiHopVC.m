@@ -42,6 +42,8 @@
     self.rankLabel.text = @"3 of 46";
     self.grandPrizeLabel.text = [NSString stringWithFormat:@"$%i", [self.currentHop.jackpot intValue]];
     
+    self.title = @"TASKS LIST";
+    
     self.hopsTasksUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_HOPS_TASKS_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
         // refresh
         if (note.object == self.currentHop) {
