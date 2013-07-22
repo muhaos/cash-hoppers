@@ -11,7 +11,7 @@
 #import <UIKit/UIKit.h>
 #import "GPPShare.h"
 
-@interface CHNewHopVC : UIViewController <UITextViewDelegate,UIImagePickerControllerDelegate, GPPShareDelegate>
+@interface CHNewHopVC : UIViewController <UITextViewDelegate,UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) IBOutlet UILabel *charCountLabel;

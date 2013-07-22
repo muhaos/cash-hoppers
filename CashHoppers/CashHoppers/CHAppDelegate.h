@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "CHHomeScreenViewController.h"
-#import "SA_OAuthTwitterEngine.h"
-
-extern SA_OAuthTwitterEngine	*sa_OAuthTwitterEngine;
 
 enum CHView{
     CHHome = 1,
@@ -21,7 +18,7 @@ enum CHView{
 };
 
 @class MHCustomTabBarController, ACAccount,MFSideMenuContainerViewController;
-@interface CHAppDelegate : UIResponder <UIApplicationDelegate, SA_OAuthTwitterEngineDelegate>
+@interface CHAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) MHCustomTabBarController *tabBarController;

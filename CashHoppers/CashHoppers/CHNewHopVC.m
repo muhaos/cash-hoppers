@@ -14,13 +14,14 @@
 #import "GPPShare.h"
 #import "GPPSignIn.h"
 #import "CHStartVC.h"
+#import "CHOptionalPopupSharingVC.h"
 
 @interface CHNewHopVC ()
 
 @end
 
 @implementation CHNewHopVC
-@synthesize menuButton, winnterButton;
+@synthesize menuButton, winnterButton, photoImView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,7 +45,7 @@
     _charCountLabel.layer.cornerRadius = 3;
     _charCountLabel.backgroundColor = CH_GRAY_COLOR;
     
-    _photoImView.layer.cornerRadius = 3;
+    photoImView.layer.cornerRadius = 3;
     
     UIImage *submitBgIm = [[UIImage imageNamed:@"yellow_button"]
                                   resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
@@ -137,7 +138,7 @@
 	[picker dismissModalViewControllerAnimated:YES];
     UIImage *chosenImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     
-   	_photoImView.image = chosenImage;
+   	photoImView.image = chosenImage;
     
 }
 
@@ -210,42 +211,25 @@
 
 
 - (IBAction)shareWithFacebookTapped:(id)sender {
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
-    {
-        SLComposeViewController *tw = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        [tw setInitialText:@"Message"];
-        [tw addImage:self.photoImView.image];
-        [self presentViewController:tw animated:YES completion:nil];
-    }
+    [CHOptionalPopupSharingVC sharedOptionalPopupVC].imageToShare = self.photoImView.image;
+    [CHOptionalPopupSharingVC sharedOptionalPopupVC].currentSharingService = CH_SHARING_SERVICE_FACEBOOK;
+    [[CHOptionalPopupSharingVC sharedOptionalPopupVC] showInController:self withText:@"Sharing to facebook will get you"];
 }
 
 
 - (IBAction)shareWithTwitterTapped:(id)sender {
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
-    {
-        SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:@"Message"];
-        [tweetSheet addImage:self.photoImView.image];
-        [self presentViewController: tweetSheet animated: YES completion: nil];
-    }
+    [CHOptionalPopupSharingVC sharedOptionalPopupVC].imageToShare = self.photoImView.image;
+    [CHOptionalPopupSharingVC sharedOptionalPopupVC].currentSharingService = CH_SHARING_SERVICE_TWITTER;
+    [[CHOptionalPopupSharingVC sharedOptionalPopupVC] showInController:self withText:@"Sharing to twitter will get you"];
+    
+//    [tweeterEngine sendUpdate:@"cashhopppers"];
 }
+
 
 - (IBAction)shareWithGPlusTapped:(id)sender {
-    id<GPPShareBuilder> shareBuilder = [[GPPShare sharedInstance] shareDialog];
-    
-    [shareBuilder setTitle:@"Some title"
-               description:@"Some description"
-              thumbnailURL:[NSURL URLWithString:@"http://www.gplusinfo.com/wp-content/uploads/2012/02/google-Plus-icon.png"]];
-    [shareBuilder open];
-}
-
-
-- (void)finishedSharing: (BOOL)shared {
-    if (shared) {
-        NSLog(@"User successfully shared!");
-    } else {
-        NSLog(@"User didn't share.");
-    }
+    [CHOptionalPopupSharingVC sharedOptionalPopupVC].imageToShare = self.photoImView.image;
+    [CHOptionalPopupSharingVC sharedOptionalPopupVC].currentSharingService = CH_SHARING_SERVICE_GOOGLE;
+    [[CHOptionalPopupSharingVC sharedOptionalPopupVC] showInController:self withText:@"Sharing to google plus will get you"];
 }
 
 
