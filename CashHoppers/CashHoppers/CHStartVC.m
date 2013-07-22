@@ -15,6 +15,8 @@
 #import "GTLQueryPlus.h"
 #import <FacebookSDK/FacebookSDK.h>
 
+SA_OAuthTwitterEngine	*tweeterEngine;
+
 @interface CHStartVC ()
 
 - (IBAction)loginWithFBTapped:(id)sender;
@@ -162,6 +164,51 @@
 //for twitter
 
 - (IBAction)loginWithTwitterTapped:(id)sender {
+    if (tweeterEngine) return;
+    tweeterEngine = [[SA_OAuthTwitterEngine alloc] initOAuthWithDelegate:self];
+    tweeterEngine.consumerKey = kOAuthConsumerKey;
+    tweeterEngine.consumerSecret = kOAuthConsumerSecret;
+    
+    UIViewController *controller = [SA_OAuthTwitterController controllerToEnterCredentialsWithTwitterEngine:tweeterEngine delegate:self];
+    if (controller) {
+        [self presentModalViewController:controller animated:YES];
+    }
+    [self presentViewController:DELEGATE.menuContainerVC animated:YES completion:nil];
 }
+
+#pragma mark - Twitter
+#pragma mark SA_OAuthTwitterEngineDelegate
+
+- (void) storeCachedTwitterOAuthData: (NSString *) data forUsername: (NSString *) username {
+	NSUserDefaults			*defaults = [NSUserDefaults standardUserDefaults];
+	
+	[defaults setObject: data forKey: @"authData"];
+	[defaults synchronize];
+}
+
+- (NSString *) cachedTwitterOAuthDataForUsername: (NSString *) username {
+	return [[NSUserDefaults standardUserDefaults] objectForKey: @"authData"];
+}
+
+- (void) twitterOAuthConnectionFailedWithData: (NSData *) data {
+	NSLog(@"twitterOAuthConnectionFailedWithData");
+}
+
+
+- (void)requestSucceeded:(NSString *)connectionIdentifier {
+    NSLog(@"Request succeeded for connectionIdentifier = %@", connectionIdentifier);
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
+- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error {
+    NSLog(@"Request failed for connectionIdentifier = %@, error = %@ (%@)",
+          connectionIdentifier,
+          [error localizedDescription],
+          [error userInfo]);
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
 
 @end

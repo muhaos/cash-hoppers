@@ -221,6 +221,8 @@
     [CHOptionalPopupSharingVC sharedOptionalPopupVC].imageToShare = self.photoImView.image;
     [CHOptionalPopupSharingVC sharedOptionalPopupVC].currentSharingService = CH_SHARING_SERVICE_TWITTER;
     [[CHOptionalPopupSharingVC sharedOptionalPopupVC] showInController:self withText:@"Sharing to twitter will get you"];
+    
+//    [tweeterEngine sendUpdate:@"cashhopppers"];
 }
 
 
