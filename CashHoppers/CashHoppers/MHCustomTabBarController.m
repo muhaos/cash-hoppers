@@ -126,6 +126,12 @@
 }
 
 
+- (IBAction)friendsFeedTapped:(id)sender {
+    DELEGATE.needOpenFriendsFeed = YES;
+    [self performSegueWithIdentifier:@"homeScreen" sender:nil];
+}
+
+
 - (IBAction)pictureTapped:(id)sender {
     UIImagePickerController *picker= [[UIImagePickerController alloc] init];
     picker.delegate = self;

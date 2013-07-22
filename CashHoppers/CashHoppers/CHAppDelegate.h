@@ -27,6 +27,8 @@ enum CHView{
 @property (strong, nonatomic) MFSideMenuContainerViewController *menuContainerVC;
 @property (nonatomic, assign) BOOL needOpenDailyHops; // for hops chooser
 @property (nonatomic, assign) BOOL needOpenOtherHops;
+@property (nonatomic, assign) BOOL needOpenFriendsFeed; // for tab bar button
+
 
 -(void)switchViewTo:(enum CHView)view;
 -(void)openSession;

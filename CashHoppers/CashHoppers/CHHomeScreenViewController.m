@@ -115,6 +115,10 @@
         [self performSegueWithIdentifier:@"other_hops_segue" sender:self];
         DELEGATE.needOpenOtherHops = NO;
     }
+    if (DELEGATE.needOpenFriendsFeed) {
+        [self performSegueWithIdentifier:@"friends_feed_segue" sender:self];
+        DELEGATE.needOpenFriendsFeed = NO;
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated {

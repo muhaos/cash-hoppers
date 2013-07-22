@@ -31,6 +31,8 @@
 @property (strong, nonatomic) NSString *currentIdentifier;
 @property (weak, nonatomic) IBOutlet UIView *container;
 @property (weak, nonatomic) IBOutlet UIView *buttonView;
+
 - (IBAction)pictureTapped:(id)sender;
+- (IBAction)friendsFeedTapped:(id)sender;
 
 @end
