@@ -320,8 +320,8 @@
 		AA010546178C3C72004DF5F4 /* CHDetailsFeedVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHDetailsFeedVC.m; sourceTree = "<group>"; };
 		AA010548178C4CCF004DF5F4 /* CHCommentListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCommentListCell.h; sourceTree = "<group>"; };
 		AA010549178C4CD0004DF5F4 /* CHCommentListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCommentListCell.m; sourceTree = "<group>"; };
-		AA033B6C179D392600F2B769 /* CHAddFriendVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHAddFriendVC.h; path = CashHoppers/CHAddFriendVC.h; sourceTree = "<group>"; };
-		AA033B6D179D392600F2B769 /* CHAddFriendVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHAddFriendVC.m; path = CashHoppers/CHAddFriendVC.m; sourceTree = "<group>"; };
+		AA033B6C179D392600F2B769 /* CHAddFriendVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAddFriendVC.h; sourceTree = "<group>"; };
+		AA033B6D179D392600F2B769 /* CHAddFriendVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAddFriendVC.m; sourceTree = "<group>"; };
 		AA033B6F179D3DA900F2B769 /* button_add_as_friend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_add_as_friend.png; sourceTree = "<group>"; };
 		AA033B71179D506E00F2B769 /* you_are_friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = you_are_friends.png; sourceTree = "<group>"; };
 		AA1161F017784F5A00D0E750 /* CHHomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHomeScreenViewController.h; sourceTree = "<group>"; };
@@ -335,12 +335,12 @@
 		AA169456178D941500D09372 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
 		AA169457178D941500D09372 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
 		AA169458178D941500D09372 /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
-		AA16945B178D95B800D09372 /* CHInitSlidingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHInitSlidingVC.h; path = CashHoppers/CHInitSlidingVC.h; sourceTree = "<group>"; };
-		AA16945C178D95B800D09372 /* CHInitSlidingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHInitSlidingVC.m; path = CashHoppers/CHInitSlidingVC.m; sourceTree = "<group>"; };
-		AA16945E178D963E00D09372 /* CHMenuSlidingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHMenuSlidingVC.h; path = CashHoppers/CHMenuSlidingVC.h; sourceTree = "<group>"; };
-		AA16945F178D963E00D09372 /* CHMenuSlidingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHMenuSlidingVC.m; path = CashHoppers/CHMenuSlidingVC.m; sourceTree = "<group>"; };
-		AA169461178D9F6800D09372 /* CHMenuSlidingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHMenuSlidingCell.h; path = CashHoppers/CHMenuSlidingCell.h; sourceTree = "<group>"; };
-		AA169462178D9F6800D09372 /* CHMenuSlidingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHMenuSlidingCell.m; path = CashHoppers/CHMenuSlidingCell.m; sourceTree = "<group>"; };
+		AA16945B178D95B800D09372 /* CHInitSlidingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHInitSlidingVC.h; sourceTree = "<group>"; };
+		AA16945C178D95B800D09372 /* CHInitSlidingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHInitSlidingVC.m; sourceTree = "<group>"; };
+		AA16945E178D963E00D09372 /* CHMenuSlidingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMenuSlidingVC.h; sourceTree = "<group>"; };
+		AA16945F178D963E00D09372 /* CHMenuSlidingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMenuSlidingVC.m; sourceTree = "<group>"; };
+		AA169461178D9F6800D09372 /* CHMenuSlidingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMenuSlidingCell.h; sourceTree = "<group>"; };
+		AA169462178D9F6800D09372 /* CHMenuSlidingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMenuSlidingCell.m; sourceTree = "<group>"; };
 		AA33142A178EA7DA00593FC3 /* black_separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_separator.png; sourceTree = "<group>"; };
 		AA33142B178EA7DA00593FC3 /* button_logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_logout.png; sourceTree = "<group>"; };
 		AA33142C178EA7DA00593FC3 /* find_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find_icon.png; sourceTree = "<group>"; };
@@ -362,9 +362,9 @@
 		AA36441D1779CE610064787F /* photo_hop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo_hop.png; sourceTree = "<group>"; };
 		AA3644201779D1CE0064787F /* comment_icon_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment_icon_on.png; sourceTree = "<group>"; };
 		AA3644211779D1CE0064787F /* like_icon_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like_icon_on.png; sourceTree = "<group>"; };
-		AA425FD517995EBF008E02E6 /* CHOptionalPopupSharingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHOptionalPopupSharingVC.h; path = CashHoppers/CHOptionalPopupSharingVC.h; sourceTree = "<group>"; };
-		AA425FD617995EC0008E02E6 /* CHOptionalPopupSharingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHOptionalPopupSharingVC.m; path = CashHoppers/CHOptionalPopupSharingVC.m; sourceTree = "<group>"; };
-		AA425FD717995EC0008E02E6 /* CHOptionalPopupSharingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CHOptionalPopupSharingVC.xib; path = CashHoppers/CHOptionalPopupSharingVC.xib; sourceTree = "<group>"; };
+		AA425FD517995EBF008E02E6 /* CHOptionalPopupSharingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHOptionalPopupSharingVC.h; sourceTree = "<group>"; };
+		AA425FD617995EC0008E02E6 /* CHOptionalPopupSharingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHOptionalPopupSharingVC.m; sourceTree = "<group>"; };
+		AA425FD717995EC0008E02E6 /* CHOptionalPopupSharingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHOptionalPopupSharingVC.xib; sourceTree = "<group>"; };
 		AA425FDA1799611A008E02E6 /* button_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_no.png; sourceTree = "<group>"; };
 		AA425FDB1799611A008E02E6 /* button_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_yes.png; sourceTree = "<group>"; };
 		AA4550641774497900D3D0F6 /* button_nav_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_nav_back.png; sourceTree = "<group>"; };
@@ -480,10 +480,10 @@
 		AA4C1FA917904E910071D0F9 /* OpenInChromeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenInChromeController.m; sourceTree = "<group>"; };
 		AA4C1FD3179057B00071D0F9 /* google_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google_logo.png; sourceTree = "<group>"; };
 		AA5505031797ED11009BF936 /* gp_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gp_icon.png; sourceTree = "<group>"; };
-		AA55050517982009009BF936 /* CHMessagesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHMessagesVC.h; path = CashHoppers/CHMessagesVC.h; sourceTree = "<group>"; };
-		AA55050617982009009BF936 /* CHMessagesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHMessagesVC.m; path = CashHoppers/CHMessagesVC.m; sourceTree = "<group>"; };
-		AA55050817982550009BF936 /* CHMessagesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHMessagesCell.h; path = CashHoppers/CHMessagesCell.h; sourceTree = "<group>"; };
-		AA55050917982550009BF936 /* CHMessagesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHMessagesCell.m; path = CashHoppers/CHMessagesCell.m; sourceTree = "<group>"; };
+		AA55050517982009009BF936 /* CHMessagesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMessagesVC.h; sourceTree = "<group>"; };
+		AA55050617982009009BF936 /* CHMessagesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMessagesVC.m; sourceTree = "<group>"; };
+		AA55050817982550009BF936 /* CHMessagesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMessagesCell.h; sourceTree = "<group>"; };
+		AA55050917982550009BF936 /* CHMessagesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMessagesCell.m; sourceTree = "<group>"; };
 		AA55050B1798361F009BF936 /* button_messages_act.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_messages_act.png; sourceTree = "<group>"; };
 		AA55050C1798361F009BF936 /* button_messages_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_messages_n.png; sourceTree = "<group>"; };
 		AA55050D1798361F009BF936 /* button_notifications_act.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_notifications_act.png; sourceTree = "<group>"; };
@@ -700,21 +700,6 @@
 		5640153E176B40D000C028CE = {
 			isa = PBXGroup;
 			children = (
-				AA033B6C179D392600F2B769 /* CHAddFriendVC.h */,
-				AA033B6D179D392600F2B769 /* CHAddFriendVC.m */,
-				AA425FD517995EBF008E02E6 /* CHOptionalPopupSharingVC.h */,
-				AA425FD617995EC0008E02E6 /* CHOptionalPopupSharingVC.m */,
-				AA425FD717995EC0008E02E6 /* CHOptionalPopupSharingVC.xib */,
-				AA55050817982550009BF936 /* CHMessagesCell.h */,
-				AA55050917982550009BF936 /* CHMessagesCell.m */,
-				AA55050517982009009BF936 /* CHMessagesVC.h */,
-				AA55050617982009009BF936 /* CHMessagesVC.m */,
-				AA169461178D9F6800D09372 /* CHMenuSlidingCell.h */,
-				AA169462178D9F6800D09372 /* CHMenuSlidingCell.m */,
-				AA16945E178D963E00D09372 /* CHMenuSlidingVC.h */,
-				AA16945F178D963E00D09372 /* CHMenuSlidingVC.m */,
-				AA16945B178D95B800D09372 /* CHInitSlidingVC.h */,
-				AA16945C178D95B800D09372 /* CHInitSlidingVC.m */,
 				56401550176B40D000C028CE /* CashHoppers */,
 				56401577176B40D100C028CE /* CashHoppersTests */,
 				56401549176B40D000C028CE /* Frameworks */,
@@ -813,6 +798,21 @@
 				AA010546178C3C72004DF5F4 /* CHDetailsFeedVC.m */,
 				AA010548178C4CCF004DF5F4 /* CHCommentListCell.h */,
 				AA010549178C4CD0004DF5F4 /* CHCommentListCell.m */,
+				AA033B6C179D392600F2B769 /* CHAddFriendVC.h */,
+				AA033B6D179D392600F2B769 /* CHAddFriendVC.m */,
+				AA425FD517995EBF008E02E6 /* CHOptionalPopupSharingVC.h */,
+				AA425FD617995EC0008E02E6 /* CHOptionalPopupSharingVC.m */,
+				AA425FD717995EC0008E02E6 /* CHOptionalPopupSharingVC.xib */,
+				AA55050817982550009BF936 /* CHMessagesCell.h */,
+				AA55050917982550009BF936 /* CHMessagesCell.m */,
+				AA55050517982009009BF936 /* CHMessagesVC.h */,
+				AA55050617982009009BF936 /* CHMessagesVC.m */,
+				AA169461178D9F6800D09372 /* CHMenuSlidingCell.h */,
+				AA169462178D9F6800D09372 /* CHMenuSlidingCell.m */,
+				AA16945E178D963E00D09372 /* CHMenuSlidingVC.h */,
+				AA16945F178D963E00D09372 /* CHMenuSlidingVC.m */,
+				AA16945B178D95B800D09372 /* CHInitSlidingVC.h */,
+				AA16945C178D95B800D09372 /* CHInitSlidingVC.m */,
 			);
 			path = CashHoppers;
 			sourceTree = "<group>";
