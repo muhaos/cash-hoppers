@@ -49,8 +49,10 @@
 
 - (void) updateTable {
     if (self.isDailyHops) {
+        self.hopsGroupTitleLabel.text = @"DAILY HOPS";
         self.currentHopsList = @[[CHHopsManager instance].dailyHop];
     } else {
+        self.hopsGroupTitleLabel.text = @"OTHER HOPS";
         self.currentHopsList = [CHHopsManager instance].otherHops;
     }
     [self.otherHopsTable reloadData];

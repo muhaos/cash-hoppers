@@ -11,6 +11,7 @@
 @interface CHOtherHopsListVC : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *otherHopsTable;
+@property (strong, nonatomic) IBOutlet UILabel* hopsGroupTitleLabel;
 @property (nonatomic, assign) BOOL isDailyHops;
 
 @end
