@@ -62,4 +62,10 @@
 }
 
 
+- (IBAction)closeTapped:(id)sender {
+    [self.view removeFromSuperview];
+}
+
+
+
 @end

@@ -12,6 +12,7 @@
 
 - (IBAction)dailyHopTapped:(id)sender;
 - (IBAction)specialHopsTapped:(id)sender;
+- (IBAction)closeTapped:(id)sender;
 
 + (CHHopChooserVC*) sharedHopChooserVC;
 - (void) showInController:(UIViewController*) c;
