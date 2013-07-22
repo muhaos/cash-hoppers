@@ -47,17 +47,18 @@
 
 
 - (IBAction)dailyHopTapped:(id)sender {
-    //[DELEGATE switchViewTo:CHFeed];
     [self.view removeFromSuperview];
+    
+    DELEGATE.needOpenDailyHops = YES;
+    [DELEGATE.tabBarController performSegueWithIdentifier:@"homeScreen" sender:nil];
 }
 
 
 - (IBAction)specialHopsTapped:(id)sender {
-//    [self.parentViewController presentModalViewController:otherHops animated:YES];\
-//    [DELEGATE.tabBarController.container.= otherHops.view;
-    //[DELEGATE.tabBarController performSegueWithIdentifier:@"otherHops" sender:[[UIButton alloc] init]];
      [self.view removeFromSuperview];
 
+    DELEGATE.needOpenOtherHops = YES;
+    [DELEGATE.tabBarController performSegueWithIdentifier:@"homeScreen" sender:nil];
 }
 
 

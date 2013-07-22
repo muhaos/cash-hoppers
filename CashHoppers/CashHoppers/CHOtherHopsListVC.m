@@ -14,7 +14,7 @@
 #import "CHHopsManager.h"
 #import "CHTradeShowMultiHopVC.h"
 
-@interface CHOtherHopsListVC ()
+@interface CHOtherHopsListVC () <CHTradeShowEntryVCDelegate>
 
 @property (assign, nonatomic) BOOL oldNavBarStatus;
 @property (nonatomic, retain) id hopsUpdatedNotification;

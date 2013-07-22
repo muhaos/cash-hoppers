@@ -104,8 +104,17 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    
+    if (DELEGATE.needOpenDailyHops) {
+        [self performSegueWithIdentifier:@"daily_hops_segue" sender:self];
+        DELEGATE.needOpenDailyHops = NO;
+    }
+    if (DELEGATE.needOpenOtherHops) {
+        [self performSegueWithIdentifier:@"other_hops_segue" sender:self];
+        DELEGATE.needOpenOtherHops = NO;
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated {

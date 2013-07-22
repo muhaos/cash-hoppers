@@ -25,6 +25,8 @@ enum CHView{
 @property (strong, nonatomic) CHHomeScreenViewController *homeScreenVC;
 @property (strong, nonatomic) UINavigationController* navController;
 @property (strong, nonatomic) MFSideMenuContainerViewController *menuContainerVC;
+@property (nonatomic, assign) BOOL needOpenDailyHops; // for hops chooser
+@property (nonatomic, assign) BOOL needOpenOtherHops;
 
 -(void)switchViewTo:(enum CHView)view;
 -(void)openSession;

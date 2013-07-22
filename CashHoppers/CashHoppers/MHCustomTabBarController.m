@@ -99,6 +99,9 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if ([self.currentIdentifier isEqual:identifier]) {
         //Dont perform segue, if visible ViewController is already the destination ViewController
+        if ([self.currentViewController isKindOfClass:[UINavigationController class]]) {
+            [(UINavigationController*)self.currentViewController popToRootViewControllerAnimated:NO];
+        }
         return NO;
     }
     
