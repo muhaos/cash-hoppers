@@ -25,6 +25,9 @@
 @property (strong, nonatomic) IBOutlet UILabel* otherHopsCountLabel;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView* otherHopsIndicator;
 
+// Friends feed
+@property (strong, nonatomic) IBOutlet UIImageView* friendImageView;
+
 
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)dailyHopPressed:(id)sender;
