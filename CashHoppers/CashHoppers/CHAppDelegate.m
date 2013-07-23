@@ -44,6 +44,8 @@
         [self showLoginView];
     }
     */
+    
+    [self setupApperences];
    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:[NSBundle mainBundle]];
 
@@ -69,6 +71,11 @@
     
     return YES;
 
+}
+
+
+- (void) setupApperences {
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_bar_background"] forBarMetrics:UIBarMetricsDefault];
 }
 
 

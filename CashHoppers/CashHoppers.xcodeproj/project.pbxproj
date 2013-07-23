@@ -15,6 +15,8 @@
 		5611554B179EA82400DAA76E /* UIButton+CustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5611554A179EA82300DAA76E /* UIButton+CustomFont.m */; };
 		5611554E179EA87000DAA76E /* UILabel+CustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5611554D179EA87000DAA76E /* UILabel+CustomFont.m */; };
 		56115551179EA8AB00DAA76E /* UITextField+CustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 56115550179EA8AB00DAA76E /* UITextField+CustomFont.m */; };
+		56115553179EC15900DAA76E /* nav_bar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56115552179EC15900DAA76E /* nav_bar_background@2x.png */; };
+		56115555179EC38300DAA76E /* nav_bar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 56115554179EC38300DAA76E /* nav_bar_background.png */; };
 		5640154B176B40D000C028CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640154A176B40D000C028CE /* UIKit.framework */; };
 		5640154D176B40D000C028CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640154C176B40D000C028CE /* Foundation.framework */; };
 		5640154F176B40D000C028CE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640154E176B40D000C028CE /* CoreGraphics.framework */; };
@@ -281,6 +283,8 @@
 		5611554D179EA87000DAA76E /* UILabel+CustomFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CustomFont.m"; sourceTree = "<group>"; };
 		5611554F179EA8AA00DAA76E /* UITextField+CustomFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+CustomFont.h"; sourceTree = "<group>"; };
 		56115550179EA8AB00DAA76E /* UITextField+CustomFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+CustomFont.m"; sourceTree = "<group>"; };
+		56115552179EC15900DAA76E /* nav_bar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_background@2x.png"; sourceTree = "<group>"; };
+		56115554179EC38300DAA76E /* nav_bar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_background.png; sourceTree = "<group>"; };
 		56401547176B40D000C028CE /* CashHoppers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashHoppers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5640154A176B40D000C028CE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5640154C176B40D000C028CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -888,6 +892,8 @@
 		5640158B176B433B00C028CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				56115554179EC38300DAA76E /* nav_bar_background.png */,
+				56115552179EC15900DAA76E /* nav_bar_background@2x.png */,
 				AA033B71179D506E00F2B769 /* you_are_friends.png */,
 				AA033B6F179D3DA900F2B769 /* button_add_as_friend.png */,
 				AA425FDA1799611A008E02E6 /* button_no.png */,
@@ -1562,6 +1568,8 @@
 				56115545179EA4A200DAA76E /* OpenSans-CondBold.ttf in Resources */,
 				56115546179EA4A200DAA76E /* OpenSans-CondLight.ttf in Resources */,
 				56115547179EA4A200DAA76E /* OpenSans-CondLightItalic.ttf in Resources */,
+				56115553179EC15900DAA76E /* nav_bar_background@2x.png in Resources */,
+				56115555179EC38300DAA76E /* nav_bar_background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

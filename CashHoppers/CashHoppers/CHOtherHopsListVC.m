@@ -38,7 +38,6 @@
     backBtn.frame = CGRectMake(0, 0, 20, 20);
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
     self.navigationItem.leftBarButtonItem = backButton;
-    self.title = @"HOPS LIST";
     
     self.hopsUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_HOPS_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
         // refresh

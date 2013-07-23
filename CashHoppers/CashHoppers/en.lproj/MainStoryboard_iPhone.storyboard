@@ -116,7 +116,7 @@
             </objects>
             <point key="canvasLocation" x="-697" y="-189"/>
         </scene>
-        <!--LoginVC - CASH HOPPERS-->
+        <!--LoginVC-->
         <scene sceneID="ILU-kZ-HTA">
             <objects>
                 <viewController id="lAZ-kz-Iv0" customClass="CHLoginVC" sceneMemberID="viewController">
@@ -229,7 +229,7 @@
                             <outletCollection property="gestureRecognizers" destination="V3P-br-g7t" appends="YES" id="xM3-2L-tkf"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="CASH HOPPERS" id="k7E-J4-KVN"/>
+                    <navigationItem key="navigationItem" id="k7E-J4-KVN"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="emailField" destination="UXK-id-xEh" id="Fyo-st-KAv"/>
@@ -245,7 +245,7 @@
             </objects>
             <point key="canvasLocation" x="31" y="-189"/>
         </scene>
-        <!--Reset PasswordVC - CASH HOPPERS-->
+        <!--Reset PasswordVC-->
         <scene sceneID="XK5-Z3-m4Y">
             <objects>
                 <viewController id="wju-BP-5OV" customClass="CHResetPasswordVC" sceneMemberID="viewController">
@@ -318,7 +318,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.94000000000000006" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="CASH HOPPERS" id="tHk-x4-cGP"/>
+                    <navigationItem key="navigationItem" id="tHk-x4-cGP"/>
                     <connections>
                         <outlet property="emailTextField" destination="jEA-ja-Piq" id="bPL-fl-0EW"/>
                     </connections>
@@ -327,7 +327,7 @@
             </objects>
             <point key="canvasLocation" x="1260" y="-960"/>
         </scene>
-        <!--Home Screen View Controller - CASH HOPPERS-->
+        <!--Home Screen View Controller-->
         <scene sceneID="EHh-hq-AQC">
             <objects>
                 <viewController storyboardIdentifier="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lLm-ac-WKs" customClass="CHHomeScreenViewController" sceneMemberID="viewController">
@@ -621,7 +621,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="CASH HOPPERS" id="0ad-7W-Dgu">
+                    <navigationItem key="navigationItem" id="0ad-7W-Dgu">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="oZm-gF-0Ap">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WgL-47-hyx">
                                 <rect key="frame" x="5" y="9" width="30" height="26"/>
@@ -773,7 +773,7 @@
             </objects>
             <point key="canvasLocation" x="1786" y="-189"/>
         </scene>
-        <!--RegisterVC - CASH HOPPERS-->
+        <!--RegisterVC-->
         <scene sceneID="BLv-G0-8RP">
             <objects>
                 <viewController id="nSy-Mj-aOQ" customClass="CHRegisterVC" sceneMemberID="viewController">
@@ -1020,7 +1020,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.94000000000000006" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="CASH HOPPERS" id="ngy-wM-V5F"/>
+                    <navigationItem key="navigationItem" id="ngy-wM-V5F"/>
                     <connections>
                         <outlet property="emailTextField" destination="Epd-jr-pNe" id="9sR-LR-9No"/>
                         <outlet property="emailView" destination="cy2-DU-Daa" id="gHL-9w-sDw"/>
@@ -1038,7 +1038,7 @@
             </objects>
             <point key="canvasLocation" x="31" y="490"/>
         </scene>
-        <!--Friends ListVC - CASH HOPPERS-->
+        <!--Friends ListVC-->
         <scene sceneID="ywu-Le-if8">
             <objects>
                 <viewController id="jk9-u6-mkP" customClass="CHFriendsListVC" sceneMemberID="viewController">
@@ -1247,7 +1247,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="CASH HOPPERS" id="lgY-un-gew"/>
+                    <navigationItem key="navigationItem" id="lgY-un-gew"/>
                     <connections>
                         <outlet property="allHoppersButton" destination="mHI-Lo-h63" id="elh-eF-1YA"/>
                         <outlet property="friendsButton" destination="Ucw-dV-7ux" id="qZM-Y2-vqb"/>

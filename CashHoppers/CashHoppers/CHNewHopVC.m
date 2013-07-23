@@ -44,8 +44,6 @@
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
     self.navigationItem.leftBarButtonItem = backButton;
     
-    self.title = @"COMPLETE HOP";
-    
     _textView.layer.borderWidth = 1;
     _textView.layer.cornerRadius = 3;
     _textView.layer.borderColor = CH_GRAY_COLOR.CGColor;
