@@ -32,7 +32,6 @@
     self.countLikeLabel.text = @"4";
     self.countCommentLabel.text = @"3";
     self.likePersonTextView.text = @"Brad Daberko, Dan Kelly, Tony Fannin, Erin Kelly";
-    _myScroolView.frame = (CGRect){_myScroolView.frame.origin, CGSizeMake(320, 900)};
     _myScroolView.contentSize = CGSizeMake(320, 900);
     self.addComentTextView.text = @"Add coment ...";
     self.addComentTextView.textColor = [UIColor grayColor];

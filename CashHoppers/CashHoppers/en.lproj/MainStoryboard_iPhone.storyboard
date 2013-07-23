@@ -1527,7 +1527,6 @@
                         <outlet property="postCommentButton" destination="drX-Sw-w0P" id="NTa-aj-HSJ"/>
                         <outlet property="taskCompletedLabel" destination="5Fo-RY-pO2" id="FsE-M9-5BH"/>
                         <outlet property="timeLabel" destination="GS6-tf-QH7" id="PP9-rM-Cvl"/>
-                        <outlet property="view" destination="iYL-i3-iPO" id="v02-jk-hCv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ko6-fb-3wG" userLabel="First Responder" sceneMemberID="firstResponder"/>
