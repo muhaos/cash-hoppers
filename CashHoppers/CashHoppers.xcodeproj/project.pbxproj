@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56115543179EA4A200DAA76E /* DroidSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5611553E179EA4A200DAA76E /* DroidSans-Bold.ttf */; };
+		56115544179EA4A200DAA76E /* DroidSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5611553F179EA4A200DAA76E /* DroidSans.ttf */; };
+		56115545179EA4A200DAA76E /* OpenSans-CondBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56115540179EA4A200DAA76E /* OpenSans-CondBold.ttf */; };
+		56115546179EA4A200DAA76E /* OpenSans-CondLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56115541179EA4A200DAA76E /* OpenSans-CondLight.ttf */; };
+		56115547179EA4A200DAA76E /* OpenSans-CondLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56115542179EA4A200DAA76E /* OpenSans-CondLightItalic.ttf */; };
+		5611554B179EA82400DAA76E /* UIButton+CustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5611554A179EA82300DAA76E /* UIButton+CustomFont.m */; };
+		5611554E179EA87000DAA76E /* UILabel+CustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5611554D179EA87000DAA76E /* UILabel+CustomFont.m */; };
+		56115551179EA8AB00DAA76E /* UITextField+CustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 56115550179EA8AB00DAA76E /* UITextField+CustomFont.m */; };
 		5640154B176B40D000C028CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640154A176B40D000C028CE /* UIKit.framework */; };
 		5640154D176B40D000C028CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640154C176B40D000C028CE /* Foundation.framework */; };
 		5640154F176B40D000C028CE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640154E176B40D000C028CE /* CoreGraphics.framework */; };
@@ -262,6 +270,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5611553E179EA4A200DAA76E /* DroidSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidSans-Bold.ttf"; sourceTree = "<group>"; };
+		5611553F179EA4A200DAA76E /* DroidSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DroidSans.ttf; sourceTree = "<group>"; };
+		56115540179EA4A200DAA76E /* OpenSans-CondBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondBold.ttf"; sourceTree = "<group>"; };
+		56115541179EA4A200DAA76E /* OpenSans-CondLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondLight.ttf"; sourceTree = "<group>"; };
+		56115542179EA4A200DAA76E /* OpenSans-CondLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondLightItalic.ttf"; sourceTree = "<group>"; };
+		56115549179EA82300DAA76E /* UIButton+CustomFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CustomFont.h"; sourceTree = "<group>"; };
+		5611554A179EA82300DAA76E /* UIButton+CustomFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CustomFont.m"; sourceTree = "<group>"; };
+		5611554C179EA86F00DAA76E /* UILabel+CustomFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+CustomFont.h"; sourceTree = "<group>"; };
+		5611554D179EA87000DAA76E /* UILabel+CustomFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CustomFont.m"; sourceTree = "<group>"; };
+		5611554F179EA8AA00DAA76E /* UITextField+CustomFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+CustomFont.h"; sourceTree = "<group>"; };
+		56115550179EA8AB00DAA76E /* UITextField+CustomFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+CustomFont.m"; sourceTree = "<group>"; };
 		56401547176B40D000C028CE /* CashHoppers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashHoppers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5640154A176B40D000C028CE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5640154C176B40D000C028CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -691,6 +710,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5611553D179EA4A200DAA76E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5611553E179EA4A200DAA76E /* DroidSans-Bold.ttf */,
+				5611553F179EA4A200DAA76E /* DroidSans.ttf */,
+				56115540179EA4A200DAA76E /* OpenSans-CondBold.ttf */,
+				56115541179EA4A200DAA76E /* OpenSans-CondLight.ttf */,
+				56115542179EA4A200DAA76E /* OpenSans-CondLightItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = SOURCE_ROOT;
+		};
+		56115548179EA7CA00DAA76E /* Custom Font From Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				56115549179EA82300DAA76E /* UIButton+CustomFont.h */,
+				5611554A179EA82300DAA76E /* UIButton+CustomFont.m */,
+				5611554C179EA86F00DAA76E /* UILabel+CustomFont.h */,
+				5611554D179EA87000DAA76E /* UILabel+CustomFont.m */,
+				5611554F179EA8AA00DAA76E /* UITextField+CustomFont.h */,
+				56115550179EA8AB00DAA76E /* UITextField+CustomFont.m */,
+			);
+			name = "Custom Font From Storyboard";
+			sourceTree = "<group>";
+		};
 		5640153E176B40D000C028CE = {
 			isa = PBXGroup;
 			children = (
@@ -810,6 +854,7 @@
 		56401551176B40D000C028CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5611553D179EA4A200DAA76E /* Fonts */,
 				56401552176B40D000C028CE /* CashHoppers-Info.plist */,
 				56401553176B40D000C028CE /* InfoPlist.strings */,
 				56401556176B40D000C028CE /* main.m */,
@@ -1212,6 +1257,7 @@
 		E1B074FB177B58E000D7BCD0 /* Custom Elements */ = {
 			isa = PBXGroup;
 			children = (
+				56115548179EA7CA00DAA76E /* Custom Font From Storyboard */,
 				E176E67A179881FD004BFF02 /* MFSideMenu */,
 				AA169454178D941500D09372 /* ECSlidingViewController */,
 				E1B074F5177B58CF00D7BCD0 /* MHCustomTabBarController.h */,
@@ -1511,6 +1557,11 @@
 				AA425FDD1799611B008E02E6 /* button_yes.png in Resources */,
 				AA033B70179D3DA900F2B769 /* button_add_as_friend.png in Resources */,
 				AA033B72179D506E00F2B769 /* you_are_friends.png in Resources */,
+				56115543179EA4A200DAA76E /* DroidSans-Bold.ttf in Resources */,
+				56115544179EA4A200DAA76E /* DroidSans.ttf in Resources */,
+				56115545179EA4A200DAA76E /* OpenSans-CondBold.ttf in Resources */,
+				56115546179EA4A200DAA76E /* OpenSans-CondLight.ttf in Resources */,
+				56115547179EA4A200DAA76E /* OpenSans-CondLightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1659,6 +1710,9 @@
 				AA55050A17982551009BF936 /* CHMessagesCell.m in Sources */,
 				AA425FD817995EC0008E02E6 /* CHOptionalPopupSharingVC.m in Sources */,
 				AA033B6E179D392600F2B769 /* CHAddFriendVC.m in Sources */,
+				5611554B179EA82400DAA76E /* UIButton+CustomFont.m in Sources */,
+				5611554E179EA87000DAA76E /* UILabel+CustomFont.m in Sources */,
+				56115551179EA8AB00DAA76E /* UITextField+CustomFont.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
