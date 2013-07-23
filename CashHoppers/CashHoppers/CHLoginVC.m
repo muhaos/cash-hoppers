@@ -21,31 +21,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *backBtnImage = [UIImage imageNamed:@"button_nav_back"];
-    [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(backButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    backBtn.frame = CGRectMake(0, 0, 20, 20);
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
-    self.navigationItem.leftBarButtonItem = backButton;
+    [self setupTriangleBackButton];
 }
 
 
 - (void) backButtonTapped {
     [[self navigationController] popViewControllerAnimated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.oldNavBarStatus = self.navigationController.navigationBarHidden;
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 
 - (void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:self.oldNavBarStatus animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

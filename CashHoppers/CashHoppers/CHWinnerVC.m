@@ -22,13 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *backBtnImage = [UIImage imageNamed:@"button_nav_back"];
-    [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(backButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    backBtn.frame = CGRectMake(0, 0, 20, 20);
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
-    self.navigationItem.leftBarButtonItem = backButton;
+    [self setupTriangleBackButton];
     
     [photoImageView setImage:[UIImage imageNamed:@"photo_brian"]];
 //    photoImageView.layer.cornerRadius = 70;

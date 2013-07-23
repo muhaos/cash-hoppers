@@ -19,24 +19,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self customBackButton];
+    [self setupTriangleBackButton];
     
     [self.photoImageView setImage:[UIImage imageNamed:@"photo_hop"]];
     [self.nameLabel setText:@"Brian Kelly"];
     [self.descTextView setText:@"Owner of Hayes and Taylor Apparel. UI/UX/Graohic Designer.Buckey Fan. Indianapolis, 1N"];
     [self.countFriendsLabel setText:@"78 Friends"];
-}
-
-
--(void)customBackButton
-{
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *backBtnImage = [UIImage imageNamed:@"button_nav_back"];
-    [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(backButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    backBtn.frame = CGRectMake(0, 0, 20, 20);
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
-    self.navigationItem.leftBarButtonItem = backButton;
 }
 
 
