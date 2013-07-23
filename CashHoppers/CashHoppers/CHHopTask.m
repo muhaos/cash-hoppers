@@ -12,7 +12,7 @@
 
 - (void) updateFromDictionary:(NSDictionary*) dic {
     self.identifier = [dic objectForKey:@"id"];
-    self.text = [self safeStringFrom:[dic objectForKey:@"text"] defaultValue:@"No Description"];
+    self.text = [CHBaseModel safeStringFrom:[dic objectForKey:@"text"] defaultValue:@"No Description"];
 }
 
 @end

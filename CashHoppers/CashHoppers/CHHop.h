@@ -33,6 +33,6 @@ enum CHHopType {
 - (enum CHHopType) hopType;
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
-
++ (BOOL) isValidHopDictionary:(NSDictionary*) dic;
 
 @end

@@ -13,19 +13,19 @@
 - (void) updateFromDictionary:(NSDictionary*) dic {
     
     self.identifier = [dic objectForKey:@"id"];
-    self.name = [self safeStringFrom:[dic objectForKey:@"name"] defaultValue:@"No Name"];
+    self.name = [CHBaseModel safeStringFrom:[dic objectForKey:@"name"] defaultValue:@"No Name"];
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"dd/MM/yyyy HH:mm:ss"];
-    self.time_start = [self safeDateFrom:[dic objectForKey:@"time_start"] dateFromatter:df defaultValue:nil];
-    self.time_end = [self safeDateFrom:[dic objectForKey:@"time_end"] dateFromatter:df defaultValue:nil];
+    self.time_start = [CHBaseModel safeDateFrom:[dic objectForKey:@"time_start"] dateFromatter:df defaultValue:nil];
+    self.time_end = [CHBaseModel safeDateFrom:[dic objectForKey:@"time_end"] dateFromatter:df defaultValue:nil];
     
-    self.code = [self safeStringFrom:[dic objectForKey:@"code"] defaultValue:@""];
-    self.price = [self safeStringFrom:[dic objectForKey:@"price"] defaultValue:@""];
-    self.jackpot = [self safeNumberFrom:[dic objectForKey:@"jackpot"] defaultValue:@0];
+    self.code = [CHBaseModel safeStringFrom:[dic objectForKey:@"code"] defaultValue:@""];
+    self.price = [CHBaseModel safeStringFrom:[dic objectForKey:@"price"] defaultValue:@""];
+    self.jackpot = [CHBaseModel safeNumberFrom:[dic objectForKey:@"jackpot"] defaultValue:@0];
     self.daily_hop = [dic objectForKey:@"daily_hop"];
     self.close = [dic objectForKey:@"close"];
-    self.event = [self safeStringFrom:[dic objectForKey:@"event"] defaultValue:@""];
+    self.event = [CHBaseModel safeStringFrom:[dic objectForKey:@"event"] defaultValue:@""];
 
 }
 
@@ -42,6 +42,13 @@
     }
 }
 
+
++ (BOOL) isValidHopDictionary:(NSDictionary*) dic {
+    if (nil == [CHBaseModel safeNumberFrom:[dic objectForKey:@"id"] defaultValue:nil]) {
+        return NO;
+    }
+    return YES;
+}
 
 
 @end

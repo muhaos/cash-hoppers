@@ -38,7 +38,7 @@
     [self loadDailyHop];
     
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
-    NSString *path = [NSString stringWithFormat:@"/api/hops/regular.json?api_key=%@&authentication_token=%@", CH_API_KEY, aToken];
+    NSString *path = [NSString stringWithFormat:@"/api/hops/regular?api_key=%@&authentication_token=%@", CH_API_KEY, aToken];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
 
     NSLog(@"REQUEST TO : %@", [request.URL description]);
@@ -50,40 +50,33 @@
         NSArray* hops = [JSON objectForKey:@"hops"];
         if (hops) {
             for (NSDictionary* objDic in hops) {
-                CHHop* newHop = [[CHHop alloc] init];
-                [newHop updateFromDictionary:objDic];
-                
-                if ([newHop.daily_hop boolValue]) {
-                    self.dailyHop = newHop;
-                } else {
+                if ([CHHop isValidHopDictionary:objDic]) {
+                    CHHop* newHop = [[CHHop alloc] init];
+                    [newHop updateFromDictionary:objDic];
                     [self.otherHops addObject:newHop];
+                    [self loadTasksForHop:newHop];
                 }
-                
-                [self loadTasksForHop:newHop];
             }
         }
         
         [[NSNotificationCenter defaultCenter] postNotificationName:CH_HOPS_UPDATED object:self];
-        
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         //[self defaultErrorHandlerForResponce:response :error :JSON];
-        
         [self.otherHops removeAllObjects];
         
         NSArray* hops = [JSON objectForKey:@"hops"];
         if (hops) {
             for (NSDictionary* objDic in hops) {
-                CHHop* newHop = [[CHHop alloc] init];
-                [newHop updateFromDictionary:objDic];
-                
-                [self.otherHops addObject:newHop];
-            
-                [self loadTasksForHop:newHop];
+                if ([CHHop isValidHopDictionary:objDic]) {
+                    CHHop* newHop = [[CHHop alloc] init];
+                    [newHop updateFromDictionary:objDic];
+                    [self.otherHops addObject:newHop];
+                    [self loadTasksForHop:newHop];
+                }
             }
         }
         
         [[NSNotificationCenter defaultCenter] postNotificationName:CH_HOPS_UPDATED object:self];
-
     }];
     
     [operation start];
@@ -107,11 +100,7 @@
                 CHHop* newHop = [[CHHop alloc] init];
                 [newHop updateFromDictionary:objDic];
                 
-                if ([newHop.daily_hop boolValue]) {
-                    self.dailyHop = newHop;
-                } else {
-                    [self.otherHops addObject:newHop];
-                }
+                self.dailyHop = newHop;
                 
                 [self loadTasksForHop:newHop];
             }
@@ -121,7 +110,7 @@
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         //[self defaultErrorHandlerForResponce:response :error :JSON];
-        
+    
         self.dailyHop = nil;
         
         NSArray* hops = [JSON objectForKey:@"hops"];
@@ -137,7 +126,7 @@
         }
         
         [[NSNotificationCenter defaultCenter] postNotificationName:CH_HOPS_UPDATED object:self];
-        
+
     }];
     
     [operation start];
@@ -168,10 +157,10 @@
         }
         
         [[NSNotificationCenter defaultCenter] postNotificationName:CH_HOPS_TASKS_UPDATED object:hop];
+        
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         //[self defaultErrorHandlerForResponce:response :error :JSON];
-        
-
+    
         NSMutableArray* tasks = [NSMutableArray new];
         
         NSArray* json_tasks = [JSON objectForKey:@"hop_tasks"];
@@ -187,6 +176,7 @@
         
         [[NSNotificationCenter defaultCenter] postNotificationName:CH_HOPS_TASKS_UPDATED object:hop];
 
+    
     }];
     
     [operation start];

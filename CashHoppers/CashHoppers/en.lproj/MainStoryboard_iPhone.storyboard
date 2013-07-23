@@ -1103,6 +1103,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="addFriendTapped:" destination="feB-pW-u0L" eventType="touchUpInside" id="N3q-Ot-V2c"/>
+                                                        <segue destination="OtY-Mi-bR2" kind="push" id="cXW-zC-qBi"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1173,6 +1174,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tU5-Rd-sNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3426" y="899"/>
+        </scene>
+        <!--Add FriendVC-->
+        <scene sceneID="wBS-5W-tzN">
+            <objects>
+                <viewController id="OtY-Mi-bR2" customClass="CHAddFriendVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nI1-wd-KsW">
+                        <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="mhL-Jd-Gsa">
+                                <rect key="frame" x="130" y="40" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4tJ-qa-cI4">
+                                <rect key="frame" x="20" y="110" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZRp-iQ-UHJ">
+                                <rect key="frame" x="20" y="195" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.043137254899999998" green="0.58039215690000001" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut " textAlignment="center" id="nxA-5Y-eiZ">
+                                <rect key="frame" x="40" y="130" width="240" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="5a4-OR-lYK">
+                                <rect key="frame" x="95" y="230" width="130" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="boQ-n6-udY">
+                                <rect key="frame" x="95" y="230" width="130" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="button_add_as_friend.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addFriendTapped:" destination="OtY-Mi-bR2" eventType="touchUpInside" id="AhR-Qj-DVe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qQj-gM-mTa"/>
+                    <connections>
+                        <outlet property="addFriendButton" destination="boQ-n6-udY" id="OKG-Yj-DCf"/>
+                        <outlet property="countFriendsLabel" destination="ZRp-iQ-UHJ" id="rSS-Ys-2Eb"/>
+                        <outlet property="descTextView" destination="nxA-5Y-eiZ" id="rti-vi-Cn3"/>
+                        <outlet property="nameLabel" destination="4tJ-qa-cI4" id="2E2-QQ-3rY"/>
+                        <outlet property="photoImageView" destination="mhL-Jd-Gsa" id="weJ-e0-S6Z"/>
+                        <outlet property="yourFriendsImageView" destination="5a4-OR-lYK" id="uZH-Aj-GUA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oob-N3-ZJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3972" y="1519"/>
         </scene>
         <!--Details FeedVC-->
         <scene sceneID="9K4-gB-c6c">
@@ -1375,7 +1447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ko6-fb-3wG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3990" y="701"/>
+            <point key="canvasLocation" x="3972" y="465"/>
         </scene>
         <!--Other Hops ListVC - CASHHOPPERS-->
         <scene sceneID="Ljo-oV-Gi0">
@@ -2317,6 +2389,7 @@
         <image name="banner.png" width="649" height="90"/>
         <image name="bk_round.png" width="148" height="149"/>
         <image name="black_separator.png" width="509" height="3"/>
+        <image name="button_add_as_friend.png" width="255" height="68"/>
         <image name="button_facebook.png" width="497" height="81"/>
         <image name="button_forget_passwd.png" width="345" height="25"/>
         <image name="button_join.png" width="86" height="34"/>
@@ -2362,6 +2435,18 @@
         <image name="yellow_button.png" width="234" height="109"/>
     </resources>
     <classes>
+        <class className="CHAddFriendVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHAddFriendVC.h"/>
+            <relationships>
+                <relationship kind="action" name="addFriendTapped:"/>
+                <relationship kind="outlet" name="addFriendButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="countFriendsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="yourFriendsImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
         <class className="CHCommentListCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHCommentListCell.h"/>
             <relationships>
