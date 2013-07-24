@@ -138,15 +138,6 @@
     
 }
 
-#pragma mark - imagePicker delegate
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-	[picker dismissModalViewControllerAnimated:YES];
-    UIImage *chosenImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    
-   	photoImView.image = chosenImage;
-    
-}
 
 -(CGSize)keyboardSize{
     UIInterfaceOrientation *orient = [UIApplication sharedApplication].statusBarOrientation;
@@ -170,23 +161,6 @@
     return CGSizeZero;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)viewDidUnload {
-    [self setTextView:nil];
-    [self setCharCountLabel:nil];
-    [self setPhotoImView:nil];
-    [self setSubmitButton:nil];
-    [self setSeparatorView:nil];
-    [self setMyScroolView:nil];
-    [self setMenuButton:nil];
-    [self setWinnterButton:nil];
-    [super viewDidUnload];
-}
 
 #pragma mark - ibactions
 
@@ -202,13 +176,35 @@
     [poc setTitle:@"Take a photo."];
     [poc setDelegate:self];
 
-    [poc setSourceType:UIImagePickerControllerSourceTypeCamera];
-    //    poc.showsCameraControls = NO;
+    
+#if TARGET_IPHONE_SIMULATOR
+    [poc setSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
+#elif TARGET_OS_IPHONE
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [poc setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }else{
+        [poc setSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
+    }
+#else
+#endif
+    
     [self presentViewController:poc animated:YES completion:nil];
+}
+
+
+#pragma mark - imagePicker delegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+	[picker dismissModalViewControllerAnimated:YES];
+    UIImage *chosenImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    
+   	photoImView.image = chosenImage;
     
 }
 
+
 - (IBAction)submitPressed:(id)sender {
+    
 }
 
 - (IBAction)menuTapped:(id)sender {
@@ -242,6 +238,25 @@
 -(BOOL)resignWinnerButton
 {
     return  winnterButton.hidden = YES;
+}
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidUnload {
+    [self setTextView:nil];
+    [self setCharCountLabel:nil];
+    [self setPhotoImView:nil];
+    [self setSubmitButton:nil];
+    [self setSeparatorView:nil];
+    [self setMyScroolView:nil];
+    [self setMenuButton:nil];
+    [self setWinnterButton:nil];
+    [super viewDidUnload];
 }
 
 @end
