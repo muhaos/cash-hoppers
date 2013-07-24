@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHProfileUserVC : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate>
+@interface CHProfileUserVC : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UIScrollViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (strong, nonatomic) IBOutlet UITextView *bioTextView;
@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, nonatomic) IBOutlet UITextField *twitterTextField;
 @property (strong, nonatomic) IBOutlet UITextField *facebookTextField;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)photoButtonTapped:(id)sender;
 
