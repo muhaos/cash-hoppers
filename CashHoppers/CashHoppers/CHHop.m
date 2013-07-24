@@ -7,6 +7,7 @@
 //
 
 #import "CHHop.h"
+#import "CHHopTask.h"
 
 @implementation CHHop
 
@@ -31,7 +32,7 @@
 
 
 - (enum CHHopType) hopType {
-    if ([self.close boolValue]) {
+    if ([self isAllTasksCompleted]) {
        return CHHopTypeCompleted;
     } else if (![self.code isEqualToString:@""]) {
         return CHHopTypeWithCode;
@@ -43,11 +44,35 @@
 }
 
 
+- (BOOL) isAllTasksCompleted {
+    for (CHHopTask* t in  self.tasks) {
+        if ([t.completed boolValue] != YES) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+
+
 + (BOOL) isValidHopDictionary:(NSDictionary*) dic {
     if (nil == [CHBaseModel safeNumberFrom:[dic objectForKey:@"id"] defaultValue:nil]) {
         return NO;
     }
     return YES;
+}
+
+
+- (NSString*) dateString {
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"MM/dd"];
+    NSString* startDate = [df stringFromDate:self.time_start];
+    NSString* finalDate = startDate;
+    if (self.time_end != nil) {
+        NSString* endDate = [df stringFromDate:self.time_end];
+        finalDate = [NSString stringWithFormat:@"%@ - %@", startDate, endDate];
+    }
+    return finalDate;
 }
 
 

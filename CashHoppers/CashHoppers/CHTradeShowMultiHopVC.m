@@ -29,7 +29,7 @@
     [super viewDidLoad];
     [self setupTriangleBackButton];
     
-    self.hopTitleLabel.text = self.currentHop.name;
+    self.hopTitleLabel.text = [NSString stringWithFormat:@"%@   %@", self.currentHop.name, [self.currentHop dateString]];
     self.hopImageView.image = [UIImage imageNamed:@"image_nbm_show.png"];
     self.scoreLabel.text = @"550 pts";
     self.rankLabel.text = @"3 of 46";
@@ -100,7 +100,7 @@
     CHHopTask* hopTask = [self.currentHop.tasks objectAtIndex:indexPath.row];
     CHTradeShowMultiHopCell *cell = nil;
     
-    if (false) { // there must be check of hop task completion
+    if ([hopTask.completed boolValue]) { // there must be check of hop task completion
         
         cell = (CHTradeShowMultiHopCell*) [tableView dequeueReusableCellWithIdentifier:completeHopsCellIdentifier];
         [[cell compTextView] setText:hopTask.text];
@@ -127,7 +127,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"new_hop" sender:self];
+    CHHopTask* hopTask = [self.currentHop.tasks objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"new_hop_segue" sender:hopTask];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -140,10 +141,9 @@
 
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"new_hop"]) {
+    if ([segue.identifier isEqualToString:@"new_hop_segue"]) {
         CHNewHopVC* c = (CHNewHopVC*)segue.destinationViewController;
-        c.view;
-        [c resignWinnerButton];
+        c.currentHopTask = sender;
     }
 }
 

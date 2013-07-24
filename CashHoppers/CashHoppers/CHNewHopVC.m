@@ -15,6 +15,8 @@
 #import "GPPSignIn.h"
 #import "CHStartVC.h"
 #import "CHOptionalPopupSharingVC.h"
+#import "CHLoadingVC.h"
+#import "CHHopsManager.h"
 
 @interface CHNewHopVC ()
 
@@ -78,6 +80,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.submitButton.hidden = [self.currentHopTask.completed boolValue];
+    self.hopTitleLabel.text = [NSString stringWithFormat:@"%@   %@", self.currentHopTask.hop.name, [self.currentHopTask.hop dateString]];
 }
 
 
@@ -204,7 +208,16 @@
 
 
 - (IBAction)submitPressed:(id)sender {
-    
+    [[CHLoadingVC sharedLoadingVC] showInController:self.view.window.rootViewController withText:@"Processing..."];
+
+    [[CHHopsManager instance] completeHopTask:self.currentHopTask withPhoto:photoImView.image comment:_textView.text completionHandler:^(BOOL success) {
+        if (success) {
+            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"SUCCED" message:@"Hop submited. Now you can share this hop for additional points." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [av show];
+            [self backButtonTapped];
+        }
+        [[CHLoadingVC sharedLoadingVC] hide];
+    }];
 }
 
 - (IBAction)menuTapped:(id)sender {

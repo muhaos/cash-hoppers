@@ -11,8 +11,13 @@
 #import <UIKit/UIKit.h>
 #import "GPPShare.h"
 
+@class CHHopTask;
+
 @interface CHNewHopVC : UIViewController <UITextViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property (strong, nonatomic) CHHopTask* currentHopTask;
+
+@property (strong, nonatomic) IBOutlet UILabel *hopTitleLabel;
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) IBOutlet UILabel *charCountLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *photoImView;

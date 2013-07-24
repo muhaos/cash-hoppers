@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class CHBaseModel;
+
 @interface CHBaseManager : NSObject
 
 - (void) defaultErrorHandlerForResponce: (NSHTTPURLResponse *)response :(NSError *)error :(id) JSON;
+
+- (CHBaseModel*) findObjectWithID:(NSNumber*)_id inArray:(NSArray*) array;
 
 @end

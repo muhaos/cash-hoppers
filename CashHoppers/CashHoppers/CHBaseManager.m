@@ -7,6 +7,7 @@
 //
 
 #import "CHBaseManager.h"
+#import "CHBaseModel.h"
 
 @implementation CHBaseManager
 
@@ -21,5 +22,14 @@
     [av show];
 }
 
+
+- (CHBaseModel*) findObjectWithID:(NSNumber*)_id inArray:(NSArray*) array {
+    for (CHBaseModel* obj in array) {
+        if ([_id intValue] == [obj.identifier intValue]) {
+            return obj;
+        }
+    }
+    return nil;
+}
 
 @end

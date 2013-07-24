@@ -19,10 +19,11 @@
 
 + (CHHopsManager*) instance;
 
-@property (nonatomic, retain) CHHop* dailyHop;
-@property (nonatomic, retain) NSMutableArray* otherHops;
+@property (nonatomic, retain) NSArray* dailyHops;
+@property (nonatomic, retain) NSArray* otherHops;
 
 - (void) refreshHops;
+- (void) completeHopTask:(CHHopTask*) hopTask withPhoto:(UIImage*) photo comment:(NSString*) comment completionHandler:(void (^)(BOOL success))handler;
 
 
 @end

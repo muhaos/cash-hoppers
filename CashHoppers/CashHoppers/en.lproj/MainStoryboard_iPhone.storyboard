@@ -1952,7 +1952,7 @@
                         <outlet property="multiHopTable" destination="E7h-I8-Ymt" id="Go9-xV-aAU"/>
                         <outlet property="rankLabel" destination="P23-B7-DpM" id="Hgk-CP-6bz"/>
                         <outlet property="scoreLabel" destination="bdz-xw-n8D" id="yk1-jk-IWs"/>
-                        <segue destination="R7Q-Wk-aGG" kind="push" identifier="new_hop" id="Wv3-IZ-arJ"/>
+                        <segue destination="R7Q-Wk-aGG" kind="push" identifier="new_hop_segue" id="Wv3-IZ-arJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsu-wl-MEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2115,6 +2115,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="charCountLabel" destination="H6Y-n4-9hF" id="aSc-pc-BRm"/>
+                        <outlet property="hopTitleLabel" destination="1Z1-dT-ad6" id="brg-aj-zYr"/>
                         <outlet property="myScroolView" destination="fRE-mQ-GGT" id="q6c-ao-IiY"/>
                         <outlet property="photoImView" destination="61U-zc-veO" id="2QA-ei-xau"/>
                         <outlet property="separatorView" destination="dtN-RC-jWo" id="lOG-26-9u4"/>
@@ -2662,6 +2663,7 @@
                 <relationship kind="action" name="shareWithTwitterTapped:"/>
                 <relationship kind="action" name="submitPressed:"/>
                 <relationship kind="outlet" name="charCountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="hopTitleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="menuButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="myScroolView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="photoImView" candidateClass="UIImageView"/>
@@ -2790,6 +2792,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="lvk-fo-Rcf"/>
-        <segue reference="dTN-EH-Ojv"/>
+        <segue reference="Wv3-IZ-arJ"/>
     </inferredMetricsTieBreakers>
 </document>

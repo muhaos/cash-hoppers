@@ -13,6 +13,7 @@
 - (void) updateFromDictionary:(NSDictionary*) dic {
     self.identifier = [dic objectForKey:@"id"];
     self.text = [CHBaseModel safeStringFrom:[dic objectForKey:@"text"] defaultValue:@"No Description"];
+    self.completed = [CHBaseModel safeNumberFrom:[dic objectForKey:@"completed"] defaultValue:@0];
 }
 
 @end

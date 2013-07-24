@@ -13,6 +13,7 @@
 #import "CHTradeShowEntryVC.h"
 #import "CHHopsManager.h"
 #import "CHTradeShowMultiHopVC.h"
+#import "CHNewHopVC.h"
 
 @interface CHOtherHopsListVC () <CHTradeShowEntryVCDelegate>
 
@@ -44,7 +45,7 @@
 - (void) updateTable {
     if (self.isDailyHops) {
         self.hopsGroupTitleLabel.text = @"DAILY HOPS";
-        self.currentHopsList = [CHHopsManager instance].dailyHop == nil ? @[] : @[[CHHopsManager instance].dailyHop];
+        self.currentHopsList = [CHHopsManager instance].dailyHops;
     } else {
         self.hopsGroupTitleLabel.text = @"OTHER HOPS";
         self.currentHopsList = [CHHopsManager instance].otherHops;
@@ -150,11 +151,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [[CHTradeShowEntryVC sharedTradeShowEntryVC] showInController:self
-//                                                         withText:@"NBM TRADE SHOW HOP"
-//                                                        withImage:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"image_nbm_show.png"]]];
-    
-    //[self performSegueWithIdentifier:@"tradeShowMulti" sender:self.currentHopsList[indexPath.row]];
     CHHop* tappedHop = self.currentHopsList[indexPath.row];
     
     switch ([tappedHop hopType]) {
@@ -164,7 +160,12 @@
         }
         case CHHopTypeWithEntryFee: {
             if (self.isDailyHops) {
-                [self performSegueWithIdentifier:@"new_hop_segue" sender:tappedHop];
+                if ([tappedHop.tasks count] > 0) {
+                    [self performSegueWithIdentifier:@"new_hop_segue" sender:tappedHop];
+                } else {
+                    UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"No tasks for this hop" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                    [av show];
+                }
             } else {
                 [self performSegueWithIdentifier:@"tradeShowMulti" sender:tappedHop];
             }
@@ -194,6 +195,9 @@
     if ([segue.identifier isEqualToString:@"tradeShowMulti"]) {
         CHTradeShowMultiHopVC* vc = segue.destinationViewController;
         vc.currentHop = sender;
+    }
+    if ([segue.identifier isEqualToString:@"new_hop_segue"]) {
+        ((CHNewHopVC*)segue.destinationViewController).currentHopTask = ((CHHop*)sender).tasks[0];
     }
     
 }

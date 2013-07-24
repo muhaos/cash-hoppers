@@ -18,7 +18,6 @@ enum CHHopType {
 
 @interface CHHop : CHBaseModel
 
-@property (nonatomic, strong) NSNumber* identifier;
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSDate* time_start;
 @property (nonatomic, strong) NSDate* time_end;
@@ -31,6 +30,8 @@ enum CHHopType {
 
 @property (nonatomic, strong) NSArray* tasks; // CHHopTask
 - (enum CHHopType) hopType;
+- (BOOL) isAllTasksCompleted;
+- (NSString*) dateString;
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
 + (BOOL) isValidHopDictionary:(NSDictionary*) dic;

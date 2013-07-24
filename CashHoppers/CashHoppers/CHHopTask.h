@@ -8,10 +8,13 @@
 
 #import "CHBaseModel.h"
 
+@class CHHop;
+
 @interface CHHopTask : CHBaseModel
 
-@property (nonatomic, strong) NSNumber* identifier;
 @property (nonatomic, strong) NSString* text;
+@property (nonatomic, strong) NSNumber* completed;
+@property (nonatomic, strong) CHHop* hop;
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
 
