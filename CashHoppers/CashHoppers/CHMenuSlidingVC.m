@@ -119,6 +119,10 @@
 //        [self.slidingViewController resetTopView];
 //    }];
     
+    
+    if (indexPath.row == 3) {
+        [self performSegueWithIdentifier:@"find_friends" sender:self];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

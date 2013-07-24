@@ -72,6 +72,15 @@
 		AA16945D178D95B800D09372 /* CHInitSlidingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA16945C178D95B800D09372 /* CHInitSlidingVC.m */; };
 		AA169460178D963E00D09372 /* CHMenuSlidingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA16945F178D963E00D09372 /* CHMenuSlidingVC.m */; };
 		AA169463178D9F6800D09372 /* CHMenuSlidingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA169462178D9F6800D09372 /* CHMenuSlidingCell.m */; };
+		AA32A735179FD8CC003563FB /* CHFindFriendsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA32A734179FD8CC003563FB /* CHFindFriendsVC.m */; };
+		AA32A73B179FEF6A003563FB /* find_facebook_friends.png in Resources */ = {isa = PBXBuildFile; fileRef = AA32A736179FEF6A003563FB /* find_facebook_friends.png */; };
+		AA32A73C179FEF6A003563FB /* find_google_friends.png in Resources */ = {isa = PBXBuildFile; fileRef = AA32A737179FEF6A003563FB /* find_google_friends.png */; };
+		AA32A73D179FEF6A003563FB /* find_twitter_friends.png in Resources */ = {isa = PBXBuildFile; fileRef = AA32A738179FEF6A003563FB /* find_twitter_friends.png */; };
+		AA32A73E179FEF6A003563FB /* search_box.png in Resources */ = {isa = PBXBuildFile; fileRef = AA32A739179FEF6A003563FB /* search_box.png */; };
+		AA32A73F179FEF6A003563FB /* send_email_invite.png in Resources */ = {isa = PBXBuildFile; fileRef = AA32A73A179FEF6A003563FB /* send_email_invite.png */; };
+		AA32A74117A00810003563FB /* add_icon_in_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = AA32A74017A00810003563FB /* add_icon_in_cell.png */; };
+		AA32A74417A00A1C003563FB /* CHAddFriendsSocialNetworksVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA32A74317A00A1C003563FB /* CHAddFriendsSocialNetworksVC.m */; };
+		AA32A74717A00AE4003563FB /* CHAddFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA32A74617A00AE4003563FB /* CHAddFriendsCell.m */; };
 		AA331430178EA7DA00593FC3 /* black_separator.png in Resources */ = {isa = PBXBuildFile; fileRef = AA33142A178EA7DA00593FC3 /* black_separator.png */; };
 		AA331431178EA7DA00593FC3 /* button_logout.png in Resources */ = {isa = PBXBuildFile; fileRef = AA33142B178EA7DA00593FC3 /* button_logout.png */; };
 		AA331432178EA7DA00593FC3 /* find_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA33142C178EA7DA00593FC3 /* find_icon.png */; };
@@ -365,6 +374,18 @@
 		AA16945F178D963E00D09372 /* CHMenuSlidingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMenuSlidingVC.m; sourceTree = "<group>"; };
 		AA169461178D9F6800D09372 /* CHMenuSlidingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMenuSlidingCell.h; sourceTree = "<group>"; };
 		AA169462178D9F6800D09372 /* CHMenuSlidingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMenuSlidingCell.m; sourceTree = "<group>"; };
+		AA32A733179FD8CC003563FB /* CHFindFriendsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHFindFriendsVC.h; path = CashHoppers/CHFindFriendsVC.h; sourceTree = "<group>"; };
+		AA32A734179FD8CC003563FB /* CHFindFriendsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHFindFriendsVC.m; path = CashHoppers/CHFindFriendsVC.m; sourceTree = "<group>"; };
+		AA32A736179FEF6A003563FB /* find_facebook_friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find_facebook_friends.png; sourceTree = "<group>"; };
+		AA32A737179FEF6A003563FB /* find_google_friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find_google_friends.png; sourceTree = "<group>"; };
+		AA32A738179FEF6A003563FB /* find_twitter_friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find_twitter_friends.png; sourceTree = "<group>"; };
+		AA32A739179FEF6A003563FB /* search_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_box.png; sourceTree = "<group>"; };
+		AA32A73A179FEF6A003563FB /* send_email_invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = send_email_invite.png; sourceTree = "<group>"; };
+		AA32A74017A00810003563FB /* add_icon_in_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_icon_in_cell.png; sourceTree = "<group>"; };
+		AA32A74217A00A1C003563FB /* CHAddFriendsSocialNetworksVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHAddFriendsSocialNetworksVC.h; path = CashHoppers/CHAddFriendsSocialNetworksVC.h; sourceTree = "<group>"; };
+		AA32A74317A00A1C003563FB /* CHAddFriendsSocialNetworksVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHAddFriendsSocialNetworksVC.m; path = CashHoppers/CHAddFriendsSocialNetworksVC.m; sourceTree = "<group>"; };
+		AA32A74517A00AE4003563FB /* CHAddFriendsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHAddFriendsCell.h; path = CashHoppers/CHAddFriendsCell.h; sourceTree = "<group>"; };
+		AA32A74617A00AE4003563FB /* CHAddFriendsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHAddFriendsCell.m; path = CashHoppers/CHAddFriendsCell.m; sourceTree = "<group>"; };
 		AA33142A178EA7DA00593FC3 /* black_separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_separator.png; sourceTree = "<group>"; };
 		AA33142B178EA7DA00593FC3 /* button_logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_logout.png; sourceTree = "<group>"; };
 		AA33142C178EA7DA00593FC3 /* find_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find_icon.png; sourceTree = "<group>"; };
@@ -745,6 +766,12 @@
 		5640153E176B40D000C028CE = {
 			isa = PBXGroup;
 			children = (
+				AA32A74517A00AE4003563FB /* CHAddFriendsCell.h */,
+				AA32A74617A00AE4003563FB /* CHAddFriendsCell.m */,
+				AA32A74217A00A1C003563FB /* CHAddFriendsSocialNetworksVC.h */,
+				AA32A74317A00A1C003563FB /* CHAddFriendsSocialNetworksVC.m */,
+				AA32A733179FD8CC003563FB /* CHFindFriendsVC.h */,
+				AA32A734179FD8CC003563FB /* CHFindFriendsVC.m */,
 				56401550176B40D000C028CE /* CashHoppers */,
 				56401577176B40D100C028CE /* CashHoppersTests */,
 				56401549176B40D000C028CE /* Frameworks */,
@@ -895,6 +922,12 @@
 		5640158B176B433B00C028CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AA32A74017A00810003563FB /* add_icon_in_cell.png */,
+				AA32A736179FEF6A003563FB /* find_facebook_friends.png */,
+				AA32A737179FEF6A003563FB /* find_google_friends.png */,
+				AA32A738179FEF6A003563FB /* find_twitter_friends.png */,
+				AA32A739179FEF6A003563FB /* search_box.png */,
+				AA32A73A179FEF6A003563FB /* send_email_invite.png */,
 				56115554179EC38300DAA76E /* nav_bar_background.png */,
 				56115552179EC15900DAA76E /* nav_bar_background@2x.png */,
 				AA033B71179D506E00F2B769 /* you_are_friends.png */,
@@ -1575,6 +1608,12 @@
 				56115547179EA4A200DAA76E /* OpenSans-CondLightItalic.ttf in Resources */,
 				56115553179EC15900DAA76E /* nav_bar_background@2x.png in Resources */,
 				56115555179EC38300DAA76E /* nav_bar_background.png in Resources */,
+				AA32A73B179FEF6A003563FB /* find_facebook_friends.png in Resources */,
+				AA32A73C179FEF6A003563FB /* find_google_friends.png in Resources */,
+				AA32A73D179FEF6A003563FB /* find_twitter_friends.png in Resources */,
+				AA32A73E179FEF6A003563FB /* search_box.png in Resources */,
+				AA32A73F179FEF6A003563FB /* send_email_invite.png in Resources */,
+				AA32A74117A00810003563FB /* add_icon_in_cell.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1727,6 +1766,9 @@
 				5611554E179EA87000DAA76E /* UILabel+CustomFont.m in Sources */,
 				56115551179EA8AB00DAA76E /* UITextField+CustomFont.m in Sources */,
 				56115558179ECE9E00DAA76E /* UIViewController+Utils.m in Sources */,
+				AA32A735179FD8CC003563FB /* CHFindFriendsVC.m in Sources */,
+				AA32A74417A00A1C003563FB /* CHAddFriendsSocialNetworksVC.m in Sources */,
+				AA32A74717A00AE4003563FB /* CHAddFriendsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
