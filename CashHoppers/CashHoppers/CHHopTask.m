@@ -13,6 +13,10 @@
 - (void) updateFromDictionary:(NSDictionary*) dic {
     self.identifier = [dic objectForKey:@"id"];
     self.text = [self safeStringFrom:[dic objectForKey:@"text"] defaultValue:@"No Description"];
+//    self.completed = [NSNumber numberWithBool:[[dic objectForKey:@"completed"] boolValue]];
+    BOOL isCompleted = [[dic objectForKey:@"completed"] boolValue];
+    self.completed = isCompleted?@"YES":@"NO";
+
 }
 
 @end

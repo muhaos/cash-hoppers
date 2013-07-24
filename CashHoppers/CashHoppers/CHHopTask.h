@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSNumber* identifier;
 @property (nonatomic, strong) NSString* text;
+@property (nonatomic, strong) NSString *completed;
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
 

@@ -114,7 +114,7 @@
         AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             
             NSInteger success = [[JSON  objectForKey:@"success"]integerValue];
-            NSString* atoken = [JSON objectForKey:@"authentication_token"];
+            NSString* atoken = [[JSON objectForKey:@"data"]objectForKey:@"authentication_token"];
             NSString *message;
             if(success == 1){
                 message = @"Login successfull!";
