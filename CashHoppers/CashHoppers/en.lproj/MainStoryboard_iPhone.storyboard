@@ -3182,6 +3182,7 @@
         <class className="CHFriendsListVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHFriendsListVC.h"/>
             <relationships>
+                <relationship kind="action" name="addFriendTapped:"/>
                 <relationship kind="action" name="allHopppersButtonTapped:"/>
                 <relationship kind="action" name="friendsButtonTapped:"/>
                 <relationship kind="outlet" name="allHoppersButton" candidateClass="UIButton"/>

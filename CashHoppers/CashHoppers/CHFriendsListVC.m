@@ -9,12 +9,22 @@
 #import "CHFriendsListVC.h"
 #import "CHFriendsListCell.h"
 #import <QuartzCore/QuartzCore.h>
-
+#import "CHFriendsFeedManager.h"
+#import "CHFriendsFeedItem.h"
+#import "CHUser.h"
+#import "CHHopTask.h"
+#import "CHHop.h"
 
 @interface CHFriendsListVC ()
 
 @property (assign, nonatomic) BOOL oldNavBarStatus;
 @property (assign, nonatomic) BOOL friendsButtonActive;
+
+@property (nonatomic, strong) id friendsFeedUpdatedNotification;
+@property (nonatomic, strong) id globalFeedUpdatedNotification;
+@property (nonatomic, strong) id feedItemUpdatedNotification;
+
+@property (nonatomic, strong) NSMutableArray* feedItems;
 
 @end
 
@@ -25,8 +35,34 @@
 - (void)viewDidLoad
 {
     [self setupTriangleBackButton];
+    [self refreshList];
     self.friendsButtonActive = YES;
     [self activeButton:YES];
+    
+    self.friendsFeedUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_FRIEND_FEED_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
+        [self refreshList];
+    }];
+
+    self.globalFeedUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_GLOBAL_FEED_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
+        [self refreshList];
+    }];
+    
+    self.feedItemUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_FEED_ITEM_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
+        
+    }];
+    
+    [[CHFriendsFeedManager instance] refreshFeeds];
+}
+
+
+- (void) refreshList {
+    if (self.friendsButtonActive) {
+        self.feedItems = [CHFriendsFeedManager instance].friendsFeedItems;
+    } else {
+        self.feedItems = [CHFriendsFeedManager instance].globalFeedItems;
+    }
+    
+    [self.friendsTable reloadData];
 }
 
 
@@ -69,7 +105,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.feedItems.count;
 }
 
 
@@ -83,17 +119,32 @@
     static NSString *friendsCellIdentifier = @"friends_list_cell";
     
     CHFriendsListCell *cell = (CHFriendsListCell*) [tableView dequeueReusableCellWithIdentifier:friendsCellIdentifier];
+    
+    CHFriendsFeedItem *fItem = (CHFriendsFeedItem*)[self.feedItems objectAtIndex:indexPath.row];
+    
+    NSString *name = fItem.hopUser.firstName;
+    NSString *lastName = fItem.hopUser.lastName;
+    NSString *namePersonText = [name stringByAppendingFormat:@" %@",lastName];
 
-    [[cell namePersonLabel] setText:@"Brian Kelly"];
-    [[cell nameHopLabel] setText:@"NBM Trade Show HOP"];
+    NSTimeInterval time = [fItem.hop.time_end timeIntervalSinceNow];
+    int timeSinceCompleted = time/60;
+    
+    [[cell namePersonLabel] setText:namePersonText];
+    [[cell nameHopLabel] setText:fItem.hopTask.text];
     [[cell timeLabel] setText:@"15 mins ago"];
     [[cell photoHopImageView] setImage:[UIImage imageNamed:@"photo_hop"]];
     [[cell photoPersonImageView] setImage:[UIImage imageNamed:@"photo_BrianKelly"]];
-    [[cell taskCompletedLabel] setText:@"Screen Printer"];
+    //[[cell taskCompletedLabel] setText:fItem.hopTask.completed];//@"Screen Printer"];
     [[cell addFriendButton] setImage:[UIImage imageNamed:@"button_add_friend"] forState:UIControlStateNormal];
+    
+    cell.timeLabel.text = [NSString stringWithFormat:@"%i m",timeSinceCompleted];
+    cell.numberLikesLabel.text = [fItem.numberOfLikes stringValue];
     [cell numberCommentsLabel].layer.cornerRadius = 3.0f;
     [cell numberLikesLabel].layer.cornerRadius = 3.0f;
     
+    [cell.imageView setImage:nil];
+    
+
     if (self.friendsButtonActive == YES) {
         
         [[cell commentButton] setHidden:NO];
@@ -139,33 +190,19 @@
 }
 
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-- (void)viewDidUnload {
-    [self setFriendsTable:nil];
-    [self setFriendsButton:nil];
-    [self setAllHoppersButton:nil];
-    [super viewDidUnload];
-}
-
-
 - (IBAction)friendsButtonTapped:(id)sender {
     self.friendsButtonActive = YES;
     [self activeButton:self.friendsButtonActive];
-    [friendsTable reloadData];
+    [self refreshList];
 }
 
 
 - (IBAction)allHopppersButtonTapped:(id)sender {
     self.friendsButtonActive = NO;
     [self activeButton:self.friendsButtonActive];
-    [friendsTable reloadData];
+    [self refreshList];
 }
+
 
 - (IBAction)addFriendTapped:(id)sender {
 }
@@ -179,6 +216,26 @@
         [self.friendsButton setImage:[UIImage imageNamed:@"button_friends_no"] forState:UIControlStateNormal];
         [self.allHoppersButton setImage:[UIImage imageNamed:@"button_all_hops_ac"] forState:UIControlStateNormal];
     }
+}
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+- (void)viewDidUnload {
+    [self setFriendsTable:nil];
+    [self setFriendsButton:nil];
+    [self setAllHoppersButton:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self.friendsFeedUpdatedNotification];
+    [[NSNotificationCenter defaultCenter] removeObserver:self.globalFeedUpdatedNotification];
+    [[NSNotificationCenter defaultCenter] removeObserver:self.feedItemUpdatedNotification];
+    
+    [super viewDidUnload];
 }
 
 

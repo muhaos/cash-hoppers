@@ -25,5 +25,7 @@
 - (void) refreshHops;
 - (void) completeHopTask:(CHHopTask*) hopTask withPhoto:(UIImage*) photo comment:(NSString*) comment completionHandler:(void (^)(BOOL success))handler;
 
+- (void) loadHopForID:(NSNumber*) _id completionHandler:(void (^)(CHHop* hop)) handler;
+
 
 @end
