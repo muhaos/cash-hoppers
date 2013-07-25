@@ -101,6 +101,8 @@
 		AA455073177490BC00D3D0F6 /* delta_header_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = AA45506E177490BC00D3D0F6 /* delta_header_cell.png */; };
 		AA455074177490BC00D3D0F6 /* your_header_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = AA45506F177490BC00D3D0F6 /* your_header_cell.png */; };
 		AA455075177490BC00D3D0F6 /* your_indicator_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = AA455070177490BC00D3D0F6 /* your_indicator_cell.png */; };
+		AA458922179EA71000D49BC3 /* CHProfileUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA458921179EA71000D49BC3 /* CHProfileUserVC.m */; };
+		AA458924179EDC8C00D49BC3 /* edit_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = AA458923179EDC8900D49BC3 /* edit_photo.png */; };
 		AA4C1F36178FF9AF0071D0F9 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4C1F35178FF9AF0071D0F9 /* Twitter.framework */; };
 		AA4C1F39178FFA7B0071D0F9 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4C1F37178FFA7B0071D0F9 /* FacebookSDK.framework */; };
 		AA4C1F3A178FFA7B0071D0F9 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AA4C1F38178FFA7B0071D0F9 /* FacebookSDKResources.bundle */; };
@@ -397,6 +399,9 @@
 		AA45506E177490BC00D3D0F6 /* delta_header_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delta_header_cell.png; sourceTree = "<group>"; };
 		AA45506F177490BC00D3D0F6 /* your_header_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = your_header_cell.png; sourceTree = "<group>"; };
 		AA455070177490BC00D3D0F6 /* your_indicator_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = your_indicator_cell.png; sourceTree = "<group>"; };
+		AA458920179EA71000D49BC3 /* CHProfileUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHProfileUserVC.h; sourceTree = "<group>"; };
+		AA458921179EA71000D49BC3 /* CHProfileUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHProfileUserVC.m; sourceTree = "<group>"; };
+		AA458923179EDC8900D49BC3 /* edit_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit_photo.png; sourceTree = "<group>"; };
 		AA4C1F35178FF9AF0071D0F9 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		AA4C1F37178FFA7B0071D0F9 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		AA4C1F38178FFA7B0071D0F9 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
@@ -854,6 +859,8 @@
 				AA16945F178D963E00D09372 /* CHMenuSlidingVC.m */,
 				AA16945B178D95B800D09372 /* CHInitSlidingVC.h */,
 				AA16945C178D95B800D09372 /* CHInitSlidingVC.m */,
+				AA458920179EA71000D49BC3 /* CHProfileUserVC.h */,
+				AA458921179EA71000D49BC3 /* CHProfileUserVC.m */,
 			);
 			path = CashHoppers;
 			sourceTree = "<group>";
@@ -897,6 +904,7 @@
 			children = (
 				56115554179EC38300DAA76E /* nav_bar_background.png */,
 				56115552179EC15900DAA76E /* nav_bar_background@2x.png */,
+				AA458923179EDC8900D49BC3 /* edit_photo.png */,
 				AA033B71179D506E00F2B769 /* you_are_friends.png */,
 				AA033B6F179D3DA900F2B769 /* button_add_as_friend.png */,
 				AA425FDA1799611A008E02E6 /* button_no.png */,
@@ -1575,6 +1583,7 @@
 				56115547179EA4A200DAA76E /* OpenSans-CondLightItalic.ttf in Resources */,
 				56115553179EC15900DAA76E /* nav_bar_background@2x.png in Resources */,
 				56115555179EC38300DAA76E /* nav_bar_background.png in Resources */,
+				AA458924179EDC8C00D49BC3 /* edit_photo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1727,6 +1736,7 @@
 				5611554E179EA87000DAA76E /* UILabel+CustomFont.m in Sources */,
 				56115551179EA8AB00DAA76E /* UITextField+CustomFont.m in Sources */,
 				56115558179ECE9E00DAA76E /* UIViewController+Utils.m in Sources */,
+				AA458922179EA71000D49BC3 /* CHProfileUserVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -119,6 +119,9 @@
 //        [self.slidingViewController resetTopView];
 //    }];
     
+    if (indexPath.row == 0) {
+        [self performSegueWithIdentifier:@"profile_user" sender:self];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
