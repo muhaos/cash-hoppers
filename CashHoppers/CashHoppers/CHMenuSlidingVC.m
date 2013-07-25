@@ -122,6 +122,10 @@
     if (indexPath.row == 0) {
         [self performSegueWithIdentifier:@"profile_user" sender:self];
     }
+    
+    if (indexPath.row == 3) {
+        [self performSegueWithIdentifier:@"find_friends" sender:self];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
