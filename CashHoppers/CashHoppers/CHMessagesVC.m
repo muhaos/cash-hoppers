@@ -82,12 +82,14 @@
         [[cell photoImageView] setImage:[UIImage imageNamed:@"photo_BrianKelly.png"]];
         [[cell messageTextView] setText:@"Comented on your completed Hop Item Screen Printer"];
         [[cell likeCommentImageView ] setHidden:YES];
+        [[cell deleteButton] setHidden:NO];
     } else {
         [[cell nameLabel] setText:@"Brian Kelly"];
         [[cell timeLabel] setText:@"30 mins ago"];
         [[cell photoImageView] setImage:[UIImage imageNamed:@"photo_BrianKelly.png"]];
         [[cell messageTextView] setText:@"Comented on your completed Hop Item Screen Printer"];
         [[cell likeCommentImageView] setHidden:NO];
+        [[cell deleteButton] setHidden:YES];
         if (indexPath.row == 0) {
             [[cell likeCommentImageView ] setImage:[UIImage imageNamed:@"comment_icon_on"]];
         }else{

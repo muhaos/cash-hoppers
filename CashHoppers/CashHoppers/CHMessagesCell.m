@@ -9,7 +9,7 @@
 #import "CHMessagesCell.h"
 
 @implementation CHMessagesCell
-@synthesize photoImageView, nameLabel, likeCommentImageView, messageTextView, timeLabel;
+@synthesize photoImageView, nameLabel, likeCommentImageView, messageTextView, timeLabel, deleteButton;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -28,6 +28,9 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (IBAction)deleteButtonTapped:(id)sender {
 }
 
 @end
