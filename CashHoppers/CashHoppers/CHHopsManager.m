@@ -99,18 +99,18 @@
     NSLog(@"REQUEST TO : %@", [request.URL description]);
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        
+
         NSDictionary* hop = [JSON objectForKey:@"hop"];
         if (hop) {
             CHHop* newHop = [[CHHop alloc] init];
             [newHop updateFromDictionary:hop];
             [self loadTasksForHop:newHop completionHandler:handler];
         }
-        
-    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        
-    }];
     
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+
+    }];
+
     [operation start];
 }
 

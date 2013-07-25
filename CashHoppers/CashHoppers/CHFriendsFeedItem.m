@@ -7,6 +7,8 @@
 //
 
 #import "CHFriendsFeedItem.h"
+#import "CHHop.h"
+#import "CHHopTask.h"
 
 @implementation CHFriendsFeedItem
 
@@ -26,5 +28,16 @@
     self.numberOfLikes = [dic objectForKey:@"likes_count"];
     self.photoURL = [CHBaseModel safeStringFrom:[dic objectForKey:@"photo"] defaultValue:@""];
 }
+
+
+- (NSString*) completedTaskName {
+    for (CHHopTask* t in self.hop.tasks) {
+        if ([t.identifier intValue] == [self.hopTaskID intValue]) {
+            return t.text;
+        }
+    }
+    return @"No Task Name";
+}
+
 
 @end

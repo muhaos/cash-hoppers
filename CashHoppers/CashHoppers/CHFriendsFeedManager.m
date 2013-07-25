@@ -85,7 +85,7 @@
 
 - (void) loadFriendsFeed{
 
-    [self loadFeedsFromPath:@"/api/tasks/get_friends_hop_tasks.json" destinationArray:self.globalFeedItems completionHandler:^(NSArray* result){
+    [self loadFeedsFromPath:@"/api/tasks/get_friends_hop_tasks.json" destinationArray:self.friendsFeedItems completionHandler:^(NSArray* result){
         [[NSNotificationCenter defaultCenter] postNotificationName:CH_FRIEND_FEED_UPDATED object:self];
     }];
 
