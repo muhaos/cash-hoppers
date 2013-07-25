@@ -19,7 +19,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [self setupTriangleBackButton];
+}
+
+
+- (void) backButtonTapped {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

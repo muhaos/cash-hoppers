@@ -36,8 +36,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [self.passwordTextField setText:@"qwerty11"];
     [self.twitterTextField setText:@"admin"];
     [self.facebookTextField setText:@"admin"];
+    [self setupTriangleBackButton];
 }
 
+
+- (void) backButtonTapped {
+    [self dismissModalViewControllerAnimated:YES];
+}
 
 - (void)didReceiveMemoryWarning
 {
