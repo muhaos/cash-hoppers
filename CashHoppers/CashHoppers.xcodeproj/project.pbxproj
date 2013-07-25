@@ -215,6 +215,8 @@
 		AACE4240177C6977006E2E46 /* special_hops_holder.png in Resources */ = {isa = PBXBuildFile; fileRef = AACE423F177C6977006E2E46 /* special_hops_holder.png */; };
 		AAFBE33117A1422A00F408C2 /* button_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFBE32F17A1422A00F408C2 /* button_delete.png */; };
 		AAFBE33217A1422A00F408C2 /* compose_new_message.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFBE33017A1422A00F408C2 /* compose_new_message.png */; };
+		AAFBE33517A148D100F408C2 /* CHComposeNewMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFBE33417A148D100F408C2 /* CHComposeNewMessageVC.m */; };
+		AAFBE33917A14E0500F408C2 /* button_reply_to_message.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFBE33817A14E0500F408C2 /* button_reply_to_message.png */; };
 		AAFF7459177D923D003883BD /* CHHopChooserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFF7457177D923C003883BD /* CHHopChooserVC.m */; };
 		AAFF745A177D923D003883BD /* CHHopChooserVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFF7458177D923D003883BD /* CHHopChooserVC.xib */; };
 		AAFF745C177D9642003883BD /* image_popover.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFF745B177D9642003883BD /* image_popover.png */; };
@@ -623,6 +625,9 @@
 		AACE423F177C6977006E2E46 /* special_hops_holder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = special_hops_holder.png; sourceTree = "<group>"; };
 		AAFBE32F17A1422A00F408C2 /* button_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_delete.png; sourceTree = "<group>"; };
 		AAFBE33017A1422A00F408C2 /* compose_new_message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compose_new_message.png; sourceTree = "<group>"; };
+		AAFBE33317A148D100F408C2 /* CHComposeNewMessageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHComposeNewMessageVC.h; path = CashHoppers/CHComposeNewMessageVC.h; sourceTree = "<group>"; };
+		AAFBE33417A148D100F408C2 /* CHComposeNewMessageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHComposeNewMessageVC.m; path = CashHoppers/CHComposeNewMessageVC.m; sourceTree = "<group>"; };
+		AAFBE33817A14E0500F408C2 /* button_reply_to_message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_reply_to_message.png; sourceTree = "<group>"; };
 		AAFF7456177D923B003883BD /* CHHopChooserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHopChooserVC.h; sourceTree = "<group>"; };
 		AAFF7457177D923C003883BD /* CHHopChooserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHopChooserVC.m; sourceTree = "<group>"; };
 		AAFF7458177D923D003883BD /* CHHopChooserVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHHopChooserVC.xib; sourceTree = "<group>"; };
@@ -775,6 +780,8 @@
 		5640153E176B40D000C028CE = {
 			isa = PBXGroup;
 			children = (
+				AAFBE33317A148D100F408C2 /* CHComposeNewMessageVC.h */,
+				AAFBE33417A148D100F408C2 /* CHComposeNewMessageVC.m */,
 				AA32A74517A00AE4003563FB /* CHAddFriendsCell.h */,
 				AA32A74617A00AE4003563FB /* CHAddFriendsCell.m */,
 				AA32A74217A00A1C003563FB /* CHAddFriendsSocialNetworksVC.h */,
@@ -933,6 +940,7 @@
 		5640158B176B433B00C028CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AAFBE33817A14E0500F408C2 /* button_reply_to_message.png */,
 				AAFBE32F17A1422A00F408C2 /* button_delete.png */,
 				AAFBE33017A1422A00F408C2 /* compose_new_message.png */,
 				AA32A74017A00810003563FB /* add_icon_in_cell.png */,
@@ -1631,6 +1639,7 @@
 				AA32A74117A00810003563FB /* add_icon_in_cell.png in Resources */,
 				AAFBE33117A1422A00F408C2 /* button_delete.png in Resources */,
 				AAFBE33217A1422A00F408C2 /* compose_new_message.png in Resources */,
+				AAFBE33917A14E0500F408C2 /* button_reply_to_message.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1787,6 +1796,7 @@
 				AA32A735179FD8CC003563FB /* CHFindFriendsVC.m in Sources */,
 				AA32A74417A00A1C003563FB /* CHAddFriendsSocialNetworksVC.m in Sources */,
 				AA32A74717A00AE4003563FB /* CHAddFriendsCell.m in Sources */,
+				AAFBE33517A148D100F408C2 /* CHComposeNewMessageVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

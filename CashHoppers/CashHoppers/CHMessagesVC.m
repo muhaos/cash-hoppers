@@ -107,6 +107,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self performSegueWithIdentifier:@"new_message" sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

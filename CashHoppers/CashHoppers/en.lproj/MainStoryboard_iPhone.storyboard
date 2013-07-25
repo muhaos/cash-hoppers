@@ -2634,7 +2634,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="deleteButtonTapped:" destination="f9f-RF-wOn" eventType="touchUpInside" id="v9j-P1-wEu"/>
+                                                        <action selector="deleteButtonTapped:" destination="f9f-RF-wOn" eventType="touchUpInside" id="1O7-6G-bML"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -2667,11 +2667,110 @@
                         <outlet property="messagesButton" destination="Iyl-5B-8hf" id="zOx-Ch-tRS"/>
                         <outlet property="messagesTable" destination="2V2-el-PU0" id="Asn-X6-tGH"/>
                         <outlet property="notificationsButton" destination="RNB-6S-Nk3" id="9Ub-Nn-UXP"/>
+                        <segue destination="vJJ-CM-gVo" kind="push" identifier="new_message" id="WRq-qQ-Sbh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KuY-oZ-cAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3010" y="1716"/>
+        </scene>
+        <!--Compose New MessageVC-->
+        <scene sceneID="ShC-rM-V0n">
+            <objects>
+                <viewController id="vJJ-CM-gVo" customClass="CHComposeNewMessageVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UwR-0v-PeO">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="compose_new_message.png" id="e1J-mW-Hm7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="f66-9b-76w">
+                                <rect key="frame" x="20" y="48" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rII-4i-qYe">
+                                <rect key="frame" x="197" y="61" width="45" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="del" image="button_delete.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteButtonTapped:" destination="vJJ-CM-gVo" eventType="touchUpInside" id="9Eg-iD-7hc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JrX-Ed-50R">
+                                <rect key="frame" x="250" y="59" width="64" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AYn-I9-Xn7">
+                                <rect key="frame" x="72" y="59" width="99" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans-Bold"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, " id="4RJ-oj-Ghu">
+                                <rect key="frame" x="13" y="100" width="287" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="GEd-gH-w3A">
+                                <rect key="frame" x="20" y="235" width="280" height="125"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vJJ-CM-gVo" id="gym-x1-ftn"/>
+                                </connections>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TDR-57-Aw7">
+                                <rect key="frame" x="31" y="372" width="250" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="button_reply_to_message.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="replyMessageButtonTapped:" destination="vJJ-CM-gVo" eventType="touchUpInside" id="4fs-gd-jOu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="GtS-gW-Nix"/>
+                    <connections>
+                        <outlet property="inputMessageTextView" destination="GEd-gH-w3A" id="MYj-bk-wOE"/>
+                        <outlet property="messageTextView" destination="4RJ-oj-Ghu" id="Frb-qC-yUr"/>
+                        <outlet property="nameLabel" destination="AYn-I9-Xn7" id="ZRL-So-fbv"/>
+                        <outlet property="photoImageView" destination="f66-9b-76w" id="tq2-Ja-L7T"/>
+                        <outlet property="timeLabel" destination="JrX-Ed-50R" id="CUE-2v-EpC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JQl-Zg-lBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3510" y="1716"/>
         </scene>
         <!--Profile UserVC-->
         <scene sceneID="BMD-Ic-6FT">
@@ -3079,6 +3178,7 @@
         <image name="button_photo_border.png" width="115" height="114"/>
         <image name="button_preview.png" width="121" height="37"/>
         <image name="button_register.png" width="255" height="68"/>
+        <image name="button_reply_to_message.png" width="497" height="107"/>
         <image name="button_sign_in.png" width="255" height="68"/>
         <image name="button_signup.png" width="405" height="30"/>
         <image name="button_twitter.png" width="497" height="81"/>
@@ -3155,6 +3255,18 @@
             <relationships>
                 <relationship kind="outlet" name="commentTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="photoPerson" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="CHComposeNewMessageVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHComposeNewMessageVC.h"/>
+            <relationships>
+                <relationship kind="action" name="deleteButtonTapped:"/>
+                <relationship kind="action" name="replyMessageButtonTapped:"/>
+                <relationship kind="outlet" name="inputMessageTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="messageTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="CHDetailsFeedVC" superclassName="UIViewController">
