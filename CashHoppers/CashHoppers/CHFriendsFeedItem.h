@@ -27,6 +27,7 @@
 @property(nonatomic,strong) CHHop *hop;
 
 - (NSString*) completedTaskName;
+- (NSURL*) hopImageURL;
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
 

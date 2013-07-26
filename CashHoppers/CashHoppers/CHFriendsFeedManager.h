@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CHBaseManager.h"
+#import "CHFriendsFeedItem.h"
 
 #define CH_NUMBER_OF_NEWS_PER_PAGE @"100500"
 #define CH_FRIEND_FEED_UPDATED @"CH_FRIEND_FEED_UPDATED"

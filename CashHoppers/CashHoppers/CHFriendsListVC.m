@@ -141,10 +141,7 @@
     [[cell nameHopLabel] setText:fItem.hop.name];
     [[cell timeLabel] setText:@"some time ago"];
     
-    NSURL* imageURL = [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:fItem.photoURL]];
-    
-    [[cell photoHopImageView] setImageWithURL:imageURL];
-    
+    [[cell photoHopImageView] setImageWithURL:[fItem hopImageURL]];
     [[cell photoPersonImageView] setImageWithURL:[fItem.user avatarURL]];
     
     [[cell taskCompletedLabel] setText:[fItem completedTaskName]];

@@ -9,6 +9,7 @@
 #import "CHFriendsFeedItem.h"
 #import "CHHop.h"
 #import "CHHopTask.h"
+#import "CHAPIClient.h"
 
 @implementation CHFriendsFeedItem
 
@@ -27,6 +28,11 @@
     self.liked = [dic objectForKey:@"liked"];
     self.numberOfLikes = [dic objectForKey:@"likes_count"];
     self.photoURL = [CHBaseModel safeStringFrom:[dic objectForKey:@"photo"] defaultValue:@""];
+}
+
+
+- (NSURL*) hopImageURL {
+    return [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:self.photoURL]];
 }
 
 
