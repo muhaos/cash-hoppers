@@ -14,18 +14,22 @@
 #import "GTLServicePlus.h"
 #import "GTLQueryPlus.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "GPPSignIn.h"
 
 SA_OAuthTwitterEngine	*tweeterEngine;
 
 @interface CHStartVC ()
 
+@property (retain, nonatomic) GPPSignIn *signIn;
+
 - (IBAction)loginWithFBTapped:(id)sender;
 - (IBAction)loginWithTwitterTapped:(id)sender;
+- (IBAction)loginGPlusTapped:(id)sender;
 
 @end
 
 @implementation CHStartVC
-@synthesize loginWithGoogleButton;
+@synthesize signIn;
 
 - (void)viewDidLoad
 {
@@ -35,7 +39,7 @@ SA_OAuthTwitterEngine	*tweeterEngine;
     self.view.backgroundColor = background;
     
     CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
-    GPPSignIn *signIn = [GPPSignIn sharedInstance];
+    signIn = [GPPSignIn sharedInstance];
     signIn.clientID = kClientId;
     signIn.scopes = [NSArray arrayWithObjects:
                      kGTLAuthScopePlusLogin, // определяется в файле GTLPlusConstants.h
@@ -72,6 +76,12 @@ SA_OAuthTwitterEngine	*tweeterEngine;
         // Удалим данные пользователя в соответствии с Условиями использования Google+.
     }
 }
+
+
+- (IBAction)loginGPlusTapped:(id)sender {
+    [signIn authenticate];
+}
+
 
 //-(void)dateForGp {
 //    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -208,6 +218,11 @@ SA_OAuthTwitterEngine	*tweeterEngine;
           [error userInfo]);
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
+
+- (void)viewDidUnload {
+    [super viewDidUnload];
 }
 
 
