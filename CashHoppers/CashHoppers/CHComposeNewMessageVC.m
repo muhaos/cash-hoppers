@@ -65,6 +65,22 @@
 {
     [inputMessageTextView setText:@""];
     [inputMessageTextView setTextColor:[UIColor colorWithRed:204.0f/256 green:204.0f/256 blue:204.0f/256 alpha:1.0f]];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3f];
+    CGRect frame = self.view.frame; frame.origin.y = -160;
+    [self.view setFrame:frame];
+    [UIView commitAnimations];
+}
+
+
+-(void) textViewDidEndEditing:(UITextView *)textView
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.2f];
+    CGRect frame = self.view.frame; frame.origin.y = 0;
+    [self.view setFrame:frame];
+    [UIView commitAnimations];
 }
 
 
