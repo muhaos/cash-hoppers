@@ -130,8 +130,8 @@
     
     CHFriendsFeedItem *fItem = (CHFriendsFeedItem*)[self.feedItems objectAtIndex:indexPath.row];
     
-    NSString *name = fItem.hopUser.firstName;
-    NSString *lastName = fItem.hopUser.lastName;
+    NSString *name = fItem.user.first_name;
+    NSString *lastName = fItem.user.last_name;
     NSString *namePersonText = [name stringByAppendingFormat:@" %@",lastName];
 
     NSTimeInterval time = [fItem.hop.time_end timeIntervalSinceNow];
@@ -145,7 +145,8 @@
     
     [[cell photoHopImageView] setImageWithURL:imageURL];
     
-    [[cell photoPersonImageView] setImage:[UIImage imageNamed:@"photo_BrianKelly"]];
+    [[cell photoPersonImageView] setImageWithURL:[fItem.user avatarURL]];
+    
     [[cell taskCompletedLabel] setText:[fItem completedTaskName]];
     [[cell addFriendButton] setImage:[UIImage imageNamed:@"button_add_friend"] forState:UIControlStateNormal];
     

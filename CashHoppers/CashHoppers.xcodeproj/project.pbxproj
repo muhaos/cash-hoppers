@@ -18,6 +18,7 @@
 		56115553179EC15900DAA76E /* nav_bar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56115552179EC15900DAA76E /* nav_bar_background@2x.png */; };
 		56115555179EC38300DAA76E /* nav_bar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 56115554179EC38300DAA76E /* nav_bar_background.png */; };
 		56115558179ECE9E00DAA76E /* UIViewController+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 56115557179ECE9E00DAA76E /* UIViewController+Utils.m */; };
+		5611555D17A28DD300DAA76E /* CHUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5611555C17A28DD300DAA76E /* CHUserManager.m */; };
 		5640154B176B40D000C028CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640154A176B40D000C028CE /* UIKit.framework */; };
 		5640154D176B40D000C028CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640154C176B40D000C028CE /* Foundation.framework */; };
 		5640154F176B40D000C028CE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640154E176B40D000C028CE /* CoreGraphics.framework */; };
@@ -302,6 +303,8 @@
 		56115554179EC38300DAA76E /* nav_bar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_background.png; sourceTree = "<group>"; };
 		56115556179ECE9D00DAA76E /* UIViewController+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Utils.h"; sourceTree = "<group>"; };
 		56115557179ECE9E00DAA76E /* UIViewController+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Utils.m"; sourceTree = "<group>"; };
+		5611555B17A28DD300DAA76E /* CHUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHUserManager.h; sourceTree = "<group>"; };
+		5611555C17A28DD300DAA76E /* CHUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHUserManager.m; sourceTree = "<group>"; };
 		56401547176B40D000C028CE /* CashHoppers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashHoppers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5640154A176B40D000C028CE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5640154C176B40D000C028CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -793,6 +796,8 @@
 			children = (
 				E1019CD0179F136400AC6936 /* CHUser.h */,
 				E1019CD1179F136500AC6936 /* CHUser.m */,
+				5611555B17A28DD300DAA76E /* CHUserManager.h */,
+				5611555C17A28DD300DAA76E /* CHUserManager.m */,
 			);
 			name = Users;
 			sourceTree = "<group>";
@@ -1813,6 +1818,7 @@
 				E1019CCC179F052600AC6936 /* CHFriendsFeedManager.m in Sources */,
 				E1019CCF179F05DB00AC6936 /* CHFriendsFeedItem.m in Sources */,
 				E1019CD2179F136500AC6936 /* CHUser.m in Sources */,
+				5611555D17A28DD300DAA76E /* CHUserManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

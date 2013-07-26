@@ -23,8 +23,7 @@
 @property(nonatomic,strong) NSString *photoURL;
 @property(nonatomic,strong) NSNumber *numberOfLikes;
 @property(nonatomic,strong) NSNumber *liked;
-@property(nonatomic,strong) CHUser *hopUser;
-@property(nonatomic,strong) CHHopTask *hopTask;
+@property(nonatomic,strong) CHUser *user;
 @property(nonatomic,strong) CHHop *hop;
 
 - (NSString*) completedTaskName;

@@ -10,9 +10,22 @@
 
 @interface CHUser : CHBaseModel
 
-@property (nonatomic, strong) NSNumber *userID;
-@property (nonatomic, strong) NSString *firstName;
-@property (nonatomic, strong) NSString *lastName;
+@property (nonatomic, strong) NSString *first_name;
+@property (nonatomic, strong) NSString *last_name;
+@property (nonatomic, strong) NSString *user_name;
+@property (nonatomic, strong) NSString *zip;
+@property (nonatomic, strong) NSString *contact;
+@property (nonatomic, strong) NSString *phone;
+@property (nonatomic, strong) NSString *bio;
+@property (nonatomic, strong) NSString *twitter;
+@property (nonatomic, strong) NSString *facebook;
+@property (nonatomic, strong) NSString *google;
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *role;
+@property (nonatomic, strong) NSString *avatarUrlString;
+@property (nonatomic, strong) NSNumber *friends_count;
+
+- (NSURL*) avatarURL;
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
 

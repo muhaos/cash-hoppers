@@ -13,6 +13,7 @@
 #import "CHHopTask.h"
 #import "CHHop.h"
 #import "CHHopsManager.h"
+#import "CHUserManager.h"
 
 @implementation CHFriendsFeedManager
 
@@ -58,6 +59,7 @@
         
         for (CHFriendsFeedItem* f in dArray) {
             [self loadHopForFeedItem:f];
+            [self loadUserForFeedItem:f];
         }
 
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
@@ -100,42 +102,12 @@
 }
 
 
-
-- (void) loadUserInfoForFeedItem:(CHFriendsFeedItem*)fItem{
-    
-    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
-    NSString *path = [NSString stringWithFormat:@"/api/users/get_my_info.json?api_key=%@&authentication_token=%@&user_id=%d", CH_API_KEY,aToken,[fItem.userID integerValue]];
-    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
-    
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        
-        
-        NSDictionary* userInfo = [JSON objectForKey:@"user"];
-        if (userInfo) {
-                CHUser* newUser = [[CHUser alloc] init];
-                [newUser updateFromDictionary:userInfo];
-                fItem.hopUser = newUser;
-        }
-        
-//        [[NSNotificationCenter defaultCenter] postNotificationName:CH_FRIEND_FEED_UPDATED object:self];
-    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        
-        NSDictionary* userInfo = [JSON objectForKey:@"user"];
-        if (userInfo) {
-                CHUser* newUser = [[CHUser alloc] init];
-                [newUser updateFromDictionary:userInfo];
-                fItem.hopUser = newUser;
-        }
-        
-//        [[NSNotificationCenter defaultCenter] postNotificationName:CH_FRIEND_FEED_UPDATED object:self];
-        
+- (void) loadUserForFeedItem:(CHFriendsFeedItem*)fItem {
+    [[CHUserManager instance] loadUserForID:fItem.userID completionHandler:^(CHUser* user){
+        fItem.user = user;
+        [[NSNotificationCenter defaultCenter] postNotificationName:CH_FEED_ITEM_UPDATED object:fItem];
     }];
-    
-    [operation start];
 }
-
 
 
 
