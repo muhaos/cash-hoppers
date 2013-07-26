@@ -36,7 +36,6 @@
 - (void)viewDidLoad
 {
     [self setupTriangleBackButton];
-    [self refreshList];
     self.friendsButtonActive = YES;
     [self activeButton:YES];
     
@@ -60,6 +59,7 @@
     }];
     
     [[CHFriendsFeedManager instance] refreshFeeds];
+    [self refreshList];
 }
 
 
