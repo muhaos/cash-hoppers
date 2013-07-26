@@ -37,7 +37,7 @@
 
 - (void) loadHopsFromPath:(NSString*) hopsPath destinationArray:(NSArray*)dArray completionHandler:(void(^)(NSArray* hops))handler {
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
-    NSString *path = [NSString stringWithFormat:@"%@?api_key=%@&authentication_token=%@", hopsPath, CH_API_KEY, aToken];
+    NSString *path = [NSString stringWithFormat:@"%@?page=1&per_page=100500&api_key=%@&authentication_token=%@", hopsPath, CH_API_KEY, aToken];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
     NSLog(@"REQUEST TO : %@", [request.URL description]);

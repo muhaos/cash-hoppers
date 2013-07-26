@@ -33,18 +33,10 @@
 - (IBAction)joinButtonTapped:(id)sender {
 }
 
-- (NSString*) dateString {
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"MM/dd"];
-    NSString* startDate = [df stringFromDate:self.currentHop.time_start];
-    NSString* endDate = [df stringFromDate:self.currentHop.time_end];
-    return [NSString stringWithFormat:@"%@ - %@", startDate, endDate];
-}
-
 
 - (void) configureCompletedHop {
     [[self nameHopLabel] setText:self.currentHop.name];
-    [[self dateHopLabel] setText:[self dateString]];
+    [[self dateHopLabel] setText:[self.currentHop dateString]];
     [[self namePrizeLabel] setText:@"Grand Prize:"];
     [[self countPrizeLabel] setText:[NSString stringWithFormat:@"$%i", [self.currentHop.jackpot integerValue]]];
     [[self verticalIndicatorImageView] setImage:[UIImage imageNamed:@"vertical_indicator_green"]];
@@ -54,7 +46,7 @@
 
 - (void) configureHopWithFee {
     [[self prewNameHopLabel] setText:self.currentHop.name];
-    [[self prewDateHopLabel] setText:[self dateString]];
+    [[self prewDateHopLabel] setText:[self.currentHop dateString]];
     [[self prewPrizeHopLabel] setText:@"Grand Prize:"];
     [[self prewCountHopLabel] setText:[NSString stringWithFormat:@"$%i", [self.currentHop.jackpot integerValue]]];
     [[self prewFeeLabel] setText:@"Entry Fee:"];
@@ -65,7 +57,7 @@
 
 - (void) configureHopWithCode {
     [[self joinNameHopLabel] setText:self.currentHop.name];
-    [[self joinDateHopLabel] setText:[self dateString]];
+    [[self joinDateHopLabel] setText:[self.currentHop dateString]];
     [[self joinPrizeHopLabel] setText:@"Grand Prize:"];
     [[self joinCountHopLabel] setText:[NSString stringWithFormat:@"$%i", [self.currentHop.jackpot integerValue]]];
     [[self joinVerticalIndicatorImageView] setImage:[UIImage imageNamed:@"av_indicator_cell"]];
@@ -74,7 +66,7 @@
 
 - (void) configureFreeHop {
     [[self nameHopLabel] setText:self.currentHop.name];
-    [[self dateHopLabel] setText:[self dateString]];
+    [[self dateHopLabel] setText:[self.currentHop dateString]];
     [[self namePrizeLabel] setText:@"Grand Prize:"];
     [[self countPrizeLabel] setText:[NSString stringWithFormat:@"$%i", [self.currentHop.jackpot integerValue]]];
     [[self verticalIndicatorImageView] setImage:[UIImage imageNamed:@"av_indicator_cell"]];
