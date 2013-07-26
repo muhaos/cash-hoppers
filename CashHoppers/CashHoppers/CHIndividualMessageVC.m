@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 swanteams.com. All rights reserved.
 //
 
-#import "CHComposeNewMessageVC.h"
+#import "CHIndividualMessageVC.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface CHComposeNewMessageVC ()
+@interface CHIndividualMessageVC ()
 
 @end
 
-@implementation CHComposeNewMessageVC
+@implementation CHIndividualMessageVC
 @synthesize photoImageView, nameLabel, timeLabel, messageTextView, inputMessageTextView;
 
 
@@ -103,6 +103,11 @@
 - (IBAction)replyMessageButtonTapped:(id)sender
 {
     
+}
+
+- (IBAction)composeNewMessageTapped:(id)sender
+{
+    [self performSegueWithIdentifier:@"compose_message" sender:self];
 }
 
 @end

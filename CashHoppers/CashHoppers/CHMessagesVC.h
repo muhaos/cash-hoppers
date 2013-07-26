@@ -16,5 +16,6 @@
 
 - (IBAction)messagesTapped:(id)sender;
 - (IBAction)notificationsTapped:(id)sender;
+- (IBAction)composeMessageTapped:(id)sender;
 
 @end

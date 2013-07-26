@@ -107,7 +107,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"new_message" sender:self];
+    [self performSegueWithIdentifier:@"individual_message" sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -138,6 +138,10 @@
     self.messagesButtonActive = NO;
     [self activeButton:self.messagesButtonActive];
     [messagesTable reloadData];
+}
+
+- (IBAction)composeMessageTapped:(id)sender {
+     [self performSegueWithIdentifier:@"compose_message" sender:self];
 }
 
 

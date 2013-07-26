@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHComposeNewMessageVC : UIViewController <UITextViewDelegate>
+@interface CHIndividualMessageVC : UIViewController <UITextViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
@@ -18,5 +18,6 @@
 
 - (IBAction)deleteButtonTapped:(id)sender;
 - (IBAction)replyMessageButtonTapped:(id)sender;
+- (IBAction)composeNewMessageTapped:(id)sender;
 
 @end
