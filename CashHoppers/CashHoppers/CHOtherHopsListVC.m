@@ -65,6 +65,12 @@
     self.oldNavBarStatus = self.navigationController.navigationBarHidden;
     
     [self updateTable];
+
+    if (self.isDailyHops) {
+        [[CHHopsManager instance] refreshDailyHops];
+    } else {
+        [[CHHopsManager instance] refreshOtherHops];
+    }
 }
 
 

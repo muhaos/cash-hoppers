@@ -70,21 +70,25 @@
 
 
 - (void) refreshHops {
-    [self loadHopsFromPath:@"/api/hops/regular" destinationArray:self.otherHops completionHandler:^(NSArray* hops){
-        self.otherHops = hops;
-        for (CHHop* h in self.otherHops) {
-            [self loadTasksForHop:h completionHandler:^(CHHop* hop){}];
-        }
-    }];
-
-    [self loadDailyHop];
+    [self refreshDailyHops];
+    [self refreshOtherHops];
 }
 
 
-- (void) loadDailyHop {
+- (void) refreshDailyHops {
     [self loadHopsFromPath:@"/api/hops/daily.json" destinationArray:self.dailyHops completionHandler:^(NSArray* hops){
         self.dailyHops = hops;
         for (CHHop* h in self.dailyHops) {
+            [self loadTasksForHop:h completionHandler:^(CHHop* hop){}];
+        }
+    }];
+}
+
+
+- (void) refreshOtherHops {
+    [self loadHopsFromPath:@"/api/hops/regular" destinationArray:self.otherHops completionHandler:^(NSArray* hops){
+        self.otherHops = hops;
+        for (CHHop* h in self.otherHops) {
             [self loadTasksForHop:h completionHandler:^(CHHop* hop){}];
         }
     }];
