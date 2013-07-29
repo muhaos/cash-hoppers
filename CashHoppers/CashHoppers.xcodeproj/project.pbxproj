@@ -62,6 +62,8 @@
 		AA033B6E179D392600F2B769 /* CHAddFriendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA033B6D179D392600F2B769 /* CHAddFriendVC.m */; };
 		AA033B70179D3DA900F2B769 /* button_add_as_friend.png in Resources */ = {isa = PBXBuildFile; fileRef = AA033B6F179D3DA900F2B769 /* button_add_as_friend.png */; };
 		AA033B72179D506E00F2B769 /* you_are_friends.png in Resources */ = {isa = PBXBuildFile; fileRef = AA033B71179D506E00F2B769 /* you_are_friends.png */; };
+		AA0B685117A6825B00820A9A /* CHSelectedUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0B685017A6825B00820A9A /* CHSelectedUserVC.m */; };
+		AA0B685317A6F40E00820A9A /* search_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0B685217A6F40E00820A9A /* search_icon.png */; };
 		AA1161F217784F5A00D0E750 /* CHHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1161F117784F5A00D0E750 /* CHHomeScreenViewController.m */; };
 		AA1161F61778514F00D0E750 /* CHAdvertisingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1161F41778514F00D0E750 /* CHAdvertisingVC.m */; };
 		AA1161F71778514F00D0E750 /* CHAdvertisingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1161F51778514F00D0E750 /* CHAdvertisingVC.xib */; };
@@ -368,6 +370,9 @@
 		AA033B6D179D392600F2B769 /* CHAddFriendVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAddFriendVC.m; sourceTree = "<group>"; };
 		AA033B6F179D3DA900F2B769 /* button_add_as_friend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_add_as_friend.png; sourceTree = "<group>"; };
 		AA033B71179D506E00F2B769 /* you_are_friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = you_are_friends.png; sourceTree = "<group>"; };
+		AA0B684F17A6825B00820A9A /* CHSelectedUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHSelectedUserVC.h; path = CashHoppers/CHSelectedUserVC.h; sourceTree = "<group>"; };
+		AA0B685017A6825B00820A9A /* CHSelectedUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHSelectedUserVC.m; path = CashHoppers/CHSelectedUserVC.m; sourceTree = "<group>"; };
+		AA0B685217A6F40E00820A9A /* search_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_icon.png; sourceTree = "<group>"; };
 		AA1161F017784F5A00D0E750 /* CHHomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHomeScreenViewController.h; sourceTree = "<group>"; };
 		AA1161F117784F5A00D0E750 /* CHHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHomeScreenViewController.m; sourceTree = "<group>"; };
 		AA1161F31778514F00D0E750 /* CHAdvertisingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAdvertisingVC.h; sourceTree = "<group>"; };
@@ -792,6 +797,8 @@
 		5640153E176B40D000C028CE = {
 			isa = PBXGroup;
 			children = (
+				AA0B684F17A6825B00820A9A /* CHSelectedUserVC.h */,
+				AA0B685017A6825B00820A9A /* CHSelectedUserVC.m */,
 				56401550176B40D000C028CE /* CashHoppers */,
 				56401577176B40D100C028CE /* CashHoppersTests */,
 				56401549176B40D000C028CE /* Frameworks */,
@@ -956,6 +963,7 @@
 		5640158B176B433B00C028CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AA0B685217A6F40E00820A9A /* search_icon.png */,
 				AA2D1BEB17A2A89F00474E9B /* compose_icon.png */,
 				AA2D1BE617A2A00900474E9B /* button_send_message.png */,
 				AA2D1BE117A26F2600474E9B /* button_login_g+.png */,
@@ -1662,6 +1670,7 @@
 				AA2D1BE217A26F2600474E9B /* button_login_g+.png in Resources */,
 				AA2D1BE717A2A00900474E9B /* button_send_message.png in Resources */,
 				AA2D1BEC17A2A89F00474E9B /* compose_icon.png in Resources */,
+				AA0B685317A6F40E00820A9A /* search_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1821,6 +1830,7 @@
 				AAFBE33517A148D100F408C2 /* CHIndividualMessageVC.m in Sources */,
 				AA2D1BE517A2950500474E9B /* CHComposeMessageVC.m in Sources */,
 				AA2D1BEA17A2A4D100474E9B /* CHComposeMessageCell.m in Sources */,
+				AA0B685117A6825B00820A9A /* CHSelectedUserVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

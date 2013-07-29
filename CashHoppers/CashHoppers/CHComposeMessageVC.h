@@ -13,6 +13,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *searchTextField;
 @property (strong, nonatomic) IBOutlet UITextView *inputMessageTextView;
 @property (strong, nonatomic) IBOutlet UITableView *userListTable;
+@property (strong, nonatomic) IBOutlet UIView *containerView;
+@property (strong, nonatomic) IBOutlet UIImageView *searchImageView;
+@property (strong, nonatomic) IBOutlet UIView *bottomView;
 
 - (IBAction)sendMessageTapped:(id)sender;
 
