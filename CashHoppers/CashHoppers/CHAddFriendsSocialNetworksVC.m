@@ -13,6 +13,7 @@
 #import "GTLPlus.h"
 #import "GTMLogger.h"
 #import "GTMOAuth2Authentication.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface CHAddFriendsSocialNetworksVC ()
 
@@ -71,6 +72,8 @@
             ![[peopleImageList objectAtIndex:indexPath.row] isEqual:[NSNull null]]) {
                 cell.photoImageView.image = [[UIImage alloc]
                   initWithData:[peopleImageList objectAtIndex:indexPath.row]];
+            [cell.photoImageView.layer setMasksToBounds:YES];
+            [cell.photoImageView.layer setCornerRadius: 22.0f];
             } else {
                 cell.photoImageView.image = nil;
             }
