@@ -165,6 +165,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+     CHComposeMessageCell *cell = (CHComposeMessageCell*) [tableView cellForRowAtIndexPath:indexPath];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(200, 200, 60, 20)];
+    UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, 25, 15)];
+    UIImageView *photo = [[UIImageView alloc] initWithFrame:CGRectMake(2, 2, 15, 15)];
+    view.layer.borderWidth = 1.0f;
+    view.layer.cornerRadius = 1.0f;
+    
+    [view addSubview:name];
+    [view addSubview:photo];
+    
+    name.text = cell.nameLabel.text;
+    photo.image = cell.photoImageView.image;
+    
+    [view setBackgroundColor:[UIColor blueColor]];
+    
+    searchTextField.leftView = view;
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

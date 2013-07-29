@@ -84,7 +84,7 @@
 		AA32A73E179FEF6A003563FB /* search_box.png in Resources */ = {isa = PBXBuildFile; fileRef = AA32A739179FEF6A003563FB /* search_box.png */; };
 		AA32A73F179FEF6A003563FB /* send_email_invite.png in Resources */ = {isa = PBXBuildFile; fileRef = AA32A73A179FEF6A003563FB /* send_email_invite.png */; };
 		AA32A74117A00810003563FB /* add_icon_in_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = AA32A74017A00810003563FB /* add_icon_in_cell.png */; };
-		AA32A74417A00A1C003563FB /* CHAddFriendsSocialNetworksVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA32A74317A00A1C003563FB /* CHAddFriendsSocialNetworksVC.m */; };
+		AA32A74417A00A1C003563FB /* CHAddFriendsSocialNetworksVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA32A74317A00A1C003563FB /* CHAddFriendsSocialNetworksVC.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AA32A74717A00AE4003563FB /* CHAddFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA32A74617A00AE4003563FB /* CHAddFriendsCell.m */; };
 		AA331430178EA7DA00593FC3 /* black_separator.png in Resources */ = {isa = PBXBuildFile; fileRef = AA33142A178EA7DA00593FC3 /* black_separator.png */; };
 		AA331431178EA7DA00593FC3 /* button_logout.png in Resources */ = {isa = PBXBuildFile; fileRef = AA33142B178EA7DA00593FC3 /* button_logout.png */; };

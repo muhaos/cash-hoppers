@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHAddFriendsCell : UITableViewCell
+@interface CHAddFriendsCell : UITableViewCell 
 
 @property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;

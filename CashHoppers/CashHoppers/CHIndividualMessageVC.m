@@ -108,6 +108,7 @@
 - (IBAction)composeNewMessageTapped:(id)sender
 {
     [self performSegueWithIdentifier:@"compose_message" sender:self];
+
 }
 
 @end
