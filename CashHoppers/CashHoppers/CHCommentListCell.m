@@ -9,7 +9,7 @@
 #import "CHCommentListCell.h"
 
 @implementation CHCommentListCell
-@synthesize commentTextView, photoPerson;
+@synthesize commentLabel, photoPerson;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

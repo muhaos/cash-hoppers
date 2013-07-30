@@ -17,6 +17,10 @@
 // User or hop loaded for feed item. Object is feed item instance
 #define CH_FEED_ITEM_UPDATED @"CH_FEED_ITEM_UPDATED"
 
+#define CH_COMMENT_SENT @"CH_COMMENT_SENT"
+#define CH_COMMENTS_RECEIVED @"CH_COMMENTS_RECEIVED"
+#define CH_FEED_ITEM_COMMENT_UPDATED @"CH_COMMENT_UPDATED"
+
 @interface CHFriendsFeedManager : CHBaseManager
  
     
@@ -25,6 +29,8 @@
 - (void) refreshFeeds;
 - (void) loadFriendsFeed;
 - (void) loadGlobalFeed;
+-(void) loadCommentsForFeedItem:(CHFriendsFeedItem*) feedItem completionHandler:(void (^)(NSArray* coments)) handler;
+-(void) postCommentForFeedItem:(CHFriendsFeedItem*) feedItem withText:(NSString*) text completionHandler:(void (^)(BOOL success))handler;
 
 @property (nonatomic, strong) NSMutableArray *friendsFeedItems;
 @property (nonatomic, strong) NSMutableArray *globalFeedItems;

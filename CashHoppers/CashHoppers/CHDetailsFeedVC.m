@@ -9,6 +9,12 @@
 #import "CHDetailsFeedVC.h"
 #import <QuartzCore/QuartzCore.h>
 #import "CHCommentListCell.h"
+#import "CHFriendsFeedManager.h"
+#import "CHFriendsFeedItem.h"
+#import "CHUser.h"
+#import "CHHop.h"
+#import "CHFeedItemComment.h"
+#import "AFNetworking.h"
 
 @interface CHDetailsFeedVC ()
 @property (assign, nonatomic) BOOL oldNavBarStatus;
@@ -23,20 +29,136 @@
     [self customUIElement];
     [self setupTriangleBackButton];
     
-    self.namePersonLabel.text = @"Brian Kelly";
-    self.photoPersonImageView.image = [UIImage imageNamed:@"photo_BrianKelly.png"];
-    self.timeLabel.text = @"30 mins ago";
-    self.nameHopLabel.text = @"NBM Trade show HOP";
-    self.taskCompletedLabel.text = @"Screen Printer";
-    self.photoHopImageView.image = [UIImage imageNamed:@"our_time.png"];
-    self.countLikeLabel.text = @"4";
-    self.countCommentLabel.text = @"3";
-    self.likePersonTextView.text = @"Brad Daberko, Dan Kelly, Tony Fannin, Erin Kelly";
+    NSString *name = _feedItem.user.first_name;
+    NSString *lastName = _feedItem.user.last_name;
+    NSString *namePersonText = [name stringByAppendingFormat:@" %@",lastName];
+    self.namePersonLabel.text = namePersonText;
+    self.photoPersonImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:_feedItem.user.avatarURL]];
+    self.nameHopLabel.text = _feedItem.hop.name;
+    self.taskCompletedLabel.text = _feedItem.completedTaskName;
+    [self.photoHopImageView setImageWithURL:_feedItem.hopImageURL];
+    self.countLikeLabel.text = [_feedItem.numberOfLikes stringValue];
+    NSTimeInterval time = [_feedItem.hop.time_end timeIntervalSinceNow];
+    int timeSinceCompleted = time/60;
+    _timeLabel.text = [NSString stringWithFormat:@"%i m",timeSinceCompleted];
+    
+//    self.likedPersonsLabel.text = @"Brad Daberko, Dan Kelly, Tony Fannin, Erin Kelly";
     _myScroolView.contentSize = CGSizeMake(320, 900);
     self.addComentTextView.text = @"Add coment ...";
     self.addComentTextView.textColor = [UIColor grayColor];
+    
+//    _friendsFeedManager = [[CHFriendsFeedManager alloc]init];
+    [self reloadData];
+    [self registerForNotifications];
+    
 }
 
+
+#pragma mark - notifications
+
+-(void)registerForNotifications{
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(resizeViewForKeyboard) name:UIKeyboardWillShowNotification object:nil];
+    [nc addObserver:self selector:@selector(resizeViewToNormalSize) name:UIKeyboardWillHideNotification object:nil];
+//    [nc addObserver:self selector:@selector(refreshData) name:CH_COMMENTS_RECEIVED object:nil];
+    [nc addObserver:self selector:@selector(refreshComment:) name:CH_FEED_ITEM_COMMENT_UPDATED object:nil];
+
+    
+}
+
+-(void)unregisterForNotifications{
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self];
+    
+}
+
+#pragma mark - keyboard func.
+
+-(void)resizeViewToNormalSize{
+    CGRect newFrame = [UIApplication sharedApplication].keyWindow.frame;
+    newFrame.size.height -= 110;
+    [UIView animateWithDuration:.3 animations:^{
+        self.view.frame = newFrame;
+    }];
+}
+
+-(void)resizeViewForKeyboard{
+    
+    CGRect newFrame = self.view.frame;
+    newFrame.size.height -= [self keyboardSize].height;
+    [UIView animateWithDuration:.2 animations:^{
+        self.view.frame = newFrame;
+    }completion:^(BOOL finished) {
+        [_myScroolView scrollRectToVisible:_postCommentButton.frame animated:YES];
+    }];
+    
+
+}
+
+
+-(CGSize)keyboardSize{
+    if(USING_IPAD){
+        return  CGSizeMake(self.view.frame.size.width, 450);
+    }else{
+        return  CGSizeMake(self.view.frame.size.width, 180);
+    }
+}
+
+-(void)reloadData{
+    
+    [[CHFriendsFeedManager instance] loadCommentsForFeedItem:_feedItem completionHandler:^(NSArray *coments) {
+        self.comments = [NSMutableArray arrayWithArray:coments];
+        [self refreshData];
+    }];
+}
+
+-(void)refreshData{
+    
+    self.countCommentLabel.text =  [NSString stringWithFormat:@"%d",_comments.count];
+    
+    [commentTable reloadData];
+    
+    [self refreshElementsSizeAndPosition];
+    
+}
+
+-(void)refreshComment:(NSNotification*)notification{
+
+    CHFeedItemComment *comment  = (CHFeedItemComment*)notification.object;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[_comments indexOfObject:comment] inSection:0];
+
+    [commentTable reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+}
+
+-(void)refreshElementsSizeAndPosition{
+    
+    float offset = commentTable.contentSize.height - commentTable.frame.size.height;
+    
+    //    increase scrollview size
+    
+    CGSize newSize = _myScroolView.contentSize;
+    newSize.height += offset;
+    _myScroolView.contentSize = newSize;
+    
+    //    move post button down
+    CGRect postButtonFrame = _postCommentButton.frame;
+    postButtonFrame.origin.y += offset;
+    _postCommentButton.frame = postButtonFrame;
+    
+    //    move textview down
+    CGRect textViewFrame = _addComentTextView.frame;
+    textViewFrame.origin.y += offset;
+    _addComentTextView.frame = textViewFrame;
+    
+    //    increase tableview size
+    CGRect newTableRect = commentTable.frame;
+    newTableRect.size = commentTable.contentSize;
+    commentTable.frame = newTableRect;
+    
+}
 
 -(void) customUIElement
 {
@@ -81,6 +203,7 @@
 	[super viewDidDisappear:animated];
 }
 
+#pragma mark - tableView delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -90,12 +213,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return _comments.count;
 }
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 35;
+    
+    
+    NSString *text = ((CHFeedItemComment*)[_comments objectAtIndex:indexPath.row]).text;
+
+    int labelHeight = [self calculateLabelHeight:nil ForText:text];
+    
+    return labelHeight+30;
 }
 
 
@@ -103,9 +232,13 @@
 {
     static NSString *commentCellIdentifier = @"comment";
     CHCommentListCell *cell = (CHCommentListCell*) [tableView dequeueReusableCellWithIdentifier:commentCellIdentifier];
-    [[cell commentTextView] setText:@"Brian Kelly: That`s a good picture. I should have taken a better one at that booth."];
+    CHFeedItemComment *feedComment = (CHFeedItemComment*)[_comments objectAtIndex:indexPath.row];
+    NSString *nameString = [feedComment.user.first_name stringByAppendingFormat:@" %@:",feedComment.user.last_name];
+    cell.nameLabel.text = nameString;
+    [self calculateLabelHeight:cell.commentLabel ForText:feedComment.text];
+    [[cell commentLabel] setText:feedComment.text];
     [cell photoPerson].layer.cornerRadius = 10.0f;
-    [[cell photoPerson] setImage:[UIImage imageNamed:@"photo_brian.png"]];
+    [[cell photoPerson] setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:feedComment.user.avatarURL]]];
     return cell;
 }
 
@@ -120,16 +253,35 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+-(NSInteger)calculateLabelHeight:(UILabel*)label ForText:(NSString*)text{
+    
+    if(!label){
+        CHCommentListCell *cell = [commentTable dequeueReusableCellWithIdentifier:@"comment"];
+        label = cell.commentLabel;
+    }
+    label.numberOfLines = 0;
+    CGSize maximumLabelSize = CGSizeMake(label.frame.size.width,9999);
+    
+    CGSize expectedLabelSize = [text sizeWithFont:label.font
+                                constrainedToSize:maximumLabelSize
+                                    lineBreakMode:UILineBreakModeWordWrap];
+    
+    CGRect newFrame = label.frame;
+    newFrame.size.height = expectedLabelSize.height;
+    label.frame = newFrame;
+        
+    return newFrame.size.height;
+}
 
 #pragma mark -
 #pragma mark UITextViewDelegate
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    if ([text isEqualToString:@"\n"])
-    {
-        [textView resignFirstResponder];
-    }
+//    if ([text isEqualToString:@"\n"])
+//    {
+//        [textView resignFirstResponder];
+//    }
     return YES;
 }
 
@@ -140,6 +292,15 @@
     textView.textColor = [UIColor blackColor];
 }
 
+-(void)hideKeyboard{
+    
+    [self.view endEditing:YES];
+}
+#pragma mark - rotation
+
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
+    return UIInterfaceOrientationIsPortrait(toInterfaceOrientation)?YES:NO;
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -148,6 +309,7 @@
 }
 
 - (void)viewDidUnload {
+    [self unregisterForNotifications];
     [self setPhotoPersonImageView:nil];
     [self setNamePersonLabel:nil];
     [self setTimeLabel:nil];
@@ -156,16 +318,29 @@
     [self setPhotoHopImageView:nil];
     [self setCountLikeLabel:nil];
     [self setCountCommentLabel:nil];
-    [self setLikePersonTextView:nil];
     [self setCommentTable:nil];
     [self setAddComentTextView:nil];
     [self setPostCommentButton:nil];
     [self setMyScroolView:nil];
+    [self setLikedPersonsLabel:nil];
     [super viewDidUnload];
 }
 
 
 - (IBAction)postCommentTapped:(id)sender {
+    
+    _postCommentButton.enabled = FALSE;
+    [[CHFriendsFeedManager instance] postCommentForFeedItem:_feedItem withText:_addComentTextView.text completionHandler:^(BOOL success) {
+        _postCommentButton.enabled = TRUE;
+        [self reloadData];
+        
+    }];
+    
+}
+
+- (IBAction)scrollViewTapped:(id)sender {
+    
+    [self hideKeyboard];
 }
 
 
