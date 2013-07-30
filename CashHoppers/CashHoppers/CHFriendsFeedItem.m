@@ -15,7 +15,8 @@
 
 
 - (void) updateFromDictionary:(NSDictionary*) dic {
-    
+
+    self.identifier = [dic objectForKey:@"id"];
     self.userID = [dic objectForKey:@"user_id"];
     self.hopID = [dic objectForKey:@"hop_id"];
     self.hopTaskID = [dic objectForKey:@"hop_task_id"];

@@ -11,6 +11,7 @@
 @interface CHCommentListCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *photoPerson;
-@property (strong, nonatomic) IBOutlet UITextView *commentTextView;
+@property (strong, nonatomic) IBOutlet UILabel *commentLabel;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
