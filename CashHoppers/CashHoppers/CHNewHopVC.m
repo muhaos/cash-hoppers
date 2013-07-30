@@ -179,8 +179,6 @@
     UIImagePickerController *poc = [[UIImagePickerController alloc] init];
     [poc setTitle:@"Take a photo."];
     [poc setDelegate:self];
-
-    
 #if TARGET_IPHONE_SIMULATOR
     [poc setSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
 #elif TARGET_OS_IPHONE
@@ -195,6 +193,10 @@
     [self presentViewController:poc animated:YES completion:nil];
 }
 
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [viewController.navigationItem setTitle:@""];
+}
 
 #pragma mark - imagePicker delegate
 

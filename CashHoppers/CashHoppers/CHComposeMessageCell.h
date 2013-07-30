@@ -1,18 +1,18 @@
 //
-//  CHAddFriendsCell.h
+//  CHComposeMessageCell.h
 //  CashHoppers
 //
-//  Created by Balazh Vasyl on 7/24/13.
+//  Created by Balazh Vasyl on 7/26/13.
 //  Copyright (c) 2013 swanteams.com. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface CHAddFriendsCell : UITableViewCell 
+@interface CHComposeMessageCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 
-- (IBAction)addFriendTapped:(id)sender;
+- (IBAction)composeButtonTapped:(id)sender;
 
 @end

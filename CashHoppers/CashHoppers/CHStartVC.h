@@ -23,6 +23,4 @@ static NSString * const kClientId = @"726071056773.apps.googleusercontent.com";
 
 - (void)loginFailed;
 
-@property (retain, nonatomic) IBOutlet GPPSignInButton *loginWithGoogleButton;
-
 @end

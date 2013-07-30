@@ -139,4 +139,11 @@
     
     [self presentModalViewController:picker animated:YES];
 }
+
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [viewController.navigationItem setTitle:@""];
+}
+
 @end
