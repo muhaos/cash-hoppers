@@ -232,6 +232,7 @@
 		E1179B181774707A00FA2069 /* bk_round.png in Resources */ = {isa = PBXBuildFile; fileRef = E1179B171774707A00FA2069 /* bk_round.png */; };
 		E1179B1A17747D4000FA2069 /* our_time.png in Resources */ = {isa = PBXBuildFile; fileRef = E1179B1917747D4000FA2069 /* our_time.png */; };
 		E176E67E179881FD004BFF02 /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E176E67D179881FD004BFF02 /* MFSideMenuContainerViewController.m */; };
+		E1A699AB17A690D7008584BE /* CHFeedItemComment.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A699AA17A690D7008584BE /* CHFeedItemComment.m */; };
 		E1B074D7177866F500D7BCD0 /* Take-Photo.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B074D6177866F500D7BCD0 /* Take-Photo.png */; };
 		E1B074DA1778679700D7BCD0 /* CHNewHopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B074D91778679700D7BCD0 /* CHNewHopVC.m */; };
 		E1B074DC1778728F00D7BCD0 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B074DB1778728F00D7BCD0 /* share.png */; };
@@ -649,6 +650,8 @@
 		E176E67B179881FD004BFF02 /* MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenu.h; sourceTree = "<group>"; };
 		E176E67C179881FD004BFF02 /* MFSideMenuContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuContainerViewController.h; sourceTree = "<group>"; };
 		E176E67D179881FD004BFF02 /* MFSideMenuContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuContainerViewController.m; sourceTree = "<group>"; };
+		E1A699A917A690D7008584BE /* CHFeedItemComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHFeedItemComment.h; sourceTree = "<group>"; };
+		E1A699AA17A690D7008584BE /* CHFeedItemComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHFeedItemComment.m; sourceTree = "<group>"; };
 		E1B074D6177866F500D7BCD0 /* Take-Photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Take-Photo.png"; sourceTree = "<group>"; };
 		E1B074D81778679700D7BCD0 /* CHNewHopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNewHopVC.h; sourceTree = "<group>"; };
 		E1B074D91778679700D7BCD0 /* CHNewHopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHNewHopVC.m; sourceTree = "<group>"; };
@@ -783,6 +786,8 @@
 		5611555917A1569E00DAA76E /* Friends Feed */ = {
 			isa = PBXGroup;
 			children = (
+				E1A699A917A690D7008584BE /* CHFeedItemComment.h */,
+				E1A699AA17A690D7008584BE /* CHFeedItemComment.m */,
 				E1019CCD179F05DB00AC6936 /* CHFriendsFeedItem.h */,
 				E1019CCE179F05DB00AC6936 /* CHFriendsFeedItem.m */,
 				E1019CCA179F052600AC6936 /* CHFriendsFeedManager.h */,
@@ -1819,6 +1824,7 @@
 				E1019CCF179F05DB00AC6936 /* CHFriendsFeedItem.m in Sources */,
 				E1019CD2179F136500AC6936 /* CHUser.m in Sources */,
 				5611555D17A28DD300DAA76E /* CHUserManager.m in Sources */,
+				E1A699AB17A690D7008584BE /* CHFeedItemComment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

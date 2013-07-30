@@ -15,6 +15,7 @@
 #import "CHHopTask.h"
 #import "CHHop.h"
 #import "CHAPIClient.h"
+#import "CHDetailsFeedVC.h"
 
 @interface CHFriendsListVC ()
 
@@ -104,6 +105,18 @@
 	[super viewDidDisappear:animated];
 }
 
+#pragma mark - prepare for segue
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"detailsFeed"]){
+        
+        CHDetailsFeedVC *detailVC = (CHDetailsFeedVC*)segue.destinationViewController;
+        detailVC.feedItem = (CHFriendsFeedItem*)[self.feedItems objectAtIndex:[friendsTable indexPathForSelectedRow].row];
+        
+    }
+}
+
+#pragma mark -  tableView delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -135,7 +148,7 @@
     NSString *namePersonText = [name stringByAppendingFormat:@" %@",lastName];
 
     NSTimeInterval time = [fItem.hop.time_end timeIntervalSinceNow];
-    int timeSinceCompleted = time/60;
+//    int timeSinceCompleted = time/60;
     
     [[cell namePersonLabel] setText:namePersonText];
     [[cell nameHopLabel] setText:fItem.hop.name];
@@ -195,7 +208,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+   
     [self performSegueWithIdentifier:@"detailsFeed" sender:self];
+
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
