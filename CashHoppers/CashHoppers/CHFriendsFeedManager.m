@@ -121,13 +121,12 @@
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSArray* json_comments = [JSON objectForKey:@"comments"];
-//        NSLog(@"json = %@",JSON);
         NSMutableArray *comments = [NSMutableArray arrayWithCapacity:1];
         if (json_comments) {
             for (NSDictionary* objDic in json_comments) {
-                CHFeedItemComment* newFeedItem = [[CHFeedItemComment alloc] init];
-                [newFeedItem updateFromDictionary:objDic];
-                [comments addObject:newFeedItem];
+                CHFeedItemComment* newComment = [[CHFeedItemComment alloc] init];
+                [newComment updateFromDictionary:objDic];
+                [comments addObject:newComment];
             }
         }
         
@@ -137,20 +136,18 @@
         for (CHFeedItemComment *comment in comments) {
             [[CHUserManager instance]loadUserForID:comment.user_id completionHandler:^(CHUser *user) {
                 comment.user = user;
-                [[NSNotificationCenter defaultCenter] postNotificationName:CH_COMMENT_UPDATED object:comment];
+                [[NSNotificationCenter defaultCenter] postNotificationName:CH_FEED_ITEM_COMMENT_UPDATED object:comment];
             }];
         }
-
-//        [[NSNotificationCenter defaultCenter] postNotificationName:CH_COMMENTS_RECEIVED object:nil];
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSArray* json_comments = [JSON objectForKey:@"comments"];
         NSMutableArray *comments = [NSMutableArray arrayWithCapacity:1];
         if (json_comments) {
             for (NSDictionary* objDic in json_comments) {
-                CHFeedItemComment* newFeedItem = [[CHFeedItemComment alloc] init];
-                [newFeedItem updateFromDictionary:objDic];
-                [comments addObject:newFeedItem];
+                CHFeedItemComment* newComment = [[CHFeedItemComment alloc] init];
+                [newComment updateFromDictionary:objDic];
+                [comments addObject:newComment];
             }
         }
         
@@ -161,13 +158,10 @@
         for (CHFeedItemComment *comment in comments) {
             [[CHUserManager instance]loadUserForID:comment.user_id completionHandler:^(CHUser *user) {
                 comment.user = user;
-                [[NSNotificationCenter defaultCenter] postNotificationName:CH_COMMENT_UPDATED object:comment];
+                [[NSNotificationCenter defaultCenter] postNotificationName:CH_FEED_ITEM_COMMENT_UPDATED object:comment];
             }];
         }
         
-//        [[NSNotificationCenter defaultCenter] postNotificationName:CH_COMMENTS_RECEIVED object:nil];
-        
-//        [self defaultErrorHandlerForResponce:response :error :JSON];
     } ];
     
     [operation start];
@@ -188,17 +182,12 @@
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"SUCCESS" message:@"Your comment was successfuly send!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
         handler(YES);
         [[NSNotificationCenter defaultCenter] postNotificationName:CH_COMMENT_SENT object:nil];
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        //[self defaultErrorHandlerForResponce:response :error :JSON];
-        NSString *errorText = [[JSON objectForKey:@"errors"]stringValue];
+        [self defaultErrorHandlerForResponce:response :error :JSON];
         
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:[NSString stringWithFormat:@"Your comment was not send! Error: %@",errorText] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
         handler(NO);
         
     }];

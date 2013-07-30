@@ -14,6 +14,7 @@
 #import "CHUser.h"
 #import "CHHop.h"
 #import "CHFeedItemComment.h"
+#import "AFNetworking.h"
 
 @interface CHDetailsFeedVC ()
 @property (assign, nonatomic) BOOL oldNavBarStatus;
@@ -35,7 +36,7 @@
     self.photoPersonImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:_feedItem.user.avatarURL]];
     self.nameHopLabel.text = _feedItem.hop.name;
     self.taskCompletedLabel.text = _feedItem.completedTaskName;
-    self.photoHopImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:_feedItem.hopImageURL]];
+    [self.photoHopImageView setImageWithURL:_feedItem.hopImageURL];
     self.countLikeLabel.text = [_feedItem.numberOfLikes stringValue];
     NSTimeInterval time = [_feedItem.hop.time_end timeIntervalSinceNow];
     int timeSinceCompleted = time/60;
@@ -46,7 +47,7 @@
     self.addComentTextView.text = @"Add coment ...";
     self.addComentTextView.textColor = [UIColor grayColor];
     
-    _friendsFeedManager = [[CHFriendsFeedManager alloc]init];
+//    _friendsFeedManager = [[CHFriendsFeedManager alloc]init];
     [self reloadData];
     [self registerForNotifications];
     
@@ -61,7 +62,7 @@
     [nc addObserver:self selector:@selector(resizeViewForKeyboard) name:UIKeyboardWillShowNotification object:nil];
     [nc addObserver:self selector:@selector(resizeViewToNormalSize) name:UIKeyboardWillHideNotification object:nil];
 //    [nc addObserver:self selector:@selector(refreshData) name:CH_COMMENTS_RECEIVED object:nil];
-    [nc addObserver:self selector:@selector(refreshComment:) name:CH_COMMENT_UPDATED object:nil];
+    [nc addObserver:self selector:@selector(refreshComment:) name:CH_FEED_ITEM_COMMENT_UPDATED object:nil];
 
     
 }
@@ -107,7 +108,7 @@
 
 -(void)reloadData{
     
-    [_friendsFeedManager loadCommentsForFeedItem:_feedItem completionHandler:^(NSArray *coments) {
+    [[CHFriendsFeedManager instance] loadCommentsForFeedItem:_feedItem completionHandler:^(NSArray *coments) {
         self.comments = [NSMutableArray arrayWithArray:coments];
         [self refreshData];
     }];
@@ -329,7 +330,7 @@
 - (IBAction)postCommentTapped:(id)sender {
     
     _postCommentButton.enabled = FALSE;
-    [_friendsFeedManager postCommentForFeedItem:_feedItem withText:_addComentTextView.text completionHandler:^(BOOL success) {
+    [[CHFriendsFeedManager instance] postCommentForFeedItem:_feedItem withText:_addComentTextView.text completionHandler:^(BOOL success) {
         _postCommentButton.enabled = TRUE;
         [self reloadData];
         

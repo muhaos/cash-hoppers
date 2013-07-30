@@ -26,7 +26,6 @@
 @property (strong, nonatomic) IBOutlet UITextView *addComentTextView;
 @property (strong, nonatomic) IBOutlet UIButton *postCommentButton;
 @property (strong, nonatomic) IBOutlet UIScrollView *myScroolView;
-@property (strong, nonatomic) CHFriendsFeedManager *friendsFeedManager;
 @property (strong, nonatomic) NSMutableArray *comments;
 @property (assign, nonatomic) CHFriendsFeedItem *feedItem;
 
