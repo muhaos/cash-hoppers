@@ -891,14 +891,6 @@
 				56401565176B40D100C028CE /* MainStoryboard_iPad.storyboard */,
 				56401551176B40D000C028CE /* Supporting Files */,
 				567FCABB17A7CC3A00F150A8 /* Controllers */,
-				56401588176B422D00C028CE /* CHStartVC.h */,
-				56401589176B422D00C028CE /* CHStartVC.m */,
-				56401598176B595500C028CE /* CHLoginVC.h */,
-				56401599176B595500C028CE /* CHLoginVC.m */,
-				AA9991A8177329D7005A56EF /* CHResetPasswordVC.h */,
-				AA9991A9177329D7005A56EF /* CHResetPasswordVC.m */,
-				AA9991AD1773498A005A56EF /* CHRegisterVC.h */,
-				AA9991AE1773498B005A56EF /* CHRegisterVC.m */,
 				AA1161F31778514F00D0E750 /* CHAdvertisingVC.h */,
 				AA1161F41778514F00D0E750 /* CHAdvertisingVC.m */,
 				AA1161F51778514F00D0E750 /* CHAdvertisingVC.xib */,
@@ -908,24 +900,8 @@
 				AA3644101779BA160064787F /* CHFriendsListCell.m */,
 				AA002740177B067A00D9D204 /* CHWinnerVC.h */,
 				AA002741177B067A00D9D204 /* CHWinnerVC.m */,
-				AACE422F177C5C7E006E2E46 /* CHOtherHopsListVC.h */,
-				AACE4230177C5C7E006E2E46 /* CHOtherHopsListVC.m */,
-				AACE4232177C5D16006E2E46 /* CHOtherHopsListCell.h */,
-				AACE4233177C5D16006E2E46 /* CHOtherHopsListCell.m */,
-				AAFF7456177D923B003883BD /* CHHopChooserVC.h */,
-				AAFF7457177D923C003883BD /* CHHopChooserVC.m */,
-				AAFF7458177D923D003883BD /* CHHopChooserVC.xib */,
 				AA1161F017784F5A00D0E750 /* CHHomeScreenViewController.h */,
 				AA1161F117784F5A00D0E750 /* CHHomeScreenViewController.m */,
-				E1B074D81778679700D7BCD0 /* CHNewHopVC.h */,
-				E1B074D91778679700D7BCD0 /* CHNewHopVC.m */,
-				AABEE159178B0107008F2DD2 /* CHTradeShowMultiHopCell.h */,
-				AABEE15A178B0107008F2DD2 /* CHTradeShowMultiHopCell.m */,
-				AABEE152178AED80008F2DD2 /* CHTradeShowMultiHopVC.h */,
-				AABEE153178AED80008F2DD2 /* CHTradeShowMultiHopVC.m */,
-				AABEE149178AE12C008F2DD2 /* CHTradeShowEntryVC.h */,
-				AABEE14A178AE12C008F2DD2 /* CHTradeShowEntryVC.m */,
-				AABEE14B178AE12C008F2DD2 /* CHTradeShowEntryVC.xib */,
 				AA010545178C3C72004DF5F4 /* CHDetailsFeedVC.h */,
 				AA010546178C3C72004DF5F4 /* CHDetailsFeedVC.m */,
 				AA010548178C4CCF004DF5F4 /* CHCommentListCell.h */,
@@ -1095,6 +1071,8 @@
 		567FCABB17A7CC3A00F150A8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				567FCAC317A7D57500F150A8 /* Login Related */,
+				567FCAC217A7D50D00F150A8 /* Hops Related */,
 				567FCABC17A7CC6200F150A8 /* Messages and Notifications */,
 			);
 			name = Controllers;
@@ -1118,6 +1096,44 @@
 				567FCAC017A7CD7A00F150A8 /* CHSelectedUserView.xib */,
 			);
 			name = "Messages and Notifications";
+			sourceTree = "<group>";
+		};
+		567FCAC217A7D50D00F150A8 /* Hops Related */ = {
+			isa = PBXGroup;
+			children = (
+				AAFF7456177D923B003883BD /* CHHopChooserVC.h */,
+				AAFF7457177D923C003883BD /* CHHopChooserVC.m */,
+				AAFF7458177D923D003883BD /* CHHopChooserVC.xib */,
+				AACE422F177C5C7E006E2E46 /* CHOtherHopsListVC.h */,
+				AACE4230177C5C7E006E2E46 /* CHOtherHopsListVC.m */,
+				AACE4232177C5D16006E2E46 /* CHOtherHopsListCell.h */,
+				AACE4233177C5D16006E2E46 /* CHOtherHopsListCell.m */,
+				E1B074D81778679700D7BCD0 /* CHNewHopVC.h */,
+				E1B074D91778679700D7BCD0 /* CHNewHopVC.m */,
+				AABEE159178B0107008F2DD2 /* CHTradeShowMultiHopCell.h */,
+				AABEE15A178B0107008F2DD2 /* CHTradeShowMultiHopCell.m */,
+				AABEE152178AED80008F2DD2 /* CHTradeShowMultiHopVC.h */,
+				AABEE153178AED80008F2DD2 /* CHTradeShowMultiHopVC.m */,
+				AABEE149178AE12C008F2DD2 /* CHTradeShowEntryVC.h */,
+				AABEE14A178AE12C008F2DD2 /* CHTradeShowEntryVC.m */,
+				AABEE14B178AE12C008F2DD2 /* CHTradeShowEntryVC.xib */,
+			);
+			name = "Hops Related";
+			sourceTree = "<group>";
+		};
+		567FCAC317A7D57500F150A8 /* Login Related */ = {
+			isa = PBXGroup;
+			children = (
+				56401588176B422D00C028CE /* CHStartVC.h */,
+				56401589176B422D00C028CE /* CHStartVC.m */,
+				56401598176B595500C028CE /* CHLoginVC.h */,
+				56401599176B595500C028CE /* CHLoginVC.m */,
+				AA9991A8177329D7005A56EF /* CHResetPasswordVC.h */,
+				AA9991A9177329D7005A56EF /* CHResetPasswordVC.m */,
+				AA9991AD1773498A005A56EF /* CHRegisterVC.h */,
+				AA9991AE1773498B005A56EF /* CHRegisterVC.m */,
+			);
+			name = "Login Related";
 			sourceTree = "<group>";
 		};
 		56D59AF11796CCD6005A05F3 /* Models */ = {

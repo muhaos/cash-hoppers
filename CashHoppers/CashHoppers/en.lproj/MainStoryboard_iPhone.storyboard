@@ -3180,11 +3180,11 @@
             <objects>
                 <viewController id="mzX-2v-l7Z" customClass="CHProfileUserVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nwe-ng-oK8">
-                        <rect key="frame" x="0.0" y="64" width="320" height="700"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="750"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="L3T-Ch-ajW">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dpZ-bv-Tog" userLabel="Button Photo">
@@ -3417,8 +3417,8 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="287" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </imageView>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0rJ-OT-mGc">
-                                                <rect key="frame" x="11" y="7" width="75" height="21"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="New Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0rJ-OT-mGc">
+                                                <rect key="frame" x="11" y="7" width="102" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
@@ -3428,7 +3428,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" id="btw-XR-tJT">
-                                                <rect key="frame" x="94" y="3" width="183" height="30"/>
+                                                <rect key="frame" x="146" y="3" width="131" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -3443,8 +3443,42 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <view contentMode="scaleToFill" id="T41-ST-f1O" userLabel="Confirm Pasword Input View">
+                                        <rect key="frame" x="18" y="410" width="287" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="MhU-NJ-oub">
+                                                <rect key="frame" x="0.0" y="0.0" width="287" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Confirm Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vwd-4e-kPE">
+                                                <rect key="frame" x="11" y="7" width="125" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans-Bold"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" id="y4d-6X-VCE">
+                                                <rect key="frame" x="144" y="3" width="133" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="mzX-2v-l7Z" id="MPd-aV-xVd"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <view contentMode="scaleToFill" id="iBy-i6-WyB" userLabel="Twitter Input View">
-                                        <rect key="frame" x="18" y="409" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="451" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="Z5l-hC-O49">
@@ -3478,7 +3512,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="39j-do-UDN" userLabel="Twitter Input View">
-                                        <rect key="frame" x="18" y="449" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="491" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="Eow-Ah-K7h">
@@ -3512,7 +3546,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="cwa-nR-jzg" userLabel="G+">
-                                        <rect key="frame" x="18" y="490" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="532" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="v6y-Vl-Vbl">
@@ -3540,7 +3574,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="qzV-rF-oXa" userLabel="contact">
-                                        <rect key="frame" x="18" y="531" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="573" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="6Hp-by-kf0">
@@ -3568,7 +3602,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="l9s-eY-qAS" userLabel="Phone">
-                                        <rect key="frame" x="18" y="572" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="614" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="RBf-8K-MoW">
@@ -3600,7 +3634,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KWc-IQ-MqX">
-                                        <rect key="frame" x="96" y="636" width="128" height="34"/>
+                                        <rect key="frame" x="96" y="682" width="128" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="button_save.png">
@@ -3624,13 +3658,14 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="bioTextView" destination="Dmv-lt-ce9" id="Q5f-1Y-QfV"/>
+                        <outlet property="changePasswordTextField" destination="btw-XR-tJT" id="7Ab-4f-Mku"/>
+                        <outlet property="confirmPasswordTextField" destination="y4d-6X-VCE" id="wI5-TT-1xK"/>
                         <outlet property="contactTextField" destination="wAS-so-NgI" id="rzq-RA-vHI"/>
                         <outlet property="emailTextField" destination="1wZ-nL-K8a" id="qb6-ma-9Lu"/>
                         <outlet property="facebookTextField" destination="XPD-HK-5Tw" id="iZc-FA-1xL"/>
                         <outlet property="firstNameTextField" destination="Oip-fL-07Z" id="U4C-o9-0l5"/>
                         <outlet property="googlePlusTextField" destination="7fk-KN-h1F" id="v93-zn-cTP"/>
                         <outlet property="lastNameTextField" destination="fub-nm-ZDM" id="9bU-AT-Xge"/>
-                        <outlet property="passwordTextField" destination="btw-XR-tJT" id="1MT-Ue-dHL"/>
                         <outlet property="phoneTextField" destination="Td8-p5-SPi" id="U0z-8s-sFt"/>
                         <outlet property="photoImageView" destination="gm5-cA-MrN" id="tSY-re-ot2"/>
                         <outlet property="scrollView" destination="L3T-Ch-ajW" id="HM9-P0-cvO"/>
@@ -3641,7 +3676,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1n-mB-vqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976" y="1308"/>
+            <point key="canvasLocation" x="974" y="1175"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Zl-28-hhK">
@@ -4042,13 +4077,14 @@
                 <relationship kind="action" name="photoButtonTapped:"/>
                 <relationship kind="action" name="saveTapped"/>
                 <relationship kind="outlet" name="bioTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="changePasswordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="confirmPasswordTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="contactTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="facebookTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="googlePlusTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="phoneTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>

@@ -23,7 +23,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 @end
 
 @implementation CHProfileUserVC
-@synthesize scrollView, bioTextView, emailTextField, firstNameTextField, lastNameTextField,zipTextField, usernameTextField, passwordTextField, twitterTextField, facebookTextField;
+@synthesize scrollView, bioTextView, emailTextField, firstNameTextField, lastNameTextField,zipTextField, usernameTextField, twitterTextField, facebookTextField;
 
 - (void)viewDidLoad
 {
@@ -37,7 +37,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [self.lastNameTextField setText:user.last_name];
     [self.zipTextField setText:user.zip];
     [self.usernameTextField setText:user.user_name];
-    [self.passwordTextField setText:@"kuku"];
     [self.twitterTextField setText:user.twitter];
     [self.facebookTextField setText:user.facebook];
     [self.googlePlusTextField setText:user.google];
@@ -47,7 +46,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [self setupTriangleBackButton];
     
     self.scrollView.frame = CGRectMake(0, 0, 320, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height);
-    self.scrollView.contentSize = CGSizeMake(320.0f, 700.0f);
+    self.scrollView.contentSize = CGSizeMake(320.0f, 750.0f);
 }
 
 
@@ -164,7 +163,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [self setLastNameTextField:nil];
     [self setZipTextField:nil];
     [self setUsernameTextField:nil];
-    [self setPasswordTextField:nil];
     [self setTwitterTextField:nil];
     [self setFacebookTextField:nil];
     [self setScrollView:nil];

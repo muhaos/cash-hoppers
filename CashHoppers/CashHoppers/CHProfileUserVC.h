@@ -17,7 +17,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *zipTextField;
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
-@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, nonatomic) IBOutlet UITextField *changePasswordTextField;
+@property (strong, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
 @property (strong, nonatomic) IBOutlet UITextField *twitterTextField;
 @property (strong, nonatomic) IBOutlet UITextField *facebookTextField;
 @property (strong, nonatomic) IBOutlet UITextField *googlePlusTextField;
