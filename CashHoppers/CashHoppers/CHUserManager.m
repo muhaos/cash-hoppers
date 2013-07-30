@@ -67,4 +67,39 @@
 }
 
 
+- (void) updateUserProfileWithUser:(CHUser*) user newPassword:(NSString*)password newAvatar:(UIImage*)avatar completionHandler:(void (^)(NSError* error)) handler {
+    
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/users/update_profile.json?api_key=%@&authentication_token=%@", CH_API_KEY, aToken];
+    
+    NSMutableURLRequest *request =
+    [[CHAPIClient sharedClient] multipartFormRequestWithMethod:@"POST" path:path parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+        
+        if (avatar != nil) {
+            NSData* imgData = UIImageJPEGRepresentation(avatar, 0.9);
+            if (imgData != nil) {
+                [formData appendPartWithFileData:imgData name:@"avatar" fileName:@"image.jpeg" mimeType:@"image/jpeg"];
+            }
+        }
+        
+        [user fillForm:formData];
+        
+        if (password != nil) {
+            [formData appendPartWithFormData:[password dataUsingEncoding:NSUTF8StringEncoding] name:@"password"];
+        }
+    }];
+    
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        handler(nil);
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForResponce:response :error :JSON];
+        handler(error);
+    }];
+    
+    [operation start];
+
+}
+
+
 @end

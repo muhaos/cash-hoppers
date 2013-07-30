@@ -8,6 +8,7 @@
 
 #import "CHProfileUserVC.h"
 #import "CHUserManager.h"
+#import "CHLoadingVC.h"
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
@@ -19,6 +20,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 {
     CGFloat animatedDistance;
 }
+
+@property (nonatomic, retain) UIImage* changedAvatarImage;
 
 @end
 
@@ -43,6 +46,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [self.contactTextField setText:user.contact];
     [self.phoneTextField setText:user.phone];
     
+    [self.photoImageView setImageWithURL:[user avatarURL] placeholderImage:[UIImage imageNamed:@"image_avatar.png"]];
+    
     [self setupTriangleBackButton];
     
     self.scrollView.frame = CGRectMake(0, 0, 320, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height);
@@ -53,6 +58,46 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 - (void) backButtonTapped {
     [self dismissModalViewControllerAnimated:YES];
 }
+
+
+- (IBAction) saveTapped {
+    
+    CHUser* user = [[CHUser alloc] init];
+    user.first_name = self.firstNameTextField.text;
+    user.last_name = self.lastNameTextField.text;
+    user.contact = self.contactTextField.text;
+    user.phone = self.phoneTextField.text;
+    user.bio = self.bioTextView.text;
+    user.twitter = self.twitterTextField.text;
+    user.facebook = self.facebookTextField.text;
+    user.google = self.googlePlusTextField.text;
+    
+    NSString* newPassword = nil;
+    if (![self.changePasswordTextField.text isEqualToString:@""]) {
+        if ([self.changePasswordTextField.text isEqualToString:self.confirmPasswordTextField.text]) {
+            newPassword = self.changePasswordTextField.text;
+        } else {
+            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"Passwords are different." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [av show];
+            return;
+        }
+    }
+    
+    [[CHLoadingVC sharedLoadingVC] showInController:self.view.window.rootViewController withText:@"Saving profile..."];
+    
+    [[CHUserManager instance] updateUserProfileWithUser:user newPassword:newPassword newAvatar:self.changedAvatarImage completionHandler:^(NSError* error) {
+        if (error != nil) {
+            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"Can't save profile" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [av show];
+        } else {
+            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"PROFILE" message:@"Profile updated!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [av show];
+        }
+        
+        [[CHLoadingVC sharedLoadingVC] hide];
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -79,6 +124,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 	[picker dismissModalViewControllerAnimated:YES];
 	self.photoImageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    self.changedAvatarImage = self.photoImageView.image;
 }
 
 

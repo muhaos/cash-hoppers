@@ -3659,6 +3659,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="saveTapped" destination="mzX-2v-l7Z" eventType="touchUpInside" id="Wvu-vw-eee"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <connections>
