@@ -10,6 +10,9 @@
 #import "CHAddFriendsSocialNetworksVC.h"
 
 @interface CHFindFriendsVC ()
+{
+    int indicator;
+}
 
 @end
 
@@ -57,24 +60,28 @@
         CHAddFriendsSocialNetworksVC* c = (CHAddFriendsSocialNetworksVC*)segue.destinationViewController;
         c.view;
         c.headerLabel.text = headerText;
+        c.currentService = indicator;
     }
 }
 
 
 - (IBAction)twitterFriendsTapped:(id)sender {
     headerText = @"TWITTER FRIENDS";
+    indicator = CH_SERVICE_TWITTER;
     [self performSegueWithIdentifier:@"friends" sender:self];
 }
 
 
 - (IBAction)facebookFriendsTapped:(id)sender {
     headerText = @"FACEBOOK FRIENDS";
+    indicator = CH_SERVICE_FACEBOOK;
     [self performSegueWithIdentifier:@"friends" sender:self];
 }
 
 
 - (IBAction)googleFriendsTapped:(id)sender {
     headerText = @"GOOGLE PLUS FRIENDS";
+    indicator = CH_SERVICE_GOOGLE;
     [self performSegueWithIdentifier:@"friends" sender:self];
 }
 

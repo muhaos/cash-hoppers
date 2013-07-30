@@ -7,22 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Facebook.h"
 
+#define CH_SERVICE_FACEBOOK 1
+#define CH_SERVICE_GOOGLE 2
+#define CH_SERVICE_TWITTER 3
 
-@interface CHAddFriendsSocialNetworksVC : UIViewController <UITableViewDataSource, UITableViewDelegate                                                                                                                                                                                                                                                                                                                                                                                                      >
+@interface CHAddFriendsSocialNetworksVC : UIViewController <UITableViewDataSource, UITableViewDelegate,FBRequestDelegate                                                                                                                                                                                                                                                                                                                                                                                         >
 
 @property (strong, nonatomic) IBOutlet UILabel *headerLabel;
 @property (strong, nonatomic) IBOutlet UITableView *friendsTable;
 
-
-// A list of people that is visible to this sample app.
 @property (retain, nonatomic) NSArray *peopleList;
-// A list of people profile images that we will prefetch that is
-// visible to this sample app.
 @property (retain, nonatomic) NSMutableArray *peopleImageList;
 
+@property (nonatomic, assign) int currentService;
 
 - (void)listPeople:(NSString *)collection;
 - (void)reportAuthStatus;
 - (void)fetchPeopleImages;
+
 @end

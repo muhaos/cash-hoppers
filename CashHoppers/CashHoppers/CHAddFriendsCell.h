@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHAddFriendsCell : UITableViewCell 
+@interface CHAddFriendsCell : UITableViewCell
+{
+	NSDictionary *data;
+    NSString *requestPath;
+}
 
 @property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (nonatomic, retain) NSDictionary *data;
+@property(nonatomic, retain) NSString *requestPath;
 
 - (IBAction)addFriendTapped:(id)sender;
 

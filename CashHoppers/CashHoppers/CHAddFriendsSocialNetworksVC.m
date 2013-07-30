@@ -14,13 +14,14 @@
 #import "GTMLogger.h"
 #import "GTMOAuth2Authentication.h"
 #import <QuartzCore/QuartzCore.h>
+#import "FacebookRequestController.h"
 
 @interface CHAddFriendsSocialNetworksVC ()
 
 @end
 
 @implementation CHAddFriendsSocialNetworksVC
-@synthesize friendsTable,peopleImageList, peopleList;
+@synthesize friendsTable,peopleImageList, peopleList, currentService;
 
 
 - (void)viewDidLoad
@@ -31,6 +32,29 @@
 
     [super viewDidLoad];
     [self setupTriangleBackButton];
+    
+    
+    
+    NSString *identifier = [tweeterEngine getFollowersIncludingCurrentStatus:YES]; // statuses/followers
+	//listen for a notification with the name of the identifier
+	[[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(twitterFollowersRequestDidComplete:)
+                                                 name:identifier
+                                               object:nil];
+    
+    
+    [[FacebookRequestController sharedRequestController] enqueueRequestWithGraphPath:@"me/friends"];
+    
+    //listen for a notification with the name of the identifier
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(facebookRequestDidComplete:)
+												 name:kRequestCompletedNotification
+											   object:nil];
+
+    
+    
+    
+    NSLog(@"%i", currentService);
   }
 
 
@@ -47,7 +71,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	 return peopleList.count;
+    if (peopleList == nil) {
+		return 0;
+	}
+    return peopleList.count;
 }
 
 
@@ -60,29 +87,45 @@
 {
     static NSString *friendsCellIdentifier = @"friends_list_cell";
     CHAddFriendsCell *cell = (CHAddFriendsCell*) [tableView dequeueReusableCellWithIdentifier:friendsCellIdentifier];
-    
-    // Configure the cell by extracting a person's name and image from the list
-    // of people.
-    if (indexPath.row < peopleList.count) {
-        GTLPlusPerson *person = peopleList[indexPath.row];
-        NSString *name = person.displayName;
-        cell.nameLabel.text = name;
-        NSLog(@"%@", name);
-        if (indexPath.row < [peopleImageList count] &&
-            ![[peopleImageList objectAtIndex:indexPath.row] isEqual:[NSNull null]]) {
-                cell.photoImageView.image = [[UIImage alloc]
-                  initWithData:[peopleImageList objectAtIndex:indexPath.row]];
-            [cell.photoImageView.layer setMasksToBounds:YES];
-            [cell.photoImageView.layer setCornerRadius: 22.0f];
-            } else {
-                cell.photoImageView.image = nil;
+        
+    switch (currentService) {
+        case CH_SERVICE_GOOGLE:
+        {
+            if (indexPath.row < peopleList.count) {
+                GTLPlusPerson *person = peopleList[indexPath.row];
+                NSString *name = person.displayName;
+                cell.nameLabel.text = name;
+                if (indexPath.row < [peopleImageList count] && ![[peopleImageList objectAtIndex:indexPath.row] isEqual:[NSNull null]]) {
+                    cell.photoImageView.image = [[UIImage alloc] initWithData:[peopleImageList objectAtIndex:indexPath.row]];
+                } else {
+                    cell.photoImageView.image = nil;
+                }
             }
+            break;
+        }
+        case CH_SERVICE_TWITTER:
+        {
+            NSDictionary *dictionary = [peopleList objectAtIndex:[indexPath row]];
+            cell.data = dictionary;
+            break;
+        }
+        case CH_SERVICE_FACEBOOK:{
+            NSDictionary *friendDictionary = [peopleList objectAtIndex:[indexPath row]];
+            cell.data = friendDictionary;
+            break;
+        }
+        default:
+            break;
     }
+    
+    [cell.photoImageView.layer setMasksToBounds:YES];
+    [cell.photoImageView.layer setCornerRadius: 22.0f];
     return cell;
 }
 
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return indexPath;
 }
 
@@ -94,19 +137,15 @@
 }
 
 
+/////////////////////////////////gooogle
 - (void)listPeople:(NSString *)collection {
-    // 1. Create a |GTLServicePlus| instance to send a request to Google+.
     GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
     plusService.retryEnabled = YES;
     
-    // 2. Set a valid |GTMOAuth2Authentication| object as the authorizer.
     [plusService setAuthorizer:[GPPSignIn sharedInstance].authentication];
-    
-    // 3. Create a |GTLQuery| object to list people that are visible to this
-    // sample app.
-    GTLQueryPlus *query =
-    [GTLQueryPlus queryForPeopleListWithUserId:@"me"
-                                    collection:kGTLPlusCollectionVisible];
+
+    GTLQueryPlus *query = [GTLQueryPlus queryForPeopleListWithUserId:@"me"
+                                                          collection:kGTLPlusCollectionVisible];
     [plusService executeQuery:query
             completionHandler:^(GTLServiceTicket *ticket,
                                 GTLPlusPeopleFeed *peopleFeed,
@@ -115,11 +154,8 @@
                     GTMLoggerError(@"Error: %@", error);
                     NSLog(@"Status: Error: %@", error);
                 } else {
-                    // Get an array of people from |GTLPlusPeopleFeed| and reload
-                    // the table view.
                     peopleList = [peopleFeed.items retain];
                     [friendsTable reloadData];
-                    // Render the status of the Google+ request.
                     NSNumber *count = peopleFeed.totalItems;
                     if (count.intValue == 1) {
                         NSLog(@"Status: Listed 1 person");
@@ -164,6 +200,38 @@
 }
 
 
+/////////////////////////////////twitter
+- (void)twitterFollowersRequestDidComplete:(NSNotification*)notification
+{
+	[peopleList release];
+	peopleList = [[notification.userInfo objectForKey:@"followers"] retain];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[friendsTable reloadData];
+}
+
+
+/////////////////////////////////facebook
+- (void)request:(FBRequest *)request didLoad:(id)result {
+	NSLog(@"didLoad:");
+	[peopleList release];
+	peopleList = [[(NSDictionary*)result objectForKey:@"data"] retain];
+	[friendsTable reloadData];
+}
+
+
+- (void)facebookRequestDidComplete:(NSNotification*)notification {
+	
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    NSString *path = [notification.userInfo objectForKey:@"path"];
+    if (YES == [path isEqualToString:@"me/friends"]) {
+        [peopleList release];
+        peopleList = [[(NSDictionary*)[notification.userInfo objectForKey:@"result"] objectForKey:@"data"] retain];
+        [friendsTable reloadData];
+    }
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -176,4 +244,6 @@
     [self setHeaderLabel:nil];
     [super viewDidUnload];
 }
+
+
 @end
