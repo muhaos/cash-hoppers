@@ -23,14 +23,29 @@
 
 - (id) init {
     if (self = [super init]) {
+        
     }
     return self;
 }
 
 
-- (void) loadUserForID:(NSNumber*) _id completionHandler:(void (^)(CHUser* hop)) handler {
+- (void) updateCurrentUser {
+    
+    [self loadUserForID:nil completionHandler:^(CHUser* user) {
+        _currentUser = user;
+    }];
+
+}
+
+
+
+- (void) loadUserForID:(NSNumber*) _id completionHandler:(void (^)(CHUser* user)) handler {
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
-    NSString *path = [NSString stringWithFormat:@"/api/users/get_my_info.json?api_key=%@&authentication_token=%@&user_id=%i",CH_API_KEY,aToken, [_id intValue]];
+    NSString *path = [NSString stringWithFormat:@"/api/users/get_my_info.json?api_key=%@&authentication_token=%@",CH_API_KEY,aToken];
+    if (_id != nil) {
+        path = [path stringByAppendingFormat:@"&user_id=%i", [_id intValue]];
+    }
+    
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
     NSLog(@"REQUEST TO : %@", [request.URL description]);

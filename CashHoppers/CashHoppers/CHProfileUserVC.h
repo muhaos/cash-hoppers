@@ -20,8 +20,14 @@
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, nonatomic) IBOutlet UITextField *twitterTextField;
 @property (strong, nonatomic) IBOutlet UITextField *facebookTextField;
+@property (strong, nonatomic) IBOutlet UITextField *googlePlusTextField;
+@property (strong, nonatomic) IBOutlet UITextField *contactTextField;
+@property (strong, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UIButton *saveButton;
 
-- (IBAction)photoButtonTapped:(id)sender;
+
+- (IBAction) photoButtonTapped:(id)sender;
+- (IBAction) saveTapped;
 
 @end

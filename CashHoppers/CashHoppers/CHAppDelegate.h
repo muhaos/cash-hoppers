@@ -30,7 +30,6 @@ enum CHView{
 @property (nonatomic, assign) BOOL needOpenFriendsFeed; // for tab bar button
 
 
--(void)switchViewTo:(enum CHView)view;
 -(void)openSession;
 
 @end

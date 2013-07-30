@@ -2681,16 +2681,16 @@
             <objects>
                 <viewController id="mzX-2v-l7Z" customClass="CHProfileUserVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nwe-ng-oK8">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="700"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="L3T-Ch-ajW">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="505"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dpZ-bv-Tog" userLabel="Button Photo">
-                                        <rect key="frame" x="140" y="19" width="58" height="58"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="131" y="19" width="58" height="58"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="button_photo_border.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -2705,12 +2705,12 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="image_avatar.png" id="gm5-cA-MrN">
-                                        <rect key="frame" x="143" y="22" width="52" height="52"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="134" y="22" width="52" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" id="nhF-BV-zJE">
                                         <rect key="frame" x="14" y="87" width="289" height="75"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="qPZ-6A-36r">
                                                 <rect key="frame" x="3" y="0.0" width="286" height="75"/>
@@ -2739,7 +2739,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" id="L4w-M7-isn" userLabel="Email Input View">
                                         <rect key="frame" x="18" y="169" width="287" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="LFt-X4-LF7">
                                                 <rect key="frame" x="0.0" y="0.0" width="287" height="36"/>
@@ -2752,7 +2752,7 @@
                                                 <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" id="1wZ-nL-K8a">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" id="1wZ-nL-K8a">
                                                 <rect key="frame" x="68" y="3" width="209" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -2767,7 +2767,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" id="yqy-uW-Liq" userLabel="FirstName Input View">
                                         <rect key="frame" x="18" y="209" width="287" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="xcB-7Q-elY">
                                                 <rect key="frame" x="0.0" y="0.0" width="287" height="36"/>
@@ -2795,7 +2795,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" id="p3u-UF-HcW" userLabel="LastName Input View">
                                         <rect key="frame" x="18" y="250" width="287" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="jy7-aE-2sq">
                                                 <rect key="frame" x="0.0" y="0.0" width="287" height="36"/>
@@ -2823,7 +2823,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" id="fvG-8w-VYb" userLabel="Zip Input View">
                                         <rect key="frame" x="18" y="289" width="287" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="ZjH-fO-SQG">
                                                 <rect key="frame" x="0.0" y="0.0" width="287" height="36"/>
@@ -2851,7 +2851,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" id="mw8-ol-3IM" userLabel="Username Input View">
                                         <rect key="frame" x="18" y="329" width="287" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="qrx-Ol-c8x">
                                                 <rect key="frame" x="0.0" y="0.0" width="287" height="36"/>
@@ -2864,7 +2864,7 @@
                                                 <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" id="zC2-Lw-519">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" id="zC2-Lw-519">
                                                 <rect key="frame" x="94" y="3" width="183" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -2879,7 +2879,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" id="yVE-Zg-GF8" userLabel="Password Input View">
                                         <rect key="frame" x="18" y="369" width="287" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="Uoa-hf-6B0">
                                                 <rect key="frame" x="0.0" y="0.0" width="287" height="36"/>
@@ -2907,7 +2907,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" id="iBy-i6-WyB" userLabel="Twitter Input View">
                                         <rect key="frame" x="18" y="409" width="287" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="Z5l-hC-O49">
                                                 <rect key="frame" x="0.0" y="0.0" width="287" height="36"/>
@@ -2935,7 +2935,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" id="39j-do-UDN" userLabel="Twitter Input View">
                                         <rect key="frame" x="18" y="449" width="287" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="Eow-Ah-K7h">
                                                 <rect key="frame" x="0.0" y="0.0" width="287" height="36"/>
@@ -2961,10 +2961,106 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <view contentMode="scaleToFill" id="cwa-nR-jzg" userLabel="G+">
+                                        <rect key="frame" x="18" y="490" width="287" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="v6y-Vl-Vbl">
+                                                <rect key="frame" x="0.0" y="0.0" width="287" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Google+" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LSL-yR-Nu2">
+                                                <rect key="frame" x="11" y="7" width="75" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" id="7fk-KN-h1F">
+                                                <rect key="frame" x="87" y="3" width="190" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="mzX-2v-l7Z" id="FaO-hJ-aZ3"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="qzV-rF-oXa" userLabel="contact">
+                                        <rect key="frame" x="18" y="531" width="287" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="6Hp-by-kf0">
+                                                <rect key="frame" x="0.0" y="0.0" width="287" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Contact" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fj5-0B-Epf">
+                                                <rect key="frame" x="11" y="7" width="75" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" id="wAS-so-NgI">
+                                                <rect key="frame" x="87" y="3" width="190" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="mzX-2v-l7Z" id="4Fo-2W-Sak"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="l9s-eY-qAS" userLabel="Phone">
+                                        <rect key="frame" x="18" y="572" width="287" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="RBf-8K-MoW">
+                                                <rect key="frame" x="0.0" y="0.0" width="287" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CV8-2y-IWe">
+                                                <rect key="frame" x="11" y="7" width="75" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" id="Td8-p5-SPi">
+                                                <rect key="frame" x="87" y="3" width="190" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="mzX-2v-l7Z" id="Ziu-8b-o3D"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="edit_photo.png" id="F5S-W9-DBV">
-                                        <rect key="frame" x="182" y="22" width="14" height="14"/>
+                                        <rect key="frame" x="173" y="22" width="14" height="14"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KWc-IQ-MqX">
+                                        <rect key="frame" x="96" y="636" width="128" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="button_save.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <connections>
                                     <outlet property="delegate" destination="mzX-2v-l7Z" id="E5i-Q5-9tg"/>
@@ -2975,13 +3071,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="ffM-S3-06d"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="bioTextView" destination="Dmv-lt-ce9" id="Q5f-1Y-QfV"/>
+                        <outlet property="contactTextField" destination="wAS-so-NgI" id="rzq-RA-vHI"/>
                         <outlet property="emailTextField" destination="1wZ-nL-K8a" id="qb6-ma-9Lu"/>
                         <outlet property="facebookTextField" destination="XPD-HK-5Tw" id="iZc-FA-1xL"/>
                         <outlet property="firstNameTextField" destination="Oip-fL-07Z" id="U4C-o9-0l5"/>
+                        <outlet property="googlePlusTextField" destination="7fk-KN-h1F" id="v93-zn-cTP"/>
                         <outlet property="lastNameTextField" destination="fub-nm-ZDM" id="9bU-AT-Xge"/>
                         <outlet property="passwordTextField" destination="btw-XR-tJT" id="1MT-Ue-dHL"/>
+                        <outlet property="phoneTextField" destination="Td8-p5-SPi" id="U0z-8s-sFt"/>
                         <outlet property="photoImageView" destination="gm5-cA-MrN" id="tSY-re-ot2"/>
                         <outlet property="scrollView" destination="L3T-Ch-ajW" id="HM9-P0-cvO"/>
                         <outlet property="twitterTextField" destination="bzo-pN-cFm" id="Bk2-yN-FTe"/>
@@ -2991,7 +3091,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1n-mB-vqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="764" y="1145"/>
+            <point key="canvasLocation" x="814" y="1072"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Zl-28-hhK">
@@ -3081,6 +3181,7 @@
         <image name="button_photo_border.png" width="115" height="114"/>
         <image name="button_preview.png" width="121" height="37"/>
         <image name="button_register.png" width="255" height="68"/>
+        <image name="button_save.png" width="255" height="68"/>
         <image name="button_sign_in.png" width="255" height="68"/>
         <image name="button_signup.png" width="405" height="30"/>
         <image name="button_twitter.png" width="497" height="81"/>
@@ -3347,13 +3448,18 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHProfileUserVC.h"/>
             <relationships>
                 <relationship kind="action" name="photoButtonTapped:"/>
+                <relationship kind="action" name="saveTapped"/>
                 <relationship kind="outlet" name="bioTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="contactTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="facebookTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="googlePlusTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phoneTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="twitterTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>

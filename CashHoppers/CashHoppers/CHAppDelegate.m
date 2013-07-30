@@ -14,6 +14,7 @@
 #import "GPPURLHandler.h"
 #import "CHMenuSlidingVC.h"
 #import "MFSideMenuContainerViewController.h"
+#import "CHUserManager.h"
 
 @implementation CHAppDelegate
 @synthesize homeScreenVC, navController;
@@ -24,26 +25,6 @@
 {
 
     // Override point for customization after application launch.
-    
-   
-
-//    return YES;
-    /*
-    self.homeScreenVC = [[CHHomeScreenViewController alloc]
-                               initWithNibName:@"CHHomeSreenVC" bundle:nil];
-    self.navController = [[UINavigationController alloc]
-                          initWithRootViewController:self.homeScreenVC];
-    self.window.rootViewController = self.navController;
-    [self.window makeKeyAndVisible];
-    
-    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
-        // Yes, so just open the session (this won't display any UX).
-        [self openSession];
-    } else {
-        // No, display the login page.
-        [self showLoginView];
-    }
-    */
     
     [self setupApperences];
    
@@ -56,11 +37,11 @@
     [menuContainerVC setCenterViewController:tabBarVC];
     [menuContainerVC setLeftMenuViewController:leftMenu];
     
-    //self.tabBarController = [[[[self window]rootViewController]storyboard]instantiateViewControllerWithIdentifier:@"tabBar"];
     NSString *a_token = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
     //    NSLog(@"token=%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"]);
     if(a_token){
         self.window.rootViewController = self.menuContainerVC;
+        [[CHUserManager instance] updateCurrentUser];
     }
 
     [GPPSignIn sharedInstance].clientID = kClientId;
@@ -186,38 +167,6 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
--(void)switchViewTo:(enum CHView)view{
-    
-    UIButton *but =  (UIButton*)[_tabBarController.buttonView.subviews objectAtIndex:view];
-    [but sendActionsForControlEvents:UIControlEventTouchUpInside];
-    
-    //    NSString *segueID;
-    //    switch (view) {
-    //        case CHHome:{
-    //            segueID = @"homeScreen";
-    //            break;
-    //        }
-    //        case CHFeed:{
-    //            segueID = @"feed";
-    //            break;
-    //        }
-    //        case CHMessage:{
-    //            segueID = @"";
-    //            break;
-    //        }
-    //        case CHNewHop:{
-    //            segueID = @"newHop";
-    //            break;
-    //        }
-    //        case CHPicture:{
-    //            segueID = @"";
-    //            break;
-    //        }
-    //        default:
-    //            break;
-    //    }
-    //    NSLog(@"id =%@",segueID);
-    //    [self performSegueWithIdentifier:segueID sender:[_buttonView.subviews objectAtIndex:0]];
-}
+
 
 @end

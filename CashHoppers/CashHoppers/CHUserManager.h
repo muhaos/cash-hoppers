@@ -13,6 +13,9 @@
 
 + (CHUserManager*) instance;
 
+@property (nonatomic, strong, readonly) CHUser* currentUser;
+- (void) updateCurrentUser;
+
 - (void) loadUserForID:(NSNumber*) _id completionHandler:(void (^)(CHUser* user)) handler;
 
 @end
