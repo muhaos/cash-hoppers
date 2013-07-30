@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -3175,43 +3175,6 @@
             </objects>
             <point key="canvasLocation" x="3984" y="1996"/>
         </scene>
-        <!--Selected UserVC-->
-        <scene sceneID="W69-7G-sxT">
-            <objects>
-                <viewController storyboardIdentifier="selected_user" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dte-3L-wl0" customClass="CHSelectedUserVC" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RcT-7a-rkD">
-                        <rect key="frame" x="0.0" y="0.0" width="85" height="25"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="25J-cv-KUf">
-                                <rect key="frame" x="1" y="3" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e7h-3Z-FW7">
-                                <rect key="frame" x="25" y="0.0" width="60" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans-Bold"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="nameLabel" destination="e7h-3Z-FW7" id="J40-LH-RoL"/>
-                        <outlet property="photoImageView" destination="25J-cv-KUf" id="e8R-Zl-Acm"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fhc-ls-Yop" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4531" y="2339"/>
-        </scene>
         <!--Profile UserVC-->
         <scene sceneID="BMD-Ic-6FT">
             <objects>
@@ -3678,7 +3641,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1n-mB-vqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="814" y="1072"/>
+            <point key="canvasLocation" x="976" y="1308"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Zl-28-hhK">
@@ -3770,8 +3733,8 @@
         <image name="button_photo_border.png" width="115" height="114"/>
         <image name="button_preview.png" width="121" height="37"/>
         <image name="button_register.png" width="255" height="68"/>
-        <image name="button_save.png" width="255" height="68"/>
         <image name="button_reply_to_message.png" width="497" height="107"/>
+        <image name="button_save.png" width="255" height="68"/>
         <image name="button_send_message.png" width="497" height="107"/>
         <image name="button_sign_in.png" width="255" height="68"/>
         <image name="button_signup.png" width="405" height="30"/>
@@ -4117,13 +4080,6 @@
             <relationships>
                 <relationship kind="action" name="signInTapped:"/>
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="CHSelectedUserVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHSelectedUserVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="CHStartVC" superclassName="UIViewController">

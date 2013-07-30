@@ -8,8 +8,8 @@
 
 #import "CHComposeMessageVC.h"
 #import "CHComposeMessageCell.h"
-#import "CHSelectedUserVC.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CHSelectedUserView.h"
 
 @interface CHComposeMessageVC ()
 {
@@ -203,7 +203,7 @@
     float userTableY = containerView.frame.origin.y+containerHeight;
     userListTable.frame = CGRectMake(userListTable.frame.origin.x, userTableY, userListTable.frame.size.width, (self.view.frame.size.height + 44) - userTableY - 216);
     
-    for (CHSelectedUserVC* userView in selectedUserViews) {
+    for (CHSelectedUserView* userView in selectedUserViews) {
         [userView.view removeFromSuperview];
     }
     [selectedUserViews removeAllObjects];
@@ -216,15 +216,15 @@
                 break;
             }
             
-            CHSelectedUserVC* selectedUser = [self.storyboard instantiateViewControllerWithIdentifier:@"selected_user"];
+            CHSelectedUserView* selectedUserView = [[CHSelectedUserView alloc] init];
             
-            selectedUser.view.layer.cornerRadius = 2.0f;
-            selectedUser.nameLabel.text = selectedUserArray[row * 3 + i];
-            selectedUser.photoImageView.image = [UIImage imageNamed:@"photo_BrianKelly"];
+            selectedUserView.view.layer.cornerRadius = 2.0f;
+            selectedUserView.nameLabel.text = selectedUserArray[row * 3 + i];
+            selectedUserView.photoImageView.image = [UIImage imageNamed:@"photo_BrianKelly"];
             
-            [containerView addSubview:selectedUser.view];
-            selectedUser.view.frame = CGRectMake(i * 90+10, row * 30+5, 80, 25);
-            [selectedUserViews addObject:selectedUser];
+            [containerView addSubview:selectedUserView.view];
+            selectedUserView.view.frame = CGRectMake(i * 90+10, row * 30+5, 80, 25);
+            [selectedUserViews addObject:selectedUserView];
             
             bottomView.frame = CGRectMake(20, containerView.frame.origin.y+containerHeight+20, 280, 200);
         }
