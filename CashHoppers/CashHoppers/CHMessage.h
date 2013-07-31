@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSString* text;
 
 // usable only on messages overview
+@property (nonatomic, strong) NSNumber* friend_id;
 @property (nonatomic, strong) NSString* friend_avatar;
 @property (nonatomic, strong) NSString* friend_first_name;
 @property (nonatomic, strong) NSString* friend_last_name;

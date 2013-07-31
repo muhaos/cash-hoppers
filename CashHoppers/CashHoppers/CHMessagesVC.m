@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "CHMessagesManager.h"
 #import "AFNetworking.h"
+#import "CHIndividualMessageVC.h"
 
 @interface CHMessagesVC ()
 
@@ -26,17 +27,17 @@
 {
     self.messagesButtonActive = YES;   
     [self activeButton:YES];
-    
-    [[CHMessagesManager instance] loadMessagesOverviewWithCompletionHandler:^(NSArray* messages){
-        self.currentMessagesList = messages;
-        [messagesTable reloadData];
-    }];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+
+    [[CHMessagesManager instance] loadMessagesOverviewWithCompletionHandler:^(NSArray* messages){
+        self.currentMessagesList = messages;
+        [messagesTable reloadData];
+    }];
 }
 
 
@@ -95,10 +96,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"individual_message" sender:self];
+    CHMessage* message = [self.currentMessagesList objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"individual_message" sender:message.friend_id];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"individual_message"]) {
+        CHIndividualMessageVC* vc = (CHIndividualMessageVC*)segue.destinationViewController;
+        vc.currentFriendID = sender;
+    }
+}
 
 - (IBAction)messagesTapped:(id)sender {
     self.messagesButtonActive = YES;

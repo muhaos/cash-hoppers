@@ -50,6 +50,7 @@
 		567FCAC117A7CD7A00F150A8 /* CHSelectedUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 567FCAC017A7CD7A00F150A8 /* CHSelectedUserView.xib */; };
 		567FCAC717A9365300F150A8 /* CHMessagesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCAC617A9365300F150A8 /* CHMessagesManager.m */; };
 		567FCACA17A936A100F150A8 /* CHMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCAC917A936A100F150A8 /* CHMessage.m */; };
+		567FCACD17A94BC900F150A8 /* CHIndividualMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCACC17A94BC900F150A8 /* CHIndividualMessageCell.m */; };
 		56D59AF51796CD4B005A05F3 /* CHBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AF41796CD4B005A05F3 /* CHBaseModel.m */; };
 		56D59AF81796CD6E005A05F3 /* CHHop.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AF71796CD6E005A05F3 /* CHHop.m */; };
 		56D59AFB1796CD80005A05F3 /* CHHopTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AFA1796CD80005A05F3 /* CHHopTask.m */; };
@@ -362,6 +363,8 @@
 		567FCAC617A9365300F150A8 /* CHMessagesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMessagesManager.m; sourceTree = "<group>"; };
 		567FCAC817A936A100F150A8 /* CHMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMessage.h; sourceTree = "<group>"; };
 		567FCAC917A936A100F150A8 /* CHMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMessage.m; sourceTree = "<group>"; };
+		567FCACB17A94BC800F150A8 /* CHIndividualMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHIndividualMessageCell.h; sourceTree = "<group>"; };
+		567FCACC17A94BC900F150A8 /* CHIndividualMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHIndividualMessageCell.m; sourceTree = "<group>"; };
 		56D59AF31796CD4B005A05F3 /* CHBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHBaseModel.h; sourceTree = "<group>"; };
 		56D59AF41796CD4B005A05F3 /* CHBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHBaseModel.m; sourceTree = "<group>"; };
 		56D59AF61796CD6E005A05F3 /* CHHop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHop.h; sourceTree = "<group>"; };
@@ -1105,6 +1108,8 @@
 				567FCABD17A7CC9F00F150A8 /* CHSelectedUserView.h */,
 				567FCABE17A7CC9F00F150A8 /* CHSelectedUserView.m */,
 				567FCAC017A7CD7A00F150A8 /* CHSelectedUserView.xib */,
+				567FCACB17A94BC800F150A8 /* CHIndividualMessageCell.h */,
+				567FCACC17A94BC900F150A8 /* CHIndividualMessageCell.m */,
 			);
 			name = "Messages and Notifications";
 			sourceTree = "<group>";
@@ -1937,6 +1942,7 @@
 				E1A699AB17A690D7008584BE /* CHFeedItemComment.m in Sources */,
 				567FCAC717A9365300F150A8 /* CHMessagesManager.m in Sources */,
 				567FCACA17A936A100F150A8 /* CHMessage.m in Sources */,
+				567FCACD17A94BC900F150A8 /* CHIndividualMessageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,8 @@
 
 - (void) loadMessagesOverviewWithCompletionHandler:(void (^)(NSArray* messages)) handler;
 
+- (void) loadMessagesHistoryForFriendID:(NSNumber*) friendID withCompletionHandler:(void (^)(NSArray* messages)) handler;
+
 - (void) postMessageWithText:(NSString*) text toFriendsList:(NSArray*)friendsIds completionHandler:(void (^)(NSError* error))handler;
 
 
