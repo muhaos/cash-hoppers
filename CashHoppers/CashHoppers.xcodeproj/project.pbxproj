@@ -246,6 +246,9 @@
 		E1179B1A17747D4000FA2069 /* our_time.png in Resources */ = {isa = PBXBuildFile; fileRef = E1179B1917747D4000FA2069 /* our_time.png */; };
 		E176E67E179881FD004BFF02 /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E176E67D179881FD004BFF02 /* MFSideMenuContainerViewController.m */; };
 		E1A699AB17A690D7008584BE /* CHFeedItemComment.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A699AA17A690D7008584BE /* CHFeedItemComment.m */; };
+		E1A699B717A84482008584BE /* CHBuyAdFreeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A699B617A84482008584BE /* CHBuyAdFreeVC.m */; };
+		E1A699BA17A8ED01008584BE /* CHCheckMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A699B917A8ED01008584BE /* CHCheckMarkView.m */; };
+		E1A699BF17A92A8C008584BE /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A699BE17A92A8C008584BE /* checkmark.png */; };
 		E1B074D7177866F500D7BCD0 /* Take-Photo.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B074D6177866F500D7BCD0 /* Take-Photo.png */; };
 		E1B074DA1778679700D7BCD0 /* CHNewHopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B074D91778679700D7BCD0 /* CHNewHopVC.m */; };
 		E1B074DC1778728F00D7BCD0 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B074DB1778728F00D7BCD0 /* share.png */; };
@@ -682,6 +685,11 @@
 		E176E67D179881FD004BFF02 /* MFSideMenuContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuContainerViewController.m; sourceTree = "<group>"; };
 		E1A699A917A690D7008584BE /* CHFeedItemComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHFeedItemComment.h; sourceTree = "<group>"; };
 		E1A699AA17A690D7008584BE /* CHFeedItemComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHFeedItemComment.m; sourceTree = "<group>"; };
+		E1A699B517A84482008584BE /* CHBuyAdFreeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHBuyAdFreeVC.h; sourceTree = "<group>"; };
+		E1A699B617A84482008584BE /* CHBuyAdFreeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHBuyAdFreeVC.m; sourceTree = "<group>"; };
+		E1A699B817A8ED01008584BE /* CHCheckMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCheckMarkView.h; sourceTree = "<group>"; };
+		E1A699B917A8ED01008584BE /* CHCheckMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCheckMarkView.m; sourceTree = "<group>"; };
+		E1A699BE17A92A8C008584BE /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		E1B074D6177866F500D7BCD0 /* Take-Photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Take-Photo.png"; sourceTree = "<group>"; };
 		E1B074D81778679700D7BCD0 /* CHNewHopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNewHopVC.h; sourceTree = "<group>"; };
 		E1B074D91778679700D7BCD0 /* CHNewHopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHNewHopVC.m; sourceTree = "<group>"; };
@@ -930,6 +938,8 @@
 				AA32A74317A00A1C003563FB /* CHAddFriendsSocialNetworksVC.m */,
 				AA32A733179FD8CC003563FB /* CHFindFriendsVC.h */,
 				AA32A734179FD8CC003563FB /* CHFindFriendsVC.m */,
+				E1A699B517A84482008584BE /* CHBuyAdFreeVC.h */,
+				E1A699B617A84482008584BE /* CHBuyAdFreeVC.m */,
 			);
 			path = CashHoppers;
 			sourceTree = "<group>";
@@ -971,6 +981,7 @@
 		5640158B176B433B00C028CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E1A699BB17A90487008584BE /* CheckMark */,
 				5611555E17A6A17400DAA76E /* button_save.png */,
 				AA0B685217A6F40E00820A9A /* search_icon.png */,
 				AA2D1BEB17A2A89F00474E9B /* compose_icon.png */,
@@ -1410,6 +1421,14 @@
 			path = ECSlidingViewController/MFSideMenu;
 			sourceTree = "<group>";
 		};
+		E1A699BB17A90487008584BE /* CheckMark */ = {
+			isa = PBXGroup;
+			children = (
+				E1A699BE17A92A8C008584BE /* checkmark.png */,
+			);
+			name = CheckMark;
+			sourceTree = "<group>";
+		};
 		E1B074F4177AED4400D7BCD0 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1436,6 +1455,8 @@
 				E1B074F8177B58D100D7BCD0 /* MHTabBarSegue.m */,
 				56115556179ECE9D00DAA76E /* UIViewController+Utils.h */,
 				56115557179ECE9E00DAA76E /* UIViewController+Utils.m */,
+				E1A699B817A8ED01008584BE /* CHCheckMarkView.h */,
+				E1A699B917A8ED01008584BE /* CHCheckMarkView.m */,
 			);
 			name = "Custom Elements";
 			sourceTree = "<group>";
@@ -1752,6 +1773,7 @@
 				AA2D1BEC17A2A89F00474E9B /* compose_icon.png in Resources */,
 				AA0B685317A6F40E00820A9A /* search_icon.png in Resources */,
 				567FCAC117A7CD7A00F150A8 /* CHSelectedUserView.xib in Resources */,
+				E1A699BF17A92A8C008584BE /* checkmark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1917,6 +1939,8 @@
 				AA2D1BEA17A2A4D100474E9B /* CHComposeMessageCell.m in Sources */,
 				567FCABF17A7CC9F00F150A8 /* CHSelectedUserView.m in Sources */,
 				E1A699AB17A690D7008584BE /* CHFeedItemComment.m in Sources */,
+				E1A699B717A84482008584BE /* CHBuyAdFreeVC.m in Sources */,
+				E1A699BA17A8ED01008584BE /* CHCheckMarkView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
