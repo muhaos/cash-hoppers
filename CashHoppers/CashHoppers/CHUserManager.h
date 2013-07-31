@@ -17,6 +17,10 @@
 - (void) updateCurrentUser;
 
 - (void) loadUserForID:(NSNumber*) _id completionHandler:(void (^)(CHUser* user)) handler;
+
 - (void) updateUserProfileWithUser:(CHUser*) user newPassword:(NSString*)password newAvatar:(UIImage*)avatar completionHandler:(void (^)(NSError* error)) handler;
+
+- (void) loadFriendsWithCompletionHandler:(void (^)(NSArray* friends)) handler;
+
 
 @end

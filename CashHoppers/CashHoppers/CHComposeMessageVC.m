@@ -10,6 +10,8 @@
 #import "CHComposeMessageCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "CHSelectedUserView.h"
+#import "CHUserManager.h"
+#import "CHMessagesManager.h"
 
 @interface CHComposeMessageVC ()
 {
@@ -36,7 +38,12 @@
     userListTable.hidden = YES;
     
     
-    searchResultUsers = @[@"Test User1", @"Test User2", @"Test User3", @"Test User4"];
+    searchResultUsers = @[];
+    
+    [[CHUserManager instance] loadFriendsWithCompletionHandler:^(NSArray* friends) {
+        searchResultUsers = friends;
+        [userListTable reloadData];
+    }];
     
     [self loyoutSearchView];
 }
@@ -158,8 +165,18 @@
     
     CHComposeMessageCell *cell = (CHComposeMessageCell*) [tableView dequeueReusableCellWithIdentifier:userCellIdentifier];
     
-    [[cell nameLabel] setText:searchResultUsers[indexPath.row]];
-    [[cell photoImageView] setImage:[UIImage imageNamed:@"photo_BrianKelly"]];
+    CHUser* user = searchResultUsers[indexPath.row];
+    NSString* userName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
+    [[cell nameLabel] setText:userName];
+    [[cell photoImageView] setImageWithURL:[user avatarURL]];
+    
+    cell.accessoryView = nil;
+    if ([selectedUserArray containsObject:user]) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 16, 16)];
+        [imageView setImage:[UIImage  imageNamed:@"compose_icon.png"]];
+        cell.accessoryView = imageView;
+    } else {
+    }
         
     return cell;
 }
@@ -173,14 +190,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CHComposeMessageCell *cell = (CHComposeMessageCell*) [tableView cellForRowAtIndexPath:indexPath];
-    NSString* tappedUser = searchResultUsers[indexPath.row];
+    CHUser* tappedUser = searchResultUsers[indexPath.row];
+
+    cell.accessoryView = nil;
     
     if ([selectedUserArray containsObject:tappedUser]) {
-        [cell setAccessoryType:UITableViewCellAccessoryNone];
-        cell.accessoryView = nil;
         [selectedUserArray removeObject:tappedUser];
     } else {
-        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 16, 16)];
         [imageView setImage:[UIImage  imageNamed:@"compose_icon.png"]];
         cell.accessoryView = imageView;
@@ -218,9 +234,12 @@
             
             CHSelectedUserView* selectedUserView = [[CHSelectedUserView alloc] init];
             
+            CHUser* user = searchResultUsers[row * 3 + i];
+            NSString* userName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
+            
             selectedUserView.view.layer.cornerRadius = 2.0f;
-            selectedUserView.nameLabel.text = selectedUserArray[row * 3 + i];
-            selectedUserView.photoImageView.image = [UIImage imageNamed:@"photo_BrianKelly"];
+            selectedUserView.nameLabel.text = userName;
+            [selectedUserView.photoImageView setImageWithURL:[user avatarURL]];
             
             [containerView addSubview:selectedUserView.view];
             selectedUserView.view.frame = CGRectMake(i * 90+10, row * 30+5, 80, 25);
@@ -234,7 +253,27 @@
 
 - (IBAction)sendMessageTapped:(id)sender
 {
+    ((UIButton*)sender).enabled = NO;
+    inputMessageTextView.editable = NO;
     
+    NSMutableArray* recepientIDs = [NSMutableArray new];
+    
+    for (CHUser* user in selectedUserArray) {
+        [recepientIDs addObject:user.identifier];
+    }
+    
+    [[CHMessagesManager instance] postMessageWithText:inputMessageTextView.text toFriendsList:recepientIDs completionHandler:^(NSError* error){
+        
+        ((UIButton*)sender).enabled = YES;
+        inputMessageTextView.editable = YES;
+        
+        if (error == nil) {
+            inputMessageTextView.text = @"";
+            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"SUCCESS" message:@"Message sended" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [av show];
+        }
+        
+    }];
 }
 
 

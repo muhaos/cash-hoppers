@@ -48,6 +48,8 @@
 		5640159E176B647C00C028CE /* button_forget_passwd.png in Resources */ = {isa = PBXBuildFile; fileRef = 5640159D176B647C00C028CE /* button_forget_passwd.png */; };
 		567FCABF17A7CC9F00F150A8 /* CHSelectedUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCABE17A7CC9F00F150A8 /* CHSelectedUserView.m */; };
 		567FCAC117A7CD7A00F150A8 /* CHSelectedUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 567FCAC017A7CD7A00F150A8 /* CHSelectedUserView.xib */; };
+		567FCAC717A9365300F150A8 /* CHMessagesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCAC617A9365300F150A8 /* CHMessagesManager.m */; };
+		567FCACA17A936A100F150A8 /* CHMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCAC917A936A100F150A8 /* CHMessage.m */; };
 		56D59AF51796CD4B005A05F3 /* CHBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AF41796CD4B005A05F3 /* CHBaseModel.m */; };
 		56D59AF81796CD6E005A05F3 /* CHHop.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AF71796CD6E005A05F3 /* CHHop.m */; };
 		56D59AFB1796CD80005A05F3 /* CHHopTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AFA1796CD80005A05F3 /* CHHopTask.m */; };
@@ -356,6 +358,10 @@
 		567FCABD17A7CC9F00F150A8 /* CHSelectedUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSelectedUserView.h; sourceTree = "<group>"; };
 		567FCABE17A7CC9F00F150A8 /* CHSelectedUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSelectedUserView.m; sourceTree = "<group>"; };
 		567FCAC017A7CD7A00F150A8 /* CHSelectedUserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHSelectedUserView.xib; sourceTree = "<group>"; };
+		567FCAC517A9365300F150A8 /* CHMessagesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMessagesManager.h; sourceTree = "<group>"; };
+		567FCAC617A9365300F150A8 /* CHMessagesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMessagesManager.m; sourceTree = "<group>"; };
+		567FCAC817A936A100F150A8 /* CHMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMessage.h; sourceTree = "<group>"; };
+		567FCAC917A936A100F150A8 /* CHMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMessage.m; sourceTree = "<group>"; };
 		56D59AF31796CD4B005A05F3 /* CHBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHBaseModel.h; sourceTree = "<group>"; };
 		56D59AF41796CD4B005A05F3 /* CHBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHBaseModel.m; sourceTree = "<group>"; };
 		56D59AF61796CD6E005A05F3 /* CHHop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHop.h; sourceTree = "<group>"; };
@@ -1141,9 +1147,21 @@
 			name = "Login Related";
 			sourceTree = "<group>";
 		};
+		567FCAC417A9360600F150A8 /* Mesasges */ = {
+			isa = PBXGroup;
+			children = (
+				567FCAC517A9365300F150A8 /* CHMessagesManager.h */,
+				567FCAC617A9365300F150A8 /* CHMessagesManager.m */,
+				567FCAC817A936A100F150A8 /* CHMessage.h */,
+				567FCAC917A936A100F150A8 /* CHMessage.m */,
+			);
+			name = Mesasges;
+			sourceTree = "<group>";
+		};
 		56D59AF11796CCD6005A05F3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				567FCAC417A9360600F150A8 /* Mesasges */,
 				5611555A17A156BC00DAA76E /* Users */,
 				5611555917A1569E00DAA76E /* Friends Feed */,
 				56D59AF21796CCE2005A05F3 /* Hops */,
@@ -1917,6 +1935,8 @@
 				AA2D1BEA17A2A4D100474E9B /* CHComposeMessageCell.m in Sources */,
 				567FCABF17A7CC9F00F150A8 /* CHSelectedUserView.m in Sources */,
 				E1A699AB17A690D7008584BE /* CHFeedItemComment.m in Sources */,
+				567FCAC717A9365300F150A8 /* CHMessagesManager.m in Sources */,
+				567FCACA17A936A100F150A8 /* CHMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
