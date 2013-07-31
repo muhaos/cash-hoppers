@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class CHCheckMark;
+@class CHCheckMarkView;
 
 @interface CHBuyAdFreeVC : UIViewController
 @property (strong, nonatomic) IBOutlet UIButton *buyNowButton;
 @property (strong, nonatomic) IBOutlet UILabel *priceLabel;
-@property (strong, nonatomic) IBOutlet CHCheckMark *checkMark;
+@property (strong, nonatomic) IBOutlet CHCheckMarkView *checkMark;
 @property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
 - (IBAction)menuPressed:(id)sender;
 - (IBAction)buyPressed:(id)sender;

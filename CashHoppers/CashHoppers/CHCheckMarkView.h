@@ -1,5 +1,5 @@
 //
-//  CHCheckMark.h
+//  CHCheckMarkView.h
 //  CashHoppers
 //
 //  Created by Eugene on 31.07.13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHCheckMark : UIButton
+@interface CHCheckMarkView : UIButton
 
 @property (nonatomic, assign)BOOL checked;
 

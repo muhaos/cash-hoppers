@@ -247,7 +247,7 @@
 		E176E67E179881FD004BFF02 /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E176E67D179881FD004BFF02 /* MFSideMenuContainerViewController.m */; };
 		E1A699AB17A690D7008584BE /* CHFeedItemComment.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A699AA17A690D7008584BE /* CHFeedItemComment.m */; };
 		E1A699B717A84482008584BE /* CHBuyAdFreeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A699B617A84482008584BE /* CHBuyAdFreeVC.m */; };
-		E1A699BA17A8ED01008584BE /* CHCheckMark.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A699B917A8ED01008584BE /* CHCheckMark.m */; };
+		E1A699BA17A8ED01008584BE /* CHCheckMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A699B917A8ED01008584BE /* CHCheckMarkView.m */; };
 		E1A699BF17A92A8C008584BE /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A699BE17A92A8C008584BE /* checkmark.png */; };
 		E1B074D7177866F500D7BCD0 /* Take-Photo.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B074D6177866F500D7BCD0 /* Take-Photo.png */; };
 		E1B074DA1778679700D7BCD0 /* CHNewHopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B074D91778679700D7BCD0 /* CHNewHopVC.m */; };
@@ -687,8 +687,8 @@
 		E1A699AA17A690D7008584BE /* CHFeedItemComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHFeedItemComment.m; sourceTree = "<group>"; };
 		E1A699B517A84482008584BE /* CHBuyAdFreeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHBuyAdFreeVC.h; sourceTree = "<group>"; };
 		E1A699B617A84482008584BE /* CHBuyAdFreeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHBuyAdFreeVC.m; sourceTree = "<group>"; };
-		E1A699B817A8ED01008584BE /* CHCheckMark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCheckMark.h; sourceTree = "<group>"; };
-		E1A699B917A8ED01008584BE /* CHCheckMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCheckMark.m; sourceTree = "<group>"; };
+		E1A699B817A8ED01008584BE /* CHCheckMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCheckMarkView.h; sourceTree = "<group>"; };
+		E1A699B917A8ED01008584BE /* CHCheckMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCheckMarkView.m; sourceTree = "<group>"; };
 		E1A699BE17A92A8C008584BE /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		E1B074D6177866F500D7BCD0 /* Take-Photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Take-Photo.png"; sourceTree = "<group>"; };
 		E1B074D81778679700D7BCD0 /* CHNewHopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNewHopVC.h; sourceTree = "<group>"; };
@@ -1455,8 +1455,8 @@
 				E1B074F8177B58D100D7BCD0 /* MHTabBarSegue.m */,
 				56115556179ECE9D00DAA76E /* UIViewController+Utils.h */,
 				56115557179ECE9E00DAA76E /* UIViewController+Utils.m */,
-				E1A699B817A8ED01008584BE /* CHCheckMark.h */,
-				E1A699B917A8ED01008584BE /* CHCheckMark.m */,
+				E1A699B817A8ED01008584BE /* CHCheckMarkView.h */,
+				E1A699B917A8ED01008584BE /* CHCheckMarkView.m */,
 			);
 			name = "Custom Elements";
 			sourceTree = "<group>";
@@ -1940,7 +1940,7 @@
 				567FCABF17A7CC9F00F150A8 /* CHSelectedUserView.m in Sources */,
 				E1A699AB17A690D7008584BE /* CHFeedItemComment.m in Sources */,
 				E1A699B717A84482008584BE /* CHBuyAdFreeVC.m in Sources */,
-				E1A699BA17A8ED01008584BE /* CHCheckMark.m in Sources */,
+				E1A699BA17A8ED01008584BE /* CHCheckMarkView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

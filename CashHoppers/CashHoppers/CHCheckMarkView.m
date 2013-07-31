@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 swanteams.com. All rights reserved.
 //
 
-#import "CHCheckMark.h"
+#import "CHCheckMarkView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation CHCheckMark
+@implementation CHCheckMarkView
 
 - (id)initWithFrame:(CGRect)frame
 {

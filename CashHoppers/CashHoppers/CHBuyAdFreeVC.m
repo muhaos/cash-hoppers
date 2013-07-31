@@ -9,7 +9,7 @@
 #import "CHBuyAdFreeVC.h"
 #import "CHAppDelegate.h"
 #import "MFSideMenuContainerViewController.h"
-#import "CHCheckMark.h"
+#import "CHCheckMarkView.h"
 
 @interface CHBuyAdFreeVC ()
 
