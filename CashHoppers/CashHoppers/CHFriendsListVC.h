@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CHFriendsListCell.h"
 
-@interface CHFriendsListVC : UIViewController
+@class CHFriendsListCell;
+
+@interface CHFriendsListVC : UIViewController<CHFriendsListCellDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *friendsTable;
 @property (strong, nonatomic) IBOutlet UIButton *friendsButton;
@@ -16,6 +19,8 @@
 
 - (IBAction)friendsButtonTapped:(id)sender;
 - (IBAction)allHopppersButtonTapped:(id)sender;
+- (void)likeTappedInCell:(CHFriendsListCell*)cell;
+
 
 
 @end

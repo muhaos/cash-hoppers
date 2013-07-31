@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class CHFriendsListCell;
+
+@protocol CHFriendsListCellDelegate <NSObject>
+
+- (void)likeTappedInCell:(CHFriendsListCell*)cell;
+
+@end
+
 @interface CHFriendsListCell : UITableViewCell
+
+@property (nonatomic, weak) id<CHFriendsListCellDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UIImageView *photoPersonImageView;
 @property (strong, nonatomic) IBOutlet UILabel *namePersonLabel;

@@ -32,6 +32,9 @@
 }
 
 - (IBAction)likeTapped:(id)sender {
+    
+    [_delegate likeTappedInCell:self];
+    
 }
 
 - (IBAction)addFriendTapped:(id)sender {

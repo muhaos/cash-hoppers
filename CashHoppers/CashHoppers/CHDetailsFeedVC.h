@@ -28,7 +28,9 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *myScroolView;
 @property (strong, nonatomic) NSMutableArray *comments;
 @property (assign, nonatomic) CHFriendsFeedItem *feedItem;
+@property (strong, nonatomic) IBOutlet UIButton *likeButton;
 
+- (IBAction)likePressed:(id)sender;
 - (IBAction)postCommentTapped:(id)sender;
 - (IBAction)scrollViewTapped:(id)sender;
 

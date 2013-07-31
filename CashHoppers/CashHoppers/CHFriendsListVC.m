@@ -142,7 +142,7 @@
     CHFriendsListCell *cell = (CHFriendsListCell*) [tableView dequeueReusableCellWithIdentifier:friendsCellIdentifier];
     
     CHFriendsFeedItem *fItem = (CHFriendsFeedItem*)[self.feedItems objectAtIndex:indexPath.row];
-    
+    cell.delegate = self;
     NSString *name = fItem.user.first_name;
     NSString *lastName = fItem.user.last_name;
     NSString *namePersonText = [name stringByAppendingFormat:@" %@",lastName];
@@ -184,10 +184,18 @@
             [[cell numberLikesLabel] setHidden:YES];
         } else {
             [[cell commentButton] setBackgroundImage:[UIImage imageNamed:@"comment_icon_on"] forState:UIControlStateNormal];
-            [[cell likeButton] setBackgroundImage:[UIImage imageNamed:@"like_icon_on"] forState:UIControlStateNormal];
-            [[cell numberCommentsLabel] setText:@"10"];
-            [[cell numberLikesLabel] setText:@"5"];
+            cell.likeButton.tag = [fItem.liked integerValue];
+            if([fItem.liked integerValue]==0){
+                [[cell likeButton] setBackgroundImage:[UIImage imageNamed:@"like_icon_off"] forState:UIControlStateNormal];
+            }else{
+                [[cell likeButton] setBackgroundImage:[UIImage imageNamed:@"like_icon_on"] forState:UIControlStateNormal];
+
+            }
+            
+//            [[cell numberCommentsLabel] setText:@"10"];
+//            [[cell numberLikesLabel] setText:@"5"];
         }
+        
     } else {
         [[cell commentButton] setHidden:YES];
         [[cell likeButton] setHidden:YES];
@@ -243,6 +251,20 @@
     }
 }
 
+- (void)likeTappedInCell:(CHFriendsListCell*)cell{
+    if(cell.likeButton.tag==1){
+        return;
+    }
+    NSIndexPath *indPath = [friendsTable indexPathForCell:cell];
+    CHFriendsFeedItem *fItem = (CHFriendsFeedItem*)[_feedItems objectAtIndex:indPath.row];
+    [[CHFriendsFeedManager instance]postLikeForFeedItem:fItem completionHandler:^(NSError *error) {
+        if(!error){
+            [[cell likeButton] setBackgroundImage:[UIImage imageNamed:@"like_icon_on"] forState:UIControlStateNormal];
+            cell.numberLikesLabel.text = [NSString stringWithFormat:@"%d",[cell.numberLikesLabel.text integerValue]+1];
+            cell.likeButton.tag = 1;
+        }
+    }];    
+}
 
 - (void)didReceiveMemoryWarning
 {
