@@ -56,4 +56,36 @@
 
 
 
+- (void) loadMessagesOverviewWithCompletionHandler:(void (^)(NSArray* messages)) handler {
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/messages/thread.json?api_key=%@&authentication_token=%@&page=1&per_page=50",CH_API_KEY,aToken];
+    
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
+    
+    NSLog(@"REQUEST TO : %@", [request.URL description]);
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        NSMutableArray* resultMessages = [NSMutableArray new];
+        NSArray* messagesList = [JSON objectForKey:@"friends"];
+        
+        if (messagesList) {
+            for (NSDictionary* msgDic in messagesList) {
+                CHMessage* newMessage = [[CHMessage alloc] init];
+                [newMessage updateFromDictionary:msgDic];
+                [resultMessages addObject:newMessage];
+            }
+            handler(resultMessages);
+        }
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForResponce:response :error :JSON];
+        handler(@[]);
+    }];
+    
+    [operation start];
+}
+
+
+
 @end

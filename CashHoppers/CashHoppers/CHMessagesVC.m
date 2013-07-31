@@ -9,11 +9,13 @@
 #import "CHMessagesVC.h"
 #import "CHMessagesCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CHMessagesManager.h"
+#import "AFNetworking.h"
 
 @interface CHMessagesVC ()
 
-@property (assign, nonatomic) BOOL oldNavBarStatus;
 @property (assign, nonatomic) BOOL messagesButtonActive;
+@property (nonatomic, retain) NSArray* currentMessagesList;
 
 @end
 
@@ -24,32 +26,17 @@
 {
     self.messagesButtonActive = YES;   
     [self activeButton:YES];
+    
+    [[CHMessagesManager instance] loadMessagesOverviewWithCompletionHandler:^(NSArray* messages){
+        self.currentMessagesList = messages;
+        [messagesTable reloadData];
+    }];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.oldNavBarStatus = self.navigationController.navigationBarHidden;
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-}
-
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
 }
 
 
@@ -61,7 +48,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return [self.currentMessagesList count];
 }
 
 
@@ -75,19 +62,20 @@
     static NSString *messagesCellIdentifier = @"messages_cell_id";
     
     CHMessagesCell *cell = (CHMessagesCell*) [tableView dequeueReusableCellWithIdentifier:messagesCellIdentifier];
+
+    CHMessage* message = [self.currentMessagesList objectAtIndex:indexPath.row];
+    
+    NSString* friendName = [NSString stringWithFormat:@"%@ %@", message.friend_first_name, message.friend_last_name];
+    [[cell nameLabel] setText:friendName];
+    [[cell timeLabel] setText:@"some time ago"];
+    [[cell photoImageView] setImageWithURL:[message friendAvatarURL]];
+    [[cell messageTextView] setText:message.text];
+    
     
     if (self.messagesButtonActive == YES) {
-        [[cell nameLabel] setText:@"Brian Kelly"];
-        [[cell timeLabel] setText:@"30 mins ago"];
-        [[cell photoImageView] setImage:[UIImage imageNamed:@"photo_BrianKelly.png"]];
-        [[cell messageTextView] setText:@"Comented on your completed Hop Item Screen Printer"];
         [[cell likeCommentImageView ] setHidden:YES];
         [[cell deleteButton] setHidden:NO];
     } else {
-        [[cell nameLabel] setText:@"Brian Kelly"];
-        [[cell timeLabel] setText:@"30 mins ago"];
-        [[cell photoImageView] setImage:[UIImage imageNamed:@"photo_BrianKelly.png"]];
-        [[cell messageTextView] setText:@"Comented on your completed Hop Item Screen Printer"];
         [[cell likeCommentImageView] setHidden:NO];
         [[cell deleteButton] setHidden:YES];
         if (indexPath.row == 0) {
@@ -109,21 +97,6 @@
 {
     [self performSegueWithIdentifier:@"individual_message" sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-- (void)viewDidUnload {
-    [self setMessagesTable:nil];
-    [self setMessagesButton:nil];
-    [self setNotificationsButton:nil];
-    [super viewDidUnload];
 }
 
 
@@ -153,6 +126,21 @@
         [self.messagesButton setImage:[UIImage imageNamed:@"button_messages_act"] forState:UIControlStateNormal];
         [self.notificationsButton setImage:[UIImage imageNamed:@"button_notifications_n"] forState:UIControlStateNormal];
     }
+}
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+- (void)viewDidUnload {
+    [self setMessagesTable:nil];
+    [self setMessagesButton:nil];
+    [self setNotificationsButton:nil];
+    [super viewDidUnload];
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "CHBaseManager.h"
+#import "CHMessage.h"
 
 @interface CHMessagesManager : CHBaseManager
 
