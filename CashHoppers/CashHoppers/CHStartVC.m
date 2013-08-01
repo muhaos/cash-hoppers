@@ -13,8 +13,8 @@
 #import "GTLPlusConstants.h"
 #import "GTLServicePlus.h"
 #import "GTLQueryPlus.h"
-#import <FacebookSDK/FacebookSDK.h>
 #import "GPPSignIn.h"
+#import <FacebookSDK/FBSessionTokenCachingStrategy.h>
 
 SA_OAuthTwitterEngine	*tweeterEngine;
 
@@ -47,6 +47,17 @@ SA_OAuthTwitterEngine	*tweeterEngine;
     signIn.shouldFetchGoogleUserEmail = YES;
     signIn.delegate = self;
     [signIn trySilentAuthentication];
+    
+    // Register for notifications on FB session state changes
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(sessionStateChanged:)
+     name:FBSessionStateChangedNotification
+     object:nil];
+    
+    // Check the session for a cached token to show the proper authenticated
+    // UI. However, since this is not user intitiated, do not show the login UX.
+    [appDelegate openSessionWithAllowLoginUI:NO];
 }
 
 
@@ -107,67 +118,31 @@ SA_OAuthTwitterEngine	*tweeterEngine;
 //}
 
 
-
-//-(void) dateForFb {
-//    
-//    CHAppDelegate *appDelegate = [[CHAppDelegate alloc] init];
-//    GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
-//    plusService.retryEnabled = YES;
-//    [plusService setAuthorizer:appDelegate.authentication];
-//    GTLQueryPlus *query = [GTLQueryPlus queryForPeopleGetWithUserId:@"me"];
-//    
-//    [plusService executeQuery:query
-//            completionHandler:^(GTLServiceTicket *ticket,
-//                                GTLPlusPerson *person,
-//                                NSError *error) {
-//                if (error) {
-//                    GTMLoggerError(@"Error: %@", error);
-//                } else {
-//                    // Извлечем отображаемое имя и содержание раздела "Обо мне"
-//                    [person retain];
-//                    NSString *description = [NSString stringWithFormat:
-//                                             @"%@\n%@", person.displayName,
-//                                             person.aboutMe];
-//                }
-//            }];
-//}
-
-
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-
 ////for fb
 - (IBAction)loginWithFBTapped:(id)sender {
     CHAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate openSession];
+    
+    // The user has initiated a login, so call the openSession method
+    // and show the login UX if necessary.
+    [appDelegate openSessionWithAllowLoginUI:YES];
+    
+    // If the user is authenticated, log out when the button is clicked.
+    // If the user is not authenticated, log in when the button is clicked.
+    if (FBSession.activeSession.isOpen) {
+        [appDelegate closeSession];
+    } else {
+        // The user has initiated a login, so call the openSession method
+        // and show the login UX if necessary.
+        [appDelegate openSessionWithAllowLoginUI:YES];
+    }
 }
 
-//- (void)populateUserDetails
-//{
-//    if (FBSession.activeSession.isOpen) {
-//        [[FBRequest requestForMe] startWithCompletionHandler:
-//         ^(FBRequestConnection *connection,
-//           *NSDictionary&lt;FBGraphUser> *user,
-//           NSError *error) {
-//             if (!error) {
-//                 self.userNameLabel.text = user.name;
-//                 self.userProfileImage.profileID = user.id;
-//             }
-//         }];
-//    }
-//}
 
-- (void)loginFailed
-{
-    // User switched back to the app without authorizing. Stay here, but
-    // stop the spinner.
+- (void)sessionStateChanged:(NSNotification*)notification {
+    if (FBSession.activeSession.isOpen) {
+    } else {
+      
+    }
 }
 
 
@@ -218,6 +193,14 @@ SA_OAuthTwitterEngine	*tweeterEngine;
           [error userInfo]);
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 

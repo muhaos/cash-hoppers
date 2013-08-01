@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Facebook
+ * Copyright 2010-present Facebook.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@
 // whenever possible
 
 // up-front decl's
+@class FBFrictionlessRequestSettings;
 @protocol FBRequestDelegate;
 @protocol FBSessionDelegate;
 
@@ -49,6 +50,7 @@
     NSString* _appId;
     NSString* _urlSchemeSuffix;
     BOOL _isExtendingAccessToken;
+    FBRequest *_requestExtendingAccessToken;
     NSDate* _lastAccessTokenUpdate;
     FBFrictionlessRequestSettings* _frictionlessRequestSettings;
 }

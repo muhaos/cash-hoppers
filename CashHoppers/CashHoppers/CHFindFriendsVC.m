@@ -8,6 +8,8 @@
 
 #import "CHFindFriendsVC.h"
 #import "CHAddFriendsSocialNetworksVC.h"
+#import "CHAppDelegate.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface CHFindFriendsVC ()
 
@@ -68,8 +70,10 @@
 
 
 - (IBAction)facebookFriendsTapped:(id)sender {
-    headerText = @"FACEBOOK FRIENDS";
-    [self performSegueWithIdentifier:@"friends" sender:self];
+    CHAppDelegate *appDelegate = (CHAppDelegate *) [[UIApplication sharedApplication] delegate];
+    if (FBSession.activeSession.isOpen) {
+        [appDelegate sendRequest];
+    }
 }
 
 

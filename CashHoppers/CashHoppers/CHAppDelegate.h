@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CHHomeScreenViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
+
+extern NSString *const FBSessionStateChangedNotification;
 
 enum CHView{
     CHHome = 1,
@@ -18,7 +21,7 @@ enum CHView{
 };
 
 @class MHCustomTabBarController, ACAccount,MFSideMenuContainerViewController;
-@interface CHAppDelegate : UIResponder <UIApplicationDelegate>
+@interface CHAppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) MHCustomTabBarController *tabBarController;
@@ -28,9 +31,14 @@ enum CHView{
 @property (nonatomic, assign) BOOL needOpenDailyHops; // for hops chooser
 @property (nonatomic, assign) BOOL needOpenOtherHops;
 @property (nonatomic, assign) BOOL needOpenFriendsFeed; // for tab bar button
+@property (strong, nonatomic) NSString *loggedInUserID;
+@property (strong, nonatomic) FBSession *loggedInSession;
+@property (nonatomic, assign) BOOL appUsageCheckEnabled;
 
-
--(void)switchViewTo:(enum CHView)view;
--(void)openSession;
+- (void)switchViewTo:(enum CHView)view;
+- (void)openSession;
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
+- (void) closeSession;
+- (void) sendRequest;
 
 @end
