@@ -9,6 +9,8 @@
 #import "CHMenuSlidingVC.h"
 #import "ECSlidingViewController.h"
 #import "CHMenuSlidingCell.h"
+#import "CHAppDelegate.h"
+#import "MFSideMenuContainerViewController.h"
 
 @interface CHMenuSlidingVC () <UITableViewDataSource, UITableViewDelegate>
 @end
@@ -61,7 +63,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 5;
 }
 
 
@@ -93,6 +95,11 @@
                 cell.label.text = @"Find Friends";
                 cell.icon.image = [UIImage imageNamed:@"find_icon.png"];
                 break;
+            case 4:{
+                cell.label.text = @"Buy Ad Free Version";
+                cell.icon.image = [UIImage imageNamed:@"find_icon.png"];
+                break;
+            }
             default:
                 break;
         }
@@ -110,23 +117,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSString *identifier = [NSString stringWithFormat:@"%@", [self.menu objectAtIndex:indexPath.row]];
-//    UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-//    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-//        CGRect frame = self.slidingViewController.topViewController.view.frame;
-//        self.slidingViewController.topViewController = newTopViewController;
-//        self.slidingViewController.topViewController.view.frame = frame;
-//        [self.slidingViewController resetTopView];
-//    }];
     
-    if (indexPath.row == 0) {
-        [self performSegueWithIdentifier:@"profile_user" sender:self];
+    switch (indexPath.row) {
+        case 0:
+            [self performSegueWithIdentifier:@"profile_user" sender:self];
+            break;
+        case 3:
+            [self performSegueWithIdentifier:@"find_friends" sender:self];
+            break;
+        case 4:
+            [self performSegueWithIdentifier:@"ad_free_version" sender:self];
+            break;
+        default:
+            break;
     }
     
-    if (indexPath.row == 3) {
-        [self performSegueWithIdentifier:@"find_friends" sender:self];
-    }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+       [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 

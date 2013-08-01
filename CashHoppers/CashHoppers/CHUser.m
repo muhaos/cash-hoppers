@@ -20,7 +20,7 @@
     self.user_name = [CHBaseModel safeStringFrom:[dic objectForKey:@"user_name"] defaultValue:@""];
     //self.zip;
     self.contact = [CHBaseModel safeStringFrom:[dic objectForKey:@"contact"] defaultValue:@""];
-    self.phone = [CHBaseModel safeStringFrom:[dic objectForKey:@"phone"] defaultValue:@""];
+    //self.phone = [CHBaseModel safeStringFrom:[dic objectForKey:@"phone"] defaultValue:@""];
     self.bio = [CHBaseModel safeStringFrom:[dic objectForKey:@"bio"] defaultValue:@""];
     self.twitter = [CHBaseModel safeStringFrom:[dic objectForKey:@"twitter"] defaultValue:@""];
     self.facebook = [CHBaseModel safeStringFrom:[dic objectForKey:@"facebook"] defaultValue:@""];
@@ -35,6 +35,18 @@
 - (NSURL*) avatarURL {
     return [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:self.avatarUrlString]];
 
+}
+
+
+- (void) fillForm:(id <AFMultipartFormData>)formData {
+    [formData appendPartWithFormData:[self.first_name dataUsingEncoding:NSUTF8StringEncoding] name:@"first_name"];
+    [formData appendPartWithFormData:[self.last_name dataUsingEncoding:NSUTF8StringEncoding] name:@"last_name"];
+    [formData appendPartWithFormData:[self.contact dataUsingEncoding:NSUTF8StringEncoding] name:@"contact"];
+    [formData appendPartWithFormData:[self.phone dataUsingEncoding:NSUTF8StringEncoding] name:@"phone"];
+    [formData appendPartWithFormData:[self.bio dataUsingEncoding:NSUTF8StringEncoding] name:@"bio"];
+    [formData appendPartWithFormData:[self.twitter dataUsingEncoding:NSUTF8StringEncoding] name:@"twitter"];
+    [formData appendPartWithFormData:[self.facebook dataUsingEncoding:NSUTF8StringEncoding] name:@"facebook"];
+    [formData appendPartWithFormData:[self.google dataUsingEncoding:NSUTF8StringEncoding] name:@"google"];
 }
 
 

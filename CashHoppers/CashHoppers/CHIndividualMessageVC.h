@@ -10,14 +10,12 @@
 
 @interface CHIndividualMessageVC : UIViewController <UITextViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
-@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
-@property (strong, nonatomic) IBOutlet UITextView *messageTextView;
+@property (strong, nonatomic) IBOutlet UITableView *messagesTable;
 @property (strong, nonatomic) IBOutlet UITextView *inputMessageTextView;
 
-- (IBAction)deleteButtonTapped:(id)sender;
-- (IBAction)replyMessageButtonTapped:(id)sender;
-- (IBAction)composeNewMessageTapped:(id)sender;
+@property (strong, nonatomic) NSNumber* currentFriendID;
+
+- (IBAction) replyMessageButtonTapped:(id)sender;
+- (IBAction) composeNewMessageTapped:(id)sender;
 
 @end

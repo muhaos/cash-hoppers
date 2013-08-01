@@ -202,8 +202,8 @@
 
 
 - (IBAction)menuTapped:(id)sender {
-//    [self.slidingViewController anchorTopViewTo:ECRight];
-    [DELEGATE.menuContainerVC toggleLeftSideMenuCompletion:nil];      
+
+    [DELEGATE.menuContainerVC toggleLeftSideMenuCompletion:nil];
     
 }
 

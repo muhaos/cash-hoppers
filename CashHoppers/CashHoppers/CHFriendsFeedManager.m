@@ -14,6 +14,7 @@
 #import "CHHop.h"
 #import "CHHopsManager.h"
 #import "CHUserManager.h"
+#import "CHFeedItemComment.h"
 
 @implementation CHFriendsFeedManager
 
@@ -44,7 +45,7 @@
     NSLog(@"REQUEST TO : %@", [request.URL description]);
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        
+//        NSLog(@"json = %@")
         NSArray* json_tasks = [JSON objectForKey:@"tasks"];
         if (json_tasks) {
             [dArray removeAllObjects];
@@ -109,6 +110,93 @@
     }];
 }
 
+-(void) loadCommentsForFeedItem:(CHFriendsFeedItem*) feedItem completionHandler:(void (^)(NSArray* coments)) handler{
+    
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/task/get_comments.json?api_key=%@&authentication_token=%@&user_hop_task_id=%d", CH_API_KEY,aToken,[feedItem.identifier integerValue]];
+    NSLog(@"feedItem.identifier=%@",feedItem.identifier);
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
+    
+    NSLog(@"REQUEST TO : %@", [request.URL description]);
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSArray* json_comments = [JSON objectForKey:@"comments"];
+        NSMutableArray *comments = [NSMutableArray arrayWithCapacity:1];
+        if (json_comments) {
+            for (NSDictionary* objDic in json_comments) {
+                CHFeedItemComment* newComment = [[CHFeedItemComment alloc] init];
+                [newComment updateFromDictionary:objDic];
+                [comments addObject:newComment];
+            }
+        }
+        
+        handler(comments);
+
+        
+        for (CHFeedItemComment *comment in comments) {
+            [[CHUserManager instance]loadUserForID:comment.user_id completionHandler:^(CHUser *user) {
+                comment.user = user;
+                [[NSNotificationCenter defaultCenter] postNotificationName:CH_FEED_ITEM_COMMENT_UPDATED object:comment];
+            }];
+        }
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSArray* json_comments = [JSON objectForKey:@"comments"];
+        NSMutableArray *comments = [NSMutableArray arrayWithCapacity:1];
+        if (json_comments) {
+            for (NSDictionary* objDic in json_comments) {
+                CHFeedItemComment* newComment = [[CHFeedItemComment alloc] init];
+                [newComment updateFromDictionary:objDic];
+                [comments addObject:newComment];
+            }
+        }
+        
+        handler(comments);
+
+            
+
+        for (CHFeedItemComment *comment in comments) {
+            [[CHUserManager instance]loadUserForID:comment.user_id completionHandler:^(CHUser *user) {
+                comment.user = user;
+                [[NSNotificationCenter defaultCenter] postNotificationName:CH_FEED_ITEM_COMMENT_UPDATED object:comment];
+            }];
+        }
+        
+    } ];
+    
+    [operation start];
+}
+
+
+-(void) postCommentForFeedItem:(CHFriendsFeedItem*) feedItem withText:(NSString*) text completionHandler:(void (^)(BOOL success))handler{
+    
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/task/comment.json"];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:CH_API_KEY forKey:@"api_key"];
+    [params setObject:aToken forKey:@"authentication_token"];
+    [params setObject:feedItem.identifier forKey:@"user_hop_task_id"];
+    [params setObject:text forKey:@"text"];
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"POST" path:path parameters:params];
+    
+    NSLog(@"REQUEST TO : %@", [request.URL description]);
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        handler(YES);
+        [[NSNotificationCenter defaultCenter] postNotificationName:CH_COMMENT_SENT object:nil];
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForResponce:response :error :JSON];
+        
+        handler(NO);
+        
+    }];
+
+    
+    [operation start];
+    
+    
+}
 
 
 

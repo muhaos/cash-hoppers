@@ -7,6 +7,7 @@
 //
 
 #import "CHBaseModel.h"
+#import "CHAPIClient.h"
 
 @interface CHUser : CHBaseModel
 
@@ -28,5 +29,6 @@
 - (NSURL*) avatarURL;
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
+- (void) fillForm:(id <AFMultipartFormData>)formData;
 
 @end
