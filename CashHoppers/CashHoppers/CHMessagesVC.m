@@ -68,10 +68,12 @@
     
     NSString* friendName = [NSString stringWithFormat:@"%@ %@", message.friend_first_name, message.friend_last_name];
     [[cell nameLabel] setText:friendName];
-    [[cell timeLabel] setText:@"some time ago"];
     [[cell photoImageView] setImageWithURL:[message friendAvatarURL]];
     [[cell messageTextView] setText:message.text];
+    cell.timeLabel.text = [NSString stringWithFormat:@"%@ ago", message.time_ago];
     
+    [cell photoImageView].layer.cornerRadius = 20.0f;
+    [cell photoImageView].layer.masksToBounds = YES;
     
     if (self.messagesButtonActive == YES) {
         [[cell likeCommentImageView ] setHidden:YES];

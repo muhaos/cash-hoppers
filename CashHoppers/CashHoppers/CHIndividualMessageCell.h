@@ -13,6 +13,7 @@
 @property (nonatomic, retain) IBOutlet UIImageView* avatarImageView;
 @property (nonatomic, retain) IBOutlet UILabel* nameLabel;
 @property (nonatomic, retain) IBOutlet UITextView* messageTextView;
+@property (nonatomic, retain) IBOutlet UILabel* timeLabel;
 
 
 @end

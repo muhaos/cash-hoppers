@@ -8,6 +8,8 @@
 
 #import "CHMessagesManager.h"
 #import "CHAPIClient.h"
+#import "CHUserManager.h"
+
 
 
 @implementation CHMessagesManager
@@ -107,6 +109,13 @@
                 [resultMessages addObject:newMessage];
             }
             handler(resultMessages);
+            
+            for (CHMessage* m in resultMessages) {
+                [[CHUserManager instance] loadUserForID:m.sender_id completionHandler:^(CHUser* user) {
+                    m.senderUser = user;
+                    [[NSNotificationCenter defaultCenter] postNotificationName:CH_MESSAGE_UPDATED object:m];
+                }];
+            }
         }
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {

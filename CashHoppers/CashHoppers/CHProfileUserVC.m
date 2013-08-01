@@ -38,13 +38,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [self.emailTextField setText:user.email];
     [self.firstNameTextField setText:user.first_name];
     [self.lastNameTextField setText:user.last_name];
-    [self.zipTextField setText:user.zip];
+    //[self.zipTextField setText:user.zip];
     [self.usernameTextField setText:user.user_name];
     [self.twitterTextField setText:user.twitter];
     [self.facebookTextField setText:user.facebook];
     [self.googlePlusTextField setText:user.google];
     [self.contactTextField setText:user.contact];
-    [self.phoneTextField setText:user.phone];
+    //[self.phoneTextField setText:user.phone];
     
     [self.photoImageView setImageWithURL:[user avatarURL] placeholderImage:[UIImage imageNamed:@"image_avatar.png"]];
     

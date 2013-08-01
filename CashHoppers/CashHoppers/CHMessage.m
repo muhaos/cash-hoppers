@@ -15,6 +15,10 @@
 - (void) updateFromDictionary:(NSDictionary*) dic {
     self.text = [CHBaseModel safeStringFrom:[dic objectForKey:@"text"] defaultValue:[CHBaseModel safeStringFrom:[dic objectForKey:@"last_message_text"] defaultValue:@"No message!"]];
     
+    self.sender_id = [CHBaseModel safeNumberFrom:[dic objectForKey:@"sender_id"] defaultValue:nil];
+    
+    self.time_ago = [CHBaseModel safeStringFrom:[dic objectForKey:@"time_ago"] defaultValue:@"some time ago"];
+    
     self.friend_id = [CHBaseModel safeNumberFrom:[dic objectForKey:@"friend_id"] defaultValue:nil];
     self.friend_avatar = [CHBaseModel safeStringFrom:[dic objectForKey:@"friend_avatar"] defaultValue:@""];
     self.friend_first_name = [CHBaseModel safeStringFrom:[dic objectForKey:@"friend_first_name"] defaultValue:@"No First Name"];

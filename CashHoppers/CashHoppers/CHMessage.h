@@ -8,9 +8,15 @@
 
 #import "CHBaseModel.h"
 
+@class CHUser;
+
 @interface CHMessage : CHBaseModel
 
 @property (nonatomic, strong) NSString* text;
+@property (nonatomic, strong) NSNumber* sender_id;
+@property (nonatomic, strong) NSString* time_ago;
+
+@property (nonatomic, strong) CHUser* senderUser;
 
 // usable only on messages overview
 @property (nonatomic, strong) NSNumber* friend_id;

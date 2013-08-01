@@ -11,10 +11,13 @@
 #import "CHIndividualMessageCell.h"
 #import "CHMessagesManager.h"
 #import "AFNetworking.h"
+#import "CHUser.h"
 
 @interface CHIndividualMessageVC ()
 
 @property (nonatomic, retain) NSArray* currentMessagesList;
+@property (nonatomic, retain) id messageUpdatedNotification;
+@property (nonatomic, assign) BOOL needAnimatedScroll;
 
 @end
 
@@ -31,7 +34,23 @@
     [self.inputMessageTextView setText:@"Reply to message ..."];
     [self.inputMessageTextView setTextColor:[UIColor colorWithRed:204.0f/256 green:204.0f/256 blue:204.0f/256 alpha:1.0f]];
     
+    self.needAnimatedScroll = NO;
+    
     [self reloadMessages];
+    
+    
+    self.messageUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_MESSAGE_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
+        
+        CHMessage* msg = note.object;
+        NSUInteger index = [self.currentMessagesList indexOfObject:msg];
+        if (index != NSNotFound) {
+            [self.messagesTable beginUpdates];
+            [self.messagesTable reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.messagesTable endUpdates];
+        }
+        
+    }];
+
 }
 
 
@@ -39,7 +58,8 @@
     [[CHMessagesManager instance] loadMessagesHistoryForFriendID:self.currentFriendID withCompletionHandler:^(NSArray* messages){
         self.currentMessagesList = messages;
         [self.messagesTable reloadData];
-        [self.messagesTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.currentMessagesList count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        [self.messagesTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.currentMessagesList count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:self.needAnimatedScroll];
+        self.needAnimatedScroll = YES;
     }];
 }
 
@@ -73,11 +93,16 @@
     CHIndividualMessageCell *cell = (CHIndividualMessageCell*) [tableView dequeueReusableCellWithIdentifier:messagesCellIdentifier];
     
     CHMessage* message = [self.currentMessagesList objectAtIndex:indexPath.row];
-    
-//    NSString* friendName = [NSString stringWithFormat:@"%@ %@", message.friend_first_name, message.friend_last_name];
-    
-    //[cell.avatarImageView setImageWithURL:];
+    if (message.senderUser == nil) {
+        cell.nameLabel.text = @"";
+    } else {
+        NSString* friendName = [NSString stringWithFormat:@"%@ %@", message.senderUser.first_name, message.senderUser.last_name];
+        cell.nameLabel.text = friendName;
+    }
+    [cell.avatarImageView setImageWithURL:[message.senderUser avatarURL]];
     cell.messageTextView.text = message.text;
+    cell.timeLabel.text = [NSString stringWithFormat:@"%@ ago", message.time_ago];
+
     
     return cell;
 }
@@ -162,6 +187,7 @@
 
 
 - (void)viewDidUnload {
+    [[NSNotificationCenter defaultCenter] removeObserver:self.messageUpdatedNotification];
     [self setInputMessageTextView:nil];
     [super viewDidUnload];
 }

@@ -9,6 +9,8 @@
 #import "CHBaseManager.h"
 #import "CHMessage.h"
 
+#define CH_MESSAGE_UPDATED @"CH_MESSAGE_UPDATED"
+
 @interface CHMessagesManager : CHBaseManager
 
 + (CHMessagesManager*) instance;
