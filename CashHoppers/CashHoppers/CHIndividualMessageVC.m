@@ -15,9 +15,10 @@
 
 @interface CHIndividualMessageVC ()
 
-@property (nonatomic, retain) NSArray* currentMessagesList;
+@property (nonatomic, retain) NSMutableArray* currentMessagesList;
 @property (nonatomic, retain) id messageUpdatedNotification;
 @property (nonatomic, assign) BOOL needAnimatedScroll;
+@property (nonatomic, retain) UIButton* backButton;
 
 @end
 
@@ -27,6 +28,7 @@
 {
     [super viewDidLoad];
     [self setupTriangleBackButton];
+    [self setupEditButton];
     
     self.inputMessageTextView.layer.cornerRadius = 3;
     self.inputMessageTextView.layer.borderColor = [UIColor colorWithRed:232.0f/256 green:232.0f/256 blue:232.0f/256 alpha:1.0f].CGColor;
@@ -54,9 +56,34 @@
 }
 
 
+- (void) setupEditButton {
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *backBtnImage = [UIImage imageNamed:@"button_edit"];
+    [backBtn setImage:backBtnImage forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(editButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.frame = CGRectMake(0, 0, 43, 17);
+    backBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10);
+    self.backButton = backBtn;
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.rightBarButtonItem = backButton;
+}
+
+
+- (void) editButtonTapped {
+    self.messagesTable.editing = !self.messagesTable.editing;
+    if (self.messagesTable.editing) {
+        UIImage *backBtnImage = [UIImage imageNamed:@"button_done"];
+        [self.backButton setImage:backBtnImage forState:UIControlStateNormal];
+    } else {
+        UIImage *backBtnImage = [UIImage imageNamed:@"button_edit"];
+        [self.backButton setImage:backBtnImage forState:UIControlStateNormal];
+    }
+}
+
+
 - (void) reloadMessages {
     [[CHMessagesManager instance] loadMessagesHistoryForFriendID:self.currentFriendID withCompletionHandler:^(NSArray* messages){
-        self.currentMessagesList = messages;
+        self.currentMessagesList = [messages mutableCopy];
         [self.messagesTable reloadData];
         [self.messagesTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.currentMessagesList count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:self.needAnimatedScroll];
         self.needAnimatedScroll = YES;
@@ -114,16 +141,39 @@
 }
 
 
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        CHMessage* message = [self.currentMessagesList objectAtIndex:indexPath.row];
+        
+        [[CHMessagesManager instance] removeMessage:message withCompletionHandler:^(NSError* error) {
+            if (error == nil) {
+                NSUInteger index = [self.currentMessagesList indexOfObject:message];
+                if (index != NSNotFound) {
+                    [self.currentMessagesList removeObject:message];
+                    [self.messagesTable beginUpdates];
+                    [self.messagesTable deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+                    [self.messagesTable endUpdates];
+                }
+            }
+        }];
+    }
+}
+
+
+
 #pragma mark -
 #pragma mark UITextViewDelegate
 
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    if ([text isEqualToString:@"\n"])
-    {
-        [textView resignFirstResponder];
-    }
     return YES;
 }
 
@@ -160,6 +210,7 @@
 
 - (IBAction)replyMessageButtonTapped:(id)sender
 {
+    [self.inputMessageTextView resignFirstResponder];
     ((UIButton*)sender).enabled = NO;
     self.inputMessageTextView.editable = NO;
     

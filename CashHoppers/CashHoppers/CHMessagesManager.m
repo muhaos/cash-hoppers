@@ -69,7 +69,7 @@
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
         NSMutableArray* resultMessages = [NSMutableArray new];
-        NSArray* messagesList = [JSON objectForKey:@"friends"];
+        NSArray* messagesList = [JSON objectForKey:@"messages"];
         
         if (messagesList) {
             for (NSDictionary* msgDic in messagesList) {
@@ -121,6 +121,25 @@
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [self defaultErrorHandlerForResponce:response :error :JSON];
         handler(@[]);
+    }];
+    
+    [operation start];
+}
+
+
+- (void) removeMessage:(CHMessage*) msg withCompletionHandler:(void (^)(NSError* error)) handler {
+    
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/messages/remove_message.json?api_key=%@&authentication_token=%@&message_id=%i",CH_API_KEY,aToken,[msg.identifier intValue]];
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"DELETE" path:path parameters:nil];
+    
+    NSLog(@"REQUEST TO : %@", [request.URL description]);
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        handler(nil);
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForResponce:response :error :JSON];
+        handler(error);
     }];
     
     [operation start];

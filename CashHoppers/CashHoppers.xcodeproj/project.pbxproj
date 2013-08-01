@@ -51,6 +51,8 @@
 		567FCAC717A9365300F150A8 /* CHMessagesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCAC617A9365300F150A8 /* CHMessagesManager.m */; };
 		567FCACA17A936A100F150A8 /* CHMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCAC917A936A100F150A8 /* CHMessage.m */; };
 		567FCACD17A94BC900F150A8 /* CHIndividualMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCACC17A94BC900F150A8 /* CHIndividualMessageCell.m */; };
+		567FCACF17AAA12400F150A8 /* button_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 567FCACE17AAA12400F150A8 /* button_edit.png */; };
+		567FCAD117AAA58500F150A8 /* button_done.png in Resources */ = {isa = PBXBuildFile; fileRef = 567FCAD017AAA58500F150A8 /* button_done.png */; };
 		56D59AF51796CD4B005A05F3 /* CHBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AF41796CD4B005A05F3 /* CHBaseModel.m */; };
 		56D59AF81796CD6E005A05F3 /* CHHop.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AF71796CD6E005A05F3 /* CHHop.m */; };
 		56D59AFB1796CD80005A05F3 /* CHHopTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AFA1796CD80005A05F3 /* CHHopTask.m */; };
@@ -368,6 +370,8 @@
 		567FCAC917A936A100F150A8 /* CHMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMessage.m; sourceTree = "<group>"; };
 		567FCACB17A94BC800F150A8 /* CHIndividualMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHIndividualMessageCell.h; sourceTree = "<group>"; };
 		567FCACC17A94BC900F150A8 /* CHIndividualMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHIndividualMessageCell.m; sourceTree = "<group>"; };
+		567FCACE17AAA12400F150A8 /* button_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_edit.png; sourceTree = "<group>"; };
+		567FCAD017AAA58500F150A8 /* button_done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_done.png; sourceTree = "<group>"; };
 		56D59AF31796CD4B005A05F3 /* CHBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHBaseModel.h; sourceTree = "<group>"; };
 		56D59AF41796CD4B005A05F3 /* CHBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHBaseModel.m; sourceTree = "<group>"; };
 		56D59AF61796CD6E005A05F3 /* CHHop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHop.h; sourceTree = "<group>"; };
@@ -990,6 +994,8 @@
 		5640158B176B433B00C028CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				567FCAD017AAA58500F150A8 /* button_done.png */,
+				567FCACE17AAA12400F150A8 /* button_edit.png */,
 				E1A699BB17A90487008584BE /* CheckMark */,
 				5611555E17A6A17400DAA76E /* button_save.png */,
 				AA0B685217A6F40E00820A9A /* search_icon.png */,
@@ -1797,6 +1803,8 @@
 				AA0B685317A6F40E00820A9A /* search_icon.png in Resources */,
 				567FCAC117A7CD7A00F150A8 /* CHSelectedUserView.xib in Resources */,
 				E1A699BF17A92A8C008584BE /* checkmark.png in Resources */,
+				567FCACF17AAA12400F150A8 /* button_edit.png in Resources */,
+				567FCAD117AAA58500F150A8 /* button_done.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

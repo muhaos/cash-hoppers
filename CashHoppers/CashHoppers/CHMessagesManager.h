@@ -21,6 +21,7 @@
 
 - (void) postMessageWithText:(NSString*) text toFriendsList:(NSArray*)friendsIds completionHandler:(void (^)(NSError* error))handler;
 
+- (void) removeMessage:(CHMessage*) msg withCompletionHandler:(void (^)(NSError* error)) handler;
 
 
 @end
