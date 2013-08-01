@@ -82,7 +82,13 @@
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 124;
+    
+    CHMessage* message = [self.currentMessagesList objectAtIndex:indexPath.row];
+    
+    CGSize maximumLabelSize = CGSizeMake(309.0f, 9999.0f);
+    CGSize expectedLabelSize = [message.text sizeWithFont:[UIFont fontWithName:@"DroidSans" size:12.0f] constrainedToSize:maximumLabelSize lineBreakMode:UILineBreakModeWordWrap];
+    
+    return expectedLabelSize.height + 90.0f;
 }
 
 
