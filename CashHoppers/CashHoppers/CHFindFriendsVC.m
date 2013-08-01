@@ -69,6 +69,15 @@
 }
 
 
+
+
+
+
+
+
+
+
+
 - (IBAction)facebookFriendsTapped:(id)sender {
     CHAppDelegate *appDelegate = (CHAppDelegate *) [[UIApplication sharedApplication] delegate];
     if (FBSession.activeSession.isOpen) {

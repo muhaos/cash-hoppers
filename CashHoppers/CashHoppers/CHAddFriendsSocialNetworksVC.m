@@ -23,6 +23,17 @@
 @synthesize friendsTable,peopleImageList, peopleList;
 
 
+- (void)twitterFollowersRequestDidComplete:(NSNotification*)notification {
+	
+	[peopleList release];
+	peopleList = [[notification.userInfo objectForKey:@"followers"] retain];
+	
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	
+	[friendsTable reloadData];
+}
+
+
 - (void)viewDidLoad
 {
     [self reportAuthStatus];
@@ -31,6 +42,15 @@
 
     [super viewDidLoad];
     [self setupTriangleBackButton];
+    
+    
+    NSString *identifier = [tweeterEngine getFollowersIncludingCurrentStatus:YES]; // statuses/followers
+    
+	//listen for a notification with the name of the identifier
+	[[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(twitterFollowersRequestDidComplete:)
+                                                 name:identifier
+                                               object:nil];
 }
 
 
@@ -64,16 +84,22 @@
     static NSString *friendsCellIdentifier = @"friends_list_cell";
     CHAddFriendsCell *cell = (CHAddFriendsCell*) [tableView dequeueReusableCellWithIdentifier:friendsCellIdentifier];
         
-    if (indexPath.row < peopleList.count) {
-        GTLPlusPerson *person = peopleList[indexPath.row];
-        NSString *name = person.displayName;
-        cell.nameLabel.text = name;
-        if (indexPath.row < [peopleImageList count] && ![[peopleImageList objectAtIndex:indexPath.row] isEqual:[NSNull null]]) {
-                cell.photoImageView.image = [[UIImage alloc] initWithData:[peopleImageList objectAtIndex:indexPath.row]];
-        } else {
-                cell.photoImageView.image = nil;
-        }
-    }
+//    if (indexPath.row < peopleList.count) {
+//        GTLPlusPerson *person = peopleList[indexPath.row];
+//        NSString *name = person.displayName;
+//        cell.nameLabel.text = name;
+//        if (indexPath.row < [peopleImageList count] && ![[peopleImageList objectAtIndex:indexPath.row] isEqual:[NSNull null]]) {
+//                cell.photoImageView.image = [[UIImage alloc] initWithData:[peopleImageList objectAtIndex:indexPath.row]];
+//        } else {
+//                cell.photoImageView.image = nil;
+//        }
+//    }
+    
+    // Configure the cell...
+	NSDictionary *dictionary = [peopleList objectAtIndex:[indexPath row]];
+	cell.data = dictionary;
+    
+
     
     [cell.photoImageView.layer setMasksToBounds:YES];
     [cell.photoImageView.layer setCornerRadius: 22.0f];

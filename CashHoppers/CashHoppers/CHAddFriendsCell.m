@@ -22,6 +22,33 @@
     return self;
 }
 
+- (void)twitterProfileImageRequestDidComplete:(NSNotification*)notification {
+	
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	
+	self.photoImageView.image = [notification.userInfo objectForKey:@"profile_image"];
+	[self setNeedsLayout];
+}
+
+- (void)setData:(NSDictionary *)dictionary {
+	[data release];
+	data = [dictionary retain];
+    
+	self.nameLabel.text = [data objectForKey:@"screen_name"];
+    
+    self.photoImageView.image = nil;
+	[self setNeedsLayout];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+	
+	NSString *identifier = [tweeterEngine getImageAtURL:[dictionary objectForKey:@"profile_image_url"]];
+	
+	//listen for a notification with the name of the identifier
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(twitterProfileImageRequestDidComplete:)
+												 name:identifier
+											   object:nil];
+}
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

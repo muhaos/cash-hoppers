@@ -7,11 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Accounts/Accounts.h>
+#import <Twitter/Twitter.h>
 
-@interface CHFindFriendsVC : UIViewController <UITextFieldDelegate>
+@interface CHFindFriendsVC : UIViewController <UITextFieldDelegate>{
+    ACAccount *myAccount;
+    NSMutableString *paramString;
+    NSMutableArray *resultFollowersNameList;
+}
 
 @property (strong, nonatomic) IBOutlet UITextField *searchTextField;
 @property (strong, nonatomic) NSString *headerText;
+
+@property(nonatomic,retain) ACAccount *myAccount;
+@property(nonatomic, retain) NSMutableString *paramString;
+@property(nonatomic, retain) NSMutableArray *resultFollowersNameList;
 
 - (IBAction)twitterFriendsTapped:(id)sender;
 - (IBAction)facebookFriendsTapped:(id)sender;

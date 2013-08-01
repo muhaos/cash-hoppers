@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface CHAddFriendsCell : UITableViewCell
+{
+	NSDictionary *data;
+}
+@property(nonatomic, retain) NSDictionary *data;
 
 @property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
