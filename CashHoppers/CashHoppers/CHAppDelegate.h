@@ -9,13 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "CHHomeScreenViewController.h"
 
-enum CHView{
-    CHHome = 1,
-    CHFeed,
-    CHHopChooser,
-    CHPicture,
-    CHMessage
-};
 
 @class MHCustomTabBarController, ACAccount,MFSideMenuContainerViewController;
 @interface CHAppDelegate : UIResponder <UIApplicationDelegate>
@@ -28,7 +21,7 @@ enum CHView{
 @property (nonatomic, assign) BOOL needOpenDailyHops; // for hops chooser
 @property (nonatomic, assign) BOOL needOpenOtherHops;
 @property (nonatomic, assign) BOOL needOpenFriendsFeed; // for tab bar button
-
+@property (nonatomic, retain) NSTimer* messagesSyncTimer;
 
 -(void)openSession;
 

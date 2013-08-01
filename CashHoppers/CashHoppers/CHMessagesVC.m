@@ -17,6 +17,7 @@
 
 @property (assign, nonatomic) BOOL messagesButtonActive;
 @property (nonatomic, retain) NSArray* currentMessagesList;
+@property (nonatomic, retain) id arrivedMessagesNotification;
 
 @end
 
@@ -27,13 +28,22 @@
 {
     self.messagesButtonActive = YES;   
     [self activeButton:YES];
+    
+    
+    self.arrivedMessagesNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_NEW_MESSAGES_ARRIVED object:nil queue:nil usingBlock:^(NSNotification* note) {
+        [self reloadMessages];
+    }];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self reloadMessages];
+}
 
+
+- (void) reloadMessages {
     [[CHMessagesManager instance] loadMessagesOverviewWithCompletionHandler:^(NSArray* messages){
         self.currentMessagesList = messages;
         [messagesTable reloadData];
@@ -148,6 +158,7 @@
 
 
 - (void)viewDidUnload {
+    [[NSNotificationCenter defaultCenter] removeObserver:self.arrivedMessagesNotification];
     [self setMessagesTable:nil];
     [self setMessagesButton:nil];
     [self setNotificationsButton:nil];

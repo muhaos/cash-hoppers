@@ -15,6 +15,8 @@
 #import "CHMenuSlidingVC.h"
 #import "MFSideMenuContainerViewController.h"
 #import "CHUserManager.h"
+#import "CHMessagesManager.h"
+
 
 @implementation CHAppDelegate
 @synthesize homeScreenVC, navController;
@@ -48,11 +50,17 @@
     [GPPDeepLink setDelegate:self];
     [GPPDeepLink readDeepLinkAfterInstall];
 
-    
+    self.messagesSyncTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(onMessagesSyncTimer) userInfo:nil repeats:YES];
     
     return YES;
 
 }
+
+
+- (void) onMessagesSyncTimer {
+    [[CHMessagesManager instance] checkNewMessages];
+}
+
 
 
 - (void) setupApperences {

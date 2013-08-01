@@ -146,5 +146,38 @@
 }
 
 
+- (void) checkNewMessages {
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/messages/synchronize.json?api_key=%@&authentication_token=%@",CH_API_KEY,aToken];
+    
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
+    
+    NSLog(@"REQUEST TO : %@", [request.URL description]);
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        NSMutableArray* resultMessages = [NSMutableArray new];
+        NSArray* messagesList = [JSON objectForKey:@"messages"];
+        
+        if (messagesList) {
+            for (NSDictionary* msgDic in messagesList) {
+                CHMessage* newMessage = [[CHMessage alloc] init];
+                [newMessage updateFromDictionary:msgDic];
+                [resultMessages addObject:newMessage];
+            }
+            if ([resultMessages count] > 0) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:CH_NEW_MESSAGES_ARRIVED object:resultMessages];
+            }
+        }
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForResponce:response :error :JSON];
+    }];
+    
+    [operation start];
+
+}
+
+
 
 @end

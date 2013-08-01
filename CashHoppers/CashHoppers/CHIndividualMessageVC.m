@@ -17,6 +17,7 @@
 
 @property (nonatomic, retain) NSMutableArray* currentMessagesList;
 @property (nonatomic, retain) id messageUpdatedNotification;
+@property (nonatomic, retain) id arrivedMessagesNotification;
 @property (nonatomic, assign) BOOL needAnimatedScroll;
 @property (nonatomic, retain) UIButton* backButton;
 
@@ -53,6 +54,17 @@
         
     }];
 
+    
+    self.arrivedMessagesNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_NEW_MESSAGES_ARRIVED object:nil queue:nil usingBlock:^(NSNotification* note) {
+        
+        NSArray* messages = note.object;
+        for (CHMessage* m in messages) {
+            if ([m.sender_id intValue] == [self.currentFriendID intValue]) {
+                [self reloadMessages];
+                break;
+            }
+        }
+    }];
 }
 
 
@@ -144,6 +156,10 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return YES if you want the specified item to be editable.
+    CHMessage* message = [self.currentMessagesList objectAtIndex:indexPath.row];
+    if ([message.sender_id intValue] != [self.currentFriendID intValue]) {
+        return NO;
+    }
     return YES;
 }
 
@@ -245,6 +261,7 @@
 
 - (void)viewDidUnload {
     [[NSNotificationCenter defaultCenter] removeObserver:self.messageUpdatedNotification];
+    [[NSNotificationCenter defaultCenter] removeObserver:self.arrivedMessagesNotification];
     [self setInputMessageTextView:nil];
     [super viewDidUnload];
 }
