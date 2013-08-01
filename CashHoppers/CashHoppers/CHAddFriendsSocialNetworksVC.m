@@ -31,7 +31,7 @@
 
     [super viewDidLoad];
     [self setupTriangleBackButton];
-  }
+}
 
 
 - (void) backButtonTapped {
@@ -47,7 +47,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	 return peopleList.count;
+    if (peopleList == nil) {
+		return 0;
+	}
+    return peopleList.count;
 }
 
 
@@ -60,29 +63,26 @@
 {
     static NSString *friendsCellIdentifier = @"friends_list_cell";
     CHAddFriendsCell *cell = (CHAddFriendsCell*) [tableView dequeueReusableCellWithIdentifier:friendsCellIdentifier];
-    
-    // Configure the cell by extracting a person's name and image from the list
-    // of people.
+        
     if (indexPath.row < peopleList.count) {
         GTLPlusPerson *person = peopleList[indexPath.row];
         NSString *name = person.displayName;
         cell.nameLabel.text = name;
-        NSLog(@"%@", name);
-        if (indexPath.row < [peopleImageList count] &&
-            ![[peopleImageList objectAtIndex:indexPath.row] isEqual:[NSNull null]]) {
-                cell.photoImageView.image = [[UIImage alloc]
-                  initWithData:[peopleImageList objectAtIndex:indexPath.row]];
-            [cell.photoImageView.layer setMasksToBounds:YES];
-            [cell.photoImageView.layer setCornerRadius: 22.0f];
-            } else {
+        if (indexPath.row < [peopleImageList count] && ![[peopleImageList objectAtIndex:indexPath.row] isEqual:[NSNull null]]) {
+                cell.photoImageView.image = [[UIImage alloc] initWithData:[peopleImageList objectAtIndex:indexPath.row]];
+        } else {
                 cell.photoImageView.image = nil;
-            }
+        }
     }
+    
+    [cell.photoImageView.layer setMasksToBounds:YES];
+    [cell.photoImageView.layer setCornerRadius: 22.0f];
     return cell;
 }
 
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return indexPath;
 }
 
@@ -94,19 +94,15 @@
 }
 
 
+/////////////////////////////////gooogle
 - (void)listPeople:(NSString *)collection {
-    // 1. Create a |GTLServicePlus| instance to send a request to Google+.
     GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
     plusService.retryEnabled = YES;
     
-    // 2. Set a valid |GTMOAuth2Authentication| object as the authorizer.
     [plusService setAuthorizer:[GPPSignIn sharedInstance].authentication];
-    
-    // 3. Create a |GTLQuery| object to list people that are visible to this
-    // sample app.
-    GTLQueryPlus *query =
-    [GTLQueryPlus queryForPeopleListWithUserId:@"me"
-                                    collection:kGTLPlusCollectionVisible];
+
+    GTLQueryPlus *query = [GTLQueryPlus queryForPeopleListWithUserId:@"me"
+                                                          collection:kGTLPlusCollectionVisible];
     [plusService executeQuery:query
             completionHandler:^(GTLServiceTicket *ticket,
                                 GTLPlusPeopleFeed *peopleFeed,
@@ -115,11 +111,8 @@
                     GTMLoggerError(@"Error: %@", error);
                     NSLog(@"Status: Error: %@", error);
                 } else {
-                    // Get an array of people from |GTLPlusPeopleFeed| and reload
-                    // the table view.
                     peopleList = [peopleFeed.items retain];
                     [friendsTable reloadData];
-                    // Render the status of the Google+ request.
                     NSNumber *count = peopleFeed.totalItems;
                     if (count.intValue == 1) {
                         NSLog(@"Status: Listed 1 person");
@@ -176,4 +169,6 @@
     [self setHeaderLabel:nil];
     [super viewDidUnload];
 }
+
+
 @end

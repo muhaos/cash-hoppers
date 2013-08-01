@@ -14,10 +14,17 @@
 #import "CHHopsManager.h"
 #import "MFSideMenuContainerViewController.h"
 #import "CHOtherHopsListVC.h"
+#import "CHFriendsFeedManager.h"
+#import "CHUser.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface CHHomeScreenViewController ()
 
 @property (nonatomic, retain) id hopsUpdatedNotification;
+@property (nonatomic, retain) id friendsFeedUpdatedNotification;
+@property (nonatomic, retain) id globalFeedUpdatedNotification;
+@property (nonatomic, retain) id feedItemUpdatedNotification;
+@property (nonatomic, retain) CHFriendsFeedItem* currentFeedItem;
 
 @end
 
@@ -42,11 +49,6 @@
     self.view.layer.shadowRadius = 10.0f;
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;
     
-//    if (![self.slidingViewController.underLeftViewController isKindOfClass:[CHMenuSlidingVC class]]) {
-//        self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
-//    }
-//    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
-    
     [menuButton addTarget:self action:@selector(menuTapped:) forControlEvents:UIControlEventTouchUpInside];
     
     [_scrollView setContentSize:CGSizeMake(340,470)];
@@ -55,8 +57,54 @@
         [self updateOtherHopsSection];
     }];
     
+    self.friendsFeedUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_FRIEND_FEED_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
+        [self updateFriendsFeedSection];
+    }];
+    
+    self.globalFeedUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_GLOBAL_FEED_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
+        [self updateFriendsFeedSection];
+    }];
+    
+    self.feedItemUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_FEED_ITEM_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
+        
+        CHFriendsFeedItem* updatedItem = note.object;
+        if (updatedItem == self.currentFeedItem) {
+            [self updateFriendsFeedSection];
+        }
+    }];
+
+    
+    
+    
     [[CHHopsManager instance] refreshHops];
+    [[CHFriendsFeedManager instance] refreshFeeds];
+
     [self updateOtherHopsSection];
+    [self updateFriendsFeedSection];
+}
+
+
+- (void) updateFriendsFeedSection {
+    self.currentFeedItem = nil;
+    if ([CHFriendsFeedManager instance].friendsFeedItems.count > 0) {
+        self.currentFeedItem = [CHFriendsFeedManager instance].friendsFeedItems[0];
+    } else if ([CHFriendsFeedManager instance].globalFeedItems.count > 0) {
+        self.currentFeedItem = [CHFriendsFeedManager instance].globalFeedItems[0];
+    }
+    if (self.currentFeedItem != nil) {
+        self.feedIndicator.hidden = YES;
+        self.feedContainer.hidden = NO;
+        
+        self.feedFriendNameLabel.text = [NSString stringWithFormat:@"%@ %@", self.currentFeedItem.user.first_name, self.currentFeedItem.user.last_name];
+        self.feedHopNameLabel.text = self.currentFeedItem.hop.name;
+        self.feedHopTaskNameLabel.text = [self.currentFeedItem completedTaskName];
+        self.feedTimeLabel.text = @"some time ago";
+        [self.feedHopImageView setImageWithURL:[self.currentFeedItem hopImageURL]];
+        [self.feedAvatarImageView setImageWithURL:[self.currentFeedItem.user avatarURL]];
+    } else {
+        self.feedIndicator.hidden = NO;
+        self.feedContainer.hidden = YES;
+    }
 }
 
 

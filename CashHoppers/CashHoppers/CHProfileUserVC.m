@@ -7,6 +7,7 @@
 //
 
 #import "CHProfileUserVC.h"
+#import "CHUserManager.h"
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
@@ -22,21 +23,30 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 @end
 
 @implementation CHProfileUserVC
-@synthesize scrollView, bioTextView, emailTextField, firstNameTextField, lastNameTextField,zipTextField, usernameTextField, passwordTextField, twitterTextField, facebookTextField;
+@synthesize scrollView, bioTextView, emailTextField, firstNameTextField, lastNameTextField,zipTextField, usernameTextField, twitterTextField, facebookTextField;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.bioTextView setText:@"Owner of Hayes and Taylor Apparel. UI/UX/Graphic Designer. Buckey Fan."];
-    [self.emailTextField setText:@"admin@cashhoppers.com"];
-    [self.firstNameTextField setText:@"Brian"];
-    [self.lastNameTextField setText:@"Kelly"];
-    [self.zipTextField setText:@"345342"];
-    [self.usernameTextField setText:@"admin"];
-    [self.passwordTextField setText:@"qwerty11"];
-    [self.twitterTextField setText:@"admin"];
-    [self.facebookTextField setText:@"admin"];
+    
+    CHUser* user = [CHUserManager instance].currentUser;
+    
+    [self.bioTextView setText:user.bio];
+    [self.emailTextField setText:user.email];
+    [self.firstNameTextField setText:user.first_name];
+    [self.lastNameTextField setText:user.last_name];
+    [self.zipTextField setText:user.zip];
+    [self.usernameTextField setText:user.user_name];
+    [self.twitterTextField setText:user.twitter];
+    [self.facebookTextField setText:user.facebook];
+    [self.googlePlusTextField setText:user.google];
+    [self.contactTextField setText:user.contact];
+    [self.phoneTextField setText:user.phone];
+    
     [self setupTriangleBackButton];
+    
+    self.scrollView.frame = CGRectMake(0, 0, 320, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(320.0f, 750.0f);
 }
 
 
@@ -153,7 +163,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [self setLastNameTextField:nil];
     [self setZipTextField:nil];
     [self setUsernameTextField:nil];
-    [self setPasswordTextField:nil];
     [self setTwitterTextField:nil];
     [self setFacebookTextField:nil];
     [self setScrollView:nil];

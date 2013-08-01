@@ -7,6 +7,9 @@
 //
 
 #import "CHAddFriendsCell.h"
+#import "CHStartVC.h"
+#import "CHAddFriendsSocialNetworksVC.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @implementation CHAddFriendsCell
 
@@ -19,6 +22,8 @@
     return self;
 }
 
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
@@ -26,7 +31,10 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)addFriendTapped:(id)sender {
+
+- (IBAction)addFriendTapped:(id)sender
+{
+    
 }
 
 @end

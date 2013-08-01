@@ -26,12 +26,19 @@
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView* otherHopsIndicator;
 
 // Friends feed
-@property (strong, nonatomic) IBOutlet UIImageView* friendImageView;
+@property (strong, nonatomic) IBOutlet UIView* feedContainer;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView* feedIndicator;
+@property (strong, nonatomic) IBOutlet UIImageView* feedHopImageView;
+@property (strong, nonatomic) IBOutlet UIImageView* feedAvatarImageView;
+@property (strong, nonatomic) IBOutlet UILabel* feedHopNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel* feedHopTaskNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel* feedFriendNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel* feedTimeLabel;
 
 
-- (IBAction)backButtonPressed:(id)sender;
-- (IBAction)dailyHopPressed:(id)sender;
-- (IBAction)playNowPressed:(id)sender;
-- (IBAction)menuTapped:(id)sender;
+- (IBAction) backButtonPressed:(id)sender;
+- (IBAction) dailyHopPressed:(id)sender;
+- (IBAction) playNowPressed:(id)sender;
+- (IBAction) menuTapped:(id)sender;
 
 @end
