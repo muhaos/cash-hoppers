@@ -46,8 +46,12 @@
     _myScroolView.contentSize = CGSizeMake(320, 900);
     self.addComentTextView.text = @"Add coment ...";
     self.addComentTextView.textColor = [UIColor grayColor];
-    
-//    _friendsFeedManager = [[CHFriendsFeedManager alloc]init];
+
+    if([_feedItem.liked integerValue]==0){
+        [_likeButton setBackgroundImage:[UIImage imageNamed:@"like_icon_off"] forState:UIControlStateNormal];
+    }else{
+        [_likeButton setBackgroundImage:[UIImage imageNamed:@"like_icon_on"] forState:UIControlStateNormal];
+    }
     [self reloadData];
     [self registerForNotifications];
     
@@ -323,9 +327,24 @@
     [self setPostCommentButton:nil];
     [self setMyScroolView:nil];
     [self setLikedPersonsLabel:nil];
+    [self setLikeButton:nil];
     [super viewDidUnload];
 }
 
+
+- (IBAction)likePressed:(id)sender {
+    if([_feedItem.liked boolValue]){
+        return;
+    }
+    [[CHFriendsFeedManager instance]postLikeForFeedItem:_feedItem completionHandler:^(NSError *error) {
+        if(!error){
+            [_likeButton setBackgroundImage:[UIImage imageNamed:@"like_icon_on"] forState:UIControlStateNormal];
+            _feedItem.liked = @1;
+            _feedItem.numberOfLikes = @([_feedItem.numberOfLikes intValue]+1);
+            _countLikeLabel.text = [NSString stringWithFormat:@"%d", [_feedItem.numberOfLikes intValue]];
+        }
+    }];
+}
 
 - (IBAction)postCommentTapped:(id)sender {
     

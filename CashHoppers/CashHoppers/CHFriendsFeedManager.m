@@ -198,6 +198,34 @@
     
 }
 
+-(void) postLikeForFeedItem:(CHFriendsFeedItem*) feedItem completionHandler:(void (^)(NSError* error))handler{
+    
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/task/like.json"];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:CH_API_KEY forKey:@"api_key"];
+    [params setObject:aToken forKey:@"authentication_token"];
+    [params setObject:feedItem.identifier forKey:@"user_hop_task_id"];
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"POST" path:path parameters:params];
+    
+    NSLog(@"REQUEST TO : %@", [request.URL description]);
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        handler(nil);
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+//        [self defaultErrorHandlerForResponce:response :error :JSON];
+        handler(error);
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:[NSString stringWithFormat: @"Error occured while trying to send like: %@",error] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        
+    }];
+    
+    
+    [operation start];
+    
+}
+
 
 
 @end
