@@ -249,6 +249,8 @@
 		E1179B1617746DD300FA2069 /* Bottom-Nav.png in Resources */ = {isa = PBXBuildFile; fileRef = E1179B1517746DD200FA2069 /* Bottom-Nav.png */; };
 		E1179B181774707A00FA2069 /* bk_round.png in Resources */ = {isa = PBXBuildFile; fileRef = E1179B171774707A00FA2069 /* bk_round.png */; };
 		E1179B1A17747D4000FA2069 /* our_time.png in Resources */ = {isa = PBXBuildFile; fileRef = E1179B1917747D4000FA2069 /* our_time.png */; };
+		E126BA6517AAE850006B6510 /* CHSharingPopupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E126BA6317AAE850006B6510 /* CHSharingPopupVC.m */; };
+		E126BA6617AAE850006B6510 /* CHSharingPopupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E126BA6417AAE850006B6510 /* CHSharingPopupVC.xib */; };
 		E176E67E179881FD004BFF02 /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E176E67D179881FD004BFF02 /* MFSideMenuContainerViewController.m */; };
 		E1A699AB17A690D7008584BE /* CHFeedItemComment.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A699AA17A690D7008584BE /* CHFeedItemComment.m */; };
 		E1A699B717A84482008584BE /* CHBuyAdFreeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A699B617A84482008584BE /* CHBuyAdFreeVC.m */; };
@@ -693,6 +695,9 @@
 		E1179B1517746DD200FA2069 /* Bottom-Nav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bottom-Nav.png"; sourceTree = "<group>"; };
 		E1179B171774707A00FA2069 /* bk_round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bk_round.png; sourceTree = "<group>"; };
 		E1179B1917747D4000FA2069 /* our_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = our_time.png; sourceTree = "<group>"; };
+		E126BA6217AAE850006B6510 /* CHSharingPopupVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSharingPopupVC.h; sourceTree = "<group>"; };
+		E126BA6317AAE850006B6510 /* CHSharingPopupVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSharingPopupVC.m; sourceTree = "<group>"; };
+		E126BA6417AAE850006B6510 /* CHSharingPopupVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHSharingPopupVC.xib; sourceTree = "<group>"; };
 		E176E67B179881FD004BFF02 /* MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenu.h; sourceTree = "<group>"; };
 		E176E67C179881FD004BFF02 /* MFSideMenuContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuContainerViewController.h; sourceTree = "<group>"; };
 		E176E67D179881FD004BFF02 /* MFSideMenuContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuContainerViewController.m; sourceTree = "<group>"; };
@@ -934,6 +939,9 @@
 				AA010549178C4CD0004DF5F4 /* CHCommentListCell.m */,
 				AA033B6C179D392600F2B769 /* CHAddFriendVC.h */,
 				AA033B6D179D392600F2B769 /* CHAddFriendVC.m */,
+				E126BA6217AAE850006B6510 /* CHSharingPopupVC.h */,
+				E126BA6317AAE850006B6510 /* CHSharingPopupVC.m */,
+				E126BA6417AAE850006B6510 /* CHSharingPopupVC.xib */,
 				AA425FD517995EBF008E02E6 /* CHOptionalPopupSharingVC.h */,
 				AA425FD617995EC0008E02E6 /* CHOptionalPopupSharingVC.m */,
 				AA425FD717995EC0008E02E6 /* CHOptionalPopupSharingVC.xib */,
@@ -1805,6 +1813,7 @@
 				E1A699BF17A92A8C008584BE /* checkmark.png in Resources */,
 				567FCACF17AAA12400F150A8 /* button_edit.png in Resources */,
 				567FCAD117AAA58500F150A8 /* button_done.png in Resources */,
+				E126BA6617AAE850006B6510 /* CHSharingPopupVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1975,6 +1984,7 @@
 				567FCACD17A94BC900F150A8 /* CHIndividualMessageCell.m in Sources */,
 				E1A699B717A84482008584BE /* CHBuyAdFreeVC.m in Sources */,
 				E1A699BA17A8ED01008584BE /* CHCheckMarkView.m in Sources */,
+				E126BA6517AAE850006B6510 /* CHSharingPopupVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

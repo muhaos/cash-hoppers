@@ -17,6 +17,7 @@
 #import "CHOptionalPopupSharingVC.h"
 #import "CHLoadingVC.h"
 #import "CHHopsManager.h"
+#import "CHSharingPopupVC.h"
 
 @interface CHNewHopVC ()
 
@@ -214,9 +215,12 @@
 
     [[CHHopsManager instance] completeHopTask:self.currentHopTask withPhoto:photoImView.image comment:_textView.text completionHandler:^(BOOL success) {
         if (success) {
-            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"SUCCED" message:@"Hop submited. Now you can share this hop for additional points." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            [av show];
-            [self backButtonTapped];
+//            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"SUCCED" message:@"Hop submited. Now you can share this hop for additional points." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//            [av show];
+//            [self backButtonTapped];
+            [CHSharingPopupVC instance].imageToShare = self.photoImView.image;
+            [[CHSharingPopupVC instance]showInController:self];
+
         }
         [[CHLoadingVC sharedLoadingVC] hide];
     }];
