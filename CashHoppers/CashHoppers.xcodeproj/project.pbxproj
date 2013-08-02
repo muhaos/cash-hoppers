@@ -53,6 +53,13 @@
 		567FCACD17A94BC900F150A8 /* CHIndividualMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCACC17A94BC900F150A8 /* CHIndividualMessageCell.m */; };
 		567FCACF17AAA12400F150A8 /* button_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 567FCACE17AAA12400F150A8 /* button_edit.png */; };
 		567FCAD117AAA58500F150A8 /* button_done.png in Resources */ = {isa = PBXBuildFile; fileRef = 567FCAD017AAA58500F150A8 /* button_done.png */; };
+		567FCAD517ABCB0100F150A8 /* CHNotificationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCAD417ABCB0100F150A8 /* CHNotificationsManager.m */; };
+		567FCAD817ABCB7600F150A8 /* CHBaseNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCAD717ABCB7600F150A8 /* CHBaseNotification.m */; };
+		567FCADB17ABD11600F150A8 /* CHFriendInviteNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCADA17ABD11500F150A8 /* CHFriendInviteNotification.m */; };
+		567FCADE17ABD37E00F150A8 /* CHEndOfHopNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCADD17ABD37D00F150A8 /* CHEndOfHopNotification.m */; };
+		567FCAE117ABD6BB00F150A8 /* CHCommentNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCAE017ABD6B900F150A8 /* CHCommentNotification.m */; };
+		567FCAE417ABDAF300F150A8 /* CHLikeNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCAE317ABDAF100F150A8 /* CHLikeNotification.m */; };
+		567FCAE717ABDBDE00F150A8 /* CHFriendInviteAcceptedNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCAE617ABDBDD00F150A8 /* CHFriendInviteAcceptedNotification.m */; };
 		56D59AF51796CD4B005A05F3 /* CHBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AF41796CD4B005A05F3 /* CHBaseModel.m */; };
 		56D59AF81796CD6E005A05F3 /* CHHop.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AF71796CD6E005A05F3 /* CHHop.m */; };
 		56D59AFB1796CD80005A05F3 /* CHHopTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AFA1796CD80005A05F3 /* CHHopTask.m */; };
@@ -374,6 +381,20 @@
 		567FCACC17A94BC900F150A8 /* CHIndividualMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHIndividualMessageCell.m; sourceTree = "<group>"; };
 		567FCACE17AAA12400F150A8 /* button_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_edit.png; sourceTree = "<group>"; };
 		567FCAD017AAA58500F150A8 /* button_done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_done.png; sourceTree = "<group>"; };
+		567FCAD317ABCB0100F150A8 /* CHNotificationsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNotificationsManager.h; sourceTree = "<group>"; };
+		567FCAD417ABCB0100F150A8 /* CHNotificationsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHNotificationsManager.m; sourceTree = "<group>"; };
+		567FCAD617ABCB7600F150A8 /* CHBaseNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHBaseNotification.h; sourceTree = "<group>"; };
+		567FCAD717ABCB7600F150A8 /* CHBaseNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHBaseNotification.m; sourceTree = "<group>"; };
+		567FCAD917ABD11500F150A8 /* CHFriendInviteNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHFriendInviteNotification.h; sourceTree = "<group>"; };
+		567FCADA17ABD11500F150A8 /* CHFriendInviteNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHFriendInviteNotification.m; sourceTree = "<group>"; };
+		567FCADC17ABD37C00F150A8 /* CHEndOfHopNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHEndOfHopNotification.h; sourceTree = "<group>"; };
+		567FCADD17ABD37D00F150A8 /* CHEndOfHopNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHEndOfHopNotification.m; sourceTree = "<group>"; };
+		567FCADF17ABD6B800F150A8 /* CHCommentNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCommentNotification.h; sourceTree = "<group>"; };
+		567FCAE017ABD6B900F150A8 /* CHCommentNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCommentNotification.m; sourceTree = "<group>"; };
+		567FCAE217ABDAF000F150A8 /* CHLikeNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHLikeNotification.h; sourceTree = "<group>"; };
+		567FCAE317ABDAF100F150A8 /* CHLikeNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHLikeNotification.m; sourceTree = "<group>"; };
+		567FCAE517ABDBDB00F150A8 /* CHFriendInviteAcceptedNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHFriendInviteAcceptedNotification.h; sourceTree = "<group>"; };
+		567FCAE617ABDBDD00F150A8 /* CHFriendInviteAcceptedNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHFriendInviteAcceptedNotification.m; sourceTree = "<group>"; };
 		56D59AF31796CD4B005A05F3 /* CHBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHBaseModel.h; sourceTree = "<group>"; };
 		56D59AF41796CD4B005A05F3 /* CHBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHBaseModel.m; sourceTree = "<group>"; };
 		56D59AF61796CD6E005A05F3 /* CHHop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHop.h; sourceTree = "<group>"; };
@@ -1188,9 +1209,31 @@
 			name = Mesasges;
 			sourceTree = "<group>";
 		};
+		567FCAD217ABCAD300F150A8 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				567FCAD317ABCB0100F150A8 /* CHNotificationsManager.h */,
+				567FCAD417ABCB0100F150A8 /* CHNotificationsManager.m */,
+				567FCAD617ABCB7600F150A8 /* CHBaseNotification.h */,
+				567FCAD717ABCB7600F150A8 /* CHBaseNotification.m */,
+				567FCAD917ABD11500F150A8 /* CHFriendInviteNotification.h */,
+				567FCADA17ABD11500F150A8 /* CHFriendInviteNotification.m */,
+				567FCADC17ABD37C00F150A8 /* CHEndOfHopNotification.h */,
+				567FCADD17ABD37D00F150A8 /* CHEndOfHopNotification.m */,
+				567FCADF17ABD6B800F150A8 /* CHCommentNotification.h */,
+				567FCAE017ABD6B900F150A8 /* CHCommentNotification.m */,
+				567FCAE217ABDAF000F150A8 /* CHLikeNotification.h */,
+				567FCAE317ABDAF100F150A8 /* CHLikeNotification.m */,
+				567FCAE517ABDBDB00F150A8 /* CHFriendInviteAcceptedNotification.h */,
+				567FCAE617ABDBDD00F150A8 /* CHFriendInviteAcceptedNotification.m */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
 		56D59AF11796CCD6005A05F3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				567FCAD217ABCAD300F150A8 /* Notifications */,
 				567FCAC417A9360600F150A8 /* Mesasges */,
 				5611555A17A156BC00DAA76E /* Users */,
 				5611555917A1569E00DAA76E /* Friends Feed */,
@@ -1985,6 +2028,13 @@
 				E1A699B717A84482008584BE /* CHBuyAdFreeVC.m in Sources */,
 				E1A699BA17A8ED01008584BE /* CHCheckMarkView.m in Sources */,
 				E126BA6517AAE850006B6510 /* CHSharingPopupVC.m in Sources */,
+				567FCAD517ABCB0100F150A8 /* CHNotificationsManager.m in Sources */,
+				567FCAD817ABCB7600F150A8 /* CHBaseNotification.m in Sources */,
+				567FCADB17ABD11600F150A8 /* CHFriendInviteNotification.m in Sources */,
+				567FCADE17ABD37E00F150A8 /* CHEndOfHopNotification.m in Sources */,
+				567FCAE117ABD6BB00F150A8 /* CHCommentNotification.m in Sources */,
+				567FCAE417ABDAF300F150A8 /* CHLikeNotification.m in Sources */,
+				567FCAE717ABDBDE00F150A8 /* CHFriendInviteAcceptedNotification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

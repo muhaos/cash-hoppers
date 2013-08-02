@@ -7,6 +7,8 @@
 //
 
 #import "CHMessagesCell.h"
+#import <QuartzCore/QuartzCore.h>
+
 
 @implementation CHMessagesCell
 @synthesize photoImageView, nameLabel, likeCommentImageView, messageTextView, timeLabel, deleteButton;
@@ -31,6 +33,12 @@
 }
 
 - (IBAction)deleteButtonTapped:(id)sender {
+}
+
+
+- (void) awakeFromNib {
+    [self photoImageView].layer.cornerRadius = 20.0f;
+    [self photoImageView].layer.masksToBounds = YES;
 }
 
 @end

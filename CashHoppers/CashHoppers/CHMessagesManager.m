@@ -79,10 +79,12 @@
             }
             handler(resultMessages);
         }
+
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [self defaultErrorHandlerForResponce:response :error :JSON];
         handler(@[]);
+
     }];
     
     [operation start];

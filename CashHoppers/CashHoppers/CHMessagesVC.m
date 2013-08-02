@@ -12,11 +12,15 @@
 #import "CHMessagesManager.h"
 #import "AFNetworking.h"
 #import "CHIndividualMessageVC.h"
+#import "CHNotificationsManager.h"
 
 @interface CHMessagesVC ()
 
 @property (assign, nonatomic) BOOL messagesButtonActive;
 @property (nonatomic, retain) NSArray* currentMessagesList;
+@property (nonatomic, retain) NSArray* currentNotificationsList;
+@property (nonatomic, retain) NSArray* currentItemsList;
+
 @property (nonatomic, retain) id arrivedMessagesNotification;
 
 @end
@@ -31,7 +35,7 @@
     
     
     self.arrivedMessagesNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_NEW_MESSAGES_ARRIVED object:nil queue:nil usingBlock:^(NSNotification* note) {
-        [self reloadMessages];
+        [self reloadData];
     }];
 }
 
@@ -39,15 +43,35 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self reloadMessages];
+    [self reloadData];
 }
 
 
-- (void) reloadMessages {
-    [[CHMessagesManager instance] loadMessagesOverviewWithCompletionHandler:^(NSArray* messages){
-        self.currentMessagesList = messages;
-        [messagesTable reloadData];
-    }];
+- (void) reloadData {
+    
+    if (self.messagesButtonActive) {
+        self.currentItemsList = self.currentMessagesList;
+        
+        [[CHMessagesManager instance] loadMessagesOverviewWithCompletionHandler:^(NSArray* messages){
+            self.currentMessagesList = messages;
+            if (self.messagesButtonActive) {
+                self.currentItemsList = self.currentMessagesList;
+                [messagesTable reloadData];
+            }
+        }];
+    } else {
+        self.currentItemsList = self.currentNotificationsList;
+        
+        [[CHNotificationsManager instance] loadNotificationsWithCompletionHandler:^(NSArray* notifications) {
+            self.currentNotificationsList = notifications;
+            if (!self.messagesButtonActive) {
+                self.currentItemsList = self.currentNotificationsList;
+                [messagesTable reloadData];
+            }
+        }];
+    }
+
+    [messagesTable reloadData];
 }
 
 
@@ -59,7 +83,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.currentMessagesList count];
+    return [self.currentItemsList count];
 }
 
 
@@ -74,29 +98,53 @@
     
     CHMessagesCell *cell = (CHMessagesCell*) [tableView dequeueReusableCellWithIdentifier:messagesCellIdentifier];
 
-    CHMessage* message = [self.currentMessagesList objectAtIndex:indexPath.row];
-    
-    NSString* friendName = [NSString stringWithFormat:@"%@ %@", message.friend_first_name, message.friend_last_name];
-    [[cell nameLabel] setText:friendName];
-    [[cell photoImageView] setImageWithURL:[message friendAvatarURL]];
-    [[cell messageTextView] setText:message.text];
-    cell.timeLabel.text = [NSString stringWithFormat:@"%@ ago", message.time_ago];
-    
-    [cell photoImageView].layer.cornerRadius = 20.0f;
-    [cell photoImageView].layer.masksToBounds = YES;
-    
-    if (self.messagesButtonActive == YES) {
-        [[cell likeCommentImageView ] setHidden:YES];
-        [[cell deleteButton] setHidden:NO];
-    } else {
+    if (self.messagesButtonActive) {
+        CHMessage* message = [self.currentItemsList objectAtIndex:indexPath.row];
+        
+        NSString* friendName = [NSString stringWithFormat:@"%@ %@", message.friend_first_name, message.friend_last_name];
+        [[cell nameLabel] setText:friendName];
+        [[cell photoImageView] setImageWithURL:[message friendAvatarURL]];
+        [[cell messageTextView] setText:message.text];
+        cell.timeLabel.text = [NSString stringWithFormat:@"%@ ago", message.time_ago];
         [[cell likeCommentImageView] setHidden:NO];
-        [[cell deleteButton] setHidden:YES];
-        if (indexPath.row == 0) {
-            [[cell likeCommentImageView ] setImage:[UIImage imageNamed:@"comment_icon_on"]];
-        }else{
-            [[cell likeCommentImageView ] setImage:[UIImage imageNamed:@"like_icon_on"]];
+        [[cell likeCommentImageView ] setImage:[UIImage imageNamed:@"comment_icon_on"]];
+    } else {
+        CHBaseNotification* notif = [self.currentItemsList objectAtIndex:indexPath.row];
+        
+        [[cell nameLabel] setText: notif.userName];
+        [[cell photoImageView] setImageWithURL: [notif userAvatarURL]];
+        [[cell messageTextView] setText: [notif notificationDescription]];
+        cell.timeLabel.text = [NSString stringWithFormat:@"%@ ago", notif.time_ago];
+
+        
+        switch (notif.notificationType) {
+            case CHNotificationTypeFriendInvite: {
+                [[cell likeCommentImageView] setHidden:YES];
+                break;
+            }
+            case CHNotificationTypeEndOfHop: {
+                [[cell likeCommentImageView] setHidden:YES];
+                break;
+            }
+            case CHNotificationTypeComment: {
+                [[cell likeCommentImageView] setHidden:NO];
+                [[cell likeCommentImageView ] setImage:[UIImage imageNamed:@"comment_icon_on"]];
+                break;
+            }
+            case CHNotificationTypeLike: {
+                [[cell likeCommentImageView] setHidden:NO];
+                [[cell likeCommentImageView ] setImage:[UIImage imageNamed:@"like_icon_on"]];
+                break;
+            }
+            case CHNotificationTypeFriendInviteAccepted: {
+                [[cell likeCommentImageView] setHidden:YES];
+                break;
+            }
         }
+        
+        
     }
+
     return cell;
 }
 
@@ -124,15 +172,16 @@
 - (IBAction)messagesTapped:(id)sender {
     self.messagesButtonActive = YES;
     [self activeButton:self.messagesButtonActive];
-    [messagesTable reloadData];
+    [self reloadData];
 }
 
 
 - (IBAction)notificationsTapped:(id)sender {
     self.messagesButtonActive = NO;
     [self activeButton:self.messagesButtonActive];
-    [messagesTable reloadData];
+    [self reloadData];
 }
+
 
 - (IBAction)composeMessageTapped:(id)sender {
      [self performSegueWithIdentifier:@"compose_message" sender:self];

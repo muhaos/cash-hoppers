@@ -18,7 +18,7 @@
     } else {
         errMsg = [error localizedDescription];
     }
-    UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"REPORTS" message:[NSString stringWithFormat:@"Can't get reports list: %@", errMsg] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't load url: %@ \n %@", response.URL, errMsg] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [av show];
 }
 
