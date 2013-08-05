@@ -39,7 +39,7 @@
 - (void) loadFeedsFromPath:(NSString*) feedsPath destinationArray:(NSMutableArray*)dArray completionHandler:(void(^)(NSArray* result))handler {
     
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
-    NSString *path = [NSString stringWithFormat:@"%@?api_key=%@&authentication_token=%@", feedsPath, CH_API_KEY,aToken];
+    NSString *path = [NSString stringWithFormat:@"%@?api_key=%@&authentication_token=%@&page=1&per_page=20", feedsPath, CH_API_KEY,aToken];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
     NSLog(@"REQUEST TO : %@", [request.URL description]);
@@ -64,7 +64,7 @@
         }
 
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [self defaultErrorHandlerForResponce:response :error :JSON];
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
     }];
     
     [operation start];
@@ -142,7 +142,7 @@
         }
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [self defaultErrorHandlerForResponce:response :error :JSON];
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
         handler(nil);
     }];
     
@@ -166,7 +166,7 @@
     }];
 }
 
--(void) loadCommentsForFeedItem:(CHFriendsFeedItem*) feedItem completionHandler:(void (^)(NSArray* coments)) handler{
+-(void) loadCommentsForFeedItem:(CHFriendsFeedItem*) feedItem completionHandler:(void (^)(NSArray* coments)) handler {
     
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
     NSString *path = [NSString stringWithFormat:@"/api/task/get_comments.json?api_key=%@&authentication_token=%@&user_hop_task_id=%d", CH_API_KEY,aToken,[feedItem.identifier integerValue]];
@@ -197,27 +197,8 @@
         }
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSArray* json_comments = [JSON objectForKey:@"comments"];
-        NSMutableArray *comments = [NSMutableArray arrayWithCapacity:1];
-        if (json_comments) {
-            for (NSDictionary* objDic in json_comments) {
-                CHFeedItemComment* newComment = [[CHFeedItemComment alloc] init];
-                [newComment updateFromDictionary:objDic];
-                [comments addObject:newComment];
-            }
-        }
-        
-        handler(comments);
-
-            
-
-        for (CHFeedItemComment *comment in comments) {
-            [[CHUserManager instance]loadUserForID:comment.user_id completionHandler:^(CHUser *user) {
-                comment.user = user;
-                [[NSNotificationCenter defaultCenter] postNotificationName:CH_FEED_ITEM_COMMENT_UPDATED object:comment];
-            }];
-        }
-        
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
+        handler(@[]);
     } ];
     
     [operation start];
@@ -242,10 +223,8 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:CH_COMMENT_SENT object:nil];
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [self defaultErrorHandlerForResponce:response :error :JSON];
-        
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
         handler(NO);
-        
     }];
 
     
@@ -270,11 +249,8 @@
         handler(nil);
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-//        [self defaultErrorHandlerForResponce:response :error :JSON];
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
         handler(error);
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:[NSString stringWithFormat: @"Error occured while trying to send like: %@",error] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-        
     }];
     
     

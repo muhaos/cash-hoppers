@@ -85,7 +85,7 @@
             
         }
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [self defaultErrorHandlerForResponce:response :error :JSON];
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
         handler(@[]);
     }];
     

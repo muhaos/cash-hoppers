@@ -124,7 +124,7 @@
         NSString* friendName = [NSString stringWithFormat:@"%@ %@", message.friend_first_name, message.friend_last_name];
         [[cell nameLabel] setText:friendName];
         [[cell photoImageView] setImageWithURL:[message friendAvatarURL]];
-        [[cell messageTextView] setText:message.text];
+        cell.messageLabel.text = message.text;
         cell.timeLabel.text = [NSString stringWithFormat:@"%@ ago", message.time_ago];
         [[cell likeCommentImageView] setHidden:NO];
         [[cell likeCommentImageView ] setImage:[UIImage imageNamed:@"comment_icon_on"]];
@@ -133,9 +133,8 @@
         
         [[cell nameLabel] setText: notif.userName];
         [[cell photoImageView] setImageWithURL: [notif userAvatarURL]];
-        [[cell messageTextView] setText: [notif notificationDescription]];
+        cell.messageLabel.text = [notif notificationDescription];
         cell.timeLabel.text = [NSString stringWithFormat:@"%@ ago", notif.time_ago];
-
         
         switch (notif.notificationType) {
             case CHNotificationTypeFriendInviteAccepted:

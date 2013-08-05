@@ -12,7 +12,7 @@
 
 @interface CHBaseManager : NSObject
 
-- (void) defaultErrorHandlerForResponce: (NSHTTPURLResponse *)response :(NSError *)error :(id) JSON;
+- (void) defaultErrorHandlerForReqest:(NSURLRequest*) request responce: (NSHTTPURLResponse *)response :(NSError *)error :(id) JSON;
 
 - (CHBaseModel*) findObjectWithID:(NSNumber*)_id inArray:(NSArray*) array;
 

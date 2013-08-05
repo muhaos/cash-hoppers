@@ -63,7 +63,7 @@
         }
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [self defaultErrorHandlerForResponce:response :error :JSON];
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
         handler(nil);
     }];
     
@@ -97,7 +97,7 @@
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         handler(nil);
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [self defaultErrorHandlerForResponce:response :error :JSON];
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
         handler(error);
     }];
     
@@ -116,10 +116,6 @@
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
-    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-//        [self defaultErrorHandlerForResponce:response :error :JSON];
-//        handler(nil);
-
         NSArray* friendsArray = [JSON objectForKey:@"friends"];
         if (friendsArray) {
             
@@ -140,6 +136,10 @@
             }
             
         }
+    
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
+        handler(nil);
     
     }];
     

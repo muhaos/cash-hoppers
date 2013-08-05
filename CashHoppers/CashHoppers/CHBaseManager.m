@@ -11,14 +11,14 @@
 
 @implementation CHBaseManager
 
-- (void) defaultErrorHandlerForResponce: (NSHTTPURLResponse *)response :(NSError *)error :(id) JSON {
+- (void) defaultErrorHandlerForReqest:(NSURLRequest*) request responce: (NSHTTPURLResponse *)response :(NSError *)error :(id) JSON {
     NSString* errMsg = nil;
-    if (JSON != nil) {
+    if (JSON != nil && [JSON  objectForKey:@"info"]) {
         errMsg = [JSON  objectForKey:@"info"];
     } else {
         errMsg = [error localizedDescription];
     }
-    UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't load url: %@ \n %@", response.URL, errMsg] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't load url: %@ \n %@", request.URL, errMsg] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [av show];
 }
 

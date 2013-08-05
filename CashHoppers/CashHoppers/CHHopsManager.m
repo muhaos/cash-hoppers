@@ -62,7 +62,7 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:CH_HOPS_UPDATED object:self];
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [self defaultErrorHandlerForResponce:response :error :JSON];
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
     }];
     
     [operation start];
@@ -112,6 +112,7 @@
         }
     
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
         handler(nil);
     }];
 
@@ -149,7 +150,7 @@
         handler(hop);
     
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [self defaultErrorHandlerForResponce:response :error :JSON];
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
         handler(hop);
     }];
     
@@ -179,7 +180,7 @@
         [self refreshHops];
         handler(YES);
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [self defaultErrorHandlerForResponce:response :error :JSON];
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
         handler(NO);
     }];
     

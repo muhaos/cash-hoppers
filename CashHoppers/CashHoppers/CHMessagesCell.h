@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *likeCommentImageView;
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @property (strong, nonatomic) IBOutlet UITextView *messageTextView;
+@property (strong, nonatomic) IBOutlet UILabel *messageLabel;
 @property (strong, nonatomic) IBOutlet UIButton *deleteButton;
 
 - (IBAction)deleteButtonTapped:(id)sender;

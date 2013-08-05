@@ -50,7 +50,7 @@
     [GPPDeepLink setDelegate:self];
     [GPPDeepLink readDeepLinkAfterInstall];
 
-    self.messagesSyncTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(onMessagesSyncTimer) userInfo:nil repeats:YES];
+    self.messagesSyncTimer = [NSTimer scheduledTimerWithTimeInterval:7.0f target:self selector:@selector(onMessagesSyncTimer) userInfo:nil repeats:YES];
     
     return YES;
 

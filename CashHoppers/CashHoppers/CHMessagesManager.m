@@ -48,7 +48,7 @@
         
         handler(nil);
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [self defaultErrorHandlerForResponce:response :error :JSON];
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
         handler(error);
     }];
     
@@ -82,7 +82,7 @@
 
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [self defaultErrorHandlerForResponce:response :error :JSON];
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
         handler(@[]);
 
     }];
@@ -121,7 +121,7 @@
         }
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [self defaultErrorHandlerForResponce:response :error :JSON];
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
         handler(@[]);
     }];
     
@@ -140,7 +140,7 @@
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         handler(nil);
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [self defaultErrorHandlerForResponce:response :error :JSON];
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
         handler(error);
     }];
     
@@ -173,7 +173,7 @@
         }
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [self defaultErrorHandlerForResponce:response :error :JSON];
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
     }];
     
     [operation start];
