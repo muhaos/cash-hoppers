@@ -29,9 +29,12 @@
 - (void) refreshFeeds;
 - (void) loadFriendsFeed;
 - (void) loadGlobalFeed;
--(void) loadCommentsForFeedItem:(CHFriendsFeedItem*) feedItem completionHandler:(void (^)(NSArray* coments)) handler;
--(void) postCommentForFeedItem:(CHFriendsFeedItem*) feedItem withText:(NSString*) text completionHandler:(void (^)(BOOL success))handler;
--(void) postLikeForFeedItem:(CHFriendsFeedItem*) feedItem completionHandler:(void (^)(NSError* error))handler;
+- (void) loadCommentsForFeedItem:(CHFriendsFeedItem*) feedItem completionHandler:(void (^)(NSArray* coments)) handler;
+- (void) postCommentForFeedItem:(CHFriendsFeedItem*) feedItem withText:(NSString*) text completionHandler:(void (^)(BOOL success))handler;
+- (void) postLikeForFeedItem:(CHFriendsFeedItem*) feedItem completionHandler:(void (^)(NSError* error))handler;
+
+- (void) loadFeedItemWithID:(NSNumber*) _id completionHandler:(void (^)(CHFriendsFeedItem* feedItem)) handler;
+
 
 @property (nonatomic, strong) NSMutableArray *friendsFeedItems;
 @property (nonatomic, strong) NSMutableArray *globalFeedItems;

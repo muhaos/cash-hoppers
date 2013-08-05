@@ -17,5 +17,7 @@
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
 - (NSString*) notificationDescription;
+- (void) loadParts;
+
 
 @end

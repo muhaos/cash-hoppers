@@ -29,6 +29,7 @@ enum CHNotificationType {
 @property (nonatomic, retain) NSString* userName;
 
 - (NSString*) notificationDescription; // overwrited by childs
+- (void) loadParts;
 - (NSURL*) userAvatarURL;
 
 - (void) updateFromDictionary:(NSDictionary*) dic;

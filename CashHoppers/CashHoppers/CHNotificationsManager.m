@@ -69,6 +69,8 @@
                         newNotif = [[CHFriendInviteAcceptedNotification alloc] init];
                         break;
                     }
+                    case CHNotificationTypeNone: {
+                    }
                 }
                 
                 [newNotif updateFromDictionary:notifDic];
@@ -76,6 +78,11 @@
             }
             
             handler(resultNotifs);
+            
+            for (CHBaseNotification* n in resultNotifs) {
+                [n loadParts];
+            }
+            
         }
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [self defaultErrorHandlerForResponce:response :error :JSON];

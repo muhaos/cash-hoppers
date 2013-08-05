@@ -13,6 +13,9 @@
 #import "AFNetworking.h"
 #import "CHIndividualMessageVC.h"
 #import "CHNotificationsManager.h"
+#import "CHDetailsFeedVC.h"
+#import "CHFriendsFeedManager.h"
+
 
 @interface CHMessagesVC ()
 
@@ -22,6 +25,7 @@
 @property (nonatomic, retain) NSArray* currentItemsList;
 
 @property (nonatomic, retain) id arrivedMessagesNotification;
+@property (nonatomic, retain) id notifUpdatedNotification;
 
 @end
 
@@ -37,6 +41,22 @@
     self.arrivedMessagesNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_NEW_MESSAGES_ARRIVED object:nil queue:nil usingBlock:^(NSNotification* note) {
         [self reloadData];
     }];
+    
+    self.notifUpdatedNotification  = [[NSNotificationCenter defaultCenter] addObserverForName:CH_NOTIFICATION_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
+
+        if (!self.messagesButtonActive) {
+            CHBaseNotification* notif = note.object;
+            NSUInteger index = [self.currentItemsList indexOfObject:notif];
+            if (index != NSNotFound) {
+                [self.messagesTable beginUpdates];
+                [self.messagesTable reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.messagesTable endUpdates];
+            }
+
+        }
+        
+    }];
+    
 }
 
 
@@ -118,26 +138,23 @@
 
         
         switch (notif.notificationType) {
+            case CHNotificationTypeFriendInviteAccepted:
+            case CHNotificationTypeEndOfHop:
             case CHNotificationTypeFriendInvite: {
                 [[cell likeCommentImageView] setHidden:YES];
-                break;
-            }
-            case CHNotificationTypeEndOfHop: {
-                [[cell likeCommentImageView] setHidden:YES];
+                [cell setAccessoryType:UITableViewCellAccessoryNone];
                 break;
             }
             case CHNotificationTypeComment: {
                 [[cell likeCommentImageView] setHidden:NO];
                 [[cell likeCommentImageView ] setImage:[UIImage imageNamed:@"comment_icon_on"]];
+                [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
                 break;
             }
             case CHNotificationTypeLike: {
                 [[cell likeCommentImageView] setHidden:NO];
                 [[cell likeCommentImageView ] setImage:[UIImage imageNamed:@"like_icon_on"]];
-                break;
-            }
-            case CHNotificationTypeFriendInviteAccepted: {
-                [[cell likeCommentImageView] setHidden:YES];
+                [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
                 break;
             }
         }
@@ -150,15 +167,43 @@
 
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (self.messagesButtonActive) {
+        return indexPath;
+    } else {
+        
+        CHBaseNotification* notif = [self.currentItemsList objectAtIndex:indexPath.row];
+        
+        switch (notif.notificationType) {
+            case CHNotificationTypeFriendInviteAccepted:
+            case CHNotificationTypeEndOfHop:
+            case CHNotificationTypeFriendInvite: {
+                return nil;
+            }
+            case CHNotificationTypeComment:
+            case CHNotificationTypeLike: {
+                return indexPath;
+            }
+        }
+
+    }
+    
     return indexPath;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CHMessage* message = [self.currentMessagesList objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"individual_message" sender:message.friend_id];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (self.messagesButtonActive) {
+        CHMessage* message = [self.currentMessagesList objectAtIndex:indexPath.row];
+        [self performSegueWithIdentifier:@"individual_message" sender:message.friend_id];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    } else {
+        CHBaseNotification* notif = [self.currentItemsList objectAtIndex:indexPath.row];
+        [self performSegueWithIdentifier:@"news_feed_segue" sender:notif];
+    }
+    
 }
 
 
@@ -167,6 +212,31 @@
         CHIndividualMessageVC* vc = (CHIndividualMessageVC*)segue.destinationViewController;
         vc.currentFriendID = sender;
     }
+    if ([segue.identifier isEqualToString:@"news_feed_segue"]) {
+        
+        CHBaseNotification* notif = (CHBaseNotification*)sender;
+        CHFriendsFeedItem* feedItem = nil;
+        
+        switch (notif.notificationType) {
+            case CHNotificationTypeFriendInviteAccepted:
+            case CHNotificationTypeEndOfHop:
+            case CHNotificationTypeFriendInvite: {
+                break;
+            }
+            case CHNotificationTypeComment: {
+                feedItem = ((CHCommentNotification*)notif).feedItem;
+                break;
+            }
+            case CHNotificationTypeLike: {
+                feedItem = ((CHLikeNotification*)notif).feedItem;
+                break;
+            }
+        }
+        
+        CHDetailsFeedVC *detailVC = (CHDetailsFeedVC*)segue.destinationViewController;
+        detailVC.feedItem = feedItem;
+    }
+    
 }
 
 - (IBAction)messagesTapped:(id)sender {
@@ -208,6 +278,7 @@
 
 - (void)viewDidUnload {
     [[NSNotificationCenter defaultCenter] removeObserver:self.arrivedMessagesNotification];
+    [[NSNotificationCenter defaultCenter] removeObserver:self.notifUpdatedNotification];
     [self setMessagesTable:nil];
     [self setMessagesButton:nil];
     [self setNotificationsButton:nil];

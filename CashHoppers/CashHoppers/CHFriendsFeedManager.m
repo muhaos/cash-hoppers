@@ -95,6 +95,61 @@
 }
 
 
+- (void) loadFeedItemWithID:(NSNumber*) _id completionHandler:(void (^)(CHFriendsFeedItem* feedItem)) handler {
+    
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/task/get_user_hop_task_by_id.json?api_key=%@&authentication_token=%@&user_hop_task_id=%i", CH_API_KEY,aToken, [_id intValue]];
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
+    
+    NSLog(@"REQUEST TO : %@", [request.URL description]);
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+
+        NSDictionary* json_task = [JSON objectForKey:@"user_hop_task"];
+        if (json_task) {
+            CHFriendsFeedItem* newFeedItem = [[CHFriendsFeedItem alloc] init];
+            [newFeedItem updateFromDictionary:json_task];
+            
+            int __block partsLoaded = 0;
+            
+            [[CHHopsManager instance] loadHopForID:newFeedItem.hopID completionHandler:^(CHHop* hop) {
+                newFeedItem.hop = hop;
+                
+                partsLoaded++;
+                
+                if (partsLoaded >= 2) {
+                    handler(newFeedItem);
+                }
+
+                [[NSNotificationCenter defaultCenter] postNotificationName:CH_FEED_ITEM_UPDATED object:newFeedItem];
+            }];
+            
+            [[CHUserManager instance] loadUserForID:newFeedItem.userID completionHandler:^(CHUser* user){
+                newFeedItem.user = user;
+
+                partsLoaded++;
+                
+                if (partsLoaded >= 2) {
+                    handler(newFeedItem);
+                }
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:CH_FEED_ITEM_UPDATED object:newFeedItem];
+            }];
+            
+        } else {
+            handler(nil);
+        }
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForResponce:response :error :JSON];
+        handler(nil);
+    }];
+    
+    [operation start];
+
+}
+
+
 - (void) loadHopForFeedItem:(CHFriendsFeedItem*)fItem {
     [[CHHopsManager instance] loadHopForID:fItem.hopID completionHandler:^(CHHop* hop) {
         fItem.hop = hop;

@@ -15,6 +15,8 @@
 #import "CHLikeNotification.h"
 
 
+#define CH_NOTIFICATION_UPDATED @"CH_NOTIFICATION_UPDATED"
+
 
 @interface CHNotificationsManager : CHBaseManager
 

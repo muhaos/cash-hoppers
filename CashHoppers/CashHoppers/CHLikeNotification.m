@@ -8,6 +8,8 @@
 
 #import "CHLikeNotification.h"
 #import "CHFriendsFeedItem.h"
+#import "CHFriendsFeedManager.h"
+#import "CHNotificationsManager.h"
 
 @implementation CHLikeNotification
 
@@ -30,5 +32,18 @@
     }
     return @"Liked your completed HOP item";
 }
+
+
+- (void) loadParts {
+    
+    [[CHFriendsFeedManager instance] loadFeedItemWithID:self.user_hop_task_id completionHandler:^(CHFriendsFeedItem* feedItem){
+        
+        self.feedItem = feedItem;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:CH_NOTIFICATION_UPDATED object:self];
+    }];
+    
+}
+
 
 @end

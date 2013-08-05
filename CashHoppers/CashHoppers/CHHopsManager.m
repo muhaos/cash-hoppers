@@ -86,7 +86,7 @@
 
 
 - (void) refreshOtherHops {
-    [self loadHopsFromPath:@"/api/hops/regular" destinationArray:self.otherHops completionHandler:^(NSArray* hops){
+    [self loadHopsFromPath:@"/api/hops/regular.json" destinationArray:self.otherHops completionHandler:^(NSArray* hops){
         self.otherHops = hops;
         for (CHHop* h in self.otherHops) {
             [self loadTasksForHop:h completionHandler:^(CHHop* hop){}];
@@ -112,7 +112,7 @@
         }
     
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-
+        handler(nil);
     }];
 
     [operation start];
@@ -128,10 +128,7 @@
     NSLog(@"REQUEST TO : %@", [request.URL description]);
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-
-    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        //[self defaultErrorHandlerForResponce:response :error :JSON];
-    
+        
         NSMutableArray* tasks = [NSMutableArray new];
         
         NSArray* json_tasks = [JSON objectForKey:@"hop_tasks"];
@@ -146,10 +143,14 @@
                 [tasks addObject:newHopTask];
             }
             hop.tasks = tasks;
-            handler(hop);
         }
         
         [[NSNotificationCenter defaultCenter] postNotificationName:CH_HOPS_TASKS_UPDATED object:hop];
+        handler(hop);
+    
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForResponce:response :error :JSON];
+        handler(hop);
     }];
     
     [operation start];

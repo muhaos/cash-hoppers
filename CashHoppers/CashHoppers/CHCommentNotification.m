@@ -8,6 +8,8 @@
 
 #import "CHCommentNotification.h"
 #import "CHFriendsFeedItem.h"
+#import "CHFriendsFeedManager.h"
+#import "CHNotificationsManager.h"
 
 @implementation CHCommentNotification
 
@@ -26,10 +28,23 @@
 
 - (NSString*) notificationDescription {
     if (self.feedItem != nil) {
-        return [NSString stringWithFormat:@"Commented on your completed HOP item\n%@", [self.feedItem completedTaskName]];
+        return [NSString stringWithFormat:@"Commented on your completed HOP item %@", [self.feedItem completedTaskName]];
     }
     return @"Commented on your completed HOP item";
 }
+
+
+- (void) loadParts {
+    
+    [[CHFriendsFeedManager instance] loadFeedItemWithID:self.user_hop_task_id completionHandler:^(CHFriendsFeedItem* feedItem){
+        
+        self.feedItem = feedItem;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:CH_NOTIFICATION_UPDATED object:self];
+    }];
+    
+}
+
 
 
 
