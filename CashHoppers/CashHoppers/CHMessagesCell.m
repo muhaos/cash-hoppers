@@ -23,6 +23,18 @@
 }
 
 
+- (void) setDefaultAttributedTextForString:(NSString *)str {
+    NSDictionary *normAttribs = @{NSFontAttributeName: [UIFont fontWithName:@"DroidSans" size:12.0f], NSForegroundColorAttributeName:[UIColor colorWithRed:0.4f green:0.4f blue:0.4f alpha:1.0f]};
+    
+    NSMutableAttributedString* mStr = [[NSMutableAttributedString alloc] initWithString:str];
+    
+    NSInteger str_length = [str length];
+    [mStr setAttributes:normAttribs range:NSMakeRange(0, str_length)];
+    
+    self.messageLabel.attributedText = mStr;
+}
+
+
 //messages_cell_id
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

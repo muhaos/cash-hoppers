@@ -20,8 +20,8 @@
 }
 
 
-- (NSString*) notificationDescription {
-    return @"Accepted your friend invitation.";
+- (NSAttributedString*) notificationDescription {
+    return [self attributedString:@"Accepted your invitation." withBoldString:nil];
 }
 
 @end

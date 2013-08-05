@@ -16,7 +16,7 @@
 @property (nonatomic, retain) CHFriendsFeedItem* feedItem;
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
-- (NSString*) notificationDescription;
+- (NSAttributedString*) notificationDescription;
 - (void) loadParts;
 
 

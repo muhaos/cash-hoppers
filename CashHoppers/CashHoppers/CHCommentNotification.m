@@ -26,11 +26,12 @@
 }
 
 
-- (NSString*) notificationDescription {
+- (NSAttributedString*) notificationDescription {
     if (self.feedItem != nil) {
-        return [NSString stringWithFormat:@"Commented on your completed HOP item %@", [self.feedItem completedTaskName]];
+        NSString* msg = [NSString stringWithFormat:@"Commented on your completed HOP item %@", [self.feedItem completedTaskName]];
+        return [self attributedString:msg withBoldString:[self.feedItem completedTaskName]];
     }
-    return @"Commented on your completed HOP item";
+    return [self attributedString:@"Commented on your completed HOP item" withBoldString:nil];
 }
 
 

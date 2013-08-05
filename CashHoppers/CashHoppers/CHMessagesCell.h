@@ -19,5 +19,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *deleteButton;
 
 - (IBAction)deleteButtonTapped:(id)sender;
+- (void) setDefaultAttributedTextForString:(NSString*) str;
 
 @end

@@ -21,8 +21,8 @@
 }
 
 
-- (NSString*) notificationDescription {
-    return @"Invited you to be friends.";
+- (NSAttributedString*) notificationDescription {
+    return [self attributedString:@"Invited you to be friends." withBoldString:nil];
 }
 
 

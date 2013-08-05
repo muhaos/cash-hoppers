@@ -22,11 +22,13 @@
 }
 
 
-- (NSString*) notificationDescription {
+- (NSAttributedString*) notificationDescription {
+    NSString* resultStr = nil;
     if (self.hop != nil) {
-        return [NSString stringWithFormat:@"The \"%@\" hop #%i winner. Prize is $%i", self.hop.name, [self.place intValue], [self.cost intValue]];
+        resultStr = [NSString stringWithFormat:@"The \"%@\" hop #%i winner. Prize is $%i", self.hop.name, [self.place intValue], [self.cost intValue]];
     }
-    return [NSString stringWithFormat:@"The #%i winner. Prize is $%i", [self.place intValue], [self.cost intValue]];
+    resultStr = [NSString stringWithFormat:@"The #%i winner. Prize is $%i", [self.place intValue], [self.cost intValue]];
+    return [self attributedString:resultStr withBoldString:nil];
 }
 
 

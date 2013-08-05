@@ -13,7 +13,7 @@
 @property (nonatomic, retain) NSNumber* friendID;
 
 
-- (NSString*) notificationDescription;
+- (NSAttributedString*) notificationDescription;
 - (void) updateFromDictionary:(NSDictionary*) dic;
 
 

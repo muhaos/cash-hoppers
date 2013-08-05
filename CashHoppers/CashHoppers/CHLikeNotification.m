@@ -26,11 +26,12 @@
 }
 
 
-- (NSString*) notificationDescription {
+- (NSAttributedString*) notificationDescription {
     if (self.feedItem != nil) {
-        return [NSString stringWithFormat:@"Liked your completed HOP item\n%@", [self.feedItem completedTaskName]];
+        NSString* msg = [NSString stringWithFormat:@"Liked your completed HOP item\n%@", [self.feedItem completedTaskName]];
+        return [self attributedString:msg withBoldString:[self.feedItem completedTaskName]];
     }
-    return @"Liked your completed HOP item";
+    return [self attributedString:@"Liked your completed HOP item" withBoldString:nil];
 }
 
 

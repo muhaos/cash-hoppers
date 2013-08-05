@@ -18,7 +18,7 @@
 @property (nonatomic, retain) NSNumber* place;
 
 
-- (NSString*) notificationDescription;
+- (NSAttributedString*) notificationDescription;
 - (void) updateFromDictionary:(NSDictionary*) dic;
 
 @end
