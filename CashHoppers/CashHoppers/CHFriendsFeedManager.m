@@ -109,6 +109,7 @@
         if (json_task) {
             CHFriendsFeedItem* newFeedItem = [[CHFriendsFeedItem alloc] init];
             [newFeedItem updateFromDictionary:json_task];
+            newFeedItem.identifier = _id;
             
             int __block partsLoaded = 0;
             

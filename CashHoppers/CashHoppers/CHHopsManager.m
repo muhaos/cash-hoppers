@@ -43,10 +43,7 @@
     NSLog(@"REQUEST TO : %@", [request.URL description]);
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"KUKU");
-    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        //[self defaultErrorHandlerForResponce:response :error :JSON];
-
+        
         NSMutableArray* addedOrUpdatedObjects = [NSMutableArray new];
         NSArray* hops = [JSON objectForKey:@"hops"];
         if (hops) {
@@ -63,6 +60,9 @@
             handler(addedOrUpdatedObjects);
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:CH_HOPS_UPDATED object:self];
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForResponce:response :error :JSON];
     }];
     
     [operation start];
