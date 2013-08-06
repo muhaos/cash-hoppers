@@ -181,8 +181,9 @@
             self.currentPasswordVC = [[CHTradeShowEntryVC alloc] initWithNibName:@"CHTradeShowEntryVC" bundle:nil];
             self.currentPasswordVC.currentHop = tappedHop;
             self.currentPasswordVC.delegate = self;
-            self.currentPasswordVC.view.frame = self.view.window.rootViewController.view.frame;
-            [self.view.window.rootViewController.view.superview addSubview:self.currentPasswordVC.view];
+            self.currentPasswordVC.view.frame = self.view.frame;
+            [self.view addSubview:self.currentPasswordVC.view];
+            
             break;
         }
     }
