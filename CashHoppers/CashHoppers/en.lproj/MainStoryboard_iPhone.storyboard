@@ -2137,23 +2137,25 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="6" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu." id="dEY-8X-4Kl">
-                                                    <rect key="frame" x="14" y="11" width="250" height="45"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="1yx-Wd-2ol">
                                                     <rect key="frame" x="5" y="0.0" width="74" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="uJ9-eW-rMo">
+                                                    <rect key="frame" x="14" y="15" width="266" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <outlet property="compTextView" destination="dEY-8X-4Kl" id="CVp-L3-jI1"/>
+                                            <outlet property="compTextLabel" destination="uJ9-eW-rMo" id="hO0-5h-QR0"/>
                                             <outlet property="compVerticalIndicatorImageView" destination="t3N-Vo-Z2q" id="hz1-iJ-FzX"/>
                                             <outlet property="completeIndicatorImageView" destination="1yx-Wd-2ol" id="NnQ-kL-FtM"/>
                                         </connections>
@@ -2169,19 +2171,21 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="6" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu." id="dCN-cR-18K">
-                                                    <rect key="frame" x="14" y="11" width="250" height="45"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o27-bJ-qox">
+                                                    <rect key="frame" x="14" y="0.0" width="266" height="59"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <outlet property="notCompTextView" destination="dCN-cR-18K" id="CgV-lv-Uch"/>
+                                            <outlet property="notCompTextLabel" destination="o27-bJ-qox" id="eKS-lc-QrG"/>
                                             <outlet property="notCompVerticalIndicatorImageView" destination="uUT-FY-HDB" id="q2n-Dw-CSv"/>
                                         </connections>
                                     </tableViewCell>
@@ -4277,10 +4281,10 @@
         <class className="CHTradeShowMultiHopCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHTradeShowMultiHopCell.h"/>
             <relationships>
-                <relationship kind="outlet" name="compTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="compTextLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="compVerticalIndicatorImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="completeIndicatorImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="notCompTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="notCompTextLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="notCompVerticalIndicatorImageView" candidateClass="UIImageView"/>
             </relationships>
         </class>

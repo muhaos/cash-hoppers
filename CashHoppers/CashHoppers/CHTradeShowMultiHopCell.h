@@ -12,9 +12,9 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *completeIndicatorImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *compVerticalIndicatorImageView;
-@property (strong, nonatomic) IBOutlet UITextView *compTextView;
+@property (strong, nonatomic) IBOutlet UILabel *compTextLabel;
 
-@property (strong, nonatomic) IBOutlet UITextView *notCompTextView;
+@property (strong, nonatomic) IBOutlet UILabel *notCompTextLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *notCompVerticalIndicatorImageView;
 
 @end

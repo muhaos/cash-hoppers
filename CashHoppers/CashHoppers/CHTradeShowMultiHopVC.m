@@ -105,14 +105,14 @@
     if ([hopTask.completed boolValue]) { // there must be check of hop task completion
         
         cell = (CHTradeShowMultiHopCell*) [tableView dequeueReusableCellWithIdentifier:completeHopsCellIdentifier];
-        [[cell compTextView] setText:hopTask.text];
+        [[cell compTextLabel] setText:hopTask.text];
         [[cell compVerticalIndicatorImageView] setImage:[UIImage imageNamed:@"vertical_indicator_green"]];
         [[cell completeIndicatorImageView] setImage:[UIImage imageNamed:@"horizontal_indicator_green"]];
 
     } else {
         
         cell = (CHTradeShowMultiHopCell*) [tableView dequeueReusableCellWithIdentifier:notCompleteHopsCellIdentifier];
-        [[cell notCompTextView] setText:hopTask.text];
+        [[cell notCompTextLabel] setText:hopTask.text];
         [[cell notCompVerticalIndicatorImageView] setImage:[UIImage imageNamed:@"your_indicator_cell.png"]];
 
     }
