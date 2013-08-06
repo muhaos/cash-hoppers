@@ -86,7 +86,28 @@
     self.submitButton.hidden = [self.currentHopTask.completed boolValue];
     self.hopTitleLabel.text = [NSString stringWithFormat:@"%@   %@", self.currentHopTask.hop.name, [self.currentHopTask.hop dateString]];
     [self.taskLogoImageView setImageWithURL:[self.currentHopTask logoURL]];
+    
+    [self setHopTaskName:[NSString stringWithFormat:@"%@: %@", self.currentHopTask.hop.name, self.currentHopTask.text] withBoldString:self.currentHopTask.hop.name];
 }
+
+
+- (void) setHopTaskName:(NSString*) wholeStr withBoldString:(NSString*) boldPartStr {
+    
+    NSDictionary *boldAttribs = @{NSFontAttributeName: [UIFont fontWithName:@"DroidSans-Bold" size:12.0f], NSForegroundColorAttributeName:[UIColor colorWithRed:0.4f green:0.4f blue:0.4f alpha:1.0f]};
+    NSDictionary *normAttribs = @{NSFontAttributeName: [UIFont fontWithName:@"DroidSans" size:12.0f], NSForegroundColorAttributeName:[UIColor colorWithRed:0.6f green:0.6f blue:0.6f alpha:1.0f]};
+    
+    NSMutableAttributedString* mStr = [[NSMutableAttributedString alloc] initWithString:wholeStr];
+    
+    NSInteger str_length = [wholeStr length];
+    
+    [mStr setAttributes:normAttribs range:NSMakeRange(0, str_length)];
+    if (boldPartStr != nil) {
+        [mStr setAttributes:boldAttribs range:[wholeStr rangeOfString:boldPartStr]];
+    }
+    
+    self.hopTaskTitleLabel.attributedText = mStr;
+}
+
 
 
 -(void)viewWillDisappear:(BOOL)animated {
