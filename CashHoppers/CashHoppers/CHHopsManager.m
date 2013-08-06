@@ -46,6 +46,10 @@
         
         NSMutableArray* addedOrUpdatedObjects = [NSMutableArray new];
         NSArray* hops = [JSON objectForKey:@"hops"];
+        if (hops == nil && [JSON objectForKey:@"daily_hop"] != nil) {
+            hops = @[[JSON objectForKey:@"daily_hop"]];
+        }
+        
         if (hops) {
             for (NSDictionary* objDic in hops) {
                 if ([CHHop isValidHopDictionary:objDic]) {

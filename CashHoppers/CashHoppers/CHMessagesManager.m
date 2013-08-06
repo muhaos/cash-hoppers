@@ -152,6 +152,12 @@
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
     NSString *path = [NSString stringWithFormat:@"/api/messages/synchronize.json?api_key=%@&authentication_token=%@",CH_API_KEY,aToken];
     
+    NSString* lastSyncDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"last_sync_time"];
+    if (lastSyncDate != nil) {
+        path = [path stringByAppendingFormat:@"&last_sync_time=%@", [lastSyncDate stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    }
+    
+    
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
     NSLog(@"REQUEST TO : %@", [request.URL description]);
@@ -160,6 +166,11 @@
         
         NSMutableArray* resultMessages = [NSMutableArray new];
         NSArray* messagesList = [JSON objectForKey:@"messages"];
+        
+        NSString* new_sync_date = [JSON objectForKey:@"last_sync_time"];
+        if (new_sync_date) {
+            [[NSUserDefaults standardUserDefaults] setObject:new_sync_date forKey:@"last_sync_time"];
+        }
         
         if (messagesList) {
             for (NSDictionary* msgDic in messagesList) {
