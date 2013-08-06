@@ -18,6 +18,8 @@
 #import "CHLoadingVC.h"
 #import "CHHopsManager.h"
 #import "CHSharingPopupVC.h"
+#import "AFNetworking.h"
+
 
 @interface CHNewHopVC ()
 
@@ -83,6 +85,7 @@
     [super viewWillAppear:animated];
     self.submitButton.hidden = [self.currentHopTask.completed boolValue];
     self.hopTitleLabel.text = [NSString stringWithFormat:@"%@   %@", self.currentHopTask.hop.name, [self.currentHopTask.hop dateString]];
+    [self.taskLogoImageView setImageWithURL:[self.currentHopTask logoURL]];
 }
 
 

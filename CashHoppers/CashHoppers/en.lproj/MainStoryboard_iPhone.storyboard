@@ -2235,15 +2235,22 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="OpenSans-CondensedBold"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ht_alt_logo.png" id="AbB-D9-dV5">
-                                        <rect key="frame" x="20" y="51" width="85" height="85"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="AbB-D9-dV5">
+                                        <rect key="frame" x="19" y="51" width="111" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="T-Shirt Time: Take a pic wearing your favourite t-shirt." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sdg-3f-YDR">
-                                        <rect key="frame" x="153" y="51" width="147" height="95"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sdg-3f-YDR">
+                                        <rect key="frame" x="153" y="51" width="147" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="T-Shirt Time: Take a pic wearing your favourite t-shirt.">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="13" name="Helvetica-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans-Bold"/>
@@ -2374,11 +2381,13 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="charCountLabel" destination="H6Y-n4-9hF" id="aSc-pc-BRm"/>
+                        <outlet property="hopTaskTitleLabel" destination="sdg-3f-YDR" id="W2r-yA-F4T"/>
                         <outlet property="hopTitleLabel" destination="1Z1-dT-ad6" id="brg-aj-zYr"/>
                         <outlet property="myScroolView" destination="fRE-mQ-GGT" id="q6c-ao-IiY"/>
                         <outlet property="photoImView" destination="61U-zc-veO" id="2QA-ei-xau"/>
                         <outlet property="separatorView" destination="dtN-RC-jWo" id="lOG-26-9u4"/>
                         <outlet property="submitButton" destination="k5p-E1-HzS" id="bEX-qy-rW6"/>
+                        <outlet property="taskLogoImageView" destination="AbB-D9-dV5" id="xx8-UQ-2pp"/>
                         <outlet property="textView" destination="vZe-8s-o8S" id="Aef-EB-Gn4"/>
                         <outlet property="winnterButton" destination="GVp-4Q-IE6" id="jPL-V8-BbT"/>
                     </connections>
@@ -4164,12 +4173,14 @@
                 <relationship kind="action" name="shareWithTwitterTapped:"/>
                 <relationship kind="action" name="submitPressed:"/>
                 <relationship kind="outlet" name="charCountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="hopTaskTitleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="hopTitleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="menuButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="myScroolView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="photoImView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="separatorView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="submitButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="taskLogoImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="winnterButton" candidateClass="UIButton"/>
             </relationships>

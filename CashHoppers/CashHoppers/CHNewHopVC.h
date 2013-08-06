@@ -26,6 +26,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *menuButton;
 @property (strong, nonatomic) IBOutlet UIScrollView *myScroolView;
 @property (strong, nonatomic) IBOutlet UIButton *winnterButton;
+@property (strong, nonatomic) IBOutlet UIImageView *taskLogoImageView;
+@property (strong, nonatomic) IBOutlet UILabel *hopTaskTitleLabel;
+
 
 - (IBAction)resignResponder:(id)sender;
 - (IBAction)photoTapped:(id)sender;

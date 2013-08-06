@@ -15,7 +15,9 @@
 @property (nonatomic, strong) NSString* text;
 @property (nonatomic, strong) NSNumber* completed;
 @property (nonatomic, strong) CHHop* hop;
+@property (nonatomic, strong) NSString* logoUrlString;
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
+- (NSURL*) logoURL;
 
 @end

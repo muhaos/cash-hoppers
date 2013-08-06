@@ -7,6 +7,7 @@
 //
 
 #import "CHHopTask.h"
+#import "CHAPIClient.h"
 
 @implementation CHHopTask
 
@@ -14,6 +15,13 @@
     self.identifier = [dic objectForKey:@"id"];
     self.text = [CHBaseModel safeStringFrom:[dic objectForKey:@"text"] defaultValue:@"No Description"];
     self.completed = [CHBaseModel safeNumberFrom:[dic objectForKey:@"completed"] defaultValue:@0];
+    self.logoUrlString = [CHBaseModel safeStringFrom:[dic objectForKey:@"logo"] defaultValue:nil];
 }
+
+
+- (NSURL*) logoURL {
+    return [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:self.logoUrlString]];
+}
+
 
 @end
