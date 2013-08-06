@@ -12,6 +12,7 @@
 #import <CoreText/CoreText.h>
 #import "CHNewHopVC.h"
 #import "CHHopsManager.h"
+#import "AFNetworking.h"
 
 @interface CHTradeShowMultiHopVC ()
 
@@ -34,6 +35,7 @@
     self.scoreLabel.text = @"550 pts";
     self.rankLabel.text = @"3 of 46";
     self.grandPrizeLabel.text = [NSString stringWithFormat:@"$%i", [self.currentHop.jackpot intValue]];
+    [self.hopImageView setImageWithURL:[self.currentHop logoURL]];
     
     self.hopsTasksUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_HOPS_TASKS_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
         // refresh

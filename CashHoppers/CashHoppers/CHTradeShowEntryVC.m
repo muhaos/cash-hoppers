@@ -8,6 +8,7 @@
 
 #import "CHTradeShowEntryVC.h"
 #import "CHHop.h"
+#import "AFNetworking.h"
 
 @interface CHTradeShowEntryVC ()
 
@@ -23,7 +24,7 @@
     [super viewDidLoad];
 
     tradeShowLabel.text = self.currentHop.name;
-    tradeShowImageView.image = [UIImage imageNamed:@"image_nbm_show.png"];
+    [tradeShowImageView setImageWithURL: [self.currentHop logoURL]];
 }
 
 - (void)didReceiveMemoryWarning

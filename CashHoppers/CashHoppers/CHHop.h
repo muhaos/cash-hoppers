@@ -27,11 +27,14 @@ enum CHHopType {
 @property (nonatomic, strong) NSNumber* daily_hop; //BOOL
 @property (nonatomic, strong) NSNumber* close; //BOOL
 @property (nonatomic, strong) NSString* event;
+@property (nonatomic, strong) NSString* logoUrlString;
 
 @property (nonatomic, strong) NSArray* tasks; // CHHopTask
 - (enum CHHopType) hopType;
 - (BOOL) isAllTasksCompleted;
 - (NSString*) dateString;
+- (NSURL*) logoURL;
+
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
 + (BOOL) isValidHopDictionary:(NSDictionary*) dic;

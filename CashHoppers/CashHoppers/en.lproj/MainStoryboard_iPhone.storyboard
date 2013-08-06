@@ -2093,8 +2093,8 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="OpenSans-CondensedBold"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="image_nbm_show.png" id="PeR-mg-vXv">
-                                <rect key="frame" x="20" y="50" width="105" height="95"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="PeR-mg-vXv">
+                                <rect key="frame" x="20" y="46" width="105" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Grand Prize:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qxd-7O-Q1z">
@@ -3905,7 +3905,6 @@
         <image name="ht_alt_logo.png" width="124" height="122"/>
         <image name="image_avatar.png" width="102" height="102"/>
         <image name="image_friends_status_field.png" width="640" height="71"/>
-        <image name="image_nbm_show.png" width="353" height="282"/>
         <image name="image_score_box.png" width="273" height="128"/>
         <image name="image_separator.png" width="640" height="2"/>
         <image name="image_title_holder.png" width="640" height="87"/>
@@ -4315,7 +4314,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Bjs-zb-Rk3"/>
         <segue reference="lvk-fo-Rcf"/>
-        <segue reference="dTN-EH-Ojv"/>
+        <segue reference="Wv3-IZ-arJ"/>
         <segue reference="iNc-aT-tqd"/>
     </inferredMetricsTieBreakers>
 </document>

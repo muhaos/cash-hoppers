@@ -8,6 +8,7 @@
 
 #import "CHHop.h"
 #import "CHHopTask.h"
+#import "CHAPIClient.h"
 
 @implementation CHHop
 
@@ -28,6 +29,7 @@
     self.daily_hop = [dic objectForKey:@"daily_hop"];
     self.close = [dic objectForKey:@"close"];
     self.event = [CHBaseModel safeStringFrom:[dic objectForKey:@"event"] defaultValue:@""];
+    self.logoUrlString = [CHBaseModel safeStringFrom:[dic objectForKey:@"logo"] defaultValue:nil];
 
 }
 
@@ -75,6 +77,12 @@
     }
     return finalDate;
 }
+
+
+- (NSURL*) logoURL {
+    return [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:self.logoUrlString]];
+}
+
 
 
 @end
