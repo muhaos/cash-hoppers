@@ -127,7 +127,7 @@
 
 ////for fb
 - (IBAction)loginWithFBTapped:(id)sender {
-    CHAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate openSessionWithAllowLoginUI:YES];
     
     if (FBSession.activeSession.isOpen) {

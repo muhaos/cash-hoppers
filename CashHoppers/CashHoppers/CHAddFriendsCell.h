@@ -10,7 +10,6 @@
 #import <MessageUI/MessageUI.h>
 #import "CHAddFriendsSocialNetworksVC.h"
 
-
 @protocol CHAddFriendCellDelegate <NSObject>
 @optional
 - (void) selectedFollowerWithID:(NSString*) fID;

@@ -142,23 +142,6 @@
 }
 
 
--(void)listfriends {
-    dispatch_async(GCDBackgroundThread, ^{
-        @autoreleasepool {
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
-            dispatch_sync(GCDMainThread, ^{
-                @autoreleasepool {
-                    UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"Complete!" message:@"Your list of followers has been fetched" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [av show];
-                    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-                }
-            });
-        }
-    });
-}
-
-
 -(void)sendDirectMessageForID:(NSString*) _userID
 {
     dispatch_async(GCDBackgroundThread, ^{
