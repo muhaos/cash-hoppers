@@ -1921,7 +1921,7 @@ static NSString * const oldPinJS = @"var d = document.getElementById('oauth-pin'
 	[spinner startAnimating];
     [spinner release];
 	
-	UINavigationItem *navItem = [[[UINavigationItem alloc]initWithTitle:@"Twitter Login"]autorelease];
+	UINavigationItem *navItem = [[[UINavigationItem alloc]initWithTitle:@""]autorelease];
 	navItem.leftBarButtonItem = [[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(close)]autorelease];
 	[_navBar pushNavigationItem:navItem animated:NO];
     
