@@ -41,7 +41,6 @@ NSString *const FBSessionStateChangedNotification =
     [menuContainerVC setLeftMenuViewController:leftMenu];
     
     NSString *a_token = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
-    //    NSLog(@"token=%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"]);
     if(a_token){
         self.window.rootViewController = self.menuContainerVC;
         [[CHUserManager instance] updateCurrentUser];
@@ -68,7 +67,6 @@ NSString *const FBSessionStateChangedNotification =
 
 #pragma mark - Facebook SDK
 
-//  Callback for session changes.
 - (void)sessionStateChanged:(FBSession *)session
                       state:(FBSessionState) state
                       error:(NSError *)error
@@ -76,8 +74,6 @@ NSString *const FBSessionStateChangedNotification =
     switch (state) {
         case FBSessionStateOpen:
             if (!error) {
-                // We have a valid session
-                //NSLog(@"User session found");
                 [FBRequestConnection
                  startForMeWithCompletionHandler:^(FBRequestConnection *connection,
                                                    NSDictionary<FBGraphUser> *user,
@@ -113,7 +109,6 @@ NSString *const FBSessionStateChangedNotification =
 }
 
 
-// Opens a Facebook session and optionally shows the login UX.
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
     return [FBSession openActiveSessionWithReadPermissions:nil
                                               allowLoginUI:allowLoginUI
@@ -134,7 +129,6 @@ NSString *const FBSessionStateChangedNotification =
 
 #pragma mark - Helper methods
 
-//  Helper method for parsing URL parameters.
 - (NSDictionary*)parseURLParams:(NSString *)query {
     NSArray *pairs = [query componentsSeparatedByString:@"&"];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
@@ -148,45 +142,34 @@ NSString *const FBSessionStateChangedNotification =
 }
 
 
-// Helper method to handle incoming request app link
 - (void) handleAppLinkData:(FBAppLinkData *)appLinkData {
     NSString *targetURLString = appLinkData.originalQueryParameters[@"target_url"];
     if (targetURLString) {
         NSURL *targetURL = [NSURL URLWithString:targetURLString];
         NSDictionary *targetParams = [self parseURLParams:[targetURL query]];
         NSString *ref = [targetParams valueForKey:@"ref"];
-        // Check for the ref parameter to check if this is one of
-        // our incoming news feed link, otherwise it can be an
-        // an attribution link
+        
         if ([ref isEqualToString:@"notif"]) {
-            // Get the request id
             NSString *requestIDParam = targetParams[@"request_ids"];
             NSArray *requestIDs = [requestIDParam
                                    componentsSeparatedByString:@","];
-            
-            // Get the request data from a Graph API call to the
-            // request id endpoint
             [self notificationGet:requestIDs[0]];
         }
     }
 }
 
 
-// Helper method to check incoming token data
 - (BOOL)handleAppLinkToken:(FBAccessTokenData *)appLinkToken {
-    // Initialize a new blank session instance...
     FBSession *appLinkSession = [[FBSession alloc] initWithAppID:nil
                                                      permissions:nil
                                                  defaultAudience:FBSessionDefaultAudienceNone
                                                  urlSchemeSuffix:nil
                                               tokenCacheStrategy:[FBSessionTokenCachingStrategy nullCacheInstance] ];
     [FBSession setActiveSession:appLinkSession];
-    // ... and open it from the App Link's Token.
     return [appLinkSession openFromAccessTokenData:appLinkToken
                                  completionHandler:^(FBSession *session,
                                                      FBSessionState status,
                                                      NSError *error) {
-                                     // Log any errors
                                      if (error) {
                                          NSLog(@"Error using cached token to open a session: %@",
                                                error.localizedDescription);
@@ -195,7 +178,6 @@ NSString *const FBSessionStateChangedNotification =
 }
 
 
-// Send a user to user request
 - (void)sendRequest {
     NSError *error;
     NSData *jsonData = [NSJSONSerialization
@@ -215,7 +197,6 @@ NSString *const FBSessionStateChangedNotification =
     
     NSMutableDictionary* params = [@{@"data" : giftStr} mutableCopy];
     
-    // Display the requests dialog
     [FBWebDialogs
      presentRequestsDialogModallyWithSession:nil
      message:@"Learn how to make your iOS apps social."
@@ -246,7 +227,6 @@ NSString *const FBSessionStateChangedNotification =
 }
 
 
-// Send a user to user request, with a targeted list
 - (void)sendRequest:(NSArray *) targeted {
     NSError *error = nil;
     NSData *jsonData = [NSJSONSerialization
@@ -371,12 +351,7 @@ NSString *const FBSessionStateChangedNotification =
                           }];
 }
 
-/*
- * This private method will be used to check the app
- * usage counter, update it as necessary, and return
- * back an indication on whether the user should be
- * shown the prompt to invite friends
- */
+
 - (BOOL) checkAppUsageTrigger {
     // Initialize the app active count
     NSInteger appActiveCount = 0;
@@ -415,11 +390,6 @@ NSString *const FBSessionStateChangedNotification =
 }
 
 #pragma mark - UIAlertViewDelegate methods
-/*
- * When the alert is dismissed check which button was clicked so
- * you can take appropriate action, such as displaying the request
- * dialog, or setting a flag not to prompt the user again.
- */
 
 - (void)alertView:(UIAlertView *)alertView
 didDismissWithButtonIndex:(NSInteger)buttonIndex {
@@ -442,7 +412,8 @@ didDismissWithButtonIndex:(NSInteger)buttonIndex {
             openURL: (NSURL *)url
   sourceApplication: (NSString *)sourceApplication
          annotation: (id)annotation {
-    return [FBAppCall handleOpenURL:url
+    
+    BOOL facebook = [FBAppCall handleOpenURL:url
                   sourceApplication:sourceApplication
                     fallbackHandler:^(FBAppCall *call) {
                         // If there is an active session
@@ -461,9 +432,11 @@ didDismissWithButtonIndex:(NSInteger)buttonIndex {
                         }
                     }];
     
-    return [GPPURLHandler handleURL:url
+    BOOL g_plus = [GPPURLHandler handleURL:url
                   sourceApplication:sourceApplication
                          annotation:annotation];
+    
+    return (facebook || g_plus);
 }
 
 
@@ -490,12 +463,7 @@ didDismissWithButtonIndex:(NSInteger)buttonIndex {
     // We need to properly handle activation of the application with regards to SSO
     // (e.g., returning from iOS 6.0 authorization dialog or from fast app switching).
     [FBAppCall handleDidBecomeActive];
-    // Check the flag for enabling any prompts. If that flag is on
-    // check the app active counter
     if (self.appUsageCheckEnabled && [self checkAppUsageTrigger]) {
-        // If the user should be prompter to invite friends, trigger the invite alert view
-        // after a short delay to avoid warning related to the UIAlertView possibly blocking
-        // the UI at app launch.
         [NSTimer scheduledTimerWithTimeInterval:0.2
                                          target:self
                                        selector:@selector(showInvite)
@@ -506,8 +474,6 @@ didDismissWithButtonIndex:(NSInteger)buttonIndex {
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    // if the app is going away, we close the session object
     [FBSession.activeSession close];
 }
 

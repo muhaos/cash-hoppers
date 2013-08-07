@@ -16,8 +16,6 @@
 #import "GPPSignIn.h"
 #import <FacebookSDK/FBSessionTokenCachingStrategy.h>
 
-SA_OAuthTwitterEngine	*tweeterEngine;
-
 @interface CHStartVC ()
 
 @property (retain, nonatomic) GPPSignIn *signIn;
@@ -42,7 +40,7 @@ SA_OAuthTwitterEngine	*tweeterEngine;
     signIn = [GPPSignIn sharedInstance];
     signIn.clientID = kClientId;
     signIn.scopes = [NSArray arrayWithObjects:
-                     kGTLAuthScopePlusLogin, // определяется в файле GTLPlusConstants.h
+                     kGTLAuthScopePlusLogin, 
                      nil];
     signIn.shouldFetchGoogleUserEmail = YES;
     signIn.delegate = self;
@@ -54,30 +52,39 @@ SA_OAuthTwitterEngine	*tweeterEngine;
      selector:@selector(sessionStateChanged:)
      name:FBSessionStateChangedNotification
      object:nil];
-    
-    // Check the session for a cached token to show the proper authenticated
-    // UI. However, since this is not user intitiated, do not show the login UX.
     [appDelegate openSessionWithAllowLoginUI:NO];
+    
+    [[FHSTwitterEngine sharedEngine]permanentlySetConsumerKey:@"mW5vfqMKEx1HGME7OeGCg" andSecret:@"RjiYj98WZSjKBbHn9r3hGYvMfptYPp5pQCP8h4gNH5A"];
+    [[FHSTwitterEngine sharedEngine]setDelegate:self];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [[FHSTwitterEngine sharedEngine]loadAccessToken];
+}
+
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
 }
 
 
 //for google+
-
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
                    error: (NSError *)error {
-    if(!error) {
-        // Получим адрес электронной почты.
- //       NSLog(@"%@", signIn.authentication.userEmail);
-    }
+    if(!error) {}
 }
+
 
 - (void)signOut {
     [[GPPSignIn sharedInstance] signOut];
 }
 
+
 - (void)disconnect {
     [[GPPSignIn sharedInstance] disconnect];
 }
+
 
 - (void)didDisconnectWithError:(NSError *)error {
     if (error) {
@@ -121,18 +128,11 @@ SA_OAuthTwitterEngine	*tweeterEngine;
 ////for fb
 - (IBAction)loginWithFBTapped:(id)sender {
     CHAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    
-    // The user has initiated a login, so call the openSession method
-    // and show the login UX if necessary.
     [appDelegate openSessionWithAllowLoginUI:YES];
     
-    // If the user is authenticated, log out when the button is clicked.
-    // If the user is not authenticated, log in when the button is clicked.
     if (FBSession.activeSession.isOpen) {
         [appDelegate closeSession];
     } else {
-        // The user has initiated a login, so call the openSession method
-        // and show the login UX if necessary.
         [appDelegate openSessionWithAllowLoginUI:YES];
     }
 }
@@ -141,66 +141,31 @@ SA_OAuthTwitterEngine	*tweeterEngine;
 - (void)sessionStateChanged:(NSNotification*)notification {
     if (FBSession.activeSession.isOpen) {
     } else {
-      
     }
 }
 
 
 //for twitter
-
 - (IBAction)loginWithTwitterTapped:(id)sender {
-    if (tweeterEngine) return;
-    tweeterEngine = [[SA_OAuthTwitterEngine alloc] initOAuthWithDelegate:self];
-    tweeterEngine.consumerKey = kOAuthConsumerKey;
-    tweeterEngine.consumerSecret = kOAuthConsumerSecret;
-    
-    UIViewController *controller = [SA_OAuthTwitterController controllerToEnterCredentialsWithTwitterEngine:tweeterEngine delegate:self];
-    if (controller) {
-        [self presentModalViewController:controller animated:YES];
-    }
-    [self presentViewController:DELEGATE.menuContainerVC animated:YES completion:nil];
-}
-
-#pragma mark - Twitter
-#pragma mark SA_OAuthTwitterEngineDelegate
-
-- (void) storeCachedTwitterOAuthData: (NSString *) data forUsername: (NSString *) username {
-	NSUserDefaults			*defaults = [NSUserDefaults standardUserDefaults];
-	
-	[defaults setObject: data forKey: @"authData"];
-	[defaults synchronize];
-}
-
-- (NSString *) cachedTwitterOAuthDataForUsername: (NSString *) username {
-	return [[NSUserDefaults standardUserDefaults] objectForKey: @"authData"];
-}
-
-- (void) twitterOAuthConnectionFailedWithData: (NSData *) data {
-	NSLog(@"twitterOAuthConnectionFailedWithData");
+    [[FHSTwitterEngine sharedEngine]showOAuthLoginControllerFromViewController:self withCompletion:^(BOOL success) {
+        NSLog(success?@"L0L success":@"O noes!!! Loggen faylur!!!");
+    }];
 }
 
 
-- (void)requestSucceeded:(NSString *)connectionIdentifier {
-    NSLog(@"Request succeeded for connectionIdentifier = %@", connectionIdentifier);
-	
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+- (void)storeAccessToken:(NSString *)accessToken {
+    [[NSUserDefaults standardUserDefaults]setObject:accessToken forKey:@"SavedAccessHTTPBody"];
 }
 
-- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error {
-    NSLog(@"Request failed for connectionIdentifier = %@, error = %@ (%@)",
-          connectionIdentifier,
-          [error localizedDescription],
-          [error userInfo]);
-	
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-}
 
+- (NSString *)loadAccessToken {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"SavedAccessHTTPBody"];
+}
 
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

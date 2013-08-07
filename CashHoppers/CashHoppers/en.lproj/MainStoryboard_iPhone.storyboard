@@ -2540,23 +2540,8 @@
                                     <action selector="facebookFriendsTapped:" destination="z6o-De-69t" eventType="touchUpInside" id="Be6-fW-hW3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NkF-QZ-Vxe">
-                                <rect key="frame" x="20" y="205" width="280" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="google" image="find_google_friends.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="googleFriendsTapped:" destination="z6o-De-69t" eventType="touchUpInside" id="jLp-V4-n9a"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dHl-ga-0bL">
-                                <rect key="frame" x="20" y="250" width="280" height="36"/>
+                                <rect key="frame" x="20" y="205" width="280" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="email" image="send_email_invite.png">
@@ -2685,6 +2670,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
+                                            <outlet property="addButton" destination="GnW-Ol-zVs" id="PUn-AI-3d0"/>
                                             <outlet property="nameLabel" destination="AXt-Lc-xgA" id="mDX-Z0-uA8"/>
                                             <outlet property="photoImageView" destination="UDn-tB-pnw" id="PLm-1b-QgP"/>
                                         </connections>
@@ -3892,7 +3878,6 @@
         <image name="facebook_icon.png" width="96" height="76"/>
         <image name="feed_icon.png" width="42" height="42"/>
         <image name="find_facebook_friends.png" width="574" height="72"/>
-        <image name="find_google_friends.png" width="574" height="72"/>
         <image name="find_twitter_friends.png" width="574" height="72"/>
         <image name="gp_icon.png" width="512" height="512"/>
         <image name="green_button.png" width="234" height="109"/>
@@ -3944,6 +3929,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHAddFriendsCell.h"/>
             <relationships>
                 <relationship kind="action" name="addFriendTapped:"/>
+                <relationship kind="outlet" name="addButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
             </relationships>
@@ -3959,7 +3945,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHBuyAdFreeVC.h"/>
             <relationships>
                 <relationship kind="action" name="buyPressed:"/>
-                <relationship kind="action" name="menuPressed:"/>
                 <relationship kind="outlet" name="buyNowButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="checkMark" candidateClass="CHCheckMarkView"/>
                 <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
