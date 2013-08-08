@@ -7,6 +7,8 @@
 //
 
 #import "CHAddFriendsCell.h"
+#import "CHStartVC.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @implementation CHAddFriendsCell
 
@@ -19,14 +21,18 @@
     return self;
 }
 
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
 }
 
-- (IBAction)addFriendTapped:(id)sender {
+
+- (IBAction)addFriendTapped:(id)sender
+{
+    [self.delegate selectedFollowerWithID:[self.userDic objectForKey:@"id_str"]];
+    self.addButton.hidden = YES;
 }
+
 
 @end

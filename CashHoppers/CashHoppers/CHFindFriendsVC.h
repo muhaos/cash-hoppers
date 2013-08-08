@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface CHFindFriendsVC : UIViewController <UITextFieldDelegate>
+@interface CHFindFriendsVC : UIViewController <UITextFieldDelegate, MFMailComposeViewControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *searchTextField;
 @property (strong, nonatomic) NSString *headerText;
