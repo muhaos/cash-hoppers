@@ -7,6 +7,8 @@
 //
 
 #import "CHAddFriendVC.h"
+#import "CHUserManager.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface CHAddFriendVC ()
 
@@ -15,16 +17,20 @@
 @end
 
 @implementation CHAddFriendVC
+@synthesize nameLabel, photoImageView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setupTriangleBackButton];
     
-    [self.photoImageView setImage:[UIImage imageNamed:@"photo_hop"]];
-    [self.nameLabel setText:@"Brian Kelly"];
-    [self.descTextView setText:@"Owner of Hayes and Taylor Apparel. UI/UX/Graohic Designer.Buckey Fan. Indianapolis, 1N"];
-    [self.countFriendsLabel setText:@"78 Friends"];
+    [self.photoImageView setImageWithURL:self.currentUser.avatarURL];
+    [self.nameLabel setText:[NSString stringWithFormat:@"%@ %@", self.currentUser.first_name, self.currentUser.last_name]];
+    [self.descTextView setText:[NSString stringWithFormat:@"%@", self.currentUser.bio]];
+    [self.countFriendsLabel setText:[NSString stringWithFormat:@"%i", [self.currentUser.friends_count intValue]]];
+    
+    photoImageView.layer.cornerRadius = 4.0f;
+    photoImageView.layer.masksToBounds = YES;
 }
 
 
@@ -54,7 +60,7 @@
 - (IBAction)addFriendTapped:(id)sender
 {
     self.addFriendButton.hidden = YES;
-    [self.yourFriendsImageView setImage:[UIImage imageNamed:@"you_are_friends.png"]];
+//    [self.yourFriendsImageView setImage:[UIImage imageNamed:@"you_are_friends.png"]];
 }
 
 
