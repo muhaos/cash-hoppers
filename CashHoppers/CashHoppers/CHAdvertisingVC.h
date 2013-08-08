@@ -9,16 +9,18 @@
 #import <UIKit/UIKit.h>
 
 @interface CHAdvertisingVC : UIViewController
-@property (strong, nonatomic) IBOutlet UILabel *headerLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *reclamaImageView;
-@property (strong, nonatomic) IBOutlet UILabel *bottomHeaderLabel;
-@property (strong, nonatomic) IBOutlet UILabel *bottomLabel;
-- (IBAction)closeTapped:(id)sender;
 
-+ (CHAdvertisingVC*) sharedAdverticingVC;
-- (void) showInController:(UIViewController*) c
-                 withHeaderLabel:(NSString*) header
-                withImage:(UIImage*) image
-    withBottomHeaderLabel:(NSString*) bottomHeader
-          withBottomLabel:(NSString*)bottom;
+@property (strong, nonatomic) IBOutlet UIImageView *reclamaImageView;
+
+@property (strong, nonatomic) CHAdvertisingVC* selfRef;
+
+@property (nonatomic, strong) NSString* adsImageUrlString;
+@property (nonatomic, strong) NSString* adsLinkUrlString;
+
+- (IBAction)closeTapped:(id)sender;
+- (IBAction)adsTapped:(id)sender;
+
++ (CHAdvertisingVC*) instanceWithAdType:(NSString*)adType andHopID:(NSNumber*) hopID;
+- (void) loadAdWithAdType:(NSString*)adType andHopID:(NSNumber*) hopID;
+
 @end

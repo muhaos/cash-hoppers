@@ -21,6 +21,7 @@
 @property (nonatomic, retain) id hopsUpdatedNotification;
 @property (nonatomic, retain) NSArray* currentHopsList;
 @property (nonatomic, strong) CHTradeShowEntryVC* currentPasswordVC;
+@property (nonatomic, assign) BOOL needShowAD;
 
 @end
 
@@ -37,8 +38,13 @@
     self.hopsUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_HOPS_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
         // refresh
         [self updateTable];
+        if (self.needShowAD) {
+            int hopsCount = [self.currentHopsList count];
+            CHHop* h = self.currentHopsList[rand() % hopsCount];
+            [self showAdsWithType:@"SP" andHopID:h.identifier];
+            self.needShowAD = NO;
+        }
     }];
-
 }
 
 
@@ -66,6 +72,7 @@
     
     [self updateTable];
 
+    self.needShowAD = YES;
     if (self.isDailyHops) {
         [[CHHopsManager instance] refreshDailyHops];
     } else {

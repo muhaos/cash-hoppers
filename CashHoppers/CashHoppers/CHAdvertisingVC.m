@@ -7,38 +7,72 @@
 //
 
 #import "CHAdvertisingVC.h"
+#import "CHAPIClient.h"
+
 
 @interface CHAdvertisingVC ()
 
 @end
 
 @implementation CHAdvertisingVC
-@synthesize headerLabel,reclamaImageView,bottomHeaderLabel,bottomLabel;
+@synthesize reclamaImageView;
 
-
-+ (CHAdvertisingVC*) sharedAdverticingVC {
-    static CHAdvertisingVC* instance = nil;
-    if (instance == nil) {
-        instance = [[CHAdvertisingVC alloc] initWithNibName:@"CHAdvertisingVC" bundle:nil];
-    }
++ (CHAdvertisingVC*) instanceWithAdType:(NSString*)adType andHopID:(NSNumber*) hopID {
+    CHAdvertisingVC* instance = [[CHAdvertisingVC alloc] initWithNibName:@"CHAdvertisingVC" bundle:nil];
+    [instance loadAdWithAdType:adType andHopID:hopID];
+    instance.selfRef = instance;
+    instance.view.hidden = YES;
     return instance;
 }
 
 
-- (void) showInController:(UIViewController*) c
-          withHeaderLabel:(NSString*) header
-                withImage:(UIImage*) image
-    withBottomHeaderLabel:(NSString*) bottomHeader
-          withBottomLabel:(NSString*)bottom; {
-    if (self.view.superview != nil) {
-        @throw [NSException exceptionWithName:@"CHAdvertisingVC" reason:@"Reclama already showed!" userInfo:nil];
+- (void) loadAdWithAdType:(NSString*)adType andHopID:(NSNumber*) hopID {
+    
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/ads/get_ads.json?api_key=%@&authentication_token=%@&ad_type=%@", CH_API_KEY, aToken, adType];
+    
+    if (hopID != nil) {
+        path = [path stringByAppendingFormat:@"&hop_id=%i", [hopID intValue]];
     }
-    [c.view addSubview:self.view];
-    self.view.frame = c.view.bounds;
-    self.headerLabel.text = header;
-    self.reclamaImageView.image = image;
-    self.bottomHeaderLabel.text = bottomHeader;
-    self.bottomLabel.text = bottom;
+    
+    
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
+    
+    NSLog(@"REQUEST TO : %@", [request.URL description]);
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        NSDictionary* ads_json = [JSON objectForKey:@"ad"];
+        if (ads_json) {
+            self.adsLinkUrlString = [ads_json objectForKey:@"link"];
+            self.adsImageUrlString = [ads_json objectForKey:@"picture"];
+            self.view.hidden = NO;
+            [self setupADS];
+        } else {
+            [self closeTapped:nil];
+        }
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+
+        UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [av show];
+    
+    }];
+    
+    [operation start];
+}
+
+
+- (void) setupADS {
+    
+    NSURL* imageURL = [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:self.adsImageUrlString]];
+    [self.reclamaImageView setImageWithURL:imageURL];
+
+}
+
+
+- (IBAction)adsTapped:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.adsLinkUrlString]];
 }
 
 
@@ -64,15 +98,13 @@
 }
 
 - (void)viewDidUnload {
-    [self setHeaderLabel:nil];
-    [self setBottomHeaderLabel:nil];
-    [self setBottomLabel:nil];
     [super viewDidUnload];
 }
 
 
 - (IBAction)closeTapped:(id)sender {
-       [self.view removeFromSuperview];
+    [self.view removeFromSuperview];
+    self.selfRef = nil;
 }
 
 

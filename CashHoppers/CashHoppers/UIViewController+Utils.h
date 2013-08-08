@@ -12,4 +12,7 @@
 
 - (void) setupTriangleBackButton;
 
+// ads
+- (void) showAdsWithType:(NSString*) adsType andHopID:(NSNumber*) hopID;
+
 @end

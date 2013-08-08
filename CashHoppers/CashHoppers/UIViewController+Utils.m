@@ -7,6 +7,8 @@
 //
 
 #import "UIViewController+Utils.h"
+#import "CHAdvertisingVC.h"
+#import "CHAppDelegate.h"
 
 @implementation UIViewController (Utils)
 
@@ -20,5 +22,19 @@
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
     self.navigationItem.leftBarButtonItem = backButton;
 }
+
+
+- (void) showAdsWithType:(NSString*) adsType andHopID:(NSNumber*) hopID {
+    CHAdvertisingVC* vc = [CHAdvertisingVC instanceWithAdType:adsType andHopID:hopID];
+    UIWindow* w = ((CHAppDelegate*)[[UIApplication sharedApplication] delegate]).window;
+    
+    [w addSubview:vc.view];
+    CGRect r = w.bounds;
+    r.origin.y = 20.0f;
+    r.size.height = r.size.height - 20;
+    vc.view.frame = r;
+
+}
+
 
 @end
