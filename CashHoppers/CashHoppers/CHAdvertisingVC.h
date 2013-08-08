@@ -11,6 +11,7 @@
 @interface CHAdvertisingVC : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIImageView *reclamaImageView;
+@property (strong, nonatomic) IBOutlet UIView* container;
 
 @property (strong, nonatomic) CHAdvertisingVC* selfRef;
 

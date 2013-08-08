@@ -40,5 +40,7 @@
 - (IBAction) dailyHopPressed:(id)sender;
 - (IBAction) playNowPressed:(id)sender;
 - (IBAction) menuTapped:(id)sender;
+- (IBAction) topBannerTapped:(id)sender;
+
 
 @end

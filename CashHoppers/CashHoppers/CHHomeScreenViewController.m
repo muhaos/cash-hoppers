@@ -26,6 +26,9 @@
 @property (nonatomic, retain) id feedItemUpdatedNotification;
 @property (nonatomic, retain) CHFriendsFeedItem* currentFeedItem;
 
+@property (nonatomic, retain) NSURL* adsImageURL;
+@property (nonatomic, retain) NSURL* adsLinkURL;
+
 @end
 
 @implementation CHHomeScreenViewController
@@ -81,7 +84,43 @@
 
     [self updateOtherHopsSection];
     [self updateFriendsFeedSection];
+    
+    [self loadTopADS];
 }
+
+
+- (void) loadTopADS {
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/ads/get_ads.json?api_key=%@&authentication_token=%@&ad_type=%@", CH_API_KEY, aToken, @"RCH"];
+    
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        NSDictionary* ads_json = [JSON objectForKey:@"ad"];
+        if (ads_json) {
+            
+            self.adsImageURL = [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:[ads_json objectForKey:@"picture"]]];
+            [self.bannerImView setImageWithURL:self.adsImageURL];
+            self.adsLinkURL = [NSURL URLWithString:[ads_json objectForKey:@"link"]];
+        }
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        
+        UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [av show];
+        
+    }];
+    
+    [operation start];
+}
+
+
+- (IBAction) topBannerTapped:(id)sender {
+    [[UIApplication sharedApplication] openURL:self.adsLinkURL];
+}
+
+
 
 
 - (void) updateFriendsFeedSection {

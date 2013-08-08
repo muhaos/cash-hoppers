@@ -30,10 +30,19 @@
     vc.ownerController = self;
     [w addSubview:vc.view];
     CGRect r = w.bounds;
-    r.origin.y = 20.0f;
-    r.size.height = r.size.height - 20;
+    float offset = 20.0f;
+    r.origin.y = offset;
+    r.size.height = r.size.height - offset;
     vc.view.frame = r;
-
+    
+    // 3/4 ads
+    if ([adsType isEqualToString:@"RPOU"]) {
+        float offset = vc.container.frame.size.height * 0.25f;
+        CGRect r = vc.container.frame;
+        r.origin.y += offset;
+        r.size.height -= offset;
+        vc.container.frame = r;
+    }
 }
 
 
