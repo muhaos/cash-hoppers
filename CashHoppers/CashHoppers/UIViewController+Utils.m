@@ -27,7 +27,7 @@
 - (void) showAdsWithType:(NSString*) adsType andHopID:(NSNumber*) hopID {
     CHAdvertisingVC* vc = [CHAdvertisingVC instanceWithAdType:adsType andHopID:hopID];
     UIWindow* w = ((CHAppDelegate*)[[UIApplication sharedApplication] delegate]).window;
-    
+    vc.ownerController = self;
     [w addSubview:vc.view];
     CGRect r = w.bounds;
     r.origin.y = 20.0f;

@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSString* adsImageUrlString;
 @property (nonatomic, strong) NSString* adsLinkUrlString;
 
+@property (nonatomic, assign) UIViewController* ownerController;
+
 - (IBAction)closeTapped:(id)sender;
 - (IBAction)adsTapped:(id)sender;
 

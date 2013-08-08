@@ -13,6 +13,7 @@
 - (void) setupTriangleBackButton;
 
 // ads
+// - (void) adsClosedTapped; will be called if selector exists
 - (void) showAdsWithType:(NSString*) adsType andHopID:(NSNumber*) hopID;
 
 @end

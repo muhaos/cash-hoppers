@@ -64,6 +64,7 @@
 {
     [super viewWillAppear:animated];
     [self reloadData];
+    [self showAdsWithType:@"RPOU" andHopID:nil];
 }
 
 

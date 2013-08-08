@@ -105,6 +105,10 @@
 - (IBAction)closeTapped:(id)sender {
     [self.view removeFromSuperview];
     self.selfRef = nil;
+    
+    if ([self.ownerController respondsToSelector:@selector(adsClosedTapped)]) {
+        [self.ownerController performSelector:@selector(adsClosedTapped)];
+    }
 }
 
 

@@ -85,6 +85,8 @@
     [super viewWillAppear:animated];
     self.oldNavBarStatus = self.navigationController.navigationBarHidden;
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    [self showAdsWithType:@"RPOU" andHopID:nil];
 }
 
 

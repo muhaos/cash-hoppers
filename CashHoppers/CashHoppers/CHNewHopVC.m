@@ -239,16 +239,18 @@
 
     [[CHHopsManager instance] completeHopTask:self.currentHopTask withPhoto:photoImView.image comment:_textView.text completionHandler:^(BOOL success) {
         if (success) {
-//            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"SUCCED" message:@"Hop submited. Now you can share this hop for additional points." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//            [av show];
-//            [self backButtonTapped];
-            [CHSharingPopupVC instance].imageToShare = self.photoImView.image;
-            [[CHSharingPopupVC instance]showInController:self];
-
+            [self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier];
         }
         [[CHLoadingVC sharedLoadingVC] hide];
     }];
 }
+
+
+- (void) adsClosedTapped {
+    [CHSharingPopupVC instance].imageToShare = self.photoImView.image;
+    [[CHSharingPopupVC instance]showInController:self];
+}
+
 
 - (IBAction)menuTapped:(id)sender {
     [self.slidingViewController anchorTopViewTo:ECRight];
