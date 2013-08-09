@@ -17,7 +17,7 @@
     NSDictionary* prizeDic = [dic objectForKey:@"prize"];
     NSDictionary* friendDic = [prizeDic objectForKey:@"user"];
     
-    self.userAvatarURLString = [friendDic objectForKey:@"avatar"];
+    self.userAvatarURLString = [CHBaseModel safeStringFrom:[friendDic objectForKey:@"avatar"] defaultValue:nil] ;
     self.userName = [NSString stringWithFormat:@"%@ %@", [friendDic objectForKey:@"first_name"], [friendDic objectForKey:@"last_name"]];
 }
 

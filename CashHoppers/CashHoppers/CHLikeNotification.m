@@ -19,7 +19,7 @@
     NSDictionary* likeDic = [dic objectForKey:@"like"];
     NSDictionary* friendDic = [likeDic objectForKey:@"user"];
     
-    self.userAvatarURLString = [friendDic objectForKey:@"avatar"];
+    self.userAvatarURLString = [CHBaseModel safeStringFrom:[friendDic objectForKey:@"avatar"] defaultValue:nil] ;
     self.userName = [NSString stringWithFormat:@"%@ %@", [friendDic objectForKey:@"first_name"], [friendDic objectForKey:@"last_name"]];
     
     self.user_hop_task_id = [likeDic objectForKey:@"user_hop_task_id"];

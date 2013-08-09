@@ -38,6 +38,16 @@
 }
 
 
+- (void) acceptFriendRequestForFriendID:(NSNumber*)friendID completionHandler:(void (^)(NSError* error)) handler {
+    [self requestWithMethod:@"POST" :[NSString stringWithFormat:@"/api/friends/accept_request.json?friend_id=%i", [friendID intValue]] :handler];
+}
+
+
+- (void) declineFriendRequestForFriendID:(NSNumber*)friendID completionHandler:(void (^)(NSError* error)) handler {
+    [self requestWithMethod:@"POST" :[NSString stringWithFormat:@"/api/friends/decline_request.json?friend_id=%i", [friendID intValue]] :handler];
+}
+
+
 
 - (void) loadUserForID:(NSNumber*) _id completionHandler:(void (^)(CHUser* user)) handler {
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];

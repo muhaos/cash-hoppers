@@ -157,7 +157,7 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return YES if you want the specified item to be editable.
     CHMessage* message = [self.currentMessagesList objectAtIndex:indexPath.row];
-    if ([message.sender_id intValue] != [self.currentFriendID intValue]) {
+    if ([message.sender_id intValue] == [self.currentFriendID intValue]) {
         return NO;
     }
     return YES;

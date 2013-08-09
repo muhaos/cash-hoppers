@@ -23,4 +23,8 @@
 - (void) loadFriendsWithCompletionHandler:(void (^)(NSArray* friends)) handler;
 
 
+- (void) acceptFriendRequestForFriendID:(NSNumber*)friendID completionHandler:(void (^)(NSError* error)) handler;
+
+- (void) declineFriendRequestForFriendID:(NSNumber*)friendID completionHandler:(void (^)(NSError* error)) handler;
+
 @end

@@ -15,6 +15,7 @@
 #import "CHNotificationsManager.h"
 #import "CHDetailsFeedVC.h"
 #import "CHFriendsFeedManager.h"
+#import "CHUserManager.h"
 
 
 @interface CHMessagesVC () <CHMessagesCellDelegate>
@@ -97,12 +98,22 @@
 
 
 - (void) acceptTappedForNotification:(CHFriendInviteNotification*) notif {
-    
+    [[CHUserManager instance] acceptFriendRequestForFriendID:notif.friendID completionHandler:^(NSError* error) {
+        if (error == nil) {
+            notif.friends_status = @"accepted";
+            [messagesTable reloadData];
+        }
+    }];
 }
 
 
 - (void) declineTappedForNotification:(CHFriendInviteNotification*) notif {
-    
+    [[CHUserManager instance] declineFriendRequestForFriendID:notif.friendID completionHandler:^(NSError* error) {
+        if (error == nil) {
+            notif.friends_status = nil;
+            [messagesTable reloadData];
+        }
+    }];
 }
 
 
@@ -162,8 +173,10 @@
                 break;
             }
             case CHNotificationTypeFriendInvite: {
-                cell.acceptButton.hidden = NO;
-                cell.declineButton.hidden = NO;
+                if ([((CHFriendInviteNotification*)notif).friends_status isEqualToString:@"requested"]) {
+                    cell.acceptButton.hidden = NO;
+                    cell.declineButton.hidden = NO;
+                }
 
                 [[cell likeCommentImageView] setHidden:YES];
                 [cell setAccessoryType:UITableViewCellAccessoryNone];

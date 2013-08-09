@@ -19,7 +19,7 @@
     NSDictionary* commentDic = [dic objectForKey:@"comment"];
     NSDictionary* friendDic = [commentDic objectForKey:@"user"];
     
-    self.userAvatarURLString = [friendDic objectForKey:@"avatar"];
+    self.userAvatarURLString = [CHBaseModel safeStringFrom:[friendDic objectForKey:@"avatar"] defaultValue:nil] ;
     self.userName = [NSString stringWithFormat:@"%@ %@", [friendDic objectForKey:@"first_name"], [friendDic objectForKey:@"last_name"]];
 
     self.user_hop_task_id = [commentDic objectForKey:@"user_hop_task_id"];

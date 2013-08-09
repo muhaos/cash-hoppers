@@ -18,11 +18,20 @@
     self.friendID = [friendDic objectForKey:@"id"];
     self.userAvatarURLString = [CHBaseModel safeStringFrom:[friendDic objectForKey:@"avatar"] defaultValue:nil] ;
     self.userName = [NSString stringWithFormat:@"%@ %@", [friendDic objectForKey:@"first_name"], [friendDic objectForKey:@"last_name"]];
+    self.friends_status = [CHBaseModel safeStringFrom:[friendDic objectForKey:@"friendship_status"] defaultValue:nil];
 }
 
 
 - (NSAttributedString*) notificationDescription {
-    return [self attributedString:@"Invited you to be friends." withBoldString:nil];
+    NSString* s = @"Invited you to be friends. ";
+    if ([self.friends_status isEqualToString:@"accepted"]) {
+        s = [s stringByAppendingString:@"You accepted the invitation."];
+    }
+    if (self.friends_status == nil) {
+        s = [s stringByAppendingString:@"Invitation declined."];
+    }
+    
+    return [self attributedString:s withBoldString:nil];
 }
 
 

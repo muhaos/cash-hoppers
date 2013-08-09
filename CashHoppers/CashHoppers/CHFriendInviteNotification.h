@@ -11,6 +11,7 @@
 @interface CHFriendInviteNotification : CHBaseNotification
 
 @property (nonatomic, retain) NSNumber* friendID;
+@property (nonatomic, retain) NSString* friends_status;
 
 - (NSAttributedString*) notificationDescription;
 - (void) updateFromDictionary:(NSDictionary*) dic;
