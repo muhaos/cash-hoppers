@@ -9,6 +9,7 @@
 #import "CHAddFriendVC.h"
 #import "CHUserManager.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CHUserManager.h"
 
 @interface CHAddFriendVC ()
 
@@ -17,7 +18,7 @@
 @end
 
 @implementation CHAddFriendVC
-@synthesize nameLabel, photoImageView;
+@synthesize nameLabel, photoImageView, inviteSentCheckmarkImageView, inviteSentLabel;
 
 - (void)viewDidLoad
 {
@@ -31,6 +32,9 @@
     
     photoImageView.layer.cornerRadius = 4.0f;
     photoImageView.layer.masksToBounds = YES;
+    
+    inviteSentLabel.hidden = YES;
+    inviteSentCheckmarkImageView.hidden = YES;
 }
 
 
@@ -53,13 +57,33 @@
     [self setCountFriendsLabel:nil];
     [self setYourFriendsImageView:nil];
     [self setAddFriendButton:nil];
+    [self setInviteSentCheckmarkImageView:nil];
+    [self setInviteSentLabel:nil];
     [super viewDidUnload];
 }
 
 
 - (IBAction)addFriendTapped:(id)sender
 {
-    self.addFriendButton.hidden = YES;
+    self.addFriendButton.enabled = NO;
+
+    
+    [[CHUserManager instance] sendFriendInvitationToUser:self.currentUser withCompletionHandler:^(NSError *error) {
+        
+        if ([error isEqual: @"200"]){
+            
+            self.addFriendButton.hidden = YES;
+            inviteSentCheckmarkImageView.hidden = NO;
+            inviteSentLabel.hidden = NO;
+            self.addFriendButton.enabled = YES;
+            self.addFriendButton.hidden = YES;
+            
+        }else if ([error isEqual:@"406"]){
+            self.addFriendButton.enabled = YES;
+        }
+    }];
+
+    
 //    [self.yourFriendsImageView setImage:[UIImage imageNamed:@"you_are_friends.png"]];
 }
 

@@ -18,6 +18,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *countFriendsLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *yourFriendsImageView;
 @property (strong, nonatomic) IBOutlet UIButton *addFriendButton;
+@property (strong, nonatomic) IBOutlet UIImageView *inviteSentCheckmarkImageView;
+@property (strong, nonatomic) IBOutlet UILabel *inviteSentLabel;
 
 @property (strong, nonatomic) CHUser* currentUser;
 
