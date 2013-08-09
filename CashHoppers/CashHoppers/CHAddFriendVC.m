@@ -70,15 +70,14 @@
     
     [[CHUserManager instance] sendFriendInvitationToUser:self.currentUser withCompletionHandler:^(NSError *error) {
         
-        if ([error isEqual: @"200"]){
-            
+        if (error == nil){
             self.addFriendButton.hidden = YES;
             inviteSentCheckmarkImageView.hidden = NO;
             inviteSentLabel.hidden = NO;
             self.addFriendButton.enabled = YES;
             self.addFriendButton.hidden = YES;
             
-        }else if ([error isEqual:@"406"]){
+        } else {
             self.addFriendButton.enabled = YES;
         }
     }];

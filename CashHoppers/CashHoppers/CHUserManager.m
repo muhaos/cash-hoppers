@@ -181,18 +181,14 @@
 - (void) sendFriendInvitationToUser:(CHUser*) user withCompletionHandler:(void (^)(NSError* error)) handler {
     
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
-    NSDecimalNumber *identifier = [NSDecimalNumber decimalNumberWithString:[user.identifier stringValue]];
-    NSString *path = [NSString stringWithFormat:@"api/friends/send_request.json?api_key=%@&authentication_token=%@&friend_id=%@",CH_API_KEY, aToken, identifier];
+    NSString *path = [NSString stringWithFormat:@"/api/friends/send_request.json?api_key=%@&authentication_token=%@&friend_id=%i",CH_API_KEY, aToken, [user.identifier intValue]];
     
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"POST" path:path parameters:nil];
     
     NSLog(@"REQUEST TO : %@", [request.URL description]);
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        
-        NSArray* resultArray = [JSON objectForKey:@"status"];
-        handler(resultArray);
-        
+        handler(nil);
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
         handler(error);
