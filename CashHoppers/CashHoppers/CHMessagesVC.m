@@ -17,7 +17,7 @@
 #import "CHFriendsFeedManager.h"
 
 
-@interface CHMessagesVC ()
+@interface CHMessagesVC () <CHMessagesCellDelegate>
 
 @property (assign, nonatomic) BOOL messagesButtonActive;
 @property (nonatomic, retain) NSArray* currentMessagesList;
@@ -96,6 +96,16 @@
 }
 
 
+- (void) acceptTappedForNotification:(CHFriendInviteNotification*) notif {
+    
+}
+
+
+- (void) declineTappedForNotification:(CHFriendInviteNotification*) notif {
+    
+}
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -118,7 +128,10 @@
     static NSString *messagesCellIdentifier = @"messages_cell_id";
     
     CHMessagesCell *cell = (CHMessagesCell*) [tableView dequeueReusableCellWithIdentifier:messagesCellIdentifier];
-
+    
+    cell.acceptButton.hidden = YES;
+    cell.declineButton.hidden = YES;
+    
     if (self.messagesButtonActive) {
         CHMessage* message = [self.currentItemsList objectAtIndex:indexPath.row];
         
@@ -131,6 +144,9 @@
         [[cell likeCommentImageView ] setImage:[UIImage imageNamed:@"comment_icon_on"]];
     } else {
         CHBaseNotification* notif = [self.currentItemsList objectAtIndex:indexPath.row];
+
+        cell.currentNotification = notif;
+        cell.delegate = self;
         
         [[cell nameLabel] setText: notif.userName];
         [[cell photoImageView] setImageWithURL: [notif userAvatarURL]];
@@ -138,9 +154,17 @@
         cell.timeLabel.text = [NSString stringWithFormat:@"%@ ago", notif.time_ago];
         
         switch (notif.notificationType) {
+            case CHNotificationTypeNone:
             case CHNotificationTypeFriendInviteAccepted:
-            case CHNotificationTypeEndOfHop:
+            case CHNotificationTypeEndOfHop: {
+                [[cell likeCommentImageView] setHidden:YES];
+                [cell setAccessoryType:UITableViewCellAccessoryNone];
+                break;
+            }
             case CHNotificationTypeFriendInvite: {
+                cell.acceptButton.hidden = NO;
+                cell.declineButton.hidden = NO;
+
                 [[cell likeCommentImageView] setHidden:YES];
                 [cell setAccessoryType:UITableViewCellAccessoryNone];
                 break;

@@ -35,6 +35,16 @@
 }
 
 
+- (IBAction) acceptTapped:(id)sender {
+    [self.delegate acceptTappedForNotification:(CHFriendInviteNotification*)self.currentNotification];
+}
+
+
+- (IBAction) declineTapped:(id)sender {
+    [self.delegate declineTappedForNotification:(CHFriendInviteNotification*)self.currentNotification];
+}
+
+
 //messages_cell_id
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
