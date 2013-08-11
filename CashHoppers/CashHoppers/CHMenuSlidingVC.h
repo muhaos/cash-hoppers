@@ -11,4 +11,6 @@
 @interface CHMenuSlidingVC : UIViewController
 @property (strong, nonatomic) IBOutlet UITableView *menuTable;
 
+- (IBAction)logoutButtonTapped:(id)sender;
+
 @end
