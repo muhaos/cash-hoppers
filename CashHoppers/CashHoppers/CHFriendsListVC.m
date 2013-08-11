@@ -16,6 +16,7 @@
 #import "CHHop.h"
 #import "CHAPIClient.h"
 #import "CHDetailsFeedVC.h"
+#import "CHAddFriendVC.h"
 
 @interface CHFriendsListVC ()
 
@@ -109,10 +110,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"detailsFeed"]){
-        
         CHDetailsFeedVC *detailVC = (CHDetailsFeedVC*)segue.destinationViewController;
         detailVC.feedItem = (CHFriendsFeedItem*)[self.feedItems objectAtIndex:[friendsTable indexPathForSelectedRow].row];
-        
     }
 }
 
@@ -167,7 +166,8 @@
     
     [cell.imageView setImage:nil];
     
-
+    cell.currentFeedItem = (CHFriendsFeedItem*)[self.feedItems objectAtIndex:indexPath.row];
+///
     if (self.friendsButtonActive == YES) {
         
         [[cell commentButton] setHidden:NO];
@@ -234,7 +234,13 @@
 }
 
 
-- (IBAction)addFriendTapped:(id)sender {
+- (void)addToFriendsTappedInCell:(CHFriendsListCell*)cell
+{
+    static NSString *friendsCellIdentifier = @"friends_list_cell";
+    
+    cell = (CHFriendsListCell*) [friendsTable dequeueReusableCellWithIdentifier:friendsCellIdentifier];
+    
+    [self performSegueWithIdentifier:@"add_friend_cell" sender:cell.currentFeedItem];
 }
 
 
