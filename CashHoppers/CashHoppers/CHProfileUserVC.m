@@ -9,6 +9,7 @@
 #import "CHProfileUserVC.h"
 #import "CHUserManager.h"
 #import "CHLoadingVC.h"
+#import "CHNotificationsCell.h"
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
@@ -22,16 +23,18 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 }
 
 @property (nonatomic, retain) UIImage* changedAvatarImage;
+@property (assign, nonatomic) BOOL profileButtonActive;
 
 @end
 
 @implementation CHProfileUserVC
-@synthesize scrollView, bioTextView, emailTextField, firstNameTextField, lastNameTextField,zipTextField, usernameTextField, twitterTextField, facebookTextField;
+@synthesize scrollView, bioTextView, emailTextField, firstNameTextField, lastNameTextField,zipTextField, usernameTextField, twitterTextField, facebookTextField, profileButton, notificationsButton, notificationsTableView;
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+        
     CHUser* user = [CHUserManager instance].currentUser;
     
     [self.bioTextView setText:user.bio];
@@ -49,6 +52,9 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [self.photoImageView setImageWithURL:[user avatarURL] placeholderImage:[UIImage imageNamed:@"image_avatar.png"]];
     
     [self setupTriangleBackButton];
+    
+    self.profileButtonActive = YES;
+    [self activeButton:YES];
     
     self.scrollView.frame = CGRectMake(0, 0, 320, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height);
     self.scrollView.contentSize = CGSizeMake(320.0f, 750.0f);
@@ -103,6 +109,20 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction)profileButtonTapped:(id)sender
+{
+    self.profileButtonActive = YES;
+    [self activeButton:self.profileButtonActive];
+}
+
+
+- (IBAction)notificationsButtonTapped:(id)sender
+{
+    self.profileButtonActive = NO;
+    [self activeButton:self.profileButtonActive];
 }
 
 
@@ -201,6 +221,96 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 }
 
 
+-(void)activeButton:(BOOL)profilesButton {
+    if (profilesButton == YES) {
+        [profileButton setImage:[UIImage imageNamed:@"button_profile_act"] forState:UIControlStateNormal];
+        [notificationsButton setImage:[UIImage imageNamed:@"button_notific_n"] forState:UIControlStateNormal];
+        [notificationsTableView removeFromSuperview];
+        scrollView.hidden = NO;
+    } else {
+        [profileButton setImage:[UIImage imageNamed:@"button_profile_n"] forState:UIControlStateNormal];
+        [notificationsButton setImage:[UIImage imageNamed:@"button_notific_act"] forState:UIControlStateNormal];
+        scrollView.hidden = YES;
+        [self.view addSubview:notificationsTableView];
+        notificationsTableView.frame = CGRectMake(0, profileButton.frame.origin.y+60, 320, 220);
+    }
+}
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 44;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *menuCellIdentifier = @"notifications_cell";
+    
+    if (indexPath.section == 0) {
+        CHNotificationsCell *cell = (CHNotificationsCell*) [tableView dequeueReusableCellWithIdentifier:menuCellIdentifier];
+        switch (indexPath.row) {
+            case 0:
+                cell.nameNotificationTextView.text = @"Alert me when I receive a message";
+                cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
+                break;
+            case 1:
+                cell.nameNotificationTextView.text = @"Alert me about new HOPs";
+                cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
+                break;
+            case 2:
+                cell.nameNotificationTextView.text = @"Alert me when sameone comments or likes my picks";
+                cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
+                break;
+            case 3:
+                cell.nameNotificationTextView.text = @"Alert me when I have a Friend Request";
+                cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_off.png"];
+                break;
+            case 4:{
+                cell.nameNotificationTextView.text = @"Alert me when a HOP is about to end if I have not completed it";
+                cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_off.png"];
+                break;
+            }
+            default:
+                break;
+        }
+        return cell;
+    } else {
+        return nil;
+    }
+}
+
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    return indexPath;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{    
+    CHNotificationsCell *cell = (CHNotificationsCell*) [tableView cellForRowAtIndexPath:indexPath];
+    
+    if (cell.indicatorImageView.image == [UIImage imageNamed:@"icon_indicator_on.png"]) {
+        cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_off.png"];
+    }else {
+        cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
 - (void)viewDidUnload {
     [self setPhotoImageView:nil];
     [self setBioTextView:nil];
@@ -212,6 +322,9 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [self setTwitterTextField:nil];
     [self setFacebookTextField:nil];
     [self setScrollView:nil];
+    [self setProfileButton:nil];
+    [self setNotificationsButton:nil];
+    [self setNotificationsTableView:nil];
     [super viewDidUnload];
 }
 

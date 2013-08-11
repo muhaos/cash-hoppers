@@ -26,8 +26,12 @@
 @property (strong, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIButton *saveButton;
+@property (strong, nonatomic) IBOutlet UIButton *profileButton;
+@property (strong, nonatomic) IBOutlet UIButton *notificationsButton;
+@property (strong, nonatomic) IBOutlet UITableView *notificationsTableView;
 
-
+- (IBAction)profileButtonTapped:(id)sender;
+- (IBAction)notificationsButtonTapped:(id)sender;
 - (IBAction) photoButtonTapped:(id)sender;
 - (IBAction) saveTapped;
 

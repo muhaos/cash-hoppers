@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -1482,7 +1482,7 @@
             <objects>
                 <viewController storyboardIdentifier="DetailFeedVC" id="jPZ-MB-CzT" customClass="CHDetailsFeedVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BRh-qX-Sku">
-                        <rect key="frame" x="0.0" y="64" width="320" height="900"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="iYL-i3-iPO">
@@ -3256,15 +3256,15 @@
             <objects>
                 <viewController id="mzX-2v-l7Z" customClass="CHProfileUserVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nwe-ng-oK8">
-                        <rect key="frame" x="0.0" y="64" width="320" height="750"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="830"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="L3T-Ch-ajW">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="785"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dpZ-bv-Tog" userLabel="Button Photo">
-                                        <rect key="frame" x="131" y="19" width="58" height="58"/>
+                                        <rect key="frame" x="131" y="54" width="58" height="58"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="button_photo_border.png">
@@ -3280,11 +3280,11 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="image_avatar.png" id="gm5-cA-MrN">
-                                        <rect key="frame" x="134" y="22" width="52" height="52"/>
+                                        <rect key="frame" x="134" y="57" width="52" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" id="nhF-BV-zJE">
-                                        <rect key="frame" x="14" y="87" width="289" height="75"/>
+                                        <rect key="frame" x="14" y="122" width="289" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="qPZ-6A-36r">
@@ -3316,7 +3316,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="L4w-M7-isn" userLabel="Email Input View">
-                                        <rect key="frame" x="18" y="169" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="204" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="LFt-X4-LF7">
@@ -3350,7 +3350,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="yqy-uW-Liq" userLabel="FirstName Input View">
-                                        <rect key="frame" x="18" y="209" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="244" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="xcB-7Q-elY">
@@ -3384,7 +3384,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="p3u-UF-HcW" userLabel="LastName Input View">
-                                        <rect key="frame" x="18" y="250" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="285" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="jy7-aE-2sq">
@@ -3418,7 +3418,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="fvG-8w-VYb" userLabel="Zip Input View">
-                                        <rect key="frame" x="18" y="289" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="324" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="ZjH-fO-SQG">
@@ -3452,7 +3452,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="mw8-ol-3IM" userLabel="Username Input View">
-                                        <rect key="frame" x="18" y="329" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="364" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="qrx-Ol-c8x">
@@ -3486,7 +3486,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="yVE-Zg-GF8" userLabel="Password Input View">
-                                        <rect key="frame" x="18" y="369" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="404" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="Uoa-hf-6B0">
@@ -3520,7 +3520,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="T41-ST-f1O" userLabel="Confirm Pasword Input View">
-                                        <rect key="frame" x="18" y="410" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="445" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="MhU-NJ-oub">
@@ -3554,7 +3554,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="iBy-i6-WyB" userLabel="Twitter Input View">
-                                        <rect key="frame" x="18" y="451" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="486" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="Z5l-hC-O49">
@@ -3588,7 +3588,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="39j-do-UDN" userLabel="Twitter Input View">
-                                        <rect key="frame" x="18" y="491" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="526" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="Eow-Ah-K7h">
@@ -3622,7 +3622,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="cwa-nR-jzg" userLabel="G+">
-                                        <rect key="frame" x="18" y="532" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="567" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="v6y-Vl-Vbl">
@@ -3650,7 +3650,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="qzV-rF-oXa" userLabel="contact">
-                                        <rect key="frame" x="18" y="573" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="608" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="6Hp-by-kf0">
@@ -3678,7 +3678,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="l9s-eY-qAS" userLabel="Phone">
-                                        <rect key="frame" x="18" y="614" width="287" height="36"/>
+                                        <rect key="frame" x="18" y="649" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="RBf-8K-MoW">
@@ -3706,11 +3706,11 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="edit_photo.png" id="F5S-W9-DBV">
-                                        <rect key="frame" x="173" y="22" width="14" height="14"/>
+                                        <rect key="frame" x="173" y="56" width="14" height="14"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KWc-IQ-MqX">
-                                        <rect key="frame" x="96" y="682" width="128" height="34"/>
+                                        <rect key="frame" x="96" y="717" width="128" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="button_save.png">
@@ -3729,6 +3729,36 @@
                                     <outlet property="delegate" destination="mzX-2v-l7Z" id="E5i-Q5-9tg"/>
                                 </connections>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nP3-DV-cyp">
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Profile">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="profileButtonTapped:" destination="mzX-2v-l7Z" eventType="touchUpInside" id="wv3-0t-UUV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Klr-yv-bCs">
+                                <rect key="frame" x="160" y="0.0" width="160" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Notifications">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="notificationsButtonTapped:" destination="mzX-2v-l7Z" eventType="touchUpInside" id="7Qf-z6-CJ7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -3745,8 +3775,11 @@
                         <outlet property="firstNameTextField" destination="Oip-fL-07Z" id="U4C-o9-0l5"/>
                         <outlet property="googlePlusTextField" destination="7fk-KN-h1F" id="v93-zn-cTP"/>
                         <outlet property="lastNameTextField" destination="fub-nm-ZDM" id="9bU-AT-Xge"/>
+                        <outlet property="notificationsButton" destination="Klr-yv-bCs" id="yJW-Gg-cZb"/>
+                        <outlet property="notificationsTableView" destination="cTb-Ub-Sik" id="ouh-xo-ni0"/>
                         <outlet property="phoneTextField" destination="Td8-p5-SPi" id="U0z-8s-sFt"/>
                         <outlet property="photoImageView" destination="gm5-cA-MrN" id="tSY-re-ot2"/>
+                        <outlet property="profileButton" destination="nP3-DV-cyp" id="XDX-6n-Rww"/>
                         <outlet property="scrollView" destination="L3T-Ch-ajW" id="HM9-P0-cvO"/>
                         <outlet property="twitterTextField" destination="bzo-pN-cFm" id="Bk2-yN-FTe"/>
                         <outlet property="usernameTextField" destination="zC2-Lw-519" id="PG4-DR-YxX"/>
@@ -3754,8 +3787,47 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1n-mB-vqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cTb-Ub-Sik">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="213"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="separatorColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <prototypes>
+                        <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="notifications_cell" rowHeight="44" id="9Ph-AF-9qx" customClass="CHNotificationsCell">
+                            <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="DS4-n3-lYs">
+                                        <rect key="frame" x="13" y="10" width="23" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="aOB-GI-cww">
+                                        <rect key="frame" x="44" y="2" width="256" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <connections>
+                                <outlet property="indicatorImageView" destination="DS4-n3-lYs" id="iyS-Ts-Hbm"/>
+                                <outlet property="nameNotificationTextView" destination="aOB-GI-cww" id="Aya-OD-Iay"/>
+                            </connections>
+                        </tableViewCell>
+                    </prototypes>
+                    <connections>
+                        <outlet property="dataSource" destination="mzX-2v-l7Z" id="DPa-aL-I7I"/>
+                        <outlet property="delegate" destination="mzX-2v-l7Z" id="SjU-Fd-O3f"/>
+                    </connections>
+                </tableView>
             </objects>
-            <point key="canvasLocation" x="974" y="1175"/>
+            <point key="canvasLocation" x="1081" y="1094"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Zl-28-hhK">
@@ -4223,6 +4295,13 @@
                 <relationship kind="outlet" name="winnterButton" candidateClass="UIButton"/>
             </relationships>
         </class>
+        <class className="CHNotificationsCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHNotificationsCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="indicatorImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameNotificationTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
         <class className="CHOtherHopsListCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHOtherHopsListCell.h"/>
             <relationships>
@@ -4260,7 +4339,9 @@
         <class className="CHProfileUserVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHProfileUserVC.h"/>
             <relationships>
+                <relationship kind="action" name="notificationsButtonTapped:"/>
                 <relationship kind="action" name="photoButtonTapped:"/>
+                <relationship kind="action" name="profileButtonTapped:"/>
                 <relationship kind="action" name="saveTapped"/>
                 <relationship kind="outlet" name="bioTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="changePasswordTextField" candidateClass="UITextField"/>
@@ -4271,8 +4352,11 @@
                 <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="googlePlusTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="notificationsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="notificationsTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="phoneTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="profileButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="twitterTextField" candidateClass="UITextField"/>
@@ -4361,9 +4445,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Bjs-zb-Rk3"/>
         <segue reference="lvk-fo-Rcf"/>
+        <segue reference="SWG-0R-sWo"/>
         <segue reference="Wv3-IZ-arJ"/>
-        <segue reference="iNc-aT-tqd"/>
+        <segue reference="Bjs-zb-Rk3"/>
     </inferredMetricsTieBreakers>
 </document>
