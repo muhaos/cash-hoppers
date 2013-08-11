@@ -28,7 +28,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 @end
 
 @implementation CHProfileUserVC
-@synthesize scrollView, bioTextView, emailTextField, firstNameTextField, lastNameTextField,zipTextField, usernameTextField, twitterTextField, facebookTextField, profileButton, notificationsButton, notificationsTableView;
+@synthesize scrollView, bioTextView, emailTextField, firstNameTextField, lastNameTextField,zipTextField, usernameTextField, twitterTextField, facebookTextField, profileButton, notificationsButton, notificationsTableView, saveAlertsButton;
 
 
 - (void)viewDidLoad
@@ -102,6 +102,12 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         
         [[CHLoadingVC sharedLoadingVC] hide];
     }];
+}
+
+
+- (IBAction)saveAlertsButtonTapped:(id)sender
+{
+    
 }
 
 
@@ -227,10 +233,12 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         [notificationsButton setImage:[UIImage imageNamed:@"button_notific_n"] forState:UIControlStateNormal];
         [notificationsTableView removeFromSuperview];
         scrollView.hidden = NO;
+        saveAlertsButton.hidden = YES;
     } else {
         [profileButton setImage:[UIImage imageNamed:@"button_profile_n"] forState:UIControlStateNormal];
         [notificationsButton setImage:[UIImage imageNamed:@"button_notific_act"] forState:UIControlStateNormal];
         scrollView.hidden = YES;
+        saveAlertsButton.hidden = NO;
         [self.view addSubview:notificationsTableView];
         notificationsTableView.frame = CGRectMake(0, profileButton.frame.origin.y+60, 320, 220);
     }
@@ -325,6 +333,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [self setProfileButton:nil];
     [self setNotificationsButton:nil];
     [self setNotificationsTableView:nil];
+    [self setSaveAlertsButton:nil];
     [super viewDidUnload];
 }
 

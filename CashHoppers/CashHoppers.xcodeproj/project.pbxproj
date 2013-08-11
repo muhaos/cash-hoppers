@@ -234,6 +234,7 @@
 		AAF7E8E817B7EB0B00876054 /* CHNotificationsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7E8E717B7EB0B00876054 /* CHNotificationsCell.m */; };
 		AAF7E8EB17B7EF9900876054 /* icon_indicator_off.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF7E8E917B7EF9800876054 /* icon_indicator_off.png */; };
 		AAF7E8EC17B7EF9900876054 /* icon_indicator_on.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF7E8EA17B7EF9900876054 /* icon_indicator_on.png */; };
+		AAF7E8EE17B8122F00876054 /* button_save_alerts.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF7E8ED17B8122F00876054 /* button_save_alerts.png */; };
 		AAFBE33117A1422A00F408C2 /* button_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFBE32F17A1422A00F408C2 /* button_delete.png */; };
 		AAFBE33217A1422A00F408C2 /* compose_new_message.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFBE33017A1422A00F408C2 /* compose_new_message.png */; };
 		AAFBE33517A148D100F408C2 /* CHIndividualMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFBE33417A148D100F408C2 /* CHIndividualMessageVC.m */; };
@@ -665,6 +666,7 @@
 		AAF7E8E717B7EB0B00876054 /* CHNotificationsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHNotificationsCell.m; sourceTree = "<group>"; };
 		AAF7E8E917B7EF9800876054 /* icon_indicator_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_indicator_off.png; sourceTree = "<group>"; };
 		AAF7E8EA17B7EF9900876054 /* icon_indicator_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_indicator_on.png; sourceTree = "<group>"; };
+		AAF7E8ED17B8122F00876054 /* button_save_alerts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_save_alerts.png; sourceTree = "<group>"; };
 		AAFBE32F17A1422A00F408C2 /* button_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_delete.png; sourceTree = "<group>"; };
 		AAFBE33017A1422A00F408C2 /* compose_new_message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compose_new_message.png; sourceTree = "<group>"; };
 		AAFBE33317A148D100F408C2 /* CHIndividualMessageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHIndividualMessageVC.h; sourceTree = "<group>"; };
@@ -1004,6 +1006,7 @@
 		5640158B176B433B00C028CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AAF7E8ED17B8122F00876054 /* button_save_alerts.png */,
 				AAF7E8E917B7EF9800876054 /* icon_indicator_off.png */,
 				AAF7E8EA17B7EF9900876054 /* icon_indicator_on.png */,
 				AAF7E8E217B7E51800876054 /* button_notific_act.png */,
@@ -1806,6 +1809,7 @@
 				AAF7E8E517B7E51900876054 /* button_notific_n.png in Resources */,
 				AAF7E8EB17B7EF9900876054 /* icon_indicator_off.png in Resources */,
 				AAF7E8EC17B7EF9900876054 /* icon_indicator_on.png in Resources */,
+				AAF7E8EE17B8122F00876054 /* button_save_alerts.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

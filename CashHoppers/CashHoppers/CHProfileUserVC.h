@@ -29,10 +29,12 @@
 @property (strong, nonatomic) IBOutlet UIButton *profileButton;
 @property (strong, nonatomic) IBOutlet UIButton *notificationsButton;
 @property (strong, nonatomic) IBOutlet UITableView *notificationsTableView;
+@property (strong, nonatomic) IBOutlet UIButton *saveAlertsButton;
 
 - (IBAction)profileButtonTapped:(id)sender;
 - (IBAction)notificationsButtonTapped:(id)sender;
 - (IBAction) photoButtonTapped:(id)sender;
 - (IBAction) saveTapped;
+- (IBAction)saveAlertsButtonTapped:(id)sender;
 
 @end
