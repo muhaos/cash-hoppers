@@ -12,20 +12,38 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "CHStartVC.h"
 #import "FHSTwitterEngine.h"
+#import "CHFindFriendsCell.h"
+#import <QuartzCore/QuartzCore.h>
+#import "CHAddFriendVC.h"
+#import "CHUserManager.h"
 
 @interface CHFindFriendsVC ()
 
 @end
 
 @implementation CHFindFriendsVC
-@synthesize headerText;
+@synthesize headerText, findFriendsSearchTableView, searchTextField, cancelSearchButton, contentView;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setupTriangleBackButton];
+    [self customTableView];
     [[FHSTwitterEngine sharedEngine]permanentlySetConsumerKey:@"mW5vfqMKEx1HGME7OeGCg" andSecret:@"RjiYj98WZSjKBbHn9r3hGYvMfptYPp5pQCP8h4gNH5A"];
+
+    findFriendsSearchTableView.hidden = YES;
+    cancelSearchButton.hidden = YES;
+    cancelSearchButton.layer.cornerRadius = 2.0f;
+}
+
+
+-(void)customTableView
+{
+    findFriendsSearchTableView.layer.borderColor = [UIColor colorWithRed:204/256.0f green:204/256.0f blue:204/256.0f alpha:0.6f].CGColor;
+    findFriendsSearchTableView.layer.borderWidth = 1.0f;
+    findFriendsSearchTableView.frame = CGRectMake(20, searchTextField.frame.origin.y+35, 280, 240);
+    findFriendsSearchTableView.layer.cornerRadius = 3.0f;
 }
 
 
@@ -42,12 +60,37 @@
 
 - (void)viewDidUnload {
     [self setSearchTextField:nil];
+    [self setCancelSearchButton:nil];
+    [self setContentView:nil];
     [super viewDidUnload];
 }
 
 
--(void)textFieldDidEndEditing:(UITextField *)textField{
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3f];
+    CGRect frame = contentView.frame; frame.origin.y = -55;
+    findFriendsSearchTableView.frame = CGRectMake(20, searchTextField.frame.origin.y+35, 280, 240);
+    [contentView setFrame:frame];
+    [UIView commitAnimations];
+
+    findFriendsSearchTableView.hidden = NO;
+    cancelSearchButton.hidden = NO;
+    [contentView addSubview:findFriendsSearchTableView];
+}
+
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
     [textField resignFirstResponder];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.2f];
+    CGRect frame = contentView.frame; frame.origin.y = 0;
+    findFriendsSearchTableView.frame = CGRectMake(20, searchTextField.frame.origin.y+35, 280, 350);
+    [contentView setFrame:frame];
+    [UIView commitAnimations];
 }
 
 
@@ -58,11 +101,11 @@
 }
 
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"friends"]) {
-        CHAddFriendsSocialNetworksVC* c = (CHAddFriendsSocialNetworksVC*)segue.destinationViewController;
-        c.headerLabel.text = headerText;
-    }
+- (IBAction) searchFieldChanged:(id)sender {
+    [[CHUserManager instance] searchUsersWithQuery:self.searchTextField.text andCompletionHandler:^(NSArray *users) {
+        self.searchResultUsers = users;
+        [findFriendsSearchTableView reloadData];
+    }];
 }
 
 
@@ -108,8 +151,75 @@
 }
 
 
+- (IBAction)cancelSearchButtonTapped:(id)sender {
+    cancelSearchButton.hidden = YES;
+    findFriendsSearchTableView.hidden = YES;
+    searchTextField.text = nil;
+    [searchTextField resignFirstResponder];
+}
+
+
 -(void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.searchResultUsers.count;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 44;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *findFriendsCellIdentifier = @"find_friends";
+    
+    CHFindFriendsCell *cell = (CHFindFriendsCell*) [tableView dequeueReusableCellWithIdentifier:findFriendsCellIdentifier];
+   
+    CHUser* user = self.searchResultUsers[indexPath.row];
+    NSString* userName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
+    [[cell nameLabel] setText:userName];
+    [[cell photoImageView] setImageWithURL:[user avatarURL]];
+
+    cell.photoImageView.layer.cornerRadius = 17.0f;
+    return cell;
+}
+
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    return indexPath;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CHUser* user = self.searchResultUsers[indexPath.row];
+    [self performSegueWithIdentifier:@"add_friend" sender:user];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"friends"]) {
+        CHAddFriendsSocialNetworksVC* c = (CHAddFriendsSocialNetworksVC*)segue.destinationViewController;
+        c.headerLabel.text = headerText;
+    }else if ([segue.identifier isEqualToString:@"add_friend"]){
+        CHAddFriendVC* vc = (CHAddFriendVC*)segue.destinationViewController;
+        vc.currentUser = sender;
+    }
 }
 
 

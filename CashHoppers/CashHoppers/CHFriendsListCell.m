@@ -7,10 +7,12 @@
 //
 
 #import "CHFriendsListCell.h"
+#import "CHAddFriendVC.h"
 
 @implementation CHFriendsListCell
 @synthesize numberCommentsLabel;
 @synthesize numberLikesLabel;
+@synthesize currentFeedItem;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -37,6 +39,11 @@
     
 }
 
-- (IBAction)addFriendTapped:(id)sender {
+
+- (IBAction)addFriendTapped:(id)sender
+{
+    [self.delegate addToFriendsTappedInCell: self];
 }
+
+
 @end

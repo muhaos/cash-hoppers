@@ -157,4 +157,55 @@
 }
 
 
+- (void) searchUsersWithQuery:(NSString*) searchStr andCompletionHandler:(void (^)(NSArray* users)) handler {
+
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/users/get_users.json?api_key=%@&authentication_token=%@&query=%@",CH_API_KEY, aToken, [searchStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
+    
+    NSLog(@"REQUEST TO : %@", [request.URL description]);
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        NSArray* usersArray = [JSON objectForKey:@"users"];
+        if (usersArray) {
+            NSMutableArray* result = [NSMutableArray new];
+            for (NSDictionary* userDic in usersArray) {
+                CHUser* newUser = [[CHUser alloc] init];
+                [newUser updateFromDictionary:userDic];
+                [result addObject:newUser];
+            }
+            handler(result);
+        }
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
+        handler(nil);
+    }];
+    
+    [operation start];
+}
+
+
+- (void) sendFriendInvitationToUser:(CHUser*) user withCompletionHandler:(void (^)(NSError* error)) handler {
+    
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/friends/send_request.json?api_key=%@&authentication_token=%@&friend_id=%i",CH_API_KEY, aToken, [user.identifier intValue]];
+    
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"POST" path:path parameters:nil];
+    
+    NSLog(@"REQUEST TO : %@", [request.URL description]);
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        handler(nil);
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
+        handler(error);
+    }];
+    
+    [operation start];
+}
+
+
 @end

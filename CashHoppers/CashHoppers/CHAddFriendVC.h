@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class CHUser;
+
 @interface CHAddFriendVC : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
@@ -16,6 +18,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *countFriendsLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *yourFriendsImageView;
 @property (strong, nonatomic) IBOutlet UIButton *addFriendButton;
+@property (strong, nonatomic) IBOutlet UIImageView *inviteSentCheckmarkImageView;
+@property (strong, nonatomic) IBOutlet UILabel *inviteSentLabel;
+
+@property (strong, nonatomic) CHUser* currentUser;
 
 - (IBAction)addFriendTapped:(id)sender;
 

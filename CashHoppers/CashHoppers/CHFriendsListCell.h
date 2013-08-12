@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CHFriendsFeedItem.h"
 
 @class CHFriendsListCell;
 
 @protocol CHFriendsListCellDelegate <NSObject>
 
 - (void)likeTappedInCell:(CHFriendsListCell*)cell;
+- (void)addToFriendsTappedInCell:(CHFriendsListCell*)cell;
 
 @end
 
@@ -32,7 +34,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *numberLikesLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *verticalSeparatorImageView;
 @property (strong, nonatomic) IBOutlet UIButton *addFriendButton;
-
+@property (strong, nonatomic) CHFriendsFeedItem *currentFeedItem;
 
 - (IBAction)commentTapped:(id)sender;
 - (IBAction)likeTapped:(id)sender;

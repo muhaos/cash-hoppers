@@ -16,6 +16,7 @@
 #import "CHHop.h"
 #import "CHAPIClient.h"
 #import "CHDetailsFeedVC.h"
+#import "CHAddFriendVC.h"
 
 @interface CHFriendsListVC ()
 
@@ -110,11 +111,13 @@
 #pragma mark - prepare for segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"add_friend_cell"]) {
+        ((CHAddFriendVC*)segue.destinationViewController).currentUser = sender;
+    }
+    
     if([segue.identifier isEqualToString:@"detailsFeed"]){
-        
         CHDetailsFeedVC *detailVC = (CHDetailsFeedVC*)segue.destinationViewController;
         detailVC.feedItem = (CHFriendsFeedItem*)[self.feedItems objectAtIndex:[friendsTable indexPathForSelectedRow].row];
-        
     }
 }
 
@@ -169,7 +172,8 @@
     
     [cell.imageView setImage:nil];
     
-
+    cell.currentFeedItem = (CHFriendsFeedItem*)[self.feedItems objectAtIndex:indexPath.row];
+///
     if (self.friendsButtonActive == YES) {
         
         [[cell commentButton] setHidden:NO];
@@ -240,7 +244,6 @@
     NSLog(@"");
 }
 
-
 -(void)activeButton:(BOOL)friendsButton {
     if (friendsButton == YES) {
         [self.friendsButton setImage:[UIImage imageNamed:@"button_friends_ac"] forState:UIControlStateNormal];
@@ -250,6 +253,7 @@
         [self.allHoppersButton setImage:[UIImage imageNamed:@"button_all_hops_ac"] forState:UIControlStateNormal];
     }
 }
+
 
 - (void)likeTappedInCell:(CHFriendsListCell*)cell{
     NSIndexPath *indPath = [friendsTable indexPathForCell:cell];
@@ -269,10 +273,16 @@
     }];
 }
 
+
+- (void)addToFriendsTappedInCell:(CHFriendsListCell*)cell
+{
+    [self performSegueWithIdentifier:@"add_friend_cell" sender:cell.currentFeedItem.user];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

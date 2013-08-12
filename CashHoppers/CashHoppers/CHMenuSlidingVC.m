@@ -99,7 +99,7 @@
                 break;
             case 4:{
                 cell.label.text = @"Buy Ad Free Version";
-                cell.icon.image = [UIImage imageNamed:@"find_icon.png"];
+                cell.icon.image = [UIImage imageNamed:@"buy_add_free_icon.png"];
                 break;
             }
             default:

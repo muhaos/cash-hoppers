@@ -192,6 +192,8 @@
 		AA55051017983620009BF936 /* button_messages_n.png in Resources */ = {isa = PBXBuildFile; fileRef = AA55050C1798361F009BF936 /* button_messages_n.png */; };
 		AA55051117983620009BF936 /* button_notifications_act.png in Resources */ = {isa = PBXBuildFile; fileRef = AA55050D1798361F009BF936 /* button_notifications_act.png */; };
 		AA55051217983620009BF936 /* button_notifications_n.png in Resources */ = {isa = PBXBuildFile; fileRef = AA55050E17983620009BF936 /* button_notifications_n.png */; };
+		AA5863A317B3C7390074F0AB /* CHFindFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5863A217B3C7390074F0AB /* CHFindFriendsCell.m */; };
+		AA5863A517B414F50074F0AB /* buy_add_free_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA5863A417B414F50074F0AB /* buy_add_free_icon.png */; };
 		AA732C8617AA4F62002CC6C7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA732C8517AA4F62002CC6C7 /* FacebookSDK.framework */; };
 		AA732C8817AA4F6F002CC6C7 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AA732C8717AA4F6F002CC6C7 /* FacebookSDKResources.bundle */; };
 		AA9991AA177329D7005A56EF /* CHResetPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9991A9177329D7005A56EF /* CHResetPasswordVC.m */; };
@@ -598,6 +600,9 @@
 		AA55050C1798361F009BF936 /* button_messages_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_messages_n.png; sourceTree = "<group>"; };
 		AA55050D1798361F009BF936 /* button_notifications_act.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_notifications_act.png; sourceTree = "<group>"; };
 		AA55050E17983620009BF936 /* button_notifications_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_notifications_n.png; sourceTree = "<group>"; };
+		AA5863A117B3C7390074F0AB /* CHFindFriendsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHFindFriendsCell.h; sourceTree = "<group>"; };
+		AA5863A217B3C7390074F0AB /* CHFindFriendsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHFindFriendsCell.m; sourceTree = "<group>"; };
+		AA5863A417B414F50074F0AB /* buy_add_free_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy_add_free_icon.png; sourceTree = "<group>"; };
 		AA732C8517AA4F62002CC6C7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		AA732C8717AA4F6F002CC6C7 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		AA9991A8177329D7005A56EF /* CHResetPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHResetPasswordVC.h; sourceTree = "<group>"; };
@@ -944,6 +949,8 @@
 				AA32A74317A00A1C003563FB /* CHAddFriendsSocialNetworksVC.m */,
 				AA32A733179FD8CC003563FB /* CHFindFriendsVC.h */,
 				AA32A734179FD8CC003563FB /* CHFindFriendsVC.m */,
+				AA5863A117B3C7390074F0AB /* CHFindFriendsCell.h */,
+				AA5863A217B3C7390074F0AB /* CHFindFriendsCell.m */,
 				E1A699B517A84482008584BE /* CHBuyAdFreeVC.h */,
 				E1A699B617A84482008584BE /* CHBuyAdFreeVC.m */,
 			);
@@ -989,6 +996,7 @@
 			children = (
 				5657F3CB17B3EB5000ECF2C0 /* button_accept.png */,
 				5657F3CC17B3EB5000ECF2C0 /* button_decline.png */,
+				AA5863A417B414F50074F0AB /* buy_add_free_icon.png */,
 				567FCAD017AAA58500F150A8 /* button_done.png */,
 				567FCACE17AAA12400F150A8 /* button_edit.png */,
 				E1A699BB17A90487008584BE /* CheckMark */,
@@ -1777,6 +1785,7 @@
 				E126BA6617AAE850006B6510 /* CHSharingPopupVC.xib in Resources */,
 				5657F3CD17B3EB5000ECF2C0 /* button_accept.png in Resources */,
 				5657F3CE17B3EB5000ECF2C0 /* button_decline.png in Resources */,
+				AA5863A517B414F50074F0AB /* buy_add_free_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1948,6 +1957,7 @@
 				AACEB97C17AB8D0B00691F6B /* OARequestParameter.m in Sources */,
 				AACEB97D17AB8D0B00691F6B /* OAServiceTicket.m in Sources */,
 				AACEB97E17AB8D0B00691F6B /* OAToken.m in Sources */,
+				AA5863A317B3C7390074F0AB /* CHFindFriendsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

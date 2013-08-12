@@ -22,6 +22,9 @@
 
 - (void) loadFriendsWithCompletionHandler:(void (^)(NSArray* friends)) handler;
 
+- (void) searchUsersWithQuery:(NSString*) searchStr andCompletionHandler:(void (^)(NSArray* users)) handler;
+
+- (void) sendFriendInvitationToUser:(CHUser*) user withCompletionHandler:(void (^)(NSError* error)) handler;
 
 - (void) acceptFriendRequestForFriendID:(NSNumber*)friendID completionHandler:(void (^)(NSError* error)) handler;
 
