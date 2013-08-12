@@ -66,13 +66,22 @@ NSString *const FBSessionStateChangedNotification =
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
-	NSLog(@"My token is: %@", deviceToken);
+    NSString* apns_token = [[[[deviceToken description]
+                              stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                             stringByReplacingOccurrencesOfString: @">" withString: @""]
+                            stringByReplacingOccurrencesOfString: @" " withString: @""];
+    [[NSUserDefaults standardUserDefaults] setObject:apns_token forKey:@"apns_token"];
 }
 
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
 	NSLog(@"Failed to get token, error: %@", error);
+}
+
+
+- (void) application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSLog(@"Received notification: %@", userInfo);
 }
 
 

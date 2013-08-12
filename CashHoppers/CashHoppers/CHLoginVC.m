@@ -89,6 +89,13 @@
     [params setObject:_passwordField.text/*@"12345678"*/ forKey:@"password"];
     [params setObject:CH_API_KEY forKey:@"api_key"];
     
+    NSString* apns_token = [[NSUserDefaults standardUserDefaults] objectForKey:@"apns_token"];
+    if (apns_token != nil) {
+        [params setObject:@"IOS" forKey:@"device"];
+        [params setObject:apns_token forKey:@"device_token"];
+    }
+    
+    
     //Parsing to JSON!
     NSError *error = nil;
     NSData *json = [NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
