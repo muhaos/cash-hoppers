@@ -11,6 +11,8 @@
 #import "CHMenuSlidingCell.h"
 #import "CHAppDelegate.h"
 #import "MFSideMenuContainerViewController.h"
+#import "CHAppDelegate.h"
+#import "CHAPIClient.h"
 
 @interface CHMenuSlidingVC () <UITableViewDataSource, UITableViewDelegate>
 @end
@@ -147,5 +149,39 @@
     [self setMenuTable:nil];
     [super viewDidUnload];
 }
+
+
+- (IBAction)logoutButtonTapped:(id)sender
+{
+    NSError *error = nil;
+    NSString* a_token = [[NSUserDefaults standardUserDefaults] objectForKey:@"a_token"];
+    //If no error we send the post, voila!
+    if (!error){
+        AFHTTPClient *client = [CHAPIClient sharedClient];
+        NSString *path = [NSString stringWithFormat:@"/api/sessions/?auth_token=%@", a_token];
+        NSMutableURLRequest *request = [client requestWithMethod:@"DELETE" path:path parameters:nil];
+        
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            
+            
+        }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+            NSString* errMsg = nil;
+            if (JSON != nil) {
+                errMsg = [JSON  objectForKey:@"info"];
+            } else {
+                errMsg = [error localizedDescription];
+            }
+            NSLog(@"Logout failed: %@", errMsg);
+        }];
+        
+        [operation start];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"a_token"];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:[NSBundle mainBundle]];
+    self.view.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"main_login_vc"];
+}
+
 
 @end
