@@ -10,6 +10,7 @@
 #import "CHUserManager.h"
 #import <QuartzCore/QuartzCore.h>
 #import "CHUserManager.h"
+#import "CHFriendsListVC.h"
 
 @interface CHAddFriendVC ()
 

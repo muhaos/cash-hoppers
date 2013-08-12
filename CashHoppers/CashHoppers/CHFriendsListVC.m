@@ -109,6 +109,10 @@
 #pragma mark - prepare for segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"add_friend_cell"]) {
+        ((CHAddFriendVC*)segue.destinationViewController).currentUser = sender;
+    }
+    
     if([segue.identifier isEqualToString:@"detailsFeed"]){
         CHDetailsFeedVC *detailVC = (CHDetailsFeedVC*)segue.destinationViewController;
         detailVC.feedItem = (CHFriendsFeedItem*)[self.feedItems objectAtIndex:[friendsTable indexPathForSelectedRow].row];
@@ -234,16 +238,6 @@
 }
 
 
-- (void)addToFriendsTappedInCell:(CHFriendsListCell*)cell
-{
-    static NSString *friendsCellIdentifier = @"friends_list_cell";
-    
-    cell = (CHFriendsListCell*) [friendsTable dequeueReusableCellWithIdentifier:friendsCellIdentifier];
-    
-    [self performSegueWithIdentifier:@"add_friend_cell" sender:cell.currentFeedItem];
-}
-
-
 -(void)activeButton:(BOOL)friendsButton {
     if (friendsButton == YES) {
         [self.friendsButton setImage:[UIImage imageNamed:@"button_friends_ac"] forState:UIControlStateNormal];
@@ -253,6 +247,7 @@
         [self.allHoppersButton setImage:[UIImage imageNamed:@"button_all_hops_ac"] forState:UIControlStateNormal];
     }
 }
+
 
 - (void)likeTappedInCell:(CHFriendsListCell*)cell{
     NSIndexPath *indPath = [friendsTable indexPathForCell:cell];
@@ -272,10 +267,16 @@
     }];
 }
 
+
+- (void)addToFriendsTappedInCell:(CHFriendsListCell*)cell
+{
+    [self performSegueWithIdentifier:@"add_friend_cell" sender:cell.currentFeedItem.user];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
