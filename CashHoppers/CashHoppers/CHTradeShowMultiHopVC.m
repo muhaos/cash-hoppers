@@ -13,6 +13,7 @@
 #import "CHNewHopVC.h"
 #import "CHHopsManager.h"
 #import "AFNetworking.h"
+#import "CHPrizeListVC.h"
 
 @interface CHTradeShowMultiHopVC ()
 
@@ -164,6 +165,10 @@
 }
 
 
+- (IBAction)prizeListButtonTapped:(id)sender {
+    
+     [[CHPrizeListVC sharedPrizeListVC] showInController:self.view.window.rootViewController];
+}
 
 
 @end

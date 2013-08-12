@@ -81,6 +81,9 @@
 		AA033B70179D3DA900F2B769 /* button_add_as_friend.png in Resources */ = {isa = PBXBuildFile; fileRef = AA033B6F179D3DA900F2B769 /* button_add_as_friend.png */; };
 		AA033B72179D506E00F2B769 /* you_are_friends.png in Resources */ = {isa = PBXBuildFile; fileRef = AA033B71179D506E00F2B769 /* you_are_friends.png */; };
 		AA0B685317A6F40E00820A9A /* search_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0B685217A6F40E00820A9A /* search_icon.png */; };
+		AA0E002917B928E200B7A681 /* CHPrizeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0E002717B928E200B7A681 /* CHPrizeListVC.m */; };
+		AA0E002A17B928E200B7A681 /* CHPrizeListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA0E002817B928E200B7A681 /* CHPrizeListVC.xib */; };
+		AA0E002C17B92AE000B7A681 /* icon_dollar.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0E002B17B92AE000B7A681 /* icon_dollar.png */; };
 		AA1161F217784F5A00D0E750 /* CHHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1161F117784F5A00D0E750 /* CHHomeScreenViewController.m */; };
 		AA1161F61778514F00D0E750 /* CHAdvertisingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1161F41778514F00D0E750 /* CHAdvertisingVC.m */; };
 		AA1161F71778514F00D0E750 /* CHAdvertisingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1161F51778514F00D0E750 /* CHAdvertisingVC.xib */; };
@@ -420,6 +423,10 @@
 		AA033B6F179D3DA900F2B769 /* button_add_as_friend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_add_as_friend.png; sourceTree = "<group>"; };
 		AA033B71179D506E00F2B769 /* you_are_friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = you_are_friends.png; sourceTree = "<group>"; };
 		AA0B685217A6F40E00820A9A /* search_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_icon.png; sourceTree = "<group>"; };
+		AA0E002617B928E200B7A681 /* CHPrizeListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHPrizeListVC.h; sourceTree = "<group>"; };
+		AA0E002717B928E200B7A681 /* CHPrizeListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHPrizeListVC.m; sourceTree = "<group>"; };
+		AA0E002817B928E200B7A681 /* CHPrizeListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHPrizeListVC.xib; sourceTree = "<group>"; };
+		AA0E002B17B92AE000B7A681 /* icon_dollar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_dollar.png; sourceTree = "<group>"; };
 		AA1161F017784F5A00D0E750 /* CHHomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHomeScreenViewController.h; sourceTree = "<group>"; };
 		AA1161F117784F5A00D0E750 /* CHHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHomeScreenViewController.m; sourceTree = "<group>"; };
 		AA1161F31778514F00D0E750 /* CHAdvertisingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAdvertisingVC.h; sourceTree = "<group>"; };
@@ -912,6 +919,9 @@
 				56401565176B40D100C028CE /* MainStoryboard_iPad.storyboard */,
 				56401551176B40D000C028CE /* Supporting Files */,
 				567FCABB17A7CC3A00F150A8 /* Controllers */,
+				AA0E002617B928E200B7A681 /* CHPrizeListVC.h */,
+				AA0E002717B928E200B7A681 /* CHPrizeListVC.m */,
+				AA0E002817B928E200B7A681 /* CHPrizeListVC.xib */,
 				AA1161F31778514F00D0E750 /* CHAdvertisingVC.h */,
 				AA1161F41778514F00D0E750 /* CHAdvertisingVC.m */,
 				AA1161F51778514F00D0E750 /* CHAdvertisingVC.xib */,
@@ -994,6 +1004,7 @@
 		5640158B176B433B00C028CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AA0E002B17B92AE000B7A681 /* icon_dollar.png */,
 				5657F3CB17B3EB5000ECF2C0 /* button_accept.png */,
 				5657F3CC17B3EB5000ECF2C0 /* button_decline.png */,
 				AA5863A417B414F50074F0AB /* buy_add_free_icon.png */,
@@ -1786,6 +1797,8 @@
 				5657F3CD17B3EB5000ECF2C0 /* button_accept.png in Resources */,
 				5657F3CE17B3EB5000ECF2C0 /* button_decline.png in Resources */,
 				AA5863A517B414F50074F0AB /* buy_add_free_icon.png in Resources */,
+				AA0E002A17B928E200B7A681 /* CHPrizeListVC.xib in Resources */,
+				AA0E002C17B92AE000B7A681 /* icon_dollar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1958,6 +1971,7 @@
 				AACEB97D17AB8D0B00691F6B /* OAServiceTicket.m in Sources */,
 				AACEB97E17AB8D0B00691F6B /* OAToken.m in Sources */,
 				AA5863A317B3C7390074F0AB /* CHFindFriendsCell.m in Sources */,
+				AA0E002917B928E200B7A681 /* CHPrizeListVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
