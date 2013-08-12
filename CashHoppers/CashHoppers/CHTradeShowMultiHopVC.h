@@ -21,6 +21,4 @@
 
 @property (strong, nonatomic) CHHop* currentHop;
 
-- (IBAction)prizeListButtonTapped:(id)sender;
-
 @end
