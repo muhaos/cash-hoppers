@@ -157,8 +157,8 @@
     NSString* a_token = [[NSUserDefaults standardUserDefaults] objectForKey:@"a_token"];
     //If no error we send the post, voila!
     if (!error){
-        AFHTTPClient *client = [CHAPIClient sharedClient];//[AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"http://wash-depot.herokuapp.com/"]];
-        NSString *path = [NSString stringWithFormat:@"api/sessions/?auth_token=%@", a_token];
+        AFHTTPClient *client = [CHAPIClient sharedClient];
+        NSString *path = [NSString stringWithFormat:@"/api/sessions/?auth_token=%@", a_token];
         NSMutableURLRequest *request = [client requestWithMethod:@"DELETE" path:path parameters:nil];
         
         AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
@@ -178,7 +178,9 @@
     }
     
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"a_token"];
-    [self dismissModalViewControllerAnimated:YES];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:[NSBundle mainBundle]];
+    self.view.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"main_login_vc"];
 }
 
 
