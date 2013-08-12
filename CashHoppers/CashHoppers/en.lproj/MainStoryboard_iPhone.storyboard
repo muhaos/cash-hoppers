@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -713,7 +713,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3409" y="899"/>
+            <point key="canvasLocation" x="3935" y="899"/>
         </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="5dK-CV-bSf">
@@ -1398,7 +1398,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tU5-Rd-sNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3952" y="899"/>
+            <point key="canvasLocation" x="4478" y="899"/>
         </scene>
         <!--Add FriendVC-->
         <scene sceneID="wBS-5W-tzN">
@@ -1493,7 +1493,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oob-N3-ZJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4498" y="1519"/>
+            <point key="canvasLocation" x="5024" y="1519"/>
         </scene>
         <!--Details FeedVC-->
         <scene sceneID="9K4-gB-c6c">
@@ -1743,7 +1743,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4498" y="465"/>
+            <point key="canvasLocation" x="5024" y="465"/>
         </scene>
         <!--Other Hops ListVC - CASHHOPPERS-->
         <scene sceneID="Ljo-oV-Gi0">
@@ -2909,9 +2909,9 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="menuTable" destination="W40-6r-PHZ" id="eJ9-TQ-bwU"/>
-                        <segue destination="03H-pC-DyG" kind="modal" identifier="profile_user" id="EAj-Qg-IGa"/>
                         <segue destination="uWo-2x-ao7" kind="modal" identifier="find_friends" id="Vjf-8J-mqP"/>
                         <segue destination="uoT-Gt-Jms" kind="modal" identifier="ad_free_version" id="ciF-lL-1fh"/>
+                        <segue destination="boX-8C-610" kind="modal" identifier="profile_user" id="47o-Pl-jEB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNK-pM-GZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3092,7 +3092,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KuY-oZ-cAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3010" y="1716"/>
+            <point key="canvasLocation" x="3536" y="1716"/>
         </scene>
         <!--Individual MessageVC-->
         <scene sceneID="ShC-rM-V0n">
@@ -3203,7 +3203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQl-Zg-lBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3498" y="1560"/>
+            <point key="canvasLocation" x="4024" y="1560"/>
         </scene>
         <!--Compose MessageVC-->
         <scene sceneID="qGd-qd-ezV">
@@ -3340,17 +3340,80 @@
             </objects>
             <point key="canvasLocation" x="3498" y="2500"/>
         </scene>
+        <!--Push NotificationsVC-->
+        <scene sceneID="WNh-aC-2ni">
+            <objects>
+                <viewController storyboardIdentifier="pushNotificationsVC" id="5O0-tF-Muh" customClass="CHPushNotificationsVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RD0-CY-MIV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xbR-Ut-12n">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="347"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="notifications_cell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="notifications_cell" rowHeight="44" id="yPQ-Tm-Cos" customClass="CHPushNotificationsCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="bzI-VH-oon">
+                                                    <rect key="frame" x="17" y="11" width="23" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ukr-2c-N2b">
+                                                    <rect key="frame" x="60" y="0.0" width="229" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="indicatorImageView" destination="bzI-VH-oon" id="YI1-vU-0qt"/>
+                                            <outlet property="nameNotificationLabel" destination="ukr-2c-N2b" id="x2h-vd-D1G"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="5O0-tF-Muh" id="9K4-FU-Wfw"/>
+                                    <outlet property="delegate" destination="5O0-tF-Muh" id="Y6b-q9-RZK"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="notificationsTableView" destination="xbR-Ut-12n" id="R50-NU-fz6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rWB-bf-KeR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1878" y="1447"/>
+        </scene>
         <!--Profile UserVC-->
         <scene sceneID="BMD-Ic-6FT">
             <objects>
-                <viewController id="mzX-2v-l7Z" customClass="CHProfileUserVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileUserVC" id="mzX-2v-l7Z" customClass="CHProfileUserVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nwe-ng-oK8">
-                        <rect key="frame" x="0.0" y="64" width="320" height="750"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="L3T-Ch-ajW">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dpZ-bv-Tog" userLabel="Button Photo">
                                         <rect key="frame" x="131" y="19" width="58" height="58"/>
@@ -3795,7 +3858,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="edit_photo.png" id="F5S-W9-DBV">
-                                        <rect key="frame" x="173" y="22" width="14" height="14"/>
+                                        <rect key="frame" x="173" y="21" width="14" height="14"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KWc-IQ-MqX">
@@ -3822,7 +3885,8 @@
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="ffM-S3-06d"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="bioTextView" destination="Dmv-lt-ce9" id="Q5f-1Y-QfV"/>
@@ -3844,22 +3908,65 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1n-mB-vqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1081" y="1175"/>
+            <point key="canvasLocation" x="1485" y="1265"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="8Zl-28-hhK">
+        <!--Settings Profile NotificationsVC-->
+        <scene sceneID="CNW-p8-5sF">
             <objects>
-                <navigationController definesPresentationContext="YES" id="03H-pC-DyG" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qss-2q-YGL">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
+                <viewController id="KrS-aP-d9K" customClass="CHSettingsProfileNotificationsVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="94Y-h7-XZq">
+                        <rect key="frame" x="0.0" y="64" width="320" height="790"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YoX-rf-gPA">
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Profile">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="profileButtonTapped:" destination="KrS-aP-d9K" eventType="touchUpInside" id="gzy-QR-VAQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="THn-a2-JzL">
+                                <rect key="frame" x="160" y="0.0" width="160" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Notifications">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="notificationsButtonTapped:" destination="KrS-aP-d9K" eventType="touchUpInside" id="uVS-jd-kOe"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="p0V-dh-tLS">
+                                <rect key="frame" x="0.0" y="43" width="320" height="747"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8aC-7e-Hh7"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <segue destination="mzX-2v-l7Z" kind="relationship" relationship="rootViewController" id="tKu-u5-Rqb"/>
+                        <outlet property="containerView" destination="p0V-dh-tLS" id="KeC-KT-hRK"/>
+                        <outlet property="notificationsButton" destination="THn-a2-JzL" id="k5s-ww-UOg"/>
+                        <outlet property="profileButton" destination="YoX-rf-gPA" id="tkJ-u7-HB9"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iCE-ba-a3Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cdA-fY-Pxy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="588" y="1401"/>
+            <point key="canvasLocation" x="1081" y="1161"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b9H-rL-dBA">
@@ -3880,7 +3987,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ptp-lV-ToW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2867" y="899"/>
+            <point key="canvasLocation" x="3393" y="899"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="52O-D0-yPi">
@@ -3898,7 +4005,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Lg-kR-zAm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2484" y="1716"/>
+            <point key="canvasLocation" x="3010" y="1716"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jdY-yk-FUY">
@@ -3996,6 +4103,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SRg-5k-MC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1081" y="2785"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kat-ze-PdG">
+            <objects>
+                <navigationController id="boX-8C-610" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2y1-27-Oaq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KrS-aP-d9K" kind="relationship" relationship="rootViewController" id="01x-Gc-8hy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BI4-Ve-jwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="588" y="1447"/>
         </scene>
     </scenes>
     <resources>
@@ -4385,6 +4510,19 @@
                 <relationship kind="outlet" name="zipTextField" candidateClass="UITextField"/>
             </relationships>
         </class>
+        <class className="CHPushNotificationsCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHPushNotificationsCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="indicatorImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameNotificationLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CHPushNotificationsVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHPushNotificationsVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="notificationsTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="CHRegisterVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHRegisterVC.h"/>
             <relationships>
@@ -4407,6 +4545,16 @@
             <relationships>
                 <relationship kind="action" name="signInTapped:"/>
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CHSettingsProfileNotificationsVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHSettingsProfileNotificationsVC.h"/>
+            <relationships>
+                <relationship kind="action" name="notificationsButtonTapped:"/>
+                <relationship kind="action" name="profileButtonTapped:"/>
+                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="notificationsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="profileButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="CHStartVC" superclassName="UIViewController">
