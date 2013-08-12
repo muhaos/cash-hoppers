@@ -40,9 +40,11 @@
         [self updateTable];
         if (self.needShowAD) {
             int hopsCount = [self.currentHopsList count];
-            CHHop* h = self.currentHopsList[rand() % hopsCount];
-            [self showAdsWithType:@"SP" andHopID:h.identifier];
-            self.needShowAD = NO;
+            if (hopsCount > 0) {
+                CHHop* h = self.currentHopsList[rand() % hopsCount];
+                [self showAdsWithType:@"SP" andHopID:h.identifier];
+                self.needShowAD = NO;
+            }
         }
     }];
 }

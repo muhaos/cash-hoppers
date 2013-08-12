@@ -237,6 +237,7 @@
 
 
 - (IBAction)addFriendTapped:(id)sender {
+    NSLog(@"");
 }
 
 
