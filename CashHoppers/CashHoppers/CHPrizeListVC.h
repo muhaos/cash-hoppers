@@ -11,6 +11,7 @@
 @interface CHPrizeListVC : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITextView *prizesTextView;
+@property (nonatomic, retain) NSMutableString *finalyStr;
 
 - (IBAction)cancelButtonTapped:(id)sender;
 + (CHPrizeListVC*) sharedPrizeListVC;

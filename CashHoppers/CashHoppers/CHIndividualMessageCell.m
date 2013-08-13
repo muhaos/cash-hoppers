@@ -32,7 +32,7 @@
 - (void) awakeFromNib {
     [super awakeFromNib];
     self.messageTextView.font = [UIFont fontWithName:@"DroidSans" size:12.0f];
-    self.avatarImageView.layer.cornerRadius = 20.0f;
+    self.avatarImageView.layer.cornerRadius = 22.0f;
     self.avatarImageView.layer.masksToBounds = YES;
 }
 

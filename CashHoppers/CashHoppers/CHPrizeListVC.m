@@ -13,7 +13,7 @@
 @end
 
 @implementation CHPrizeListVC
-@synthesize prizesTextView;
+@synthesize prizesTextView, finalyStr;
 
 
 - (void)viewDidLoad
@@ -29,7 +29,31 @@
     NSDictionary *dic4 = [NSDictionary new];
     [dic4 setValue:@"Apple iPod Touch" forKey:@"Raffle Prize"];
     
-    NSArray *strArray = [[NSArray alloc] initWithObjects:dic1, dic2, dic3, dic4, nil];
+    NSArray *strArray = [[NSArray alloc] initWithObjects:[dic1 allKeys], [dic2 allKeys], [dic3 allKeys], [dic4 allKeys], nil];
+    
+    
+    NSDictionary *whiteAttribs = @{NSFontAttributeName: [UIFont fontWithName:@"DroidSans-CondensedBold" size:12.0f], NSForegroundColorAttributeName:[UIColor colorWithRed:256/256.0f green:256/256.0f blue:256/256.0f alpha:1.0f]};
+    NSDictionary *yellowAttribs = @{NSFontAttributeName: [UIFont fontWithName:@"DroidSans-Bold" size:12.0f], NSForegroundColorAttributeName:[UIColor colorWithRed:255/256.0f green:204/256.0f blue:0.0f alpha:1.0f]};
+    
+        
+    for (int i = 0; i <= [strArray count]; i++) {
+
+        NSString *keysStr = [[[strArray objectAtIndex:i] allKeys] componentsJoinedByString:@""];
+        NSString *valueStr = [[[strArray objectAtIndex:i] allValues] componentsJoinedByString:@""];
+        
+        NSMutableAttributedString* whiteStr = [[NSMutableAttributedString alloc] initWithString:keysStr];
+        NSMutableAttributedString* yellowStr = [[NSMutableAttributedString alloc] initWithString:valueStr];
+
+        NSInteger white_str_length = [keysStr length];
+        NSInteger yellow_str_length = [valueStr length];
+
+        [whiteStr setAttributes:whiteAttribs range:NSMakeRange(finalyStr.length, white_str_length)];
+        [yellowStr setAttributes:yellowAttribs range:NSMakeRange(white_str_length+1, yellow_str_length)];
+
+        finalyStr = [NSString stringWithFormat:@"%@ - %@", whiteStr, yellowStr];
+    }
+    
+    prizesTextView.text = finalyStr;
 }
 
 

@@ -59,7 +59,7 @@
 
 
 - (void) awakeFromNib {
-    [self photoImageView].layer.cornerRadius = 20.0f;
+    [self photoImageView].layer.cornerRadius = 22.0f;
     [self photoImageView].layer.masksToBounds = YES;
     [self messageTextView].font = [UIFont fontWithName:@"DroidSans" size:12.0f];
 }

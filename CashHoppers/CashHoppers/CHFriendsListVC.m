@@ -17,6 +17,9 @@
 #import "CHAPIClient.h"
 #import "CHDetailsFeedVC.h"
 #import "CHAddFriendVC.h"
+#import "CHAppDelegate.h"
+#import "MFSideMenuContainerViewController.h"
+
 
 @interface CHFriendsListVC ()
 
@@ -37,10 +40,9 @@
 
 - (void)viewDidLoad
 {
-    [self setupTriangleBackButton];
     self.friendsButtonActive = YES;
     [self activeButton:YES];
-    
+        
     self.friendsFeedUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_FRIEND_FEED_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
         [self refreshList];
     }];
@@ -76,15 +78,9 @@
 }
 
 
-- (void) backButtonTapped {
-    [[self navigationController] popViewControllerAnimated:YES];
-}
-    
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.oldNavBarStatus = self.navigationController.navigationBarHidden;
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     [self showAdsWithType:@"RPOU" andHopID:nil];
@@ -161,6 +157,9 @@
     
     [[cell photoHopImageView] setImageWithURL:[fItem hopImageURL]];
     [[cell photoPersonImageView] setImageWithURL:[fItem.user avatarURL]];
+    
+    [cell photoPersonImageView].layer.cornerRadius = 21.0f;
+    [cell photoPersonImageView].layer.masksToBounds = YES;
     
     [[cell taskCompletedLabel] setText:[fItem completedTaskName]];
     [[cell addFriendButton] setImage:[UIImage imageNamed:@"button_add_friend"] forState:UIControlStateNormal];
@@ -273,6 +272,11 @@
     }];
 }
 
+- (IBAction)settingsButtonTapped:(id)sender
+{
+    [DELEGATE.menuContainerVC toggleLeftSideMenuCompletion:nil];
+}
+
 
 - (void)addToFriendsTappedInCell:(CHFriendsListCell*)cell
 {
@@ -295,6 +299,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self.globalFeedUpdatedNotification];
     [[NSNotificationCenter defaultCenter] removeObserver:self.feedItemUpdatedNotification];
     
+    [self setSettingsButton:nil];
     [super viewDidUnload];
 }
 

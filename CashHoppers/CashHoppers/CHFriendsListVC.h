@@ -16,10 +16,12 @@
 @property (strong, nonatomic) IBOutlet UITableView *friendsTable;
 @property (strong, nonatomic) IBOutlet UIButton *friendsButton;
 @property (strong, nonatomic) IBOutlet UIButton *allHoppersButton;
+@property (strong, nonatomic) IBOutlet UIButton *settingsButton;
 
 - (IBAction)friendsButtonTapped:(id)sender;
 - (IBAction)allHopppersButtonTapped:(id)sender;
 - (void)likeTappedInCell:(CHFriendsListCell*)cell;
+- (IBAction)settingsButtonTapped:(id)sender;
 
 
 

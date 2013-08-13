@@ -166,8 +166,10 @@
 
 -(void) customUIElement
 {
-    self.photoPersonImageView.layer.cornerRadius = 10.0f;
+    self.photoPersonImageView.layer.cornerRadius = 25.0f;
     self.photoHopImageView.layer.cornerRadius = 10.0;
+    self.photoPersonImageView.layer.masksToBounds = YES;
+    self.photoHopImageView.layer.masksToBounds = YES;
     self.countLikeLabel.layer.cornerRadius = 3.0f;
     self.countCommentLabel.layer.cornerRadius = 3.0f;
     self.addComentTextView.layer.cornerRadius = 5.0f;
@@ -241,7 +243,8 @@
     cell.nameLabel.text = nameString;
     [self calculateLabelHeight:cell.commentLabel ForText:feedComment.text];
     [[cell commentLabel] setText:feedComment.text];
-    [cell photoPerson].layer.cornerRadius = 10.0f;
+    [cell photoPerson].layer.cornerRadius = 15.0f;
+    [cell photoPerson].layer.masksToBounds = YES;
     [[cell photoPerson] setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:feedComment.user.avatarURL]]];
     return cell;
 }
