@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -392,8 +392,8 @@
                                             <segue destination="Wxm-Xc-2xf" kind="push" identifier="other_hops_segue" id="gri-tX-sSQ"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ht_alt_logo.png" id="YGC-y9-TCI">
-                                        <rect key="frame" x="34" y="82" width="61" height="61"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="YGC-y9-TCI">
+                                        <rect key="frame" x="29" y="82" width="74" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hhK-pN-nGk">
@@ -463,11 +463,18 @@
                                             <segue destination="Wxm-Xc-2xf" kind="push" identifier="daily_hops_segue" id="lvk-fo-Rcf"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="T-Shirt Time: Take a pic wearing your favourite t-shirt." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kmF-YX-hqh">
-                                        <rect key="frame" x="111" y="82" width="92" height="55"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kmF-YX-hqh">
+                                        <rect key="frame" x="111" y="73" width="97" height="79"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="T-Shirt Time: Take a pic wearing your favourite t-shirt.">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="10" name="Helvetica-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans"/>
@@ -657,6 +664,10 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" id="F3S-1m-PLN">
+                                        <rect key="frame" x="102" y="102" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -686,6 +697,9 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="bannerImView" destination="ee1-y1-tAu" id="LwF-X6-hoa"/>
+                        <outlet property="dailyHopImageView" destination="YGC-y9-TCI" id="cZS-Fb-BXL"/>
+                        <outlet property="dailyHopIndicator" destination="F3S-1m-PLN" id="uOu-tK-c3x"/>
+                        <outlet property="dailyHopNameLabel" destination="kmF-YX-hqh" id="j73-HK-0zd"/>
                         <outlet property="feedAvatarImageView" destination="g0w-pg-ZXt" id="q9d-a2-9C5"/>
                         <outlet property="feedContainer" destination="9cI-Yo-0LH" id="bsQ-Ks-Ntl"/>
                         <outlet property="feedFriendNameLabel" destination="EZ4-mB-rtu" id="QrG-82-khQ"/>
@@ -1515,7 +1529,7 @@
                                         <rect key="frame" x="20" y="45" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3rN-7B-Omz">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="3rN-7B-Omz">
                                         <rect key="frame" x="20" y="160" width="280" height="245"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -1638,16 +1652,22 @@
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1a9-5k-Zqs">
                                                             <rect key="frame" x="49" y="20" width="171" height="34"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans"/>
+                                                            </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0zF-7J-vbo">
                                                             <rect key="frame" x="49" y="0.0" width="171" height="20"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans-Bold"/>
+                                                            </userDefinedRuntimeAttributes>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1701,11 +1721,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CSr-bC-5Tv">
-                                        <rect key="frame" x="80" y="428" width="220" height="30"/>
+                                        <rect key="frame" x="62" y="428" width="238" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans-Bold"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
                                 <gestureRecognizers/>
@@ -4159,7 +4182,6 @@
         <image name="green_button.png" width="234" height="109"/>
         <image name="home_icon.png" width="47" height="41"/>
         <image name="hop_icon.png" width="77" height="99"/>
-        <image name="ht_alt_logo.png" width="124" height="122"/>
         <image name="image_avatar.png" width="102" height="102"/>
         <image name="image_friends_status_field.png" width="640" height="71"/>
         <image name="image_score_box.png" width="273" height="128"/>
@@ -4341,6 +4363,9 @@
                 <relationship kind="action" name="topBannerTapped:"/>
                 <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="bannerImView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="dailyHopImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="dailyHopIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="dailyHopNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="feedAvatarImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="feedContainer" candidateClass="UIView"/>
                 <relationship kind="outlet" name="feedFriendNameLabel" candidateClass="UILabel"/>

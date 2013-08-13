@@ -36,6 +36,12 @@
 @property (strong, nonatomic) IBOutlet UILabel* feedTimeLabel;
 
 
+// daily hop overview
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView* dailyHopIndicator;
+@property (strong, nonatomic) IBOutlet UILabel* dailyHopNameLabel;
+@property (strong, nonatomic) IBOutlet UIImageView* dailyHopImageView;
+
+
 - (IBAction) backButtonPressed:(id)sender;
 - (IBAction) dailyHopPressed:(id)sender;
 - (IBAction) playNowPressed:(id)sender;

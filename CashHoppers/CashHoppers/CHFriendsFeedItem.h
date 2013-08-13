@@ -26,6 +26,8 @@
 @property(nonatomic,strong) NSString* time_ago;
 @property(nonatomic,strong) CHUser *user;
 @property(nonatomic,strong) CHHop *hop;
+@property(nonatomic,strong) NSArray* likers; // names in NSString
+
 
 - (NSString*) completedTaskName;
 - (NSURL*) hopImageURL;
