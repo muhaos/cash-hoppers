@@ -808,6 +808,7 @@
                                         </state>
                                         <connections>
                                             <action selector="pictureTapped:" destination="gG8-FJ-thx" eventType="touchUpInside" id="Ppe-Zs-zfp"/>
+                                            <segue destination="PCO-sa-hT0" kind="custom" identifier="gallery" customClass="MHTabBarSegue" id="Qaq-sk-UBg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bMk-UQ-9Os" userLabel="message - Button">
@@ -857,6 +858,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2P-l5-qTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1786" y="-189"/>
+        </scene>
+        <!--GalleryVC-->
+        <scene sceneID="EYe-fD-Lkv">
+            <objects>
+                <viewController id="Fod-p9-gHU" customClass="CHGalleryVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pms-Zj-aUW">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="2gb-1i-kgM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VWF-Pc-Zhl">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gallery_cell" id="2Iv-OS-RpT" customClass="CHGalleryCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fod-p9-gHU" id="TcQ-Ot-msl"/>
+                                    <outlet property="delegate" destination="Fod-p9-gHU" id="9zj-kM-hxi"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZmF-IW-ALw">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="m7M-HI-R3s">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Aht-Za-ZPd">
+                                <rect key="frame" x="5" y="8" width="50" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="13" minY="1" maxX="12" maxY="1"/>
+                                <state key="normal" image="settings_icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="settingsButtonTapped:" destination="Fod-p9-gHU" eventType="touchUpInside" id="7iU-vd-xxd"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="photoCollectionView" destination="2gb-1i-kgM" id="3Cg-Z5-qiR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zKd-Zj-o4l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2986" y="-1418"/>
         </scene>
         <!--RegisterVC-->
         <scene sceneID="BLv-G0-8RP">
@@ -4163,6 +4229,24 @@
             </objects>
             <point key="canvasLocation" x="588" y="1447"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XX4-qd-FPU">
+            <objects>
+                <navigationController id="PCO-sa-hT0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iam-hI-up0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Fod-p9-gHU" kind="relationship" relationship="rootViewController" id="IAH-92-QIh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l4p-Z9-UxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2460" y="-1418"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Take-Photo.png" width="191" height="180"/>
@@ -4369,6 +4453,16 @@
                 <relationship kind="outlet" name="allHoppersButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="friendsButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="friendsTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CHGalleryCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHGalleryCell.h"/>
+        </class>
+        <class className="CHGalleryVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHGalleryVC.h"/>
+            <relationships>
+                <relationship kind="action" name="settingsButtonTapped:"/>
+                <relationship kind="outlet" name="photoCollectionView" candidateClass="UICollectionView"/>
             </relationships>
         </class>
         <class className="CHHomeScreenViewController" superclassName="UIViewController">
@@ -4621,6 +4715,7 @@
         <class className="CHTradeShowMultiHopVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHTradeShowMultiHopVC.h"/>
             <relationships>
+                <relationship kind="action" name="prizeListButtonTapped:"/>
                 <relationship kind="outlet" name="grandPrizeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="hopImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="hopTitleLabel" candidateClass="UILabel"/>
@@ -4649,6 +4744,15 @@
                 <relationship kind="outlet" name="buttonView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="container" candidateClass="UIView"/>
             </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

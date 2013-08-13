@@ -133,11 +133,14 @@
 
 
 - (IBAction)pictureTapped:(id)sender {
-    UIImagePickerController *picker= [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+//    UIImagePickerController *picker= [[UIImagePickerController alloc] init];
+//    picker.delegate = self;
+//    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+//    
+//    [self presentModalViewController:picker animated:YES];
     
-    [self presentModalViewController:picker animated:YES];
+    [self performSegueWithIdentifier:@"gallery" sender:nil];
+
 }
 
 

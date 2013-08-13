@@ -138,6 +138,8 @@
 		AA425FD917995EC0008E02E6 /* CHOptionalPopupSharingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA425FD717995EC0008E02E6 /* CHOptionalPopupSharingVC.xib */; };
 		AA425FDC1799611A008E02E6 /* button_no.png in Resources */ = {isa = PBXBuildFile; fileRef = AA425FDA1799611A008E02E6 /* button_no.png */; };
 		AA425FDD1799611B008E02E6 /* button_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = AA425FDB1799611A008E02E6 /* button_yes.png */; };
+		AA44D9A417BA800A00338073 /* CHGalleryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44D9A317BA800A00338073 /* CHGalleryVC.m */; };
+		AA44D9A717BA838200338073 /* CHGalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44D9A617BA838200338073 /* CHGalleryCell.m */; };
 		AA4550651774497900D3D0F6 /* button_nav_back.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4550641774497900D3D0F6 /* button_nav_back.png */; };
 		AA455071177490BC00D3D0F6 /* av_header_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = AA45506C177490BC00D3D0F6 /* av_header_cell.png */; };
 		AA455072177490BC00D3D0F6 /* av_indicator_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = AA45506D177490BC00D3D0F6 /* av_indicator_cell.png */; };
@@ -504,6 +506,10 @@
 		AA425FD717995EC0008E02E6 /* CHOptionalPopupSharingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHOptionalPopupSharingVC.xib; sourceTree = "<group>"; };
 		AA425FDA1799611A008E02E6 /* button_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_no.png; sourceTree = "<group>"; };
 		AA425FDB1799611A008E02E6 /* button_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_yes.png; sourceTree = "<group>"; };
+		AA44D9A217BA800A00338073 /* CHGalleryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHGalleryVC.h; path = CashHoppers/CHGalleryVC.h; sourceTree = "<group>"; };
+		AA44D9A317BA800A00338073 /* CHGalleryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHGalleryVC.m; path = CashHoppers/CHGalleryVC.m; sourceTree = "<group>"; };
+		AA44D9A517BA838200338073 /* CHGalleryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHGalleryCell.h; path = CashHoppers/CHGalleryCell.h; sourceTree = "<group>"; };
+		AA44D9A617BA838200338073 /* CHGalleryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHGalleryCell.m; path = CashHoppers/CHGalleryCell.m; sourceTree = "<group>"; };
 		AA4550641774497900D3D0F6 /* button_nav_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_nav_back.png; sourceTree = "<group>"; };
 		AA45506C177490BC00D3D0F6 /* av_header_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = av_header_cell.png; sourceTree = "<group>"; };
 		AA45506D177490BC00D3D0F6 /* av_indicator_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = av_indicator_cell.png; sourceTree = "<group>"; };
@@ -875,6 +881,10 @@
 		5640153E176B40D000C028CE = {
 			isa = PBXGroup;
 			children = (
+				AA44D9A517BA838200338073 /* CHGalleryCell.h */,
+				AA44D9A617BA838200338073 /* CHGalleryCell.m */,
+				AA44D9A217BA800A00338073 /* CHGalleryVC.h */,
+				AA44D9A317BA800A00338073 /* CHGalleryVC.m */,
 				56401550176B40D000C028CE /* CashHoppers */,
 				56401577176B40D100C028CE /* CashHoppersTests */,
 				56401549176B40D000C028CE /* Frameworks */,
@@ -933,9 +943,6 @@
 				56401565176B40D100C028CE /* MainStoryboard_iPad.storyboard */,
 				56401551176B40D000C028CE /* Supporting Files */,
 				567FCABB17A7CC3A00F150A8 /* Controllers */,
-				AA0E002617B928E200B7A681 /* CHPrizeListVC.h */,
-				AA0E002717B928E200B7A681 /* CHPrizeListVC.m */,
-				AA0E002817B928E200B7A681 /* CHPrizeListVC.xib */,
 				AA1161F31778514F00D0E750 /* CHAdvertisingVC.h */,
 				AA1161F41778514F00D0E750 /* CHAdvertisingVC.m */,
 				AA1161F51778514F00D0E750 /* CHAdvertisingVC.xib */,
@@ -2003,6 +2010,8 @@
 				AA0E001317B8F8E100B7A681 /* CHPushNotificationsVC.m in Sources */,
 				AA0E001617B8F91000B7A681 /* CHSettingsProfileNotificationsVC.m in Sources */,
 				AA0E002117B90ACB00B7A681 /* CHPushNotificationsCell.m in Sources */,
+				AA44D9A417BA800A00338073 /* CHGalleryVC.m in Sources */,
+				AA44D9A717BA838200338073 /* CHGalleryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
