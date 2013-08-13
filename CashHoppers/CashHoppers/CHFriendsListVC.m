@@ -152,12 +152,9 @@
     NSString *lastName = fItem.user.last_name;
     NSString *namePersonText = [name stringByAppendingFormat:@" %@",lastName];
 
-    NSTimeInterval time = [fItem.hop.time_end timeIntervalSinceNow];
-//    int timeSinceCompleted = time/60;
-    
     [[cell namePersonLabel] setText:namePersonText];
     [[cell nameHopLabel] setText:fItem.hop.name];
-    [[cell timeLabel] setText:@"some time ago"];
+    [[cell timeLabel] setText:[NSString stringWithFormat:@"%@ ago", fItem.time_ago]];
     
     [[cell photoHopImageView] setImageWithURL:[fItem hopImageURL]];
     [[cell photoPersonImageView] setImageWithURL:[fItem.user avatarURL]];
