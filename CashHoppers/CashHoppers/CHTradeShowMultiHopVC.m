@@ -13,7 +13,6 @@
 #import "CHNewHopVC.h"
 #import "CHHopsManager.h"
 #import "AFNetworking.h"
-#import "CHPrizeListVC.h"
 
 @interface CHTradeShowMultiHopVC ()
 
@@ -162,12 +161,6 @@
     [self setHopTitleLabel:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self.hopsTasksUpdatedNotification];
     [super viewDidUnload];
-}
-
-
-- (IBAction)prizeListButtonTapped:(id)sender {
-    
-     [[CHPrizeListVC sharedPrizeListVC] showInController:self.view.window.rootViewController];
 }
 
 

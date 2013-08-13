@@ -24,6 +24,7 @@
 @property (nonatomic, retain) id friendsFeedUpdatedNotification;
 @property (nonatomic, retain) id globalFeedUpdatedNotification;
 @property (nonatomic, retain) id feedItemUpdatedNotification;
+@property (nonatomic, retain) id hopTaskUpdatedNotification;
 @property (nonatomic, retain) CHFriendsFeedItem* currentFeedItem;
 
 @property (nonatomic, retain) NSURL* adsImageURL;
@@ -56,8 +57,13 @@
     
     [_scrollView setContentSize:CGSizeMake(340,470)];
     
+    self.hopTaskUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_HOPS_TASKS_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
+        [self updateDailyHopSection];
+    }];
+    
     self.hopsUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_HOPS_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
         [self updateOtherHopsSection];
+        [self updateDailyHopSection];
     }];
     
     self.friendsFeedUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_FRIEND_FEED_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
@@ -82,6 +88,7 @@
     [[CHHopsManager instance] refreshHops];
     [[CHFriendsFeedManager instance] refreshFeeds];
 
+    [self updateDailyHopSection];
     [self updateOtherHopsSection];
     [self updateFriendsFeedSection];
     
@@ -121,6 +128,41 @@
 }
 
 
+
+
+- (void) setDailyHopTaskName:(NSString*) wholeStr withBoldString:(NSString*) boldPartStr {
+    
+    NSDictionary *boldAttribs = @{NSFontAttributeName: [UIFont fontWithName:@"DroidSans-Bold" size:10.0f], NSForegroundColorAttributeName:[UIColor colorWithRed:0.4f green:0.4f blue:0.4f alpha:1.0f]};
+    NSDictionary *normAttribs = @{NSFontAttributeName: [UIFont fontWithName:@"DroidSans" size:10.0f], NSForegroundColorAttributeName:[UIColor colorWithRed:0.6f green:0.6f blue:0.6f alpha:1.0f]};
+    
+    NSMutableAttributedString* mStr = [[NSMutableAttributedString alloc] initWithString:wholeStr];
+    
+    NSInteger str_length = [wholeStr length];
+    
+    [mStr setAttributes:normAttribs range:NSMakeRange(0, str_length)];
+    if (boldPartStr != nil) {
+        [mStr setAttributes:boldAttribs range:[wholeStr rangeOfString:boldPartStr]];
+    }
+    
+    self.dailyHopNameLabel.attributedText = mStr;
+}
+
+
+- (void) updateDailyHopSection {
+    int dailyHopsCount = [[CHHopsManager instance].dailyHops count];
+    
+    self.dailyHopIndicator.hidden = (dailyHopsCount > 0);
+    self.dailyHopNameLabel.hidden = (dailyHopsCount <= 0);
+    self.dailyHopImageView.hidden = (dailyHopsCount <= 0);
+    
+    if (dailyHopsCount > 0) {
+        CHHop* dailyHop = [CHHopsManager instance].dailyHops[0];
+        NSString* hopName = dailyHop.name;
+        NSString* hopTaskName = [dailyHop.tasks[0] text];
+        [self setDailyHopTaskName:[NSString stringWithFormat:@"%@: %@", hopName, hopTaskName] withBoldString:hopName];
+        [self.dailyHopImageView setImageWithURL:[dailyHop logoURL]];
+    }
+}
 
 
 - (void) updateFriendsFeedSection {
@@ -236,6 +278,10 @@
     [self setScrollView:nil];
     [self setMenuButton:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self.hopsUpdatedNotification];
+    [[NSNotificationCenter defaultCenter] removeObserver:self.hopTaskUpdatedNotification];
+    [[NSNotificationCenter defaultCenter] removeObserver:self.friendsFeedUpdatedNotification];
+    [[NSNotificationCenter defaultCenter] removeObserver:self.globalFeedUpdatedNotification];
+    [[NSNotificationCenter defaultCenter] removeObserver:self.feedItemUpdatedNotification];
     [super viewDidUnload];
 }
 

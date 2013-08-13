@@ -29,6 +29,8 @@
     self.role = [CHBaseModel safeStringFrom:[dic objectForKey:@"role"] defaultValue:@""];
     self.avatarUrlString = [CHBaseModel safeStringFrom:[dic objectForKey:@"avatar"] defaultValue:@""];
     self.friends_count = [CHBaseModel safeNumberFrom:[dic objectForKey:@"friends_count"] defaultValue:@0];
+    self.friendship_status = [CHBaseModel safeStringFrom:[dic objectForKey:@"friendship_status"] defaultValue:nil];
+    
 }
 
 

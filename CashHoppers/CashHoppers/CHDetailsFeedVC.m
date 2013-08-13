@@ -38,11 +38,17 @@
     self.taskCompletedLabel.text = _feedItem.completedTaskName;
     [self.photoHopImageView setImageWithURL:_feedItem.hopImageURL];
     self.countLikeLabel.text = [_feedItem.numberOfLikes stringValue];
-    NSTimeInterval time = [_feedItem.hop.time_end timeIntervalSinceNow];
-    int timeSinceCompleted = time/60;
-    _timeLabel.text = [NSString stringWithFormat:@"%i m",timeSinceCompleted];
+    _timeLabel.text = [NSString stringWithFormat:@"%@ ago", _feedItem.time_ago];
     
-//    self.likedPersonsLabel.text = @"Brad Daberko, Dan Kelly, Tony Fannin, Erin Kelly";
+    NSString* likersSrt = @"";
+    for (NSString* likerName in _feedItem.likers) {
+        likersSrt = [likersSrt stringByAppendingString:likerName];
+        if (likerName != [_feedItem.likers lastObject]) {
+            likersSrt = [likersSrt stringByAppendingString:@", "];
+        }
+    }
+    self.likedPersonsLabel.text = likersSrt;
+    
     _myScroolView.contentSize = CGSizeMake(320, 900);
     self.addComentTextView.text = @"Add coment ...";
     self.addComentTextView.textColor = [UIColor grayColor];

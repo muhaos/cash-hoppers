@@ -25,6 +25,7 @@
 @property (nonatomic, strong) NSString *role;
 @property (nonatomic, strong) NSString *avatarUrlString;
 @property (nonatomic, strong) NSNumber *friends_count;
+@property (nonatomic, strong) NSString *friendship_status;
 
 - (NSURL*) avatarURL;
 
