@@ -20,40 +20,34 @@
 {
     [super viewDidLoad];
     
-    NSDictionary *dic1 = [NSDictionary new];
-    [dic1 setValue:@"$500" forKey:@"1st Prize"];
-    NSDictionary *dic2 = [[NSDictionary alloc] init];
-    [dic2 setValue:@"$400" forKey:@"2st Prize"];
-    NSDictionary *dic3 = [NSDictionary new];
-    [dic3 setValue:@"40 TV" forKey:@"Most Creative Pic"];
-    NSDictionary *dic4 = [NSDictionary new];
-    [dic4 setValue:@"Apple iPod Touch" forKey:@"Raffle Prize"];
+    NSArray* prizes = @[
+                        @{@"prize_position": @"1st Prize", @"prize_value": @"$500" },
+                        @{@"prize_position": @"2st Prize", @"prize_value": @"$400" },
+                        @{@"prize_position": @"Most Creative Pic", @"prize_value": @"40 TV" },
+                        @{@"prize_position": @"Raffle Prize", @"prize_value": @"Apple iPod Touch" }
+  ];
     
-    NSArray *strArray = [[NSArray alloc] initWithObjects:[dic1 allKeys], [dic2 allKeys], [dic3 allKeys], [dic4 allKeys], nil];
+    NSDictionary *whiteAttribs = @{NSFontAttributeName: [UIFont fontWithName:@"OpenSans-CondensedBold" size:21.0f], NSForegroundColorAttributeName:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f]};
+    NSDictionary *yellowAttribs = @{NSFontAttributeName: [UIFont fontWithName:@"OpenSans-CondensedBold" size:21.0f], NSForegroundColorAttributeName:[UIColor colorWithRed:1 green:204/255.0f blue:0.0f alpha:1.0f]};
     
+    NSString* finalStr = @"";
     
-    NSDictionary *whiteAttribs = @{NSFontAttributeName: [UIFont fontWithName:@"DroidSans-CondensedBold" size:12.0f], NSForegroundColorAttributeName:[UIColor colorWithRed:256/256.0f green:256/256.0f blue:256/256.0f alpha:1.0f]};
-    NSDictionary *yellowAttribs = @{NSFontAttributeName: [UIFont fontWithName:@"DroidSans-Bold" size:12.0f], NSForegroundColorAttributeName:[UIColor colorWithRed:255/256.0f green:204/256.0f blue:0.0f alpha:1.0f]};
-    
-        
-    for (int i = 0; i <= [strArray count]; i++) {
-
-        NSString *keysStr = [[[strArray objectAtIndex:i] allKeys] componentsJoinedByString:@""];
-        NSString *valueStr = [[[strArray objectAtIndex:i] allValues] componentsJoinedByString:@""];
-        
-        NSMutableAttributedString* whiteStr = [[NSMutableAttributedString alloc] initWithString:keysStr];
-        NSMutableAttributedString* yellowStr = [[NSMutableAttributedString alloc] initWithString:valueStr];
-
-        NSInteger white_str_length = [keysStr length];
-        NSInteger yellow_str_length = [valueStr length];
-
-        [whiteStr setAttributes:whiteAttribs range:NSMakeRange(finalyStr.length, white_str_length)];
-        [yellowStr setAttributes:yellowAttribs range:NSMakeRange(white_str_length+1, yellow_str_length)];
-
-        finalyStr = [NSString stringWithFormat:@"%@ - %@", whiteStr, yellowStr];
+    NSRange boldParts[100];
+    for (int i = 0; i < [prizes count]; i++) {
+        boldParts[i].location = [finalStr length];
+        boldParts[i].length = [[prizes[i] objectForKey:@"prize_position"] length];
+        finalStr = [finalStr stringByAppendingFormat:@"%@ - %@\n", [prizes[i] objectForKey:@"prize_position"], [prizes[i] objectForKey:@"prize_value"]];
     }
-    
-    prizesTextView.text = finalyStr;
+
+    NSMutableAttributedString* aString = [[NSMutableAttributedString alloc] initWithString:finalStr];
+    NSInteger str_length = [finalStr length];
+    [aString setAttributes:whiteAttribs range:NSMakeRange(0, str_length)];
+
+    for (int i = 0; i < [prizes count]; i++) {
+        [aString setAttributes:yellowAttribs range:boldParts[i]];
+    }
+
+    prizesTextView.attributedText = aString;
 }
 
 
