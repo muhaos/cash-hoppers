@@ -17,6 +17,9 @@
 #import "CHAPIClient.h"
 #import "CHDetailsFeedVC.h"
 #import "CHAddFriendVC.h"
+#import "CHUserManager.h"
+
+
 
 @interface CHFriendsListVC ()
 
@@ -171,7 +174,9 @@
     
     cell.currentFeedItem = (CHFriendsFeedItem*)[self.feedItems objectAtIndex:indexPath.row];
 ///
-    if (self.friendsButtonActive == YES) {
+    BOOL canAddToFriend = (fItem.user != nil && fItem.user.friendship_status == nil && [fItem.user.identifier intValue] != [[CHUserManager instance].currentUser.identifier intValue]);
+    
+    if (canAddToFriend == NO) {
         
         [[cell commentButton] setHidden:NO];
         [[cell likeButton] setHidden:NO];
