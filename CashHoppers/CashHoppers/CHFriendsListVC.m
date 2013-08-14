@@ -159,7 +159,7 @@
     [[cell nameHopLabel] setText:fItem.hop.name];
     [[cell timeLabel] setText:[NSString stringWithFormat:@"%@ ago", fItem.time_ago]];
     
-    [[cell photoHopImageView] setImageWithURL:[fItem hopImageURL]];
+    [[cell photoHopImageView] setImageWithURL:[fItem smallHopImageURL]];
     [[cell photoPersonImageView] setImageWithURL:[fItem.user avatarURL]];
     
     [[cell taskCompletedLabel] setText:[fItem completedTaskName]];

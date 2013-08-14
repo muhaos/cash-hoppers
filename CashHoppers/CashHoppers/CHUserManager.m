@@ -61,8 +61,6 @@
     
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
-    
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
         NSDictionary* userDic = [JSON objectForKey:@"user"];
@@ -122,8 +120,6 @@
     
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
-    
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
         NSArray* friendsArray = [JSON objectForKey:@"friends"];
@@ -164,8 +160,6 @@
     
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
-    
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
         NSArray* usersArray = [JSON objectForKey:@"users"];
@@ -194,8 +188,6 @@
     NSString *path = [NSString stringWithFormat:@"/api/friends/send_request.json?api_key=%@&authentication_token=%@&friend_id=%i",CH_API_KEY, aToken, [user.identifier intValue]];
     
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"POST" path:path parameters:nil];
-    
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         handler(nil);

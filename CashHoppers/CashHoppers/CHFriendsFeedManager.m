@@ -42,8 +42,6 @@
     NSString *path = [NSString stringWithFormat:@"%@?api_key=%@&authentication_token=%@&page=1&per_page=20", feedsPath, CH_API_KEY,aToken];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
-    
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 //        NSLog(@"json = %@")
         NSArray* json_tasks = [JSON objectForKey:@"tasks"];
@@ -100,8 +98,6 @@
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
     NSString *path = [NSString stringWithFormat:@"/api/task/get_user_hop_task_by_id.json?api_key=%@&authentication_token=%@&user_hop_task_id=%i", CH_API_KEY,aToken, [_id intValue]];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
-    
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 
@@ -173,8 +169,6 @@
     NSLog(@"feedItem.identifier=%@",feedItem.identifier);
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
-    
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSArray* json_comments = [JSON objectForKey:@"comments"];
         NSMutableArray *comments = [NSMutableArray arrayWithCapacity:1];
@@ -215,8 +209,6 @@
     [params setObject:text forKey:@"text"];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"POST" path:path parameters:params];
     
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
-    
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
         handler(YES);
@@ -241,8 +233,6 @@
     [params setObject:aToken forKey:@"authentication_token"];
     [params setObject:feedItem.identifier forKey:@"user_hop_task_id"];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"POST" path:path parameters:params];
-    
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         

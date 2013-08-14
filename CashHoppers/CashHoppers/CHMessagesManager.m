@@ -42,8 +42,6 @@
     [params setObject:friendsIds forKey:@"friends"];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"POST" path:path parameters:params];
     
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
-    
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
         handler(nil);
@@ -63,8 +61,6 @@
     NSString *path = [NSString stringWithFormat:@"/api/messages/thread.json?api_key=%@&authentication_token=%@&page=1&per_page=50",CH_API_KEY,aToken];
     
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
-    
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
@@ -96,8 +92,6 @@
     NSString *path = [NSString stringWithFormat:@"/api/messages/history.json?api_key=%@&authentication_token=%@&friend_id=%i&page=1&per_page=50",CH_API_KEY,aToken, [friendID intValue]];
     
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
-    
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
@@ -135,8 +129,6 @@
     NSString *path = [NSString stringWithFormat:@"/api/messages/remove_message.json?api_key=%@&authentication_token=%@&message_id=%i",CH_API_KEY,aToken,[msg.identifier intValue]];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"DELETE" path:path parameters:nil];
     
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
-    
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         handler(nil);
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
@@ -159,8 +151,6 @@
     
     
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
-    
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         

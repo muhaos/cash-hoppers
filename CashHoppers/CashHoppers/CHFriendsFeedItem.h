@@ -21,6 +21,7 @@
 @property(nonatomic,strong) NSString *comment;
 @property(nonatomic,strong) NSNumber *hopID;
 @property(nonatomic,strong) NSString *photoURL;
+@property(nonatomic,strong) NSString *smallPhotoURL;
 @property(nonatomic,strong) NSNumber *numberOfLikes;
 @property(nonatomic,strong) NSNumber *liked;
 @property(nonatomic,strong) NSString* time_ago;
@@ -31,6 +32,7 @@
 
 - (NSString*) completedTaskName;
 - (NSURL*) hopImageURL;
+- (NSURL*) smallHopImageURL;
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
 

@@ -40,8 +40,6 @@
     NSString *path = [NSString stringWithFormat:@"%@?page=1&per_page=100500&api_key=%@&authentication_token=%@", hopsPath, CH_API_KEY, aToken];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
-    
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
         NSMutableArray* addedOrUpdatedObjects = [NSMutableArray new];
@@ -104,8 +102,6 @@
     NSString *path = [NSString stringWithFormat:@"/api/hop/get_hop.json?api_key=%@&authentication_token=%@&hop_id=%d", CH_API_KEY,aToken, [_id intValue]];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
-    
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 
         NSDictionary* hop = [JSON objectForKey:@"hop"];
@@ -129,8 +125,6 @@
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
     NSString *path = [NSString stringWithFormat:@"/api/hop/get_tasks.json?api_key=%@&hop_id=%i&authentication_token=%@", CH_API_KEY, [hop.identifier intValue], aToken];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
-    
-    NSLog(@"REQUEST TO : %@", [request.URL description]);
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         

@@ -19,8 +19,10 @@
     } else {
         errMsg = [error localizedDescription];
     }
-    UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't load url: %@ \n %@", request.URL, errMsg] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [av show];
+    
+    NSLog(@"Can't load url: %@ \n %@", request.URL, errMsg);
+//    UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't load url: %@ \n %@", request.URL, errMsg] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//    [av show];
 }
 
 

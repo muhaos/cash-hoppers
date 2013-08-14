@@ -29,6 +29,7 @@
     self.liked = [dic objectForKey:@"liked"];
     self.numberOfLikes = [dic objectForKey:@"likes_count"];
     self.photoURL = [CHBaseModel safeStringFrom:[dic objectForKey:@"photo"] defaultValue:@""];
+    self.smallPhotoURL = [CHBaseModel safeStringFrom:[dic objectForKey:@"small_photo"] defaultValue:@""];
     self.time_ago = [CHBaseModel safeStringFrom:[dic objectForKey:@"time_ago"] defaultValue:@"some time ago"];
     self.likers = [dic objectForKey:@"likers"];
 }
@@ -36,6 +37,11 @@
 
 - (NSURL*) hopImageURL {
     return [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:self.photoURL]];
+}
+
+
+- (NSURL*) smallHopImageURL {
+    return [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:self.smallPhotoURL]];
 }
 
 

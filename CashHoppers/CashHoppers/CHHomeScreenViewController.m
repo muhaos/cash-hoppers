@@ -113,9 +113,9 @@
         }
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        
-        UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [av show];
+        NSLog(@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]);
+//        UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        [av show];
         
     }];
     
@@ -180,7 +180,7 @@
         self.feedHopNameLabel.text = self.currentFeedItem.hop.name;
         self.feedHopTaskNameLabel.text = [self.currentFeedItem completedTaskName];
         self.feedTimeLabel.text = @"some time ago";
-        [self.feedHopImageView setImageWithURL:[self.currentFeedItem hopImageURL]];
+        [self.feedHopImageView setImageWithURL:[self.currentFeedItem smallHopImageURL]];
         [self.feedAvatarImageView setImageWithURL:[self.currentFeedItem.user avatarURL]];
     } else {
         self.feedIndicator.hidden = NO;
