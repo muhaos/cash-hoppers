@@ -218,8 +218,12 @@
 #else
 #endif
     
+	poc.editing = YES;
+    poc.delegate = (id)self;
+
     [self presentViewController:poc animated:YES completion:nil];
 }
+
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
@@ -234,19 +238,7 @@
     UIImage *chosenImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     
    	photoImView.image = chosenImage;
-    
-}
 
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
-{
-    [self.library saveImage:image toAlbum:@"CASHHOPPERS" withCompletionBlock:^(NSError *error) {
-        if (error!=nil) {
-            NSLog(@"Big error: %@", [error description]);
-        }
-    }];
-    
-    [picker dismissModalViewControllerAnimated:NO];
 }
 
 
@@ -262,8 +254,18 @@
     [[CHHopsManager instance] completeHopTask:self.currentHopTask withPhoto:photoImView.image comment:_textView.text completionHandler:^(BOOL success) {
         if (success) {
             [self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier];
+            [self saveImageCopyToGalery];
         }
         [[CHLoadingVC sharedLoadingVC] hide];
+    }];
+}
+
+
+- (void) saveImageCopyToGalery {
+    [self.library saveImage:photoImView.image toAlbum:@"CASHHOPPERS" withCompletionBlock:^(NSError *error) {
+        if (error!=nil) {
+            NSLog(@"Big error: %@", [error description]);
+        }
     }];
 }
 

@@ -42,16 +42,19 @@
     NSMutableArray *collector = [[NSMutableArray alloc] initWithCapacity:0];
     ALAssetsLibrary *al = [CHGalleryVC defaultAssetsLibrary];
     
-    [al enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos
+    [al enumerateGroupsWithTypes:ALAssetsGroupAll
                       usingBlock:^(ALAssetsGroup *group, BOOL *stop)
      {
          [group enumerateAssetsUsingBlock:^(ALAsset *asset, NSUInteger index, BOOL *stop)
           {
-              if (asset) {
-                  [collector addObject:asset];
+              
+              if ([[group valueForProperty:ALAssetsGroupPropertyName] isEqual:@"CASHHOPPERS"]) {
+                  if (asset) {
+                      [collector addObject:asset];
+                  }
               }
           }];
-         
+                  
          self.photos = collector;
      }
                     failureBlock:^(NSError *error) { NSLog(@"Boom!!!");}
