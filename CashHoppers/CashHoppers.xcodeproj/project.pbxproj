@@ -52,6 +52,10 @@
 		567BB51C17BBAC8900C75F54 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 567BB51817BBAC8900C75F54 /* Icon-72@2x.png */; };
 		567BB51D17BBAC8900C75F54 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 567BB51917BBAC8900C75F54 /* Icon.png */; };
 		567BB51E17BBAC8900C75F54 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 567BB51A17BBAC8900C75F54 /* Icon@2x.png */; };
+		567BB52017BBD26900C75F54 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 567BB51F17BBD26900C75F54 /* AssetsLibrary.framework */; };
+		567BB52317BBD29C00C75F54 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 567BB52217BBD29C00C75F54 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
+		567BB52917BBD2C000C75F54 /* CHGalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 567BB52617BBD2C000C75F54 /* CHGalleryCell.m */; };
+		567BB52A17BBD2C000C75F54 /* CHGalleryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 567BB52817BBD2C000C75F54 /* CHGalleryVC.m */; };
 		567FCABF17A7CC9F00F150A8 /* CHSelectedUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCABE17A7CC9F00F150A8 /* CHSelectedUserView.m */; };
 		567FCAC117A7CD7A00F150A8 /* CHSelectedUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 567FCAC017A7CD7A00F150A8 /* CHSelectedUserView.xib */; };
 		567FCAC717A9365300F150A8 /* CHMessagesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCAC617A9365300F150A8 /* CHMessagesManager.m */; };
@@ -387,6 +391,13 @@
 		567BB51817BBAC8900C75F54 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
 		567BB51917BBAC8900C75F54 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
 		567BB51A17BBAC8900C75F54 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		567BB51F17BBD26900C75F54 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		567BB52117BBD29C00C75F54 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
+		567BB52217BBD29C00C75F54 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
+		567BB52517BBD2C000C75F54 /* CHGalleryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGalleryCell.h; sourceTree = "<group>"; };
+		567BB52617BBD2C000C75F54 /* CHGalleryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGalleryCell.m; sourceTree = "<group>"; };
+		567BB52717BBD2C000C75F54 /* CHGalleryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGalleryVC.h; sourceTree = "<group>"; };
+		567BB52817BBD2C000C75F54 /* CHGalleryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGalleryVC.m; sourceTree = "<group>"; };
 		567FCABD17A7CC9F00F150A8 /* CHSelectedUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSelectedUserView.h; sourceTree = "<group>"; };
 		567FCABE17A7CC9F00F150A8 /* CHSelectedUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSelectedUserView.m; sourceTree = "<group>"; };
 		567FCAC017A7CD7A00F150A8 /* CHSelectedUserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHSelectedUserView.xib; sourceTree = "<group>"; };
@@ -805,6 +816,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				567BB52017BBD26900C75F54 /* AssetsLibrary.framework in Frameworks */,
 				AA27E3CB17AFA87700C98B6C /* MessageUI.framework in Frameworks */,
 				AAABFF4C17A997D8000B6C2F /* Accounts.framework in Frameworks */,
 				AAA63986179333A200D929D6 /* libxml2.dylib in Frameworks */,
@@ -890,6 +902,7 @@
 		5640153E176B40D000C028CE = {
 			isa = PBXGroup;
 			children = (
+				567BB51F17BBD26900C75F54 /* AssetsLibrary.framework */,
 				56401550176B40D000C028CE /* CashHoppers */,
 				56401577176B40D100C028CE /* CashHoppersTests */,
 				56401549176B40D000C028CE /* Frameworks */,
@@ -1158,9 +1171,21 @@
 			path = Images;
 			sourceTree = SOURCE_ROOT;
 		};
+		567BB52417BBD2AD00C75F54 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				567BB52517BBD2C000C75F54 /* CHGalleryCell.h */,
+				567BB52617BBD2C000C75F54 /* CHGalleryCell.m */,
+				567BB52717BBD2C000C75F54 /* CHGalleryVC.h */,
+				567BB52817BBD2C000C75F54 /* CHGalleryVC.m */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
 		567FCABB17A7CC3A00F150A8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				567BB52417BBD2AD00C75F54 /* Library */,
 				567FCAC317A7D57500F150A8 /* Login Related */,
 				567FCAC217A7D50D00F150A8 /* Hops Related */,
 				567FCABC17A7CC6200F150A8 /* Messages and Notifications */,
@@ -1511,6 +1536,8 @@
 		E1B074FB177B58E000D7BCD0 /* Custom Elements */ = {
 			isa = PBXGroup;
 			children = (
+				567BB52117BBD29C00C75F54 /* ALAssetsLibrary+CustomPhotoAlbum.h */,
+				567BB52217BBD29C00C75F54 /* ALAssetsLibrary+CustomPhotoAlbum.m */,
 				56115548179EA7CA00DAA76E /* Custom Font From Storyboard */,
 				E176E67A179881FD004BFF02 /* MFSideMenu */,
 				AA169454178D941500D09372 /* ECSlidingViewController */,
@@ -2030,6 +2057,9 @@
 				AA0E001617B8F91000B7A681 /* CHSettingsProfileNotificationsVC.m in Sources */,
 				AA0E002117B90ACB00B7A681 /* CHPushNotificationsCell.m in Sources */,
 				AA0E002917B928E200B7A681 /* CHPrizeListVC.m in Sources */,
+				567BB52317BBD29C00C75F54 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
+				567BB52917BBD2C000C75F54 /* CHGalleryCell.m in Sources */,
+				567BB52A17BBD2C000C75F54 /* CHGalleryVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,7 @@
 #import "CHHopsManager.h"
 #import "CHSharingPopupVC.h"
 #import "AFNetworking.h"
+#import "ALAssetsLibrary+CustomPhotoAlbum.h"
 
 
 @interface CHNewHopVC ()
@@ -240,8 +241,19 @@
     [[CHHopsManager instance] completeHopTask:self.currentHopTask withPhoto:photoImView.image comment:_textView.text completionHandler:^(BOOL success) {
         if (success) {
             [self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier];
+            [self saveImageCopyToGalery];
         }
         [[CHLoadingVC sharedLoadingVC] hide];
+    }];
+}
+
+
+- (void) saveImageCopyToGalery {
+    ALAssetsLibrary* library = [[ALAssetsLibrary alloc] init];
+    [library saveImage:photoImView.image toAlbum:@"CASHHOPPERS" withCompletionBlock:^(NSError *error) {
+        if (error!=nil) {
+            NSLog(@"Big error: %@", [error description]);
+        }
     }];
 }
 
