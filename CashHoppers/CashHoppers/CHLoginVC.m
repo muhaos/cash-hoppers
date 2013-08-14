@@ -10,6 +10,7 @@
 #import "CHLoadingVC.h"
 #import "CHAPIClient.h"
 #import "CHAppDelegate.h"
+#import "CHUserManager.h"
 
 @interface CHLoginVC ()
 
@@ -135,6 +136,9 @@
             
             [av show];
             [[CHLoadingVC sharedLoadingVC] hide];
+            
+            [[CHUserManager instance] updateCurrentUser];
+
         }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
             NSString* errMsg = nil;
             if (JSON != nil) {
