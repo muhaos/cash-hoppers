@@ -31,13 +31,14 @@
         pushNotificationsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"pushNotificationsVC"];
     }
     [self addProfileToView];
+    
+    [self setupTriangleBackButton];
+    
 }
 
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) backButtonTapped {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 
@@ -99,6 +100,15 @@
     [self addChildViewController:profileUserVC];
     [self.containerView addSubview:profileUserVC.view];
 }
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
 
 
 @end

@@ -94,6 +94,9 @@
 		AA0E002117B90ACB00B7A681 /* CHPushNotificationsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0E002017B90ACB00B7A681 /* CHPushNotificationsCell.m */; };
 		AA0E002417B90DC600B7A681 /* icon_indicator_off.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0E002217B90DC600B7A681 /* icon_indicator_off.png */; };
 		AA0E002517B90DC600B7A681 /* icon_indicator_on.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0E002317B90DC600B7A681 /* icon_indicator_on.png */; };
+		AA0E002917B928E200B7A681 /* CHPrizeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0E002717B928E200B7A681 /* CHPrizeListVC.m */; };
+		AA0E002A17B928E200B7A681 /* CHPrizeListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA0E002817B928E200B7A681 /* CHPrizeListVC.xib */; };
+		AA0E002C17B92AE000B7A681 /* icon_dollar.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0E002B17B92AE000B7A681 /* icon_dollar.png */; };
 		AA1161F217784F5A00D0E750 /* CHHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1161F117784F5A00D0E750 /* CHHomeScreenViewController.m */; };
 		AA1161F61778514F00D0E750 /* CHAdvertisingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1161F41778514F00D0E750 /* CHAdvertisingVC.m */; };
 		AA1161F71778514F00D0E750 /* CHAdvertisingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1161F51778514F00D0E750 /* CHAdvertisingVC.xib */; };
@@ -449,6 +452,10 @@
 		AA0E002017B90ACB00B7A681 /* CHPushNotificationsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHPushNotificationsCell.m; sourceTree = "<group>"; };
 		AA0E002217B90DC600B7A681 /* icon_indicator_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_indicator_off.png; sourceTree = "<group>"; };
 		AA0E002317B90DC600B7A681 /* icon_indicator_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_indicator_on.png; sourceTree = "<group>"; };
+		AA0E002617B928E200B7A681 /* CHPrizeListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHPrizeListVC.h; sourceTree = "<group>"; };
+		AA0E002717B928E200B7A681 /* CHPrizeListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHPrizeListVC.m; sourceTree = "<group>"; };
+		AA0E002817B928E200B7A681 /* CHPrizeListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHPrizeListVC.xib; sourceTree = "<group>"; };
+		AA0E002B17B92AE000B7A681 /* icon_dollar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_dollar.png; sourceTree = "<group>"; };
 		AA1161F017784F5A00D0E750 /* CHHomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHomeScreenViewController.h; sourceTree = "<group>"; };
 		AA1161F117784F5A00D0E750 /* CHHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHomeScreenViewController.m; sourceTree = "<group>"; };
 		AA1161F31778514F00D0E750 /* CHAdvertisingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAdvertisingVC.h; sourceTree = "<group>"; };
@@ -941,6 +948,9 @@
 				56401565176B40D100C028CE /* MainStoryboard_iPad.storyboard */,
 				56401551176B40D000C028CE /* Supporting Files */,
 				567FCABB17A7CC3A00F150A8 /* Controllers */,
+				AA0E002617B928E200B7A681 /* CHPrizeListVC.h */,
+				AA0E002717B928E200B7A681 /* CHPrizeListVC.m */,
+				AA0E002817B928E200B7A681 /* CHPrizeListVC.xib */,
 				AA1161F31778514F00D0E750 /* CHAdvertisingVC.h */,
 				AA1161F41778514F00D0E750 /* CHAdvertisingVC.m */,
 				AA1161F51778514F00D0E750 /* CHAdvertisingVC.xib */,
@@ -1039,6 +1049,7 @@
 				AA0E001C17B908EA00B7A681 /* button_profile_n.png */,
 				AA0E001717B8FCB300B7A681 /* button_notific_act.png */,
 				AA0E001817B8FCB300B7A681 /* button_notific_n.png */,
+				AA0E002B17B92AE000B7A681 /* icon_dollar.png */,
 				5657F3CB17B3EB5000ECF2C0 /* button_accept.png */,
 				5657F3CC17B3EB5000ECF2C0 /* button_decline.png */,
 				AA5863A417B414F50074F0AB /* buy_add_free_icon.png */,
@@ -1841,6 +1852,8 @@
 				567BB51C17BBAC8900C75F54 /* Icon-72@2x.png in Resources */,
 				567BB51D17BBAC8900C75F54 /* Icon.png in Resources */,
 				567BB51E17BBAC8900C75F54 /* Icon@2x.png in Resources */,
+				AA0E002A17B928E200B7A681 /* CHPrizeListVC.xib in Resources */,
+				AA0E002C17B92AE000B7A681 /* icon_dollar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2016,6 +2029,7 @@
 				AA0E001317B8F8E100B7A681 /* CHPushNotificationsVC.m in Sources */,
 				AA0E001617B8F91000B7A681 /* CHSettingsProfileNotificationsVC.m in Sources */,
 				AA0E002117B90ACB00B7A681 /* CHPushNotificationsCell.m in Sources */,
+				AA0E002917B928E200B7A681 /* CHPrizeListVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@
 
 @implementation CHOtherHopsListCell
 
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -20,6 +21,7 @@
     return self;
 }
 
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
@@ -27,8 +29,10 @@
     // Configure the view for the selected state
 }
 
+
 - (IBAction)previewButtonTapped:(id)sender {
 }
+
 
 - (IBAction)joinButtonTapped:(id)sender {
 }
@@ -72,9 +76,6 @@
     [[self verticalIndicatorImageView] setImage:[UIImage imageNamed:@"av_indicator_cell"]];
     [[self horizontalIndicatorImageView] setImage:nil];
 }
-
-
-
 
 
 @end

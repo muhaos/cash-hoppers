@@ -16,6 +16,8 @@
 #import "CHDetailsFeedVC.h"
 #import "CHFriendsFeedManager.h"
 #import "CHUserManager.h"
+#import "CHAppDelegate.h"
+#import "MFSideMenuContainerViewController.h"
 
 
 @interface CHMessagesVC () <CHMessagesCellDelegate>
@@ -292,6 +294,10 @@
 
 - (IBAction)composeMessageTapped:(id)sender {
      [self performSegueWithIdentifier:@"compose_message" sender:self];
+}
+
+- (IBAction)settingsButtonTapped:(id)sender {
+     [DELEGATE.menuContainerVC toggleLeftSideMenuCompletion:nil];
 }
 
 

@@ -48,15 +48,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     
     [self.photoImageView setImageWithURL:[user avatarURL] placeholderImage:[UIImage imageNamed:@"image_avatar.png"]];
     
-    [self setupTriangleBackButton];
-    
     self.scrollView.frame = CGRectMake(0, 0, 320, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height);
     self.scrollView.contentSize = CGSizeMake(320.0f, 750.0f);
-}
-
-
-- (void) backButtonTapped {
-    [self dismissModalViewControllerAnimated:YES];
 }
 
 

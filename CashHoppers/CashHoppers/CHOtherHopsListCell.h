@@ -43,6 +43,8 @@
 - (void) configureFreeHop;
 
 
+@property (strong, nonatomic) IBOutlet UIButton *prizeListButton;
+
 
 - (IBAction)previewButtonTapped:(id)sender;
 - (IBAction)joinButtonTapped:(id)sender;

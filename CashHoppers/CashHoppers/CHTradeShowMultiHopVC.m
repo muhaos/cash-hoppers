@@ -13,6 +13,7 @@
 #import "CHNewHopVC.h"
 #import "CHHopsManager.h"
 #import "AFNetworking.h"
+#import "CHPrizeListVC.h"
 
 @interface CHTradeShowMultiHopVC ()
 
@@ -137,18 +138,29 @@
 }
 
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"new_hop_segue"]) {
         CHNewHopVC* c = (CHNewHopVC*)segue.destinationViewController;
         c.currentHopTask = sender;
     }
+}
+
+
+
+- (IBAction)prizeListButtonTapped:(id)sender {
+    
+    [[CHPrizeListVC sharedPrizeListVC] showInController:self.parentViewController.parentViewController];
+}
+
+
+
+
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 
@@ -162,8 +174,5 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self.hopsTasksUpdatedNotification];
     [super viewDidUnload];
 }
-
-
-
 
 @end
