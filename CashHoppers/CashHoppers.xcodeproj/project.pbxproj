@@ -48,6 +48,10 @@
 		5640159E176B647C00C028CE /* button_forget_passwd.png in Resources */ = {isa = PBXBuildFile; fileRef = 5640159D176B647C00C028CE /* button_forget_passwd.png */; };
 		5657F3CD17B3EB5000ECF2C0 /* button_accept.png in Resources */ = {isa = PBXBuildFile; fileRef = 5657F3CB17B3EB5000ECF2C0 /* button_accept.png */; };
 		5657F3CE17B3EB5000ECF2C0 /* button_decline.png in Resources */ = {isa = PBXBuildFile; fileRef = 5657F3CC17B3EB5000ECF2C0 /* button_decline.png */; };
+		567BB51B17BBAC8900C75F54 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 567BB51717BBAC8900C75F54 /* Icon-72.png */; };
+		567BB51C17BBAC8900C75F54 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 567BB51817BBAC8900C75F54 /* Icon-72@2x.png */; };
+		567BB51D17BBAC8900C75F54 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 567BB51917BBAC8900C75F54 /* Icon.png */; };
+		567BB51E17BBAC8900C75F54 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 567BB51A17BBAC8900C75F54 /* Icon@2x.png */; };
 		567FCABF17A7CC9F00F150A8 /* CHSelectedUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCABE17A7CC9F00F150A8 /* CHSelectedUserView.m */; };
 		567FCAC117A7CD7A00F150A8 /* CHSelectedUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 567FCAC017A7CD7A00F150A8 /* CHSelectedUserView.xib */; };
 		567FCAC717A9365300F150A8 /* CHMessagesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCAC617A9365300F150A8 /* CHMessagesManager.m */; };
@@ -376,6 +380,10 @@
 		5640159D176B647C00C028CE /* button_forget_passwd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_forget_passwd.png; sourceTree = "<group>"; };
 		5657F3CB17B3EB5000ECF2C0 /* button_accept.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_accept.png; sourceTree = "<group>"; };
 		5657F3CC17B3EB5000ECF2C0 /* button_decline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_decline.png; sourceTree = "<group>"; };
+		567BB51717BBAC8900C75F54 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = SOURCE_ROOT; };
+		567BB51817BBAC8900C75F54 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
+		567BB51917BBAC8900C75F54 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
+		567BB51A17BBAC8900C75F54 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		567FCABD17A7CC9F00F150A8 /* CHSelectedUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSelectedUserView.h; sourceTree = "<group>"; };
 		567FCABE17A7CC9F00F150A8 /* CHSelectedUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSelectedUserView.m; sourceTree = "<group>"; };
 		567FCAC017A7CD7A00F150A8 /* CHSelectedUserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHSelectedUserView.xib; sourceTree = "<group>"; };
@@ -987,6 +995,10 @@
 		56401551176B40D000C028CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				567BB51717BBAC8900C75F54 /* Icon-72.png */,
+				567BB51817BBAC8900C75F54 /* Icon-72@2x.png */,
+				567BB51917BBAC8900C75F54 /* Icon.png */,
+				567BB51A17BBAC8900C75F54 /* Icon@2x.png */,
 				5611553D179EA4A200DAA76E /* Fonts */,
 				56401552176B40D000C028CE /* CashHoppers-Info.plist */,
 				56401553176B40D000C028CE /* InfoPlist.strings */,
@@ -1825,6 +1837,10 @@
 				AA0E001E17B908EA00B7A681 /* button_profile_n.png in Resources */,
 				AA0E002417B90DC600B7A681 /* icon_indicator_off.png in Resources */,
 				AA0E002517B90DC600B7A681 /* icon_indicator_on.png in Resources */,
+				567BB51B17BBAC8900C75F54 /* Icon-72.png in Resources */,
+				567BB51C17BBAC8900C75F54 /* Icon-72@2x.png in Resources */,
+				567BB51D17BBAC8900C75F54 /* Icon.png in Resources */,
+				567BB51E17BBAC8900C75F54 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
