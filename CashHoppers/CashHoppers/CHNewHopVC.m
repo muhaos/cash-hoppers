@@ -19,6 +19,7 @@
 #import "CHHopsManager.h"
 #import "CHSharingPopupVC.h"
 #import "AFNetworking.h"
+#import "ALAssetsLibrary+CustomPhotoAlbum.h"
 
 
 @interface CHNewHopVC ()
@@ -26,7 +27,7 @@
 @end
 
 @implementation CHNewHopVC
-@synthesize menuButton, winnterButton, photoImView;
+@synthesize menuButton, winnterButton, photoImView, library;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,6 +43,8 @@
     [super viewDidLoad];
     [self setupTriangleBackButton];
     
+    self.library = [[ALAssetsLibrary alloc] init];
+
     _textView.layer.borderWidth = 1;
     _textView.layer.cornerRadius = 3;
     _textView.layer.borderColor = CH_GRAY_COLOR.CGColor;
@@ -223,14 +226,33 @@
     [viewController.navigationItem setTitle:@""];
 }
 
-#pragma mark - imagePicker delegate
 
+#pragma -
+#pragma mark Image picker delegate methdos
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 	[picker dismissModalViewControllerAnimated:YES];
     UIImage *chosenImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     
    	photoImView.image = chosenImage;
     
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
+{
+    [self.library saveImage:image toAlbum:@"CASHHOPPERS" withCompletionBlock:^(NSError *error) {
+        if (error!=nil) {
+            NSLog(@"Big error: %@", [error description]);
+        }
+    }];
+    
+    [picker dismissModalViewControllerAnimated:NO];
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissModalViewControllerAnimated:NO];
 }
 
 
@@ -301,6 +323,7 @@
     [self setMyScroolView:nil];
     [self setMenuButton:nil];
     [self setWinnterButton:nil];
+    self.library = nil;
     [super viewDidUnload];
 }
 

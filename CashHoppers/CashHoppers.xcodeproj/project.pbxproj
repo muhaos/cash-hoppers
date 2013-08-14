@@ -95,6 +95,8 @@
 		AA1161F71778514F00D0E750 /* CHAdvertisingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1161F51778514F00D0E750 /* CHAdvertisingVC.xib */; };
 		AA1161FA1778549F00D0E750 /* buton_cancel_reclama.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1161F81778549F00D0E750 /* buton_cancel_reclama.png */; };
 		AA1161FB1778549F00D0E750 /* reclama.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1161F91778549F00D0E750 /* reclama.png */; };
+		AA13078317BB96C300431C20 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = AA13078217BB96C300431C20 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
+		AA13078517BB976400431C20 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA13078417BB976400431C20 /* AssetsLibrary.framework */; };
 		AA169459178D941500D09372 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA169456178D941500D09372 /* ECSlidingViewController.m */; };
 		AA16945A178D941500D09372 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA169458178D941500D09372 /* UIImage+ImageWithUIView.m */; };
 		AA16945D178D95B800D09372 /* CHInitSlidingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA16945C178D95B800D09372 /* CHInitSlidingVC.m */; };
@@ -450,6 +452,9 @@
 		AA1161F51778514F00D0E750 /* CHAdvertisingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHAdvertisingVC.xib; sourceTree = "<group>"; };
 		AA1161F81778549F00D0E750 /* buton_cancel_reclama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buton_cancel_reclama.png; sourceTree = "<group>"; };
 		AA1161F91778549F00D0E750 /* reclama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reclama.png; sourceTree = "<group>"; };
+		AA13078117BB96C300431C20 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ALAssetsLibrary+CustomPhotoAlbum.h"; path = "../ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
+		AA13078217BB96C300431C20 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ALAssetsLibrary+CustomPhotoAlbum.m"; path = "../ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
+		AA13078417BB976400431C20 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		AA169455178D941500D09372 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
 		AA169456178D941500D09372 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
 		AA169457178D941500D09372 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
@@ -506,10 +511,10 @@
 		AA425FD717995EC0008E02E6 /* CHOptionalPopupSharingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHOptionalPopupSharingVC.xib; sourceTree = "<group>"; };
 		AA425FDA1799611A008E02E6 /* button_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_no.png; sourceTree = "<group>"; };
 		AA425FDB1799611A008E02E6 /* button_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_yes.png; sourceTree = "<group>"; };
-		AA44D9A217BA800A00338073 /* CHGalleryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHGalleryVC.h; path = CashHoppers/CHGalleryVC.h; sourceTree = "<group>"; };
-		AA44D9A317BA800A00338073 /* CHGalleryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHGalleryVC.m; path = CashHoppers/CHGalleryVC.m; sourceTree = "<group>"; };
-		AA44D9A517BA838200338073 /* CHGalleryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHGalleryCell.h; path = CashHoppers/CHGalleryCell.h; sourceTree = "<group>"; };
-		AA44D9A617BA838200338073 /* CHGalleryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHGalleryCell.m; path = CashHoppers/CHGalleryCell.m; sourceTree = "<group>"; };
+		AA44D9A217BA800A00338073 /* CHGalleryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGalleryVC.h; sourceTree = "<group>"; };
+		AA44D9A317BA800A00338073 /* CHGalleryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGalleryVC.m; sourceTree = "<group>"; };
+		AA44D9A517BA838200338073 /* CHGalleryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGalleryCell.h; sourceTree = "<group>"; };
+		AA44D9A617BA838200338073 /* CHGalleryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGalleryCell.m; sourceTree = "<group>"; };
 		AA4550641774497900D3D0F6 /* button_nav_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_nav_back.png; sourceTree = "<group>"; };
 		AA45506C177490BC00D3D0F6 /* av_header_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = av_header_cell.png; sourceTree = "<group>"; };
 		AA45506D177490BC00D3D0F6 /* av_indicator_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = av_indicator_cell.png; sourceTree = "<group>"; };
@@ -796,6 +801,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA13078517BB976400431C20 /* AssetsLibrary.framework in Frameworks */,
 				AA27E3CB17AFA87700C98B6C /* MessageUI.framework in Frameworks */,
 				AAABFF4C17A997D8000B6C2F /* Accounts.framework in Frameworks */,
 				AAA63986179333A200D929D6 /* libxml2.dylib in Frameworks */,
@@ -881,10 +887,6 @@
 		5640153E176B40D000C028CE = {
 			isa = PBXGroup;
 			children = (
-				AA44D9A517BA838200338073 /* CHGalleryCell.h */,
-				AA44D9A617BA838200338073 /* CHGalleryCell.m */,
-				AA44D9A217BA800A00338073 /* CHGalleryVC.h */,
-				AA44D9A317BA800A00338073 /* CHGalleryVC.m */,
 				56401550176B40D000C028CE /* CashHoppers */,
 				56401577176B40D100C028CE /* CashHoppersTests */,
 				56401549176B40D000C028CE /* Frameworks */,
@@ -904,6 +906,7 @@
 		56401549176B40D000C028CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA13078417BB976400431C20 /* AssetsLibrary.framework */,
 				AA27E3CA17AFA87700C98B6C /* MessageUI.framework */,
 				AA732C8717AA4F6F002CC6C7 /* FacebookSDKResources.bundle */,
 				AA732C8517AA4F62002CC6C7 /* FacebookSDK.framework */,
@@ -990,6 +993,10 @@
 				AA0E001217B8F8E100B7A681 /* CHPushNotificationsVC.m */,
 				AA0E001F17B90ACB00B7A681 /* CHPushNotificationsCell.h */,
 				AA0E002017B90ACB00B7A681 /* CHPushNotificationsCell.m */,
+				AA44D9A517BA838200338073 /* CHGalleryCell.h */,
+				AA44D9A617BA838200338073 /* CHGalleryCell.m */,
+				AA44D9A217BA800A00338073 /* CHGalleryVC.h */,
+				AA44D9A317BA800A00338073 /* CHGalleryVC.m */,
 			);
 			path = CashHoppers;
 			sourceTree = "<group>";
@@ -1602,6 +1609,8 @@
 		E1CF6C14177D7855003D9624 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				AA13078117BB96C300431C20 /* ALAssetsLibrary+CustomPhotoAlbum.h */,
+				AA13078217BB96C300431C20 /* ALAssetsLibrary+CustomPhotoAlbum.m */,
 				AACEB95F17AB8D0B00691F6B /* FHSTwitterEngine */,
 				AA4C1F5117904E910071D0F9 /* OpenSource */,
 				AA4C1F4717904E710071D0F9 /* lib */,
@@ -2012,6 +2021,7 @@
 				AA0E002117B90ACB00B7A681 /* CHPushNotificationsCell.m in Sources */,
 				AA44D9A417BA800A00338073 /* CHGalleryVC.m in Sources */,
 				AA44D9A717BA838200338073 /* CHGalleryCell.m in Sources */,
+				AA13078317BB96C300431C20 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,11 +10,13 @@
 
 #import <UIKit/UIKit.h>
 #import "GPPShare.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @class CHHopTask;
 
 @interface CHNewHopVC : UIViewController <UITextViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property (strong, atomic) ALAssetsLibrary* library;
 @property (strong, nonatomic) CHHopTask* currentHopTask;
 
 @property (strong, nonatomic) IBOutlet UILabel *hopTitleLabel;

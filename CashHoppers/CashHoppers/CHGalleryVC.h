@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 
 @interface CHGalleryVC : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *photoCollectionView;
-@property (strong, nonatomic) NSMutableArray *imagesMutArray;
+@property (nonatomic, strong) NSArray *photos;
 
 - (IBAction)settingsButtonTapped:(id)sender;
++ (ALAssetsLibrary *)defaultAssetsLibrary;
 
 @end

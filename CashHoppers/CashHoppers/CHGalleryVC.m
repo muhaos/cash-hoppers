@@ -16,29 +16,54 @@
 @end
 
 @implementation CHGalleryVC
-@synthesize imagesMutArray;
+@synthesize photos = _photos;
+
+
+-(void)setPhotos:(NSArray *)photos {
+    if (_photos != photos) {
+        _photos = photos;
+        [self.photoCollectionView reloadData];
+    }
+}
+
+
++ (ALAssetsLibrary *)defaultAssetsLibrary {
+    static dispatch_once_t pred = 0;
+    static ALAssetsLibrary *library = nil;
+    dispatch_once(&pred, ^{
+        library = [[ALAssetsLibrary alloc] init];
+    });
+    return library;
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSMutableArray *collector = [[NSMutableArray alloc] initWithCapacity:0];
+    ALAssetsLibrary *al = [CHGalleryVC defaultAssetsLibrary];
+    
+    [al enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos
+                      usingBlock:^(ALAssetsGroup *group, BOOL *stop)
+     {
+         [group enumerateAssetsUsingBlock:^(ALAsset *asset, NSUInteger index, BOOL *stop)
+          {
+              if (asset) {
+                  [collector addObject:asset];
+              }
+          }];
+         
+         self.photos = collector;
+     }
+                    failureBlock:^(NSError *error) { NSLog(@"Boom!!!");}
+     ];
+}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.photoCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"gallery_cell"];
-    
-    imagesMutArray = [@[@"image_avatar.png",
-                      @"gp_icon.png",
-                      @"gp_icon.png",
-                      @"image_avatar.png",
-                      @"photo_brian.png",
-                      @"photo_brian.png",
-                      @"image_avatar.png",
-                      @"gp_icon.png",
-                      @"photo_brian.png",
-                      @"photo_brian.png",
-                      @"gp_icon.png",
-                      @"image_avatar.png",
-                      @"gp_icon.png",
-                      @"image_avatar.png",
-                      @"photo_brian.png"] mutableCopy];
+
 }
 
 
@@ -51,16 +76,10 @@
 #pragma mark -
 #pragma mark UICollectionViewDataSource
 
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 1;
-}
-
-
 -(NSInteger)collectionView:(UICollectionView *)collectionView
     numberOfItemsInSection:(NSInteger)section
 {
-    return imagesMutArray.count;
+    return self.photos.count;
 }
 
 
@@ -69,9 +88,10 @@
 {
     CHGalleryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gallery_cell" forIndexPath:indexPath];
     
-    int row = [indexPath row];
-    UIImageView *bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imagesMutArray[row]]];
+    ALAsset *asset = [self.photos objectAtIndex:indexPath.row];
+    UIImageView *bg = [[UIImageView alloc] initWithImage:[UIImage imageWithCGImage:[asset thumbnail]]];
     cell.backgroundView = bg;
+    
     return cell;
 }
 
