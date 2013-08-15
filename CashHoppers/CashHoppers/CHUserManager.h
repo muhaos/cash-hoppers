@@ -14,6 +14,12 @@
 + (CHUserManager*) instance;
 
 @property (nonatomic, strong, readonly) CHUser* currentUser;
+
+@property (nonatomic, strong) NSMutableDictionary* userSettings;
+- (void) updateUserSettingsWithCompletionBlock:(void (^)(NSError* error)) block;
+- (void) syncUserSettings;
+
+
 - (void) updateCurrentUser;
 
 - (void) loadUserForID:(NSNumber*) _id completionHandler:(void (^)(CHUser* user)) handler;

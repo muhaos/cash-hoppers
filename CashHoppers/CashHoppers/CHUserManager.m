@@ -200,4 +200,51 @@
 }
 
 
+- (void) updateUserSettingsWithCompletionBlock:(void (^)(NSError* error)) block {
+    
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/settings/get.json?api_key=%@&authentication_token=%@", CH_API_KEY, aToken];
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        if ([JSON objectForKey:@"friend_invite"] != nil) {
+            self.userSettings = [JSON mutableCopy];
+            block(nil);
+        } else {
+            block([[NSError alloc] init]);
+        }
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
+        block(error);
+    }];
+    
+    [operation start];
+}
+
+
+- (void) syncUserSettings {
+    NSError *error = nil;
+    NSData *json = [NSJSONSerialization dataWithJSONObject:self.userSettings options:0 error:&error];
+
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/settings/set.json?api_key=%@&authentication_token=%@", CH_API_KEY, aToken];
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"POST" path:path parameters:nil];
+    [request setHTTPBody:json];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
+        
+        // re sync if fail
+        [self performSelector:@selector(syncUserSettings) withObject:nil afterDelay:5.0f];
+    }];
+    
+    [operation start];
+}
+
+
+
 @end

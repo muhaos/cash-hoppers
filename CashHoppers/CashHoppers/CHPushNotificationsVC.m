@@ -8,8 +8,11 @@
 
 #import "CHPushNotificationsVC.h"
 #import "CHPushNotificationsCell.h"
+#import "CHUserManager.h"
 
 @interface CHPushNotificationsVC ()
+
+@property (nonatomic, strong) NSArray* states;
 
 @end
 
@@ -18,7 +21,20 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
+}
+
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if ([CHUserManager instance].userSettings == nil) {
+        [[CHUserManager instance] updateUserSettingsWithCompletionBlock:^(NSError* error){
+            [self.notificationsTableView reloadData];
+        }];
+    }
+    
 }
 
 
@@ -45,6 +61,9 @@
     
     if (indexPath.section == 0) {
         CHPushNotificationsCell *cell = (CHPushNotificationsCell*) [tableView dequeueReusableCellWithIdentifier:menuCellIdentifier];
+
+        NSDictionary* s = [CHUserManager instance].userSettings;
+
         switch (indexPath.row) {
             case 0:
                 cell.nameNotificationLabel.text = @"Alert me when I receive a message";
@@ -56,15 +75,30 @@
                 break;
             case 2:
                 cell.nameNotificationLabel.text = @"Alert me when sameone comments or likes my picks";
-                cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
+                
+                if ([[s objectForKey:@"like"] boolValue]) {
+                    cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
+                } else {
+                    cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_off.png"];
+                }
+
                 break;
             case 3:
                 cell.nameNotificationLabel.text = @"Alert me when I have a Friend Request";
-                cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_off.png"];
+                
+                if ([[s objectForKey:@"friend_invite"] boolValue]) {
+                    cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
+                } else {
+                    cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_off.png"];
+                }
                 break;
             case 4:{
                 cell.nameNotificationLabel.text = @"Alert me when a HOP is about to end if I have not completed it";
-                cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_off.png"];
+                if ([[s objectForKey:@"end_of_hop"] boolValue]) {
+                    cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
+                } else {
+                    cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_off.png"];
+                }
                 break;
             }
             default:
@@ -78,6 +112,9 @@
 
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([CHUserManager instance].userSettings == nil) {
+        return nil;
+    }
     return indexPath;
 }
 
@@ -86,11 +123,53 @@
 {
     CHPushNotificationsCell *cell = (CHPushNotificationsCell*) [tableView cellForRowAtIndexPath:indexPath];
     
-    if (cell.indicatorImageView.image == [UIImage imageNamed:@"icon_indicator_on.png"]) {
-        cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_off.png"];
-    } else {
-        cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
+    NSMutableDictionary* s = [CHUserManager instance].userSettings;
+    
+    switch (indexPath.row) {
+        case 0:
+            cell.nameNotificationLabel.text = @"Alert me when I receive a message";
+            cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
+            break;
+        case 1:
+            cell.nameNotificationLabel.text = @"Alert me about new HOPs";
+            cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
+            break;
+        case 2:
+            cell.nameNotificationLabel.text = @"Alert me when sameone comments or likes my picks";
+            [s setObject:@(![[s objectForKey:@"like"] boolValue]) forKey:@"like"];
+            if ([[s objectForKey:@"like"] boolValue]) {
+                cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
+            } else {
+                cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_off.png"];
+            }
+            
+            break;
+        case 3:
+            cell.nameNotificationLabel.text = @"Alert me when I have a Friend Request";
+
+            [s setObject:@(![[s objectForKey:@"friend_invite"] boolValue]) forKey:@"friend_invite"];
+            if ([[s objectForKey:@"friend_invite"] boolValue]) {
+                cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
+            } else {
+                cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_off.png"];
+            }
+            break;
+        case 4:{
+            cell.nameNotificationLabel.text = @"Alert me when a HOP is about to end if I have not completed it";
+
+            [s setObject:@(![[s objectForKey:@"end_of_hop"] boolValue]) forKey:@"end_of_hop"];
+            if ([[s objectForKey:@"end_of_hop"] boolValue]) {
+                cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
+            } else {
+                cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_off.png"];
+            }
+            break;
+        }
+        default:
+            break;
     }
+    
+    [[CHUserManager instance] syncUserSettings];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
