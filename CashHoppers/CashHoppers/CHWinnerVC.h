@@ -14,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descrLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
+@property (strong, nonatomic) IBOutlet UITextView *contactAsTextView;
 
 @end

@@ -11,10 +11,10 @@
 @interface CHPrizeListVC : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITextView *prizesTextView;
-@property (nonatomic, retain) NSMutableString *finalyStr;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 
 - (IBAction)cancelButtonTapped:(id)sender;
 + (CHPrizeListVC*) sharedPrizeListVC;
-- (void) showInController:(UIViewController*) c;
+- (void) showInController:(UIViewController*) c forHopID:(NSNumber*) hopID;
 
 @end

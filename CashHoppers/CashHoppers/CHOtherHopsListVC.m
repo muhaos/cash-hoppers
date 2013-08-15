@@ -224,7 +224,7 @@
 
 - (IBAction)prizeListButtonTapped:(id)sender
 {
-    [[CHPrizeListVC sharedPrizeListVC] showInController:self.parentViewController.parentViewController];
+    //[[CHPrizeListVC sharedPrizeListVC] showInController:self.parentViewController.parentViewController];
 }
 
 

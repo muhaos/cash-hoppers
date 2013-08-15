@@ -186,6 +186,52 @@
 }
 
 
+- (void) loadPrizesForHopID:(NSNumber*) _id completionHandler:(void (^)(NSArray* hopPrizes)) handler {
+    
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/hop/prizes.json?api_key=%@&hop_id=%i&authentication_token=%@", CH_API_KEY, [_id intValue], aToken];
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        NSArray* prizes = [JSON objectForKey:@"prizes"];
+        if (prizes) {
+            handler(prizes);
+        } else  {
+            handler(nil);
+        }
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
+        handler(nil);
+    }];
+    
+    [operation start];
+}
+
+
+- (void) loadYesterdayWinnerWithCompletionHandler:(void (^)(NSDictionary* yesterdayWinnerDic)) handler {
+    
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/hops/yesterdays_winner.json?api_key=%@&authentication_token=%@", CH_API_KEY, aToken];
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        if ([JSON objectForKey:@"winner_id"] != nil) {
+            handler(JSON);
+        } else  {
+            handler(nil);
+        }
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
+        handler(nil);
+    }];
+    
+    [operation start];
+}
+
+
 
 
 @end

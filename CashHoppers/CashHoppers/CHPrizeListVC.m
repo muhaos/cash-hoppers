@@ -7,46 +7,46 @@
 //
 
 #import "CHPrizeListVC.h"
+#import "CHHopsManager.h"
 
 @interface CHPrizeListVC ()
+
+@property (nonatomic, strong) NSMutableArray* currentPrizes;
 
 @end
 
 @implementation CHPrizeListVC
-@synthesize prizesTextView, finalyStr;
+@synthesize prizesTextView;
 
 
 - (void)viewDidLoad
 {
+    prizesTextView.attributedText = nil;
     [super viewDidLoad];
-    
-    NSArray* prizes = @[
-                        @{@"prize_position": @"1st Prize", @"prize_value": @"$500" },
-                        @{@"prize_position": @"2st Prize", @"prize_value": @"$400" },
-                        @{@"prize_position": @"Most Creative Pic", @"prize_value": @"40 TV" },
-                        @{@"prize_position": @"Raffle Prize", @"prize_value": @"Apple iPod Touch" }
-  ];
-    
+}
+
+
+- (void) refreshPrizes {
     NSDictionary *whiteAttribs = @{NSFontAttributeName: [UIFont fontWithName:@"OpenSans-CondensedBold" size:21.0f], NSForegroundColorAttributeName:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f]};
     NSDictionary *yellowAttribs = @{NSFontAttributeName: [UIFont fontWithName:@"OpenSans-CondensedBold" size:21.0f], NSForegroundColorAttributeName:[UIColor colorWithRed:1 green:204/255.0f blue:0.0f alpha:1.0f]};
     
     NSString* finalStr = @"";
     
     NSRange boldParts[100];
-    for (int i = 0; i < [prizes count]; i++) {
+    for (int i = 0; i < [self.currentPrizes count]; i++) {
         boldParts[i].location = [finalStr length];
-        boldParts[i].length = [[prizes[i] objectForKey:@"prize_position"] length];
-        finalStr = [finalStr stringByAppendingFormat:@"%@ - %@\n", [prizes[i] objectForKey:@"prize_position"], [prizes[i] objectForKey:@"prize_value"]];
+        boldParts[i].length = [[self.currentPrizes[i] objectForKey:@"prize_position"] length];
+        finalStr = [finalStr stringByAppendingFormat:@"%@ - %@\n", [self.currentPrizes[i] objectForKey:@"prize_position"], [self.currentPrizes[i] objectForKey:@"prize_value"]];
     }
-
+    
     NSMutableAttributedString* aString = [[NSMutableAttributedString alloc] initWithString:finalStr];
     NSInteger str_length = [finalStr length];
     [aString setAttributes:whiteAttribs range:NSMakeRange(0, str_length)];
-
-    for (int i = 0; i < [prizes count]; i++) {
+    
+    for (int i = 0; i < [self.currentPrizes count]; i++) {
         [aString setAttributes:yellowAttribs range:boldParts[i]];
     }
-
+    
     prizesTextView.attributedText = aString;
 }
 
@@ -60,11 +60,26 @@
 }
 
 
-- (void) showInController:(UIViewController*) c {
+- (void) showInController:(UIViewController*) c forHopID:(NSNumber*) hopID {
     if (self.view.superview != nil) {
         @throw [NSException exceptionWithName:@"CHPrizeListVC" reason:@"Loading controller already showed!" userInfo:nil];
     }
     [c.view addSubview:self.view];
+    
+    prizesTextView.attributedText = nil;
+    self.activityView.hidden = NO;
+    
+    [[CHHopsManager instance] loadPrizesForHopID:hopID completionHandler:^(NSArray* prizes) {
+        self.currentPrizes = [NSMutableArray new];
+        for (NSDictionary* d in prizes) {
+            NSString* prize_position = [d objectForKey:@"title"];
+            NSString* prize_value = [NSString stringWithFormat:@"$%i", [[d objectForKey:@"cost"] intValue]];
+            [self.currentPrizes addObject:@{@"prize_position": prize_position, @"prize_value": prize_value }];
+        }
+        
+        self.activityView.hidden = YES;
+        [self refreshPrizes];
+    }];
 }
 
 

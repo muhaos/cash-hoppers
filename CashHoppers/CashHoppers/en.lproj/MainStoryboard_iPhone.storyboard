@@ -2534,11 +2534,11 @@
                                 <rect key="frame" x="1" y="86" width="320" height="396"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="photo_brian.png" id="j1R-8G-F7c">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="j1R-8G-F7c">
                                         <rect key="frame" x="65" y="181" width="188" height="195"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Randomly selected from all the eligible entries." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sdj-qY-kxk">
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Randomly selected from all the eligible entries." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sdj-qY-kxk">
                                         <rect key="frame" x="20" y="121" width="280" height="21"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -2584,6 +2584,7 @@
                     <navigationItem key="navigationItem" id="fBu-Wk-zn9"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="contactAsTextView" destination="YgP-rq-4Bu" id="g4u-zR-4kf"/>
                         <outlet property="dateLabel" destination="Ufy-ty-ggk" id="dLW-V1-a4z"/>
                         <outlet property="descrLabel" destination="Sdj-qY-kxk" id="pHP-sB-fbq"/>
                         <outlet property="nameLabel" destination="aJx-qO-fjf" id="3Zz-I8-uPR"/>
@@ -4268,7 +4269,6 @@
         <image name="logo.png" width="484" height="211"/>
         <image name="messages_icon.png" width="44" height="32"/>
         <image name="our_time.png" width="1456" height="1456"/>
-        <image name="photo_brian.png" width="416" height="416"/>
         <image name="photos_icon.png" width="44" height="40"/>
         <image name="search_box.png" width="574" height="72"/>
         <image name="search_icon.png" width="30" height="30"/>
@@ -4703,6 +4703,7 @@
         <class className="CHWinnerVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHWinnerVC.h"/>
             <relationships>
+                <relationship kind="outlet" name="contactAsTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="descrLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
