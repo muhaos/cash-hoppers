@@ -8,6 +8,7 @@
 
 #import "CHSharingPopupVC.h"
 #import <Social/Social.h>
+#import "CHHopsManager.h"
 
 @interface CHSharingPopupVC ()
 
@@ -60,6 +61,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)finishedSharing: (BOOL)shared {
+    if (shared) {
+        [[CHHopsManager instance] notifiServerOfSharingWithService:@"google" andHopTaskID:self.hopTaskID];
+        NSLog(@"User successfully shared!");
+    } else {
+        NSLog(@"User didn't share.");
+    }
+}
+
+
 - (IBAction)facebookButTapped:(id)sender {
     
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
@@ -67,6 +79,11 @@
         SLComposeViewController *tw = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         [tw setInitialText:@"Message"];
         [tw addImage:self.imageToShare];
+        tw.completionHandler = ^(SLComposeViewControllerResult result) {
+            if (result == SLComposeViewControllerResultDone) {
+                [[CHHopsManager instance] notifiServerOfSharingWithService:@"facebook" andHopTaskID:self.hopTaskID];
+            }
+        };
         [self.currentController presentViewController:tw animated:YES completion:nil];
     }
 
@@ -89,6 +106,12 @@
         SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         [tweetSheet setInitialText:@"Message"];
         [tweetSheet addImage:self.imageToShare];
+        tweetSheet.completionHandler = ^(SLComposeViewControllerResult result) {
+            if (result == SLComposeViewControllerResultDone) {
+                [[CHHopsManager instance] notifiServerOfSharingWithService:@"twitter" andHopTaskID:self.hopTaskID];
+            }
+        };
+
         [self.currentController presentViewController: tweetSheet animated: YES completion: nil];
     }
 }

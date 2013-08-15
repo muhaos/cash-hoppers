@@ -31,6 +31,7 @@
 - (void) loadHopForID:(NSNumber*) _id completionHandler:(void (^)(CHHop* hop)) handler;
 - (void) loadPrizesForHopID:(NSNumber*) _id completionHandler:(void (^)(NSArray* hopPrizes)) handler;
 - (void) loadYesterdayWinnerWithCompletionHandler:(void (^)(NSDictionary* yesterdayWinnerDic)) handler;
+- (void) notifiServerOfSharingWithService:(NSString*) serviceName andHopTaskID:(NSNumber*) hopTaskID;
 
 
 

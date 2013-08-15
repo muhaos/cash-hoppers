@@ -11,6 +11,7 @@
 
 @interface CHSharingPopupVC : UIViewController<GPPShareDelegate>
 
+@property (nonatomic, strong) NSNumber* hopTaskID;
 @property (strong, nonatomic) UIImage* imageToShare;
 @property (nonatomic, retain) UIViewController* currentController;
 

@@ -232,6 +232,23 @@
 }
 
 
+- (void) notifiServerOfSharingWithService:(NSString*) serviceName andHopTaskID:(NSNumber*) hopTaskID {
+    
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/task/notify_by_share.json?api_key=%@&authentication_token=%@&user_hop_task_id=%i&service=%@", CH_API_KEY, aToken, [hopTaskID intValue], serviceName];
+    
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"POST" path:path parameters:nil];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
+    }];
+    
+    [operation start];
+    
+}
+
 
 
 @end
