@@ -15,6 +15,8 @@
 #import "MFSideMenuContainerViewController.h"
 #import "CHUserManager.h"
 #import "CHMessagesManager.h"
+#import "TestFlight.h"
+
 
 NSString *const FBSessionStateChangedNotification =
 @"com.facebook.samples.LoginHowTo:FBSessionStateChangedNotification";
@@ -29,6 +31,9 @@ NSString *const FBSessionStateChangedNotification =
 {
 
     // Override point for customization after application launch.
+    
+    [TestFlight takeOff:@"10699439-c03f-4eee-9e7f-9f9c879da396"];
+
     
     [self setupApperences];
    

@@ -56,6 +56,8 @@
 		567BB52317BBD29C00C75F54 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 567BB52217BBD29C00C75F54 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		567BB52917BBD2C000C75F54 /* CHGalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 567BB52617BBD2C000C75F54 /* CHGalleryCell.m */; };
 		567BB52A17BBD2C000C75F54 /* CHGalleryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 567BB52817BBD2C000C75F54 /* CHGalleryVC.m */; };
+		567BB53817BD1AF500C75F54 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 567BB53417BD1AF500C75F54 /* libTestFlight.a */; };
+		567BB53A17BD1B5B00C75F54 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 567BB53917BD1B5A00C75F54 /* libz.dylib */; };
 		567FCABF17A7CC9F00F150A8 /* CHSelectedUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCABE17A7CC9F00F150A8 /* CHSelectedUserView.m */; };
 		567FCAC117A7CD7A00F150A8 /* CHSelectedUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 567FCAC017A7CD7A00F150A8 /* CHSelectedUserView.xib */; };
 		567FCAC717A9365300F150A8 /* CHMessagesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCAC617A9365300F150A8 /* CHMessagesManager.m */; };
@@ -398,6 +400,11 @@
 		567BB52617BBD2C000C75F54 /* CHGalleryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGalleryCell.m; sourceTree = "<group>"; };
 		567BB52717BBD2C000C75F54 /* CHGalleryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGalleryVC.h; sourceTree = "<group>"; };
 		567BB52817BBD2C000C75F54 /* CHGalleryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGalleryVC.m; sourceTree = "<group>"; };
+		567BB53417BD1AF500C75F54 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		567BB53517BD1AF500C75F54 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		567BB53617BD1AF500C75F54 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		567BB53717BD1AF500C75F54 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		567BB53917BD1B5A00C75F54 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		567FCABD17A7CC9F00F150A8 /* CHSelectedUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSelectedUserView.h; sourceTree = "<group>"; };
 		567FCABE17A7CC9F00F150A8 /* CHSelectedUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSelectedUserView.m; sourceTree = "<group>"; };
 		567FCAC017A7CD7A00F150A8 /* CHSelectedUserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHSelectedUserView.xib; sourceTree = "<group>"; };
@@ -816,6 +823,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				567BB53A17BD1B5B00C75F54 /* libz.dylib in Frameworks */,
 				567BB52017BBD26900C75F54 /* AssetsLibrary.framework in Frameworks */,
 				AA27E3CB17AFA87700C98B6C /* MessageUI.framework in Frameworks */,
 				AAABFF4C17A997D8000B6C2F /* Accounts.framework in Frameworks */,
@@ -834,6 +842,7 @@
 				5640154F176B40D000C028CE /* CoreGraphics.framework in Frameworks */,
 				AA4C1F5017904E710071D0F9 /* libGooglePlusUniversal.a in Frameworks */,
 				AA732C8617AA4F62002CC6C7 /* FacebookSDK.framework in Frameworks */,
+				567BB53817BD1AF500C75F54 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -902,6 +911,7 @@
 		5640153E176B40D000C028CE = {
 			isa = PBXGroup;
 			children = (
+				567BB53917BD1B5A00C75F54 /* libz.dylib */,
 				567BB51F17BBD26900C75F54 /* AssetsLibrary.framework */,
 				56401550176B40D000C028CE /* CashHoppers */,
 				56401577176B40D100C028CE /* CashHoppersTests */,
@@ -1182,6 +1192,17 @@
 			name = Library;
 			sourceTree = "<group>";
 		};
+		567BB53317BD1AF500C75F54 /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				567BB53417BD1AF500C75F54 /* libTestFlight.a */,
+				567BB53517BD1AF500C75F54 /* TestFlight+AsyncLogging.h */,
+				567BB53617BD1AF500C75F54 /* TestFlight+ManualSessions.h */,
+				567BB53717BD1AF500C75F54 /* TestFlight.h */,
+			);
+			path = TestFlight;
+			sourceTree = "<group>";
+		};
 		567FCABB17A7CC3A00F150A8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1328,6 +1349,7 @@
 		AA4C1F4717904E710071D0F9 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				567BB53317BD1AF500C75F54 /* TestFlight */,
 				AA4C1F4817904E710071D0F9 /* GPPDeepLink.h */,
 				AA4C1F4917904E710071D0F9 /* GPPShare.h */,
 				AA4C1F4A17904E710071D0F9 /* GPPSignIn.h */,
@@ -2197,6 +2219,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
 					"\"$(SRCROOT)/Twitter+OAuth/Libraries & Headers\"",
+					"\"$(SRCROOT)/lib/TestFlight\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -2223,6 +2246,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
 					"\"$(SRCROOT)/Twitter+OAuth/Libraries & Headers\"",
+					"\"$(SRCROOT)/lib/TestFlight\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
