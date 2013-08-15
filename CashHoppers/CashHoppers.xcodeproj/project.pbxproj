@@ -205,6 +205,8 @@
 		AA4C1FD017904E920071D0F9 /* GTMOAuth2ViewTouch.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA4C1FA517904E910071D0F9 /* GTMOAuth2ViewTouch.xib */; };
 		AA4C1FD117904E920071D0F9 /* GTMObjC2Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4C1FA717904E910071D0F9 /* GTMObjC2Runtime.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AA4C1FD217904E920071D0F9 /* OpenInChromeController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4C1FA917904E910071D0F9 /* OpenInChromeController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AA4E223417BCD8C900E86B23 /* CHBuyHopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4E223217BCD8C900E86B23 /* CHBuyHopVC.m */; };
+		AA4E223517BCD8C900E86B23 /* CHBuyHopVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA4E223317BCD8C900E86B23 /* CHBuyHopVC.xib */; };
 		AA5505041797ED11009BF936 /* gp_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA5505031797ED11009BF936 /* gp_icon.png */; };
 		AA55050717982009009BF936 /* CHMessagesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA55050617982009009BF936 /* CHMessagesVC.m */; };
 		AA55050A17982551009BF936 /* CHMessagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA55050917982550009BF936 /* CHMessagesCell.m */; };
@@ -638,6 +640,9 @@
 		AA4C1FA717904E910071D0F9 /* GTMObjC2Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMObjC2Runtime.m; sourceTree = "<group>"; };
 		AA4C1FA817904E910071D0F9 /* OpenInChromeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenInChromeController.h; sourceTree = "<group>"; };
 		AA4C1FA917904E910071D0F9 /* OpenInChromeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenInChromeController.m; sourceTree = "<group>"; };
+		AA4E223117BCD8C900E86B23 /* CHBuyHopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHBuyHopVC.h; sourceTree = "<group>"; };
+		AA4E223217BCD8C900E86B23 /* CHBuyHopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHBuyHopVC.m; sourceTree = "<group>"; };
+		AA4E223317BCD8C900E86B23 /* CHBuyHopVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHBuyHopVC.xib; sourceTree = "<group>"; };
 		AA5505031797ED11009BF936 /* gp_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gp_icon.png; sourceTree = "<group>"; };
 		AA55050517982009009BF936 /* CHMessagesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMessagesVC.h; sourceTree = "<group>"; };
 		AA55050617982009009BF936 /* CHMessagesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMessagesVC.m; sourceTree = "<group>"; };
@@ -902,7 +907,6 @@
 		5640153E176B40D000C028CE = {
 			isa = PBXGroup;
 			children = (
-				567BB51F17BBD26900C75F54 /* AssetsLibrary.framework */,
 				56401550176B40D000C028CE /* CashHoppers */,
 				56401577176B40D100C028CE /* CashHoppersTests */,
 				56401549176B40D000C028CE /* Frameworks */,
@@ -922,6 +926,7 @@
 		56401549176B40D000C028CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				567BB51F17BBD26900C75F54 /* AssetsLibrary.framework */,
 				AA27E3CA17AFA87700C98B6C /* MessageUI.framework */,
 				AA732C8717AA4F6F002CC6C7 /* FacebookSDKResources.bundle */,
 				AA732C8517AA4F62002CC6C7 /* FacebookSDK.framework */,
@@ -961,6 +966,9 @@
 				56401565176B40D100C028CE /* MainStoryboard_iPad.storyboard */,
 				56401551176B40D000C028CE /* Supporting Files */,
 				567FCABB17A7CC3A00F150A8 /* Controllers */,
+				AA4E223117BCD8C900E86B23 /* CHBuyHopVC.h */,
+				AA4E223217BCD8C900E86B23 /* CHBuyHopVC.m */,
+				AA4E223317BCD8C900E86B23 /* CHBuyHopVC.xib */,
 				AA0E002617B928E200B7A681 /* CHPrizeListVC.h */,
 				AA0E002717B928E200B7A681 /* CHPrizeListVC.m */,
 				AA0E002817B928E200B7A681 /* CHPrizeListVC.xib */,
@@ -1881,6 +1889,7 @@
 				567BB51E17BBAC8900C75F54 /* Icon@2x.png in Resources */,
 				AA0E002A17B928E200B7A681 /* CHPrizeListVC.xib in Resources */,
 				AA0E002C17B92AE000B7A681 /* icon_dollar.png in Resources */,
+				AA4E223517BCD8C900E86B23 /* CHBuyHopVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2060,6 +2069,7 @@
 				567BB52317BBD29C00C75F54 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				567BB52917BBD2C000C75F54 /* CHGalleryCell.m in Sources */,
 				567BB52A17BBD2C000C75F54 /* CHGalleryVC.m in Sources */,
+				AA4E223417BCD8C900E86B23 /* CHBuyHopVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,7 @@
 #import "CHHopsManager.h"
 #import "AFNetworking.h"
 #import "CHPrizeListVC.h"
+#import "CHBuyHopVC.h"
 
 @interface CHTradeShowMultiHopVC ()
 
@@ -133,7 +134,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CHHopTask* hopTask = [self.currentHop.tasks objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"new_hop_segue" sender:hopTask];
+    
+    if (![self.currentHop.price isEqualToString:@""] && ![self.currentHop.price isEqualToString:@"0"]) {
+        [[CHBuyHopVC sharedBuyHopVC] showInController:self.parentViewController.parentViewController withNameHop:hopTask.text withCostHop:hopTask.hop.price];
+    } else {
+        [self performSegueWithIdentifier:@"new_hop_segue" sender:hopTask];
+    }
+   
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -146,15 +153,10 @@
 }
 
 
-
 - (IBAction)prizeListButtonTapped:(id)sender {
     
     [[CHPrizeListVC sharedPrizeListVC] showInController:self.parentViewController.parentViewController];
 }
-
-
-
-
 
 
 - (void)didReceiveMemoryWarning
