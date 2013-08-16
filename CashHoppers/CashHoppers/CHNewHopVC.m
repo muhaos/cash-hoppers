@@ -64,10 +64,6 @@
     _myScroolView.frame = (CGRect){_myScroolView.frame.origin, CGSizeMake(320, 502)};
     _myScroolView.contentSize = CGSizeMake(320, 504);
     
-    self.view.layer.shadowOpacity = 0.75f;
-    self.view.layer.shadowRadius = 10.0f;
-    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
-    
 //    if (![self.slidingViewController.underLeftViewController isKindOfClass:[CHMenuSlidingVC class]]) {
 //        self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
 //    }
