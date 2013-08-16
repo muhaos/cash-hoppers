@@ -1923,6 +1923,7 @@ static NSString * const oldPinJS = @"var d = document.getElementById('oauth-pin'
 	
 	UINavigationItem *navItem = [[[UINavigationItem alloc]initWithTitle:@""]autorelease];
 	navItem.leftBarButtonItem = [[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(close)]autorelease];
+    navItem.leftBarButtonItem.tintColor = [UIColor colorWithRed:21/255.0f green:160/255.0f blue:70/255.0f alpha:1.0f];
 	[_navBar pushNavigationItem:navItem animated:NO];
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
