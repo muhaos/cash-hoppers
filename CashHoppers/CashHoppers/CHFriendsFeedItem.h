@@ -35,5 +35,7 @@
 - (NSURL*) smallHopImageURL;
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
++ (BOOL) isValidFeedDictionary:(NSDictionary*) dic;
+
 
 @end

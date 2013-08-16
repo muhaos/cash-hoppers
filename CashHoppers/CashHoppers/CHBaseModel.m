@@ -33,4 +33,13 @@
     return [df dateFromString: inDate];
 }
 
+
++ (BOOL) isObjectNil:(id<NSObject>) object {
+    if (object == nil || [object isKindOfClass:[NSNull class]]) {
+        return YES;
+    }
+    return NO;
+}
+
+
 @end

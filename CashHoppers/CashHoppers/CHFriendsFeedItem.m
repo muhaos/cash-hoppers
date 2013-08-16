@@ -35,6 +35,17 @@
 }
 
 
++ (BOOL) isValidFeedDictionary:(NSDictionary*) dic {
+    if ([CHBaseModel isObjectNil:[dic objectForKey:@"id"]] ||
+        [CHBaseModel isObjectNil:[dic objectForKey:@"user_id"]] ||
+        [CHBaseModel isObjectNil:[dic objectForKey:@"hop_id"]] ||
+        [CHBaseModel isObjectNil:[dic objectForKey:@"hop_task_id"]]) {
+        return NO;
+    }
+    return YES;
+}
+
+
 - (NSURL*) hopImageURL {
     return [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:self.photoURL]];
 }
