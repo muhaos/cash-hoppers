@@ -128,7 +128,8 @@
                 [self goToTabBar];
                 
             }else{
-                message = [NSString stringWithFormat:@"Login unsuccessfull: %@",[JSON objectForKey:@"errors"]];
+              //  message = [NSString stringWithFormat:@"Login unsuccessfull: %@",[JSON objectForKey:@"errors"]];
+                message = [NSString stringWithFormat:@"Login failed - wrong email or password"];
             }
                         
 //            NSLog(@"json=%@",JSON);
@@ -146,7 +147,7 @@
             } else {
                 errMsg = [error localizedDescription];
             }
-            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"LOGIN" message:[NSString stringWithFormat:@"Login unsuccessful: %@", errMsg] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"LOGIN" message:[NSString stringWithFormat:@"Login failed - wrong email or password"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [av show];
             [[CHLoadingVC sharedLoadingVC] hide];
         }];
