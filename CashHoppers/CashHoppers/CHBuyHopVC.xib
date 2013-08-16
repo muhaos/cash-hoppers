@@ -143,6 +143,7 @@
 						<string key="NSFrame">{{20, 480}, {280, 43}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -154,7 +155,10 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUINormalTitle">Buy 100 RIBBITS for 4.99 $ USD</string>
 						<reference key="IBUIHighlightedTitleColor" ref="477076123"/>
-						<reference key="IBUINormalTitleColor" ref="477076123"/>
+						<object class="NSColor" key="IBUINormalTitleColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MCAwLjYgMC4yAA</bytes>
+						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="713650854"/>
 						<reference key="IBUINormalBackgroundImage" ref="304988425"/>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="867774688">
@@ -218,7 +222,10 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUINormalTitle">Buy 50 RIBBITS for 2.99 $ USD</string>
 						<reference key="IBUIHighlightedTitleColor" ref="477076123"/>
-						<reference key="IBUINormalTitleColor" ref="477076123"/>
+						<object class="NSColor" key="IBUINormalTitleColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MCAwLjYgMC4yAA</bytes>
+						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="713650854"/>
 						<reference key="IBUINormalBackgroundImage" ref="304988425"/>
 						<reference key="IBUIFontDescription" ref="867774688"/>
@@ -352,7 +359,10 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUINormalTitle">Buy 10 RIBBITS for 0.99 $ USD</string>
 						<reference key="IBUIHighlightedTitleColor" ref="477076123"/>
-						<reference key="IBUINormalTitleColor" ref="477076123"/>
+						<object class="NSColor" key="IBUINormalTitleColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MCAwLjYgMC4yAA</bytes>
+						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="713650854"/>
 						<reference key="IBUINormalBackgroundImage" ref="304988425"/>
 						<reference key="IBUIFontDescription" ref="867774688"/>
@@ -426,7 +436,7 @@
 				<string key="NSFrame">{{0, 20}, {320, 548}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
+				<reference key="NSNextKeyView" ref="791802510"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MCAwLjgAA</bytes>
