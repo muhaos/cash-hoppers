@@ -37,6 +37,13 @@
     [[self navigationController] popViewControllerAnimated:YES];
 }
 
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [viewController.navigationItem setTitle:@""];
+}
+
+
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.oldNavBarStatus = self.navigationController.navigationBarHidden;
