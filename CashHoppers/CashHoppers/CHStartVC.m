@@ -15,10 +15,16 @@
 #import "GTLQueryPlus.h"
 #import "GPPSignIn.h"
 #import <FacebookSDK/FBSessionTokenCachingStrategy.h>
+#import "GTLPlusPerson.h"
+
 
 @interface CHStartVC ()
+{
+    __block  NSMutableDictionary *dict;
+}
 
 @property (retain, nonatomic) GPPSignIn *signIn;
+@property (strong, nonatomic) FBProfilePictureView *profileImage;
 
 - (IBAction)loginWithFBTapped:(id)sender;
 - (IBAction)loginWithTwitterTapped:(id)sender;
@@ -27,7 +33,7 @@
 @end
 
 @implementation CHStartVC
-@synthesize signIn;
+@synthesize signIn, profileImage;
 
 - (void)viewDidLoad
 {
@@ -61,6 +67,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [[FHSTwitterEngine sharedEngine]loadAccessToken];
+    
+    NSString *username = [[FHSTwitterEngine sharedEngine]loggedInUsername];
+    if (username.length > 0) {
+        [self userTwitterDetails];
+    }
 }
 
 
@@ -98,31 +109,29 @@
 
 - (IBAction)loginGPlusTapped:(id)sender {
     [signIn authenticate];
+    [self userGooglePlusDetails];
 }
 
 
-//-(void)dateForGp {
-//    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
-//    GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
-//    plusService.retryEnabled = YES;
-//    [plusService setAuthorizer:appDelegate.authentication];
-//    GTLQueryPlus *query = [GTLQueryPlus queryForPeopleGetWithUserId:@"me"];
-//    
-//    [plusService executeQuery:query
-//            completionHandler:^(GTLServiceTicket *ticket,
-//                                GTLPlusPerson *person,
-//                                NSError *error) {
-//                if (error) {
+-(void)userGooglePlusDetails {
+    GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
+    plusService.retryEnabled = YES;
+    [plusService setAuthorizer:signIn.authentication];
+    GTLQueryPlus *query = [GTLQueryPlus queryForPeopleGetWithUserId:@"me"];
+    [plusService executeQuery:query
+            completionHandler:^(GTLServiceTicket *ticket,
+                                GTLPlusPerson *person,
+                                NSError *error) {
+                if (error) {
 //                    GTMLoggerError(@"Error: %@", error);
-//                } else {
-//                    // Извлечем отображаемое имя и содержание раздела "Обо мне"
-//                    [person retain];
-//                    NSString *description = [NSString stringWithFormat:
-//                                             @"%@\n%@", person.displayName,
-//                                             person.aboutMe];
-//                }
-//            }];
-//}
+                } else {
+                    NSString *description = [NSString stringWithFormat:
+                                             @" display name: %@\n  nikname %@\n  image: %@\n  email: %@\n  identifier: %@\n ", person.displayName, person.nickname,person.image, signIn.userEmail, person.identifier];
+                    NSLog(@"%@", description);
+                }
+            }
+     ];
+}
 
 
 ////for fb
@@ -145,6 +154,25 @@
 }
 
 
+- (void)userFacebookDetails
+{
+    if (FBSession.activeSession.isOpen) {
+        [[FBRequest requestForMe] startWithCompletionHandler:
+         ^(FBRequestConnection *connection,
+           NSDictionary<FBGraphUser> *user,
+           NSError *error) {
+             if (!error) {
+                 NSLog(@"%@", user.name);
+                 NSLog(@"%@", user.id);
+                 NSLog(@"%@", user.first_name);
+                 NSLog(@"%@", user.last_name);
+                 NSLog(@"%@", user.username);
+                 NSLog(@"%@", self.profileImage.profileID = user.id);
+             }
+         }];
+    }
+}
+
 //for twitter
 - (IBAction)loginWithTwitterTapped:(id)sender {
     [[FHSTwitterEngine sharedEngine]showOAuthLoginControllerFromViewController:self withCompletion:^(BOOL success) {
@@ -162,6 +190,23 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"SavedAccessHTTPBody"];
 }
 
+
+- (void)userTwitterDetails {
+    dict = nil;
+    dispatch_async(GCDBackgroundThread, ^{
+        @autoreleasepool {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+            NSString *username = [[FHSTwitterEngine sharedEngine]loggedInUsername];
+         //   dict = [[FHSTwitterEngine sharedEngine] li];
+            dispatch_sync(GCDMainThread, ^{
+                @autoreleasepool {
+                    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                }
+            });
+        }
+    });    
+}
+    
 
 - (void)didReceiveMemoryWarning
 {
