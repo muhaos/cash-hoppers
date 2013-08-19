@@ -17,11 +17,17 @@
 @implementation CHAdvertisingVC
 @synthesize reclamaImageView;
 
+
+static BOOL isAdsShowed = false;
+
+
 + (CHAdvertisingVC*) instanceWithAdType:(NSString*)adType andHopID:(NSNumber*) hopID {
     CHAdvertisingVC* instance = [[CHAdvertisingVC alloc] initWithNibName:@"CHAdvertisingVC" bundle:nil];
     [instance loadAdWithAdType:adType andHopID:hopID];
     instance.selfRef = instance;
     instance.view.hidden = YES;
+    isAdsShowed = YES;
+    
     return instance;
 }
 
@@ -98,11 +104,28 @@
 }
 
 - (void)viewDidUnload {
+    
+    
+    
     [super viewDidUnload];
 }
 
 
++ (BOOL) isShowed {
+    return isAdsShowed;
+}
+
+
++ (void) hide {
+    isAdsShowed = NO;
+}
+
+
+
 - (IBAction)closeTapped:(id)sender {
+    
+    [CHAdvertisingVC hide];
+    
     [self.view removeFromSuperview];
     self.selfRef = nil;
     
@@ -111,5 +134,9 @@
     }
 }
 
+
+- (void) dealloc {
+    
+}
 
 @end

@@ -26,4 +26,7 @@
 + (CHAdvertisingVC*) instanceWithAdType:(NSString*)adType andHopID:(NSNumber*) hopID;
 - (void) loadAdWithAdType:(NSString*)adType andHopID:(NSNumber*) hopID;
 
++ (BOOL) isShowed;
++ (void) hide;
+
 @end

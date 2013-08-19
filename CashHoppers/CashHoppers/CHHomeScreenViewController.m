@@ -49,10 +49,6 @@
 {
     [super viewDidLoad];
     
-    self.view.layer.shadowOpacity = 0.75f;
-    self.view.layer.shadowRadius = 10.0f;
-    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
-    
     [menuButton addTarget:self action:@selector(menuTapped:) forControlEvents:UIControlEventTouchUpInside];
     
     [_scrollView setContentSize:CGSizeMake(340,470)];

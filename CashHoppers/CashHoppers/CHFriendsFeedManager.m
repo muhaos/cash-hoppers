@@ -43,14 +43,15 @@
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-//        NSLog(@"json = %@")
         NSArray* json_tasks = [JSON objectForKey:@"tasks"];
         if (json_tasks) {
             [dArray removeAllObjects];
             for (NSDictionary* objDic in json_tasks) {
-                CHFriendsFeedItem* newFeedItem = [[CHFriendsFeedItem alloc] init];
-                [newFeedItem updateFromDictionary:objDic];
-                [dArray addObject:newFeedItem];
+                if ([CHFriendsFeedItem isValidFeedDictionary:objDic]) {
+                    CHFriendsFeedItem* newFeedItem = [[CHFriendsFeedItem alloc] init];
+                    [newFeedItem updateFromDictionary:objDic];
+                    [dArray addObject:newFeedItem];
+                }
             }
         }
         
@@ -103,35 +104,39 @@
 
         NSDictionary* json_task = [JSON objectForKey:@"user_hop_task"];
         if (json_task) {
-            CHFriendsFeedItem* newFeedItem = [[CHFriendsFeedItem alloc] init];
-            [newFeedItem updateFromDictionary:json_task];
-            newFeedItem.identifier = _id;
-            
-            int __block partsLoaded = 0;
-            
-            [[CHHopsManager instance] loadHopForID:newFeedItem.hopID completionHandler:^(CHHop* hop) {
-                newFeedItem.hop = hop;
+            if ([CHFriendsFeedItem isValidFeedDictionary:json_task]) {
+                CHFriendsFeedItem* newFeedItem = [[CHFriendsFeedItem alloc] init];
+                [newFeedItem updateFromDictionary:json_task];
+                newFeedItem.identifier = _id;
                 
-                partsLoaded++;
+                int __block partsLoaded = 0;
                 
-                if (partsLoaded >= 2) {
-                    handler(newFeedItem);
-                }
-
-                [[NSNotificationCenter defaultCenter] postNotificationName:CH_FEED_ITEM_UPDATED object:newFeedItem];
-            }];
-            
-            [[CHUserManager instance] loadUserForID:newFeedItem.userID completionHandler:^(CHUser* user){
-                newFeedItem.user = user;
-
-                partsLoaded++;
+                [[CHHopsManager instance] loadHopForID:newFeedItem.hopID completionHandler:^(CHHop* hop) {
+                    newFeedItem.hop = hop;
+                    
+                    partsLoaded++;
+                    
+                    if (partsLoaded >= 2) {
+                        handler(newFeedItem);
+                    }
+                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:CH_FEED_ITEM_UPDATED object:newFeedItem];
+                }];
                 
-                if (partsLoaded >= 2) {
-                    handler(newFeedItem);
-                }
-                
-                [[NSNotificationCenter defaultCenter] postNotificationName:CH_FEED_ITEM_UPDATED object:newFeedItem];
-            }];
+                [[CHUserManager instance] loadUserForID:newFeedItem.userID completionHandler:^(CHUser* user){
+                    newFeedItem.user = user;
+                    
+                    partsLoaded++;
+                    
+                    if (partsLoaded >= 2) {
+                        handler(newFeedItem);
+                    }
+                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:CH_FEED_ITEM_UPDATED object:newFeedItem];
+                }];
+            } else {
+                handler(nil);
+            }
             
         } else {
             handler(nil);
