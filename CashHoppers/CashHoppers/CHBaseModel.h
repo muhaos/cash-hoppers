@@ -10,7 +10,8 @@
 
 @interface CHBaseModel : NSObject
 
-@property (nonatomic, retain) NSNumber* identifier;
+@property (nonatomic, strong) NSNumber* identifier;
+@property (nonatomic, strong) NSDate* cacheDate;
 
 + (NSString*) safeStringFrom:(NSString*) inStr defaultValue:(NSString*) defStr;
 + (NSNumber*) safeNumberFrom:(NSNumber*) inNum defaultValue:(NSNumber*) defNum;

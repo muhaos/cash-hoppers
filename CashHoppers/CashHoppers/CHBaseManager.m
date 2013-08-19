@@ -39,7 +39,16 @@
         @throw [NSException exceptionWithName:@"CHBaseManager" reason:[NSString stringWithFormat:@"Can't fint object in uninitialized cache \"%@\"", cacheName] userInfo:nil];
     }
     CHBaseModel* obj = [self findObjectWithID:_id inArray:[cache objectForKey:@"objects"]];
-    // expiration check must be here
+    
+    if (obj) {
+        // expiration check
+        NSDate* timePast = [[NSDate date] laterDate:obj.cacheDate];
+        NSTimeInterval timeIntervalPast = [timePast timeIntervalSinceDate:obj.cacheDate];
+        if (timeIntervalPast > [[cache objectForKey:@"expiration"] doubleValue] || timeIntervalPast < 0.0f) {
+            [[cache objectForKey:@"objects"] removeObject:obj];
+            obj = nil;
+        }
+    }
     return obj;
 }
 
@@ -57,6 +66,7 @@
     }
     
     // there must be set expiration timestamp
+    obj.cacheDate = [NSDate date];
     
     [[cache objectForKey:@"objects"] addObject:obj];
 }
