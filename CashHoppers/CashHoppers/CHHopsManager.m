@@ -30,6 +30,7 @@
     if (self = [super init]) {
         self.otherHops = @[];
         self.dailyHops = @[];
+        [self initCacheWithName:@"hops" andExpirationTime:60.0f*15.0f]; // 15min
     }
     return self;
 }
@@ -56,6 +57,7 @@
                         newHop = [[CHHop alloc] init];
                     }
                     [newHop updateFromDictionary:objDic];
+                    [self putObject:newHop intoCache:@"hops"];
                     [addedOrUpdatedObjects addObject:newHop];
                 }
             }
@@ -102,12 +104,19 @@
     NSString *path = [NSString stringWithFormat:@"/api/hop/get_hop.json?api_key=%@&authentication_token=%@&hop_id=%d", CH_API_KEY,aToken, [_id intValue]];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
+    CHBaseModel* cachedObj = [self findObjectWithID:_id inCache:@"hops"];
+    if (cachedObj) {
+        [self loadTasksForHop:(CHHop*)cachedObj completionHandler:handler];
+        return;
+    }
+    
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 
         NSDictionary* hop = [JSON objectForKey:@"hop"];
         if (hop) {
             CHHop* newHop = [[CHHop alloc] init];
             [newHop updateFromDictionary:hop];
+            [self putObject:newHop intoCache:@"hops"];
             [self loadTasksForHop:newHop completionHandler:handler];
         }
     
@@ -121,6 +130,12 @@
 
 
 - (void) loadTasksForHop:(CHHop*) hop completionHandler:(void (^)(CHHop* hop)) handler {
+    
+    if (hop.tasks != nil &&  hop.tasks.count > 0) {
+        handler(hop);
+        return;
+    }
+    
     
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
     NSString *path = [NSString stringWithFormat:@"/api/hop/get_tasks.json?api_key=%@&hop_id=%i&authentication_token=%@", CH_API_KEY, [hop.identifier intValue], aToken];

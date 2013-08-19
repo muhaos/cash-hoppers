@@ -23,7 +23,7 @@
 
 - (id) init {
     if (self = [super init]) {
-        
+        [self initCacheWithName:@"users" andExpirationTime:60.0f * 60.0f * 2]; // 2 hour
     }
     return self;
 }
@@ -48,17 +48,27 @@
 }
 
 
-
 - (void) loadUserForID:(NSNumber*) _id completionHandler:(void (^)(CHUser* user)) handler {
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
     NSString *path = nil;
+    NSNumber* finalUserID = _id;
     if (_id != nil) {
         path = [NSString stringWithFormat:@"/api/users/get_user_info.json?api_key=%@&authentication_token=%@",CH_API_KEY,aToken];
         path = [path stringByAppendingFormat:@"&user_id=%i", [_id intValue]];
     } else {
+        finalUserID = _currentUser.identifier;
         path = [NSString stringWithFormat:@"/api/users/get_my_info.json?api_key=%@&authentication_token=%@",CH_API_KEY,aToken];
     }
     
+    if (finalUserID != nil) {
+        CHBaseModel* cachedUser = [self findObjectWithID:finalUserID inCache:@"users"];
+        if (cachedUser) {
+            handler((CHUser*)cachedUser);
+            return;
+        }
+    }
+    
+
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
@@ -67,6 +77,7 @@
         if (userDic) {
             CHUser* newUser = [[CHUser alloc] init];
             [newUser updateFromDictionary:userDic];
+            [self putObject:newUser intoCache:@"users"];
             handler(newUser);
         }
         
