@@ -113,6 +113,7 @@
 		AA16945D178D95B800D09372 /* CHInitSlidingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA16945C178D95B800D09372 /* CHInitSlidingVC.m */; };
 		AA169460178D963E00D09372 /* CHMenuSlidingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA16945F178D963E00D09372 /* CHMenuSlidingVC.m */; };
 		AA169463178D9F6800D09372 /* CHMenuSlidingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA169462178D9F6800D09372 /* CHMenuSlidingCell.m */; };
+		AA18AE0617C242A800C4F259 /* CHAdditionalSigninFormVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA18AE0517C242A800C4F259 /* CHAdditionalSigninFormVC.m */; };
 		AA27E3CB17AFA87700C98B6C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA27E3CA17AFA87700C98B6C /* MessageUI.framework */; };
 		AA2D1BE217A26F2600474E9B /* button_login_g+.png in Resources */ = {isa = PBXBuildFile; fileRef = AA2D1BE117A26F2600474E9B /* button_login_g+.png */; };
 		AA2D1BE517A2950500474E9B /* CHComposeMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2D1BE417A2950500474E9B /* CHComposeMessageVC.m */; };
@@ -493,6 +494,8 @@
 		AA16945F178D963E00D09372 /* CHMenuSlidingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMenuSlidingVC.m; sourceTree = "<group>"; };
 		AA169461178D9F6800D09372 /* CHMenuSlidingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMenuSlidingCell.h; sourceTree = "<group>"; };
 		AA169462178D9F6800D09372 /* CHMenuSlidingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMenuSlidingCell.m; sourceTree = "<group>"; };
+		AA18AE0417C242A800C4F259 /* CHAdditionalSigninFormVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAdditionalSigninFormVC.h; sourceTree = "<group>"; };
+		AA18AE0517C242A800C4F259 /* CHAdditionalSigninFormVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAdditionalSigninFormVC.m; sourceTree = "<group>"; };
 		AA27E3CA17AFA87700C98B6C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		AA2D1BE117A26F2600474E9B /* button_login_g+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_login_g+.png"; sourceTree = "<group>"; };
 		AA2D1BE317A2950500474E9B /* CHComposeMessageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHComposeMessageVC.h; sourceTree = "<group>"; };
@@ -1279,6 +1282,8 @@
 				AA9991A9177329D7005A56EF /* CHResetPasswordVC.m */,
 				AA9991AD1773498A005A56EF /* CHRegisterVC.h */,
 				AA9991AE1773498B005A56EF /* CHRegisterVC.m */,
+				AA18AE0417C242A800C4F259 /* CHAdditionalSigninFormVC.h */,
+				AA18AE0517C242A800C4F259 /* CHAdditionalSigninFormVC.m */,
 			);
 			name = "Login Related";
 			sourceTree = "<group>";
@@ -2093,6 +2098,7 @@
 				567BB52917BBD2C000C75F54 /* CHGalleryCell.m in Sources */,
 				567BB52A17BBD2C000C75F54 /* CHGalleryVC.m in Sources */,
 				AA4E223417BCD8C900E86B23 /* CHBuyHopVC.m in Sources */,
+				AA18AE0617C242A800C4F259 /* CHAdditionalSigninFormVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
