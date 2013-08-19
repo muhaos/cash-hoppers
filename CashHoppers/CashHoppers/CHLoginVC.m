@@ -11,6 +11,7 @@
 #import "CHAPIClient.h"
 #import "CHAppDelegate.h"
 #import "CHUserManager.h"
+#import "MFSideMenuContainerViewController.h"
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
@@ -199,6 +200,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         }];
         
         [operation start];
+        [DELEGATE.menuContainerVC setMenuState:MFSideMenuStateClosed];
+
     }
 
 }
