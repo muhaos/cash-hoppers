@@ -11,6 +11,7 @@
 #import "CHAPIClient.h"
 #import "CHAppDelegate.h"
 #import "CHUserManager.h"
+#import "MFSideMenuContainerViewController.h"
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
@@ -175,12 +176,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
             }else{
               //  message = [NSString stringWithFormat:@"Login unsuccessfull: %@",[JSON objectForKey:@"errors"]];
                 message = [NSString stringWithFormat:@"Login failed - wrong email or password"];
+                UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"LOGIN" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                
+                [av show];
             }
-                        
-//            NSLog(@"json=%@",JSON);
-            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"LOGIN" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             
-            [av show];
+//            NSLog(@"json=%@",JSON);
+            
             [[CHLoadingVC sharedLoadingVC] hide];
             
             [[CHUserManager instance] updateCurrentUser];
@@ -198,6 +200,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         }];
         
         [operation start];
+        [DELEGATE.menuContainerVC setMenuState:MFSideMenuStateClosed];
+
     }
 
 }
