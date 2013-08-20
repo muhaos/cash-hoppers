@@ -197,7 +197,10 @@
         @autoreleasepool {
             [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
             NSString *username = [[FHSTwitterEngine sharedEngine]loggedInUsername];
-         //   dict = [[FHSTwitterEngine sharedEngine] li];
+            dict = [[FHSTwitterEngine sharedEngine]getUserSettings];
+            UIImage *img = [[FHSTwitterEngine sharedEngine] getProfileImageForUsername:username andSize:FHSTwitterEngineImageSizeNormal];
+            NSLog(@"%@", [dict objectForKey:@"screen_name"]);
+            NSLog(@"%@", img);
             dispatch_sync(GCDMainThread, ^{
                 @autoreleasepool {
                     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
