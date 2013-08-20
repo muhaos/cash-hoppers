@@ -70,7 +70,6 @@
     
     NSString *username = [[FHSTwitterEngine sharedEngine]loggedInUsername];
     if (username.length > 0) {
-        [self userTwitterDetails];
     }
 }
 
@@ -109,7 +108,6 @@
 
 - (IBAction)loginGPlusTapped:(id)sender {
     [signIn authenticate];
-    [self userGooglePlusDetails];
 }
 
 
