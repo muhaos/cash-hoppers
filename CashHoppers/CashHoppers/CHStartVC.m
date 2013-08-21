@@ -15,10 +15,25 @@
 #import "GTLQueryPlus.h"
 #import "GPPSignIn.h"
 #import <FacebookSDK/FBSessionTokenCachingStrategy.h>
+#import "GTLPlusPerson.h"
+#import "CHAdditionalSigninFormVC.h"
+#import <QuartzCore/QuartzCore.h>
+
 
 @interface CHStartVC ()
 
 @property (retain, nonatomic) GPPSignIn *signIn;
+@property (retain, nonatomic) GTLPlusPerson *personData;
+@property (strong, nonatomic) FBProfilePictureView *profileImage;
+@property (retain, nonatomic) UIImage *imageForTwitter;
+@property (retain, nonatomic) NSString *idForTwitter;
+@property (retain, nonatomic) NSMutableDictionary *dict;
+@property (retain, nonatomic) NSString *socialNetwork;
+
+@property (retain, nonatomic) NSString *idFacebook;
+@property (retain, nonatomic) NSString *firstNameFacebook;
+@property (retain, nonatomic) NSString *lastNameFacebook;
+@property (retain, nonatomic) NSString *usernameFacebook;
 
 - (IBAction)loginWithFBTapped:(id)sender;
 - (IBAction)loginWithTwitterTapped:(id)sender;
@@ -27,7 +42,7 @@
 @end
 
 @implementation CHStartVC
-@synthesize signIn;
+@synthesize signIn, profileImage, imageForTwitter, idForTwitter, dict, socialNetwork, personData, idFacebook, firstNameFacebook, lastNameFacebook, usernameFacebook;
 
 - (void)viewDidLoad
 {
@@ -61,6 +76,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [[FHSTwitterEngine sharedEngine]loadAccessToken];
+    
+    NSString *username = [[FHSTwitterEngine sharedEngine]loggedInUsername];
+    if (username.length > 0) {
+    }
 }
 
 
@@ -72,7 +91,9 @@
 //for google+
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
                    error: (NSError *)error {
-    if(!error) {}
+    if(!error) {
+        [self userGooglePlusDetails];
+    }
 }
 
 
@@ -101,39 +122,43 @@
 }
 
 
-//-(void)dateForGp {
-//    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
-//    GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
-//    plusService.retryEnabled = YES;
-//    [plusService setAuthorizer:appDelegate.authentication];
-//    GTLQueryPlus *query = [GTLQueryPlus queryForPeopleGetWithUserId:@"me"];
-//    
-//    [plusService executeQuery:query
-//            completionHandler:^(GTLServiceTicket *ticket,
-//                                GTLPlusPerson *person,
-//                                NSError *error) {
-//                if (error) {
+-(void)userGooglePlusDetails {
+    socialNetwork = @"gplus";
+    GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
+    plusService.retryEnabled = YES;
+    [plusService setAuthorizer:signIn.authentication];
+    GTLQueryPlus *query = [GTLQueryPlus queryForPeopleGetWithUserId:@"me"];
+    [plusService executeQuery:query
+            completionHandler:^(GTLServiceTicket *ticket,
+                                GTLPlusPerson *person,
+                                NSError *error) {
+                if (error) {
 //                    GTMLoggerError(@"Error: %@", error);
-//                } else {
-//                    // Извлечем отображаемое имя и содержание раздела "Обо мне"
-//                    [person retain];
-//                    NSString *description = [NSString stringWithFormat:
-//                                             @"%@\n%@", person.displayName,
-//                                             person.aboutMe];
-//                }
-//            }];
-//}
+                } else {
+                    personData = person;
+                    [self performSegueWithIdentifier:@"additional_signin" sender:self];
+                }
+            }
+     ];
+}
 
 
 ////for fb
 - (IBAction)loginWithFBTapped:(id)sender {
     CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate openSessionWithAllowLoginUI:YES];
     
     if (FBSession.activeSession.isOpen) {
-        [appDelegate closeSession];
+        if (FBSession.activeSession.state == FBSessionStateClosedLoginFailed){
+        } else {
+            [self userFacebookDetails];
+        }
     } else {
-        [appDelegate openSessionWithAllowLoginUI:YES];
+        appDelegate.loggedInSession = [[FBSession alloc] init];
+        [appDelegate.loggedInSession openWithCompletionHandler:^(FBSession *session,
+                                                         FBSessionState status,
+                                                         NSError *error){
+            [self userFacebookDetails];
+        }];
     }
 }
 
@@ -145,10 +170,34 @@
 }
 
 
+- (void)userFacebookDetails
+{
+    socialNetwork = @"facebook";
+    if (FBSession.activeSession.isOpen) {
+        [[FBRequest requestForMe] startWithCompletionHandler:
+         ^(FBRequestConnection *connection,
+           NSDictionary<FBGraphUser> *user,
+           NSError *error) {
+             if (!error) {
+                 idFacebook = user.id;
+                 firstNameFacebook = user.first_name;
+                 lastNameFacebook = user.last_name;
+                 usernameFacebook = user.username;
+                 profileImage.profileID = user.id;
+                 [self performSegueWithIdentifier:@"additional_signin" sender:self];
+             }
+         }];
+    }
+}
+
+
 //for twitter
 - (IBAction)loginWithTwitterTapped:(id)sender {
+    static CHStartVC* selfRef;
+    selfRef = self;
     [[FHSTwitterEngine sharedEngine]showOAuthLoginControllerFromViewController:self withCompletion:^(BOOL success) {
         NSLog(success?@"L0L success":@"O noes!!! Loggen faylur!!!");
+        [selfRef userTwitterDetails];
     }];
 }
 
@@ -160,6 +209,64 @@
 
 - (NSString *)loadAccessToken {
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"SavedAccessHTTPBody"];
+}
+
+
+- (void)userTwitterDetails {
+    socialNetwork = @"twitter";
+    dict = nil;
+    dispatch_async(GCDBackgroundThread, ^{
+        @autoreleasepool {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+            NSString *username = [[FHSTwitterEngine sharedEngine]loggedInUsername];
+            NSString *user_identifier = [[FHSTwitterEngine sharedEngine]loggedInID];
+            dict = [[FHSTwitterEngine sharedEngine]getUserSettings];
+            imageForTwitter = [[FHSTwitterEngine sharedEngine] getProfileImageForUsername:username andSize:FHSTwitterEngineImageSizeNormal];
+            idForTwitter = user_identifier;
+            dispatch_sync(GCDMainThread, ^{
+                @autoreleasepool {
+                    [self performSegueWithIdentifier:@"additional_signin" sender:self];
+                    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                }
+            });
+        }
+    });    
+}
+
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"additional_signin"]) {
+        CHAdditionalSigninFormVC* vc = segue.destinationViewController;
+        
+        if ([socialNetwork isEqualToString:@"twitter"])
+        {
+            vc.screenNameUser = [dict objectForKey:@"screen_name"];
+            vc.imageUser = imageForTwitter;
+            vc.idUser = idForTwitter;
+        }
+       
+        if ([socialNetwork isEqualToString:@"facebook"]) {
+            vc.idUser = idFacebook;
+            NSString *string = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", idFacebook];
+            NSURL *imageURL = [NSURL URLWithString:string];
+            NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+            vc.imageUser = [UIImage imageWithData:imageData];
+            vc.firstNameUser = firstNameFacebook;
+            vc.lastNameUser = lastNameFacebook;
+            vc.screenNameUser = usernameFacebook;
+        }
+       
+        if ([socialNetwork isEqualToString:@"gplus"])
+        {
+            NSURL *imageURL = [NSURL URLWithString:personData.image.url];
+            NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+            vc.imageUser = [UIImage imageWithData:imageData];
+            vc.screenNameUser = personData.nickname;
+            vc.idUser = personData.identifier;
+            vc.firstNameUser = personData.name.formatted;
+            vc.emailUser = signIn.userEmail;
+        }
+    }
 }
 
 

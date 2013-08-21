@@ -29,7 +29,7 @@ NSString *const FBSessionStateChangedNotification =
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
+    [FBProfilePictureView class];
     // Override point for customization after application launch.
     
     [TestFlight takeOff:@"10699439-c03f-4eee-9e7f-9f9c879da396"];

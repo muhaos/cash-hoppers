@@ -16,6 +16,5 @@ static NSString * const kClientId = @"726071056773.apps.googleusercontent.com";
 
 @interface CHStartVC : UIViewController <GPPSignInDelegate,FHSTwitterEngineAccessTokenDelegate>
 
-- (void)loginFailed;
 
 @end

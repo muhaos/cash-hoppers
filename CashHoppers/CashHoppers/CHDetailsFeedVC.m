@@ -356,14 +356,13 @@
 }
 
 - (IBAction)postCommentTapped:(id)sender {
-    
-    _postCommentButton.enabled = FALSE;
-    [[CHFriendsFeedManager instance] postCommentForFeedItem:_feedItem withText:_addComentTextView.text completionHandler:^(BOOL success) {
-        _postCommentButton.enabled = TRUE;
-        [self reloadData];
-        
-    }];
-    
+    if (![self.addComentTextView.text isEqual: @"Add coment ..."]) {
+        _postCommentButton.enabled = FALSE;
+        [[CHFriendsFeedManager instance] postCommentForFeedItem:_feedItem withText:_addComentTextView.text completionHandler:^(BOOL success) {
+            _postCommentButton.enabled = TRUE;
+            [self reloadData];
+        }];
+    }
 }
 
 - (IBAction)scrollViewTapped:(id)sender {
