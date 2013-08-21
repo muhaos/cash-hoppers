@@ -19,4 +19,12 @@
 
 - (CHBaseModel*) findObjectWithID:(NSNumber*)_id inArray:(NSArray*) array;
 
+// caching
+
+- (void) initCacheWithName:(NSString*) cacheName andExpirationTime:(NSTimeInterval) expirationTime;
+- (CHBaseModel*) findObjectWithID:(NSNumber*) _id inCache:(NSString*) cacheName;
+- (void) putObject:(CHBaseModel*)obj intoCache:(NSString*) cacheName;
+
+
+
 @end

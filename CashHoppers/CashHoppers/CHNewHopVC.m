@@ -236,6 +236,7 @@
 
     [[CHHopsManager instance] completeHopTask:self.currentHopTask withPhoto:photoImView.image comment:_textView.text completionHandler:^(BOOL success) {
         if (success) {
+            self.currentHopTask.completed = @YES;
             [self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier];
             [self saveImageCopyToGalery];
         }

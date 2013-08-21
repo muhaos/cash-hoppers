@@ -10,7 +10,69 @@
 #import "CHBaseModel.h"
 #import "CHAPIClient.h"
 
+@interface CHBaseManager ()
+
+@property (nonatomic, strong) NSMutableDictionary* caches;
+
+@end
+
+
 @implementation CHBaseManager
+
+
+- (id) init {
+    if (self = [super init]) {
+        self.caches = [NSMutableDictionary new];
+    }
+    return self;
+}
+
+
+- (void) initCacheWithName:(NSString*) cacheName andExpirationTime:(NSTimeInterval) expirationTime {
+    [self.caches setObject:@{@"objects":[NSMutableArray new], @"expiration": [NSNumber numberWithDouble:expirationTime]} forKey:cacheName];
+}
+
+
+- (CHBaseModel*) findObjectWithID:(NSNumber*) _id inCache:(NSString*) cacheName {
+    NSDictionary* cache = [self.caches objectForKey:cacheName];
+    if (cache == nil) {
+        @throw [NSException exceptionWithName:@"CHBaseManager" reason:[NSString stringWithFormat:@"Can't fint object in uninitialized cache \"%@\"", cacheName] userInfo:nil];
+    }
+    CHBaseModel* obj = [self findObjectWithID:_id inArray:[cache objectForKey:@"objects"]];
+    
+    if (obj) {
+        // expiration check
+        NSDate* timePast = [[NSDate date] laterDate:obj.cacheDate];
+        NSTimeInterval timeIntervalPast = [timePast timeIntervalSinceDate:obj.cacheDate];
+        if (timeIntervalPast > [[cache objectForKey:@"expiration"] doubleValue] || timeIntervalPast < 0.0f) {
+            [[cache objectForKey:@"objects"] removeObject:obj];
+            obj = nil;
+        }
+    }
+    return obj;
+}
+
+
+- (void) putObject:(CHBaseModel*)obj intoCache:(NSString*) cacheName {
+    NSDictionary* cache = [self.caches objectForKey:cacheName];
+    if (cache == nil) {
+        @throw [NSException exceptionWithName:@"CHBaseManager" reason:[NSString stringWithFormat:@"Can't put object in uninitialized cache \"%@\"", cacheName] userInfo:nil];
+    }
+    
+    // remove old version if exist
+    CHBaseModel* oldObj = [self findObjectWithID:obj.identifier inArray:[cache objectForKey:@"objects"]];
+    if (oldObj) {
+        [[cache objectForKey:@"objects"] removeObject:oldObj];
+    }
+    
+    // there must be set expiration timestamp
+    obj.cacheDate = [NSDate date];
+    
+    [[cache objectForKey:@"objects"] addObject:obj];
+}
+
+
+
 
 - (void) defaultErrorHandlerForReqest:(NSURLRequest*) request responce: (NSHTTPURLResponse *)response :(NSError *)error :(id) JSON {
     NSString* errMsg = nil;
@@ -44,6 +106,10 @@
 
 
 - (CHBaseModel*) findObjectWithID:(NSNumber*)_id inArray:(NSArray*) array {
+    if (_id == nil || [_id isKindOfClass:[NSNull class]]) {
+        @throw [NSException exceptionWithName:@"CHBaseManager" reason:[NSString stringWithFormat:@"Object identifier musn't be nil"] userInfo:nil];
+    }
+    
     for (CHBaseModel* obj in array) {
         if ([_id intValue] == [obj.identifier intValue]) {
             return obj;

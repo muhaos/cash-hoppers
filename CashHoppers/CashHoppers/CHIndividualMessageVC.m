@@ -226,24 +226,25 @@
 
 - (IBAction)replyMessageButtonTapped:(id)sender
 {
-    [self.inputMessageTextView resignFirstResponder];
-    ((UIButton*)sender).enabled = NO;
-    self.inputMessageTextView.editable = NO;
-    
-    NSArray* recepientIDs = @[self.currentFriendID];
-    
-    [[CHMessagesManager instance] postMessageWithText:self.inputMessageTextView.text toFriendsList:recepientIDs completionHandler:^(NSError* error){
+    if (![self.inputMessageTextView.text isEqual: @"Reply to message ..."]) {
+        [self.inputMessageTextView resignFirstResponder];
+        ((UIButton*)sender).enabled = NO;
+        self.inputMessageTextView.editable = NO;
         
-        ((UIButton*)sender).enabled = YES;
-        self.inputMessageTextView.editable = YES;
+        NSArray* recepientIDs = @[self.currentFriendID];
         
-        if (error == nil) {
-            self.inputMessageTextView.text = @"";
-            [self reloadMessages];
-        }
-        
-    }];
+        [[CHMessagesManager instance] postMessageWithText:self.inputMessageTextView.text toFriendsList:recepientIDs completionHandler:^(NSError* error){
+            ((UIButton*)sender).enabled = YES;
+            self.inputMessageTextView.editable = YES;
+            
+            if (error == nil) {
+                self.inputMessageTextView.text = @"";
+                [self reloadMessages];
+            }
+        }];
+    }
 }
+
 
 - (IBAction)composeNewMessageTapped:(id)sender
 {

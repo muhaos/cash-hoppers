@@ -36,4 +36,6 @@
 
 - (void) declineFriendRequestForFriendID:(NSNumber*)friendID completionHandler:(void (^)(NSError* error)) handler;
 
+
+
 @end
