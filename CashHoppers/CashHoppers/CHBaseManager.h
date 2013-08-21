@@ -17,6 +17,8 @@
 // api key and auth token will be appeded to the path
 - (void) requestWithMethod:(NSString*) method :(NSString*)path :(void (^)(NSError* error)) handler;
 
+- (void) requestWithMethod:(NSString*) method urlPath:(NSString*)path block:(void (^)(NSError* error, NSDictionary* json)) handler;
+
 - (CHBaseModel*) findObjectWithID:(NSNumber*)_id inArray:(NSArray*) array;
 
 // caching

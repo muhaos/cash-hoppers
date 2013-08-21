@@ -136,7 +136,7 @@
     CHHopTask* hopTask = [self.currentHop.tasks objectAtIndex:indexPath.row];
     
     if (![self.currentHop.price isEqualToString:@""] && ![self.currentHop.price isEqualToString:@"0"]) {
-        [[CHBuyHopVC sharedBuyHopVC] showInController:self.parentViewController.parentViewController withNameHop:hopTask.text withCostHop:hopTask.hop.price];
+        [[CHBuyHopVC sharedBuyHopVC] showInController:self.parentViewController.parentViewController withHop:self.currentHop];
     } else {
         [self performSegueWithIdentifier:@"new_hop_segue" sender:hopTask];
     }

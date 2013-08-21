@@ -58,6 +58,7 @@
 		567BB52A17BBD2C000C75F54 /* CHGalleryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 567BB52817BBD2C000C75F54 /* CHGalleryVC.m */; };
 		567BB53817BD1AF500C75F54 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 567BB53417BD1AF500C75F54 /* libTestFlight.a */; };
 		567BB53A17BD1B5B00C75F54 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 567BB53917BD1B5A00C75F54 /* libz.dylib */; };
+		567BB53E17C4E26900C75F54 /* CHPaymentsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 567BB53D17C4E26900C75F54 /* CHPaymentsManager.m */; };
 		567FCABF17A7CC9F00F150A8 /* CHSelectedUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCABE17A7CC9F00F150A8 /* CHSelectedUserView.m */; };
 		567FCAC117A7CD7A00F150A8 /* CHSelectedUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 567FCAC017A7CD7A00F150A8 /* CHSelectedUserView.xib */; };
 		567FCAC717A9365300F150A8 /* CHMessagesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCAC617A9365300F150A8 /* CHMessagesManager.m */; };
@@ -407,6 +408,8 @@
 		567BB53617BD1AF500C75F54 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		567BB53717BD1AF500C75F54 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		567BB53917BD1B5A00C75F54 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		567BB53C17C4E26900C75F54 /* CHPaymentsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHPaymentsManager.h; sourceTree = "<group>"; };
+		567BB53D17C4E26900C75F54 /* CHPaymentsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHPaymentsManager.m; sourceTree = "<group>"; };
 		567FCABD17A7CC9F00F150A8 /* CHSelectedUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSelectedUserView.h; sourceTree = "<group>"; };
 		567FCABE17A7CC9F00F150A8 /* CHSelectedUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSelectedUserView.m; sourceTree = "<group>"; };
 		567FCAC017A7CD7A00F150A8 /* CHSelectedUserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHSelectedUserView.xib; sourceTree = "<group>"; };
@@ -1212,6 +1215,15 @@
 			path = TestFlight;
 			sourceTree = "<group>";
 		};
+		567BB53B17C4E22000C75F54 /* Frog Legs Payments */ = {
+			isa = PBXGroup;
+			children = (
+				567BB53C17C4E26900C75F54 /* CHPaymentsManager.h */,
+				567BB53D17C4E26900C75F54 /* CHPaymentsManager.m */,
+			);
+			name = "Frog Legs Payments";
+			sourceTree = "<group>";
+		};
 		567FCABB17A7CC3A00F150A8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1318,6 +1330,7 @@
 		56D59AF11796CCD6005A05F3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				567BB53B17C4E22000C75F54 /* Frog Legs Payments */,
 				567FCAD217ABCAD300F150A8 /* Notifications */,
 				567FCAC417A9360600F150A8 /* Mesasges */,
 				5611555A17A156BC00DAA76E /* Users */,
@@ -2093,6 +2106,7 @@
 				567BB52917BBD2C000C75F54 /* CHGalleryCell.m in Sources */,
 				567BB52A17BBD2C000C75F54 /* CHGalleryVC.m in Sources */,
 				AA4E223417BCD8C900E86B23 /* CHBuyHopVC.m in Sources */,
+				567BB53E17C4E26900C75F54 /* CHPaymentsManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

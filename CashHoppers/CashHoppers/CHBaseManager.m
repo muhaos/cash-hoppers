@@ -89,16 +89,28 @@
 
 
 - (void) requestWithMethod:(NSString*) method :(NSString*)path :(void (^)(NSError* error)) handler {
+    [self requestWithMethod:method urlPath:path block:^(NSError* error, NSDictionary* json) {
+        handler(error);
+    }];
+}
+
+
+- (void) requestWithMethod:(NSString*) method urlPath:(NSString*)path block:(void (^)(NSError* error, NSDictionary* json)) handler {
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
-    NSString *full_path = [path stringByAppendingFormat:@"&api_key=%@&authentication_token=%@", CH_API_KEY, aToken];
+    NSString* sym_prefix = @"&";
+    if ([path rangeOfString:@"?"].location == NSNotFound) {
+        sym_prefix = @"?";
+    }
+    
+    NSString *full_path = [path stringByAppendingFormat:@"%@api_key=%@&authentication_token=%@", sym_prefix, CH_API_KEY, aToken];
     
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:method path:full_path parameters:nil];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        handler(nil);
+        handler(nil, JSON);
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
-        handler(error);
+        handler(error, nil);
     }];
     
     [operation start];

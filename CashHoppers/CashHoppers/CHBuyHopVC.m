@@ -8,6 +8,9 @@
 
 #import "CHBuyHopVC.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CHHop.h"
+#import "CHPaymentsManager.h"
+
 
 @interface CHBuyHopVC ()
 @property (nonatomic, assign) int yourRibbits;
@@ -23,21 +26,39 @@
     [self customButtons];
     
     yourRibbits = 0;
-    [self updateView];
+    nameHopLabel.text = self.currentHop.name;
+    costHopLabel.text = [NSString stringWithFormat:@"%@", self.currentHop.price];
+    
+    [self refreshBalance];
 }
 
 
--(void)updateView
-{
-     NSString *ribbitsString = [NSString stringWithFormat: @"%i", yourRibbits];
-    [yourBalanceLabel setText:ribbitsString];
+- (void) refreshBalance {
+    self.yourBalanceLabel.hidden = YES;
+    self.yourBalanceRibbitsLabel.hidden = YES;
+    self.yourBalanceActivityView.hidden = NO;
     
-    if ([yourBalanceLabel.text intValue] >= [costHopLabel.text intValue] ) {
-        buyNowButton.enabled = YES;
-    } else {
-        buyNowButton.enabled = NO;
-        buyNowButton.backgroundColor = [UIColor colorWithRed:1 green:204/255.0f blue:0/255.0f alpha:0.3f];
-    }
+    [[CHPaymentsManager instance] getBalanceWithCompletionHandler:^(NSNumber* balance){
+        if (balance != nil) {
+            yourRibbits = [balance intValue];
+            self.yourBalanceLabel.text = [NSString stringWithFormat:@"%i", [balance intValue]];
+            if (yourRibbits < [self.currentHop.price intValue]) {
+                buyNowButton.enabled = NO;
+                buyNowButton.alpha = 0.5f;
+            } else {
+                buyNowButton.enabled = YES;
+                buyNowButton.alpha = 1.0f;
+            }
+        } else {
+            self.yourBalanceLabel.text = @"Error get balance...";
+            buyNowButton.enabled = NO;
+            buyNowButton.alpha = 0.5f;
+        }
+        self.yourBalanceLabel.hidden = NO;
+        self.yourBalanceRibbitsLabel.hidden = NO;
+        self.yourBalanceActivityView.hidden = YES;
+        
+    }];
 }
 
 
@@ -47,24 +68,35 @@
 }
 
 
+- (void) buyRibbits:(NSNumber*) count sender:(UIButton*) button {
+    button.enabled = NO;
+    [[CHPaymentsManager instance] refillBalanceFor:count withCompletionHandler:^(NSError* error){
+        if (error == nil) {
+            [self refreshBalance];
+        } else {
+            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"CANT BUY RIBBITS: %@", [error localizedDescription]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [av show];
+        }
+        button.enabled = YES;
+    }];
+}
+
+
 - (IBAction)buy10RibbitsButtonTapped:(id)sender
 {
-    yourRibbits = yourRibbits+10;
-    [self updateView];
+    [self buyRibbits:@10 sender:sender];
 }
 
 
 - (IBAction)buy50RibbitsButtonTapped:(id)sender
 {
-      yourRibbits = yourRibbits+50;
-    [self updateView];
+    [self buyRibbits:@50 sender:sender];
 }
 
 
 - (IBAction)buy100RibbitsButtonTapped:(id)sender
 {
-    yourRibbits = yourRibbits+100;;
-    [self updateView];
+    [self buyRibbits:@100 sender:sender];
 }
 
 
@@ -76,23 +108,14 @@
 
 + (CHBuyHopVC*) sharedBuyHopVC {
     static CHBuyHopVC* instance = nil;
-    if (instance == nil) {
-        instance = [[CHBuyHopVC alloc] initWithNibName:@"CHBuyHopVC" bundle:nil];
-    }
+    instance = [[CHBuyHopVC alloc] initWithNibName:@"CHBuyHopVC" bundle:nil];
     return instance;
 }
 
 
-- (void) showInController:(UIViewController*) c
-              withNameHop:(NSString*)nameHop
-              withCostHop:(NSString*)costHop
-{
-     if (self.view.superview != nil) {
-        @throw [NSException exceptionWithName:@"CHBuyHopVC" reason:@"CHBuyHop controller already showed!" userInfo:nil];
-    }
+- (void) showInController:(UIViewController*) c withHop:(CHHop*)hop {
+    self.currentHop = hop;
     [c.view addSubview:self.view];
-    nameHopLabel.text = nameHop;
-    costHopLabel.text = costHop;
 }
 
 

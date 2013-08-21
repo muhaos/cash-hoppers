@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class CHHop;
+
 @interface CHBuyHopVC : UIViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *nameHopLabel;
 @property (strong, nonatomic) IBOutlet UILabel *costHopLabel;
 @property (strong, nonatomic) IBOutlet UILabel *yourBalanceLabel;
+@property (strong, nonatomic) IBOutlet UILabel *yourBalanceRibbitsLabel;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView* yourBalanceActivityView;
 @property (strong, nonatomic) IBOutlet UIButton *buyNowButton;
 @property (strong, nonatomic) IBOutlet UIButton *buy10RibbitsButton;
 @property (strong, nonatomic) IBOutlet UIButton *buy50RibbitsButton;
@@ -24,9 +28,10 @@
 - (IBAction)buy100RibbitsButtonTapped:(id)sender;
 - (IBAction)cancelButtonTapped:(id)sender;
 
+@property (strong, nonatomic) CHHop* currentHop;
+
 + (CHBuyHopVC*) sharedBuyHopVC;
 - (void) showInController:(UIViewController*) c
-              withNameHop:(NSString*)nameHop
-              withCostHop:(NSString*)costHop ;
+              withHop:(CHHop*)hop;
 
 @end
