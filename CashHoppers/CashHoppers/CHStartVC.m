@@ -263,7 +263,7 @@
             vc.imageUser = [UIImage imageWithData:imageData];
             vc.screenNameUser = personData.nickname;
             vc.idUser = personData.identifier;
-            vc.firstNameUser = personData.name;
+            vc.firstNameUser = personData.name.formatted;
             vc.emailUser = signIn.userEmail;
         }
     }
