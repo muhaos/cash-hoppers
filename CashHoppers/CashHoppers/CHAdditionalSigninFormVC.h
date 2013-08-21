@@ -15,12 +15,13 @@
 @property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
 
 @property (assign, nonatomic) BOOL oldNavBarStatus;
-@property (assign, nonatomic) NSString* screenNameUser;
-@property (assign, nonatomic) NSString* firstNameUser;
-@property (assign, nonatomic) NSString* lastNameUser;
-@property (assign, nonatomic) NSString* emailUser;
-@property (assign, nonatomic) NSString* idUser;
-@property (assign, nonatomic) UIImage* imageUser;
+@property (strong, nonatomic) NSString* screenNameUser;
+@property (strong, nonatomic) NSString* firstNameUser;
+@property (strong, nonatomic) NSString* lastNameUser;
+@property (strong, nonatomic) NSString* emailUser;
+@property (strong, nonatomic) NSString* idUser;
+@property (strong, nonatomic) UIImage* imageUser;
+@property (strong, nonatomic) NSString* provider;
 
 - (IBAction)registerButtonTapped:(id)sender;
 

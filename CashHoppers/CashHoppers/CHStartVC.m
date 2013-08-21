@@ -144,8 +144,11 @@
 
 
 ////for fb
+static BOOL needLoginWithFacebook = NO;
 - (IBAction)loginWithFBTapped:(id)sender {
     CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    needLoginWithFacebook = YES;
     
     if (FBSession.activeSession.isOpen) {
         if (FBSession.activeSession.state == FBSessionStateClosedLoginFailed){
@@ -157,7 +160,7 @@
         [appDelegate.loggedInSession openWithCompletionHandler:^(FBSession *session,
                                                          FBSessionState status,
                                                          NSError *error){
-            [self userFacebookDetails];
+            //[self userFacebookDetails];
         }];
     }
 }
@@ -165,6 +168,10 @@
 
 - (void)sessionStateChanged:(NSNotification*)notification {
     if (FBSession.activeSession.isOpen) {
+        if (needLoginWithFacebook) {
+            [self userFacebookDetails];
+            needLoginWithFacebook = NO;
+        }
     } else {
     }
 }
@@ -243,6 +250,7 @@
             vc.screenNameUser = [dict objectForKey:@"screen_name"];
             vc.imageUser = imageForTwitter;
             vc.idUser = idForTwitter;
+            vc.provider = @"twitter";
         }
        
         if ([socialNetwork isEqualToString:@"facebook"]) {
@@ -254,6 +262,7 @@
             vc.firstNameUser = firstNameFacebook;
             vc.lastNameUser = lastNameFacebook;
             vc.screenNameUser = usernameFacebook;
+            vc.provider = @"facebook";
         }
        
         if ([socialNetwork isEqualToString:@"gplus"])
@@ -265,6 +274,7 @@
             vc.idUser = personData.identifier;
             vc.firstNameUser = personData.name.formatted;
             vc.emailUser = signIn.userEmail;
+            vc.provider = @"google";
         }
     }
 }

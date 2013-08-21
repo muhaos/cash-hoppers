@@ -37,5 +37,10 @@
 - (void) declineFriendRequestForFriendID:(NSNumber*)friendID completionHandler:(void (^)(NSError* error)) handler;
 
 
+- (void) signInViaService:(NSDictionary*) params completionHandler:(void (^)(NSError* error, NSDictionary* json)) handler;
+
+- (void) isUserExistsForService:(NSString*) service userID:(NSString*)uid completionHandler:(void (^)(NSError* error, BOOL exist)) handler;
+
+
 
 @end

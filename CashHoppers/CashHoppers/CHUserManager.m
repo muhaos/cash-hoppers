@@ -257,5 +257,38 @@
 }
 
 
+- (void) signInViaService:(NSDictionary*) params completionHandler:(void (^)(NSError* error, NSDictionary* json)) handler {
+    
+    NSError *error = nil;
+    NSData *json = [NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
+    
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/sign_in_via_service.json?api_key=%@&authentication_token=%@", CH_API_KEY, aToken];
+    
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"POST" path:path parameters:nil];
+    [request setHTTPBody:json];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        handler(nil, JSON);
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
+        handler(error, nil);
+    }];
+    
+    [operation start];
+}
+
+
+- (void) isUserExistsForService:(NSString*) service userID:(NSString*)uid completionHandler:(void (^)(NSError* error, BOOL exist)) handler {
+    
+    NSString* path = [NSString stringWithFormat:@"/api/sessions/service_exist.json?provider=%@&uid=%@", service, uid];
+    [self requestWithMethod:@"GET" urlPath:path block:^(NSError* error, NSDictionary* json){
+        handler(error, [[json objectForKey:@"user_exist"] boolValue]);
+    }];
+    
+}
+
+
+
 
 @end

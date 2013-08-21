@@ -8,6 +8,11 @@
 
 #import "CHAdditionalSigninFormVC.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CHUserManager.h"
+#import "CHHomeScreenViewController.h"
+#import "CHAppDelegate.h"
+#import "CHLoadingVC.h"
+
 
 @interface CHAdditionalSigninFormVC ()
 {
@@ -28,12 +33,82 @@
     photoImageView.image = imageUser;
     emailTextField.text = emailUser;
     [self setupTriangleBackButton];
+    
+    
+    [[CHLoadingVC sharedLoadingVC] showInController:self withText:@"Please wait..."];
+    
+    [[CHUserManager instance] isUserExistsForService:self.provider userID:self.idUser completionHandler:^(NSError* error, BOOL exist){
+
+        [[CHLoadingVC sharedLoadingVC] hide];
+        
+        if (exist) {
+            NSMutableDictionary* params = [NSMutableDictionary new];
+            [params setObject:self.provider forKey:@"provider"];
+            [params setObject:self.idUser forKey:@"uid"];
+            [self signInWithParams:params];
+        } else {
+            
+        }
+        
+    }];
+    
 }
 
 
 - (IBAction)registerButtonTapped:(id)sender
 {
+    if (self.zipTextField.text == nil || [self.zipTextField.text isEqualToString:@""]) {
+        [self showAlertWithText:@"Zip is reqired"];
+        return;
+    }
     
+    if (self.emailTextField.text == nil || [self.emailTextField.text isEqualToString:@""]) {
+        [self showAlertWithText:@"Email is reqired"];
+        return;
+    }
+    
+    NSMutableDictionary* params = [NSMutableDictionary new];
+    [params setObject:self.provider forKey:@"provider"];
+    [params setObject:self.idUser forKey:@"uid"];
+    [params setObject:self.zipTextField.text forKey:@"zip"];
+    [params setObject:self.emailTextField.text forKey:@"email"];
+    
+    NSString* userName = firstNameUser;
+    if (firstNameUser == nil) {
+        userName = screenNameUser;
+    }
+    
+    [params setObject:userName forKey:@"name"];
+    
+    [self signInWithParams:params];
+}
+
+
+- (void) signInWithParams:(NSDictionary*) params {
+    [[CHLoadingVC sharedLoadingVC] showInController:self withText:@"Please wait..."];
+    
+    [[CHUserManager instance] signInViaService:params completionHandler:^(NSError* error, NSDictionary* json){
+        
+        if (error == nil) {
+            NSDictionary* data = [json objectForKey:@"data"];
+            NSString* atoken = [data objectForKey:@"authentication_token"];
+            [[NSUserDefaults standardUserDefaults] setValue:atoken forKey:@"a_token"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            self.view.window.rootViewController = (UIViewController*)DELEGATE.menuContainerVC;
+            [[CHUserManager instance] updateCurrentUser];
+        } else {
+            [self showAlertWithText:[NSString stringWithFormat:@"Can't signin: %@", [error localizedDescription]]];
+        }
+        
+        [[CHLoadingVC sharedLoadingVC] hide];
+    }];
+}
+
+
+- (void) showAlertWithText:(NSString*) text {
+    UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:text delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [av show];
 }
 
 
