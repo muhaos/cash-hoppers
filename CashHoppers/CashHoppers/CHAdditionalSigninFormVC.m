@@ -7,20 +7,26 @@
 //
 
 #import "CHAdditionalSigninFormVC.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface CHAdditionalSigninFormVC ()
 {
     CGFloat animatedDistance;
 }
-@property (assign, nonatomic) BOOL oldNavBarStatus;
+
 @end
 
 @implementation CHAdditionalSigninFormVC
-@synthesize zipTextField, emailTextField;
+@synthesize zipTextField, emailTextField, photoImageView, screenNameUser, firstNameUser, lastNameUser, emailUser, idUser, imageUser;
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    photoImageView.layer.cornerRadius = 3.0f;
+    photoImageView.layer.masksToBounds = YES;
+    photoImageView.image = imageUser;
+    emailTextField.text = emailUser;
     [self setupTriangleBackButton];
 }
 
@@ -74,6 +80,7 @@
 - (void)viewDidUnload {
     [self setEmailTextField:nil];
     [self setZipTextField:nil];
+    [self setPhotoImageView:nil];
     [super viewDidUnload];
 }
 
