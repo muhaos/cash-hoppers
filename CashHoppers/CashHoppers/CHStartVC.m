@@ -135,11 +135,8 @@
                 if (error) {
 //                    GTMLoggerError(@"Error: %@", error);
                 } else {
-                    NSString *description = [NSString stringWithFormat:
-                                             @" display name: %@\n  nikname %@\n  image: %@\n  email: %@\n  identifier: %@\n ", person.displayName, person.nickname,person.image, signIn.userEmail, person.identifier];
                     personData = person;
                     [self performSegueWithIdentifier:@"additional_signin" sender:self];
-                    NSLog(@"%@", description);
                 }
             }
      ];
@@ -188,11 +185,6 @@
                  usernameFacebook = user.username;
                  profileImage.profileID = user.id;
                  [self performSegueWithIdentifier:@"additional_signin" sender:self];
-                 NSLog(@"%@", user.id);
-                 NSLog(@"%@", user.first_name);
-                 NSLog(@"%@", user.last_name);
-                 NSLog(@"%@", user.username);
-                 NSLog(@"%@", self.profileImage.profileID = user.id);
              }
          }];
     }
@@ -231,9 +223,6 @@
             dict = [[FHSTwitterEngine sharedEngine]getUserSettings];
             imageForTwitter = [[FHSTwitterEngine sharedEngine] getProfileImageForUsername:username andSize:FHSTwitterEngineImageSizeNormal];
             idForTwitter = user_identifier;
-            NSLog(@"%@", [dict objectForKey:@"screen_name"]);
-            NSLog(@"%@", self.imageForTwitter);
-            NSLog(@"%@",user_identifier);
             dispatch_sync(GCDMainThread, ^{
                 @autoreleasepool {
                     [self performSegueWithIdentifier:@"additional_signin" sender:self];
