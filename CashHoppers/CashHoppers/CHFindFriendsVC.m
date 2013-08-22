@@ -138,16 +138,25 @@
 
 
 - (IBAction)sendEmailTapped:(id)sender {
-    MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
-    mailComposer.mailComposeDelegate = self;
-    NSArray *emailAddresses = [[NSArray alloc] initWithObjects:nil];
-    NSString *sendSubject = [[NSString alloc] initWithFormat:@" "];
-    NSString *sendMessage = [[NSString alloc] initWithFormat:@"This is cashhoppers"];
-    
-    [mailComposer setToRecipients:emailAddresses];
-    [mailComposer setSubject:sendSubject];
-    [mailComposer setMessageBody:sendMessage isHTML:NO];
-    [self presentModalViewController:mailComposer animated:YES];
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
+        mailComposer.mailComposeDelegate = self;
+        NSArray *emailAddresses = [[NSArray alloc] initWithObjects:nil];
+        NSString *sendSubject = [[NSString alloc] initWithFormat:@" "];
+        NSString *sendMessage = [[NSString alloc] initWithFormat:@"This is cashhoppers"];
+        
+        [mailComposer setToRecipients:emailAddresses];
+        [mailComposer setSubject:sendSubject];
+        [mailComposer setMessageBody:sendMessage isHTML:NO];
+        [self presentModalViewController:mailComposer animated:YES];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
+                                                        message:@"Your device doesn't support the composer sheet"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+    }
 }
 
 

@@ -83,6 +83,11 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.submitButton.hidden = [self.currentHopTask.completed boolValue];
+    if ([self.currentHopTask.completed boolValue] == YES) {
+        self.sharingView.hidden = NO;
+    }else {
+        self.sharingView.hidden = YES;
+    }
     self.hopTitleLabel.text = [NSString stringWithFormat:@"%@   %@", self.currentHopTask.hop.name, [self.currentHopTask.hop dateString]];
     [self.taskLogoImageView setImageWithURL:[self.currentHopTask logoURL]];
     
@@ -191,6 +196,11 @@
 
 
 #pragma mark - ibactions
+
+- (IBAction)shareButtonTapped:(id)sender
+{
+    [self adsClosedTapped];
+}
 
 - (IBAction)resignResponder:(id)sender {
     
@@ -323,6 +333,7 @@
     [self setMyScroolView:nil];
     [self setMenuButton:nil];
     [self setWinnterButton:nil];
+    [self setSharingView:nil];
     [super viewDidUnload];
 }
 
