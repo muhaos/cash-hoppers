@@ -23,11 +23,11 @@
 
 
 @interface CHNewHopVC ()
-
+@property (assign) BOOL takePhoto;
 @end
 
 @implementation CHNewHopVC
-@synthesize menuButton, winnterButton, photoImView;
+@synthesize menuButton, winnterButton, photoImView, takePhoto;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,6 +42,8 @@
 {
     [super viewDidLoad];
     [self setupTriangleBackButton];
+    
+    takePhoto = NO;
     
     _textView.layer.borderWidth = 1;
     _textView.layer.cornerRadius = 3;
@@ -118,7 +120,7 @@
 -(void)textViewDidBeginEditing:(UITextView *)textView{
     if([textView.text isEqualToString:@"Leave a comment..."]){
         textView.text = @"";
-        textView.textColor = [UIColor blackColor];
+        textView.textColor = [UIColor darkGrayColor];
     }
     [self shiftViewUp];
 }
@@ -197,7 +199,7 @@
 }
 
 - (IBAction)photoTapped:(id)sender {
-    
+    takePhoto = YES;
     UIImagePickerController *poc = [[UIImagePickerController alloc] init];
     [poc setTitle:@"Take a photo."];
     [poc setDelegate:self];
@@ -233,15 +235,25 @@
 
 - (IBAction)submitPressed:(id)sender {
     [[CHLoadingVC sharedLoadingVC] showInController:self.view.window.rootViewController withText:@"Processing..."];
-
-    [[CHHopsManager instance] completeHopTask:self.currentHopTask withPhoto:photoImView.image comment:_textView.text completionHandler:^(BOOL success) {
-        if (success) {
-            self.currentHopTask.completed = @YES;
-            [self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier];
-            [self saveImageCopyToGalery];
-        }
-        [[CHLoadingVC sharedLoadingVC] hide];
-    }];
+    if (takePhoto == YES) {
+        [[CHHopsManager instance] completeHopTask:self.currentHopTask withPhoto:photoImView.image comment:_textView.text completionHandler:^(BOOL success) {
+            if (success) {
+                self.currentHopTask.completed = @YES;
+                [self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier];
+                [self saveImageCopyToGalery];
+                self.submitButton.hidden = YES;
+            }
+            [[CHLoadingVC sharedLoadingVC] hide];
+        }];
+    } else {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Photo is required !"
+                                                     message:@"Please, take a photo"
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+        [[CHLoadingVC sharedLoadingVC] hide]; 
+    }
 }
 
 
@@ -258,7 +270,7 @@
 - (void) adsClosedTapped {
     [CHSharingPopupVC instance].hopTaskID = self.currentHopTask.identifier;
     [CHSharingPopupVC instance].imageToShare = self.photoImView.image;
-    [[CHSharingPopupVC instance]showInController:self];
+    [[CHSharingPopupVC instance]showInController:self.parentViewController.parentViewController];
 }
 
 

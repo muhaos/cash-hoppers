@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) NSNumber* hopTaskID;
 @property (strong, nonatomic) UIImage* imageToShare;
-@property (nonatomic, retain) UIViewController* currentController;
+@property (nonatomic, assign) UIViewController* currentController;
 
 - (void) showInController:(UIViewController*)controller;
 
@@ -22,5 +22,6 @@
 - (IBAction)facebookButTapped:(id)sender;
 - (IBAction)gPlusButTapped:(id)sender;
 - (IBAction)twitterButTapped:(id)sender;
+- (IBAction)cancelButtonTapped:(id)sender;
 
 @end

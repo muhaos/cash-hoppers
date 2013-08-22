@@ -231,6 +231,7 @@
 		AA5863A517B414F50074F0AB /* buy_add_free_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA5863A417B414F50074F0AB /* buy_add_free_icon.png */; };
 		AA732C8617AA4F62002CC6C7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA732C8517AA4F62002CC6C7 /* FacebookSDK.framework */; };
 		AA732C8817AA4F6F002CC6C7 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AA732C8717AA4F6F002CC6C7 /* FacebookSDKResources.bundle */; };
+		AA8557D217C6358D002E8775 /* take_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = AA8557D117C63589002E8775 /* take_photo.png */; };
 		AA9991AA177329D7005A56EF /* CHResetPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9991A9177329D7005A56EF /* CHResetPasswordVC.m */; };
 		AA9991AC177332BD005A56EF /* button_sign_in.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9991AB177332BD005A56EF /* button_sign_in.png */; };
 		AA9991AF1773498B005A56EF /* CHRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9991AE1773498B005A56EF /* CHRegisterVC.m */; };
@@ -695,6 +696,7 @@
 		AA5863A417B414F50074F0AB /* buy_add_free_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy_add_free_icon.png; sourceTree = "<group>"; };
 		AA732C8517AA4F62002CC6C7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		AA732C8717AA4F6F002CC6C7 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		AA8557D117C63589002E8775 /* take_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = take_photo.png; sourceTree = "<group>"; };
 		AA9991A8177329D7005A56EF /* CHResetPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHResetPasswordVC.h; sourceTree = "<group>"; };
 		AA9991A9177329D7005A56EF /* CHResetPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHResetPasswordVC.m; sourceTree = "<group>"; };
 		AA9991AB177332BD005A56EF /* button_sign_in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_sign_in.png; sourceTree = "<group>"; };
@@ -1108,6 +1110,7 @@
 		5640158B176B433B00C028CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AA8557D117C63589002E8775 /* take_photo.png */,
 				AA0E002217B90DC600B7A681 /* icon_indicator_off.png */,
 				AA0E002317B90DC600B7A681 /* icon_indicator_on.png */,
 				AA0E001B17B908EA00B7A681 /* button_profile_act.png */,
@@ -1992,6 +1995,7 @@
 				AA4E223517BCD8C900E86B23 /* CHBuyHopVC.xib in Resources */,
 				567BB55417C6296C00C75F54 /* MKStoreKitConfigs.plist in Resources */,
 				567BB55617C6296C00C75F54 /* README.mdown in Resources */,
+				AA8557D217C6358D002E8775 /* take_photo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

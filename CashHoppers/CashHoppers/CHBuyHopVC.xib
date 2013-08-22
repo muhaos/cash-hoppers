@@ -84,7 +84,7 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">0</string>
-						<object class="NSColor" key="IBUITextColor" id="229925681">
+						<object class="NSColor" key="IBUITextColor" id="335906497">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwLjYgMC4yAA</bytes>
 						</object>
@@ -320,7 +320,7 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">RIBBITS</string>
-						<reference key="IBUITextColor" ref="229925681"/>
+						<reference key="IBUITextColor" ref="335906497"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<int key="IBUITextAlignment">1</int>
@@ -910,8 +910,8 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="buton_cancel_reclama.png">{32, 32}</string>
-			<string key="yellow_button.png">{234, 109}</string>
+			<string key="buton_cancel_reclama.png">{16, 16}</string>
+			<string key="yellow_button.png">{16, 16}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
