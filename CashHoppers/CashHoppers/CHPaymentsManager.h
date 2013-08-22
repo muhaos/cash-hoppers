@@ -8,6 +8,11 @@
 
 #import "CHBaseManager.h"
 
+#define kProductRibbitsTier1    @"com.bigloretta.cashhoppers.inapp.ribbits.1"
+#define kProductRibbitsTier2    @"com.bigloretta.cashhoppers.inapp.ribbits.2"
+#define kProductRibbitsTier3    @"com.bigloretta.cashhoppers.inapp.ribbits.3"
+
+
 @interface CHPaymentsManager : CHBaseManager
 
 + (CHPaymentsManager*) instance;

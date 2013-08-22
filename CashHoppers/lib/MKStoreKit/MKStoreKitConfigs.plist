@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Consumables</key>
+	<dict>
+		<key>com.bigloretta.cashhoppers.inapp.ribbits.3</key>
+		<dict>
+			<key>Name</key>
+			<string>Ribbits</string>
+			<key>Count</key>
+			<integer>100</integer>
+		</dict>
+		<key>com.bigloretta.cashhoppers.inapp.ribbits.2</key>
+		<dict>
+			<key>Name</key>
+			<string>Ribbits</string>
+			<key>Count</key>
+			<integer>50</integer>
+		</dict>
+		<key>com.bigloretta.cashhoppers.inapp.ribbits.1</key>
+		<dict>
+			<key>Count</key>
+			<integer>10</integer>
+			<key>Name</key>
+			<string>Ribbits</string>
+		</dict>
+	</dict>
+	<key>Non-Consumables</key>
+	<array/>
+	<key>Subscriptions</key>
+	<dict/>
+</dict>
+</plist>

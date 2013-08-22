@@ -59,6 +59,15 @@
 		567BB53817BD1AF500C75F54 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 567BB53417BD1AF500C75F54 /* libTestFlight.a */; };
 		567BB53A17BD1B5B00C75F54 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 567BB53917BD1B5A00C75F54 /* libz.dylib */; };
 		567BB53E17C4E26900C75F54 /* CHPaymentsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 567BB53D17C4E26900C75F54 /* CHPaymentsManager.m */; };
+		567BB55017C6296C00C75F54 /* NSData+MKBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 567BB54217C6296C00C75F54 /* NSData+MKBase64.m */; };
+		567BB55117C6296C00C75F54 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 567BB54417C6296C00C75F54 /* SFHFKeychainUtils.m */; };
+		567BB55217C6296C00C75F54 /* MKSKProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 567BB54617C6296C00C75F54 /* MKSKProduct.m */; };
+		567BB55317C6296C00C75F54 /* MKSKSubscriptionProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 567BB54817C6296C00C75F54 /* MKSKSubscriptionProduct.m */; };
+		567BB55417C6296C00C75F54 /* MKStoreKitConfigs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 567BB54A17C6296C00C75F54 /* MKStoreKitConfigs.plist */; };
+		567BB55517C6296C00C75F54 /* MKStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 567BB54C17C6296C00C75F54 /* MKStoreManager.m */; };
+		567BB55617C6296C00C75F54 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 567BB54D17C6296C00C75F54 /* README.mdown */; };
+		567BB55717C6296C00C75F54 /* VerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 567BB54F17C6296C00C75F54 /* VerificationController.m */; };
+		567BB55917C6299B00C75F54 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 567BB55817C6299B00C75F54 /* StoreKit.framework */; };
 		567FCABF17A7CC9F00F150A8 /* CHSelectedUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCABE17A7CC9F00F150A8 /* CHSelectedUserView.m */; };
 		567FCAC117A7CD7A00F150A8 /* CHSelectedUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 567FCAC017A7CD7A00F150A8 /* CHSelectedUserView.xib */; };
 		567FCAC717A9365300F150A8 /* CHMessagesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FCAC617A9365300F150A8 /* CHMessagesManager.m */; };
@@ -411,6 +420,22 @@
 		567BB53917BD1B5A00C75F54 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		567BB53C17C4E26900C75F54 /* CHPaymentsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHPaymentsManager.h; sourceTree = "<group>"; };
 		567BB53D17C4E26900C75F54 /* CHPaymentsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHPaymentsManager.m; sourceTree = "<group>"; };
+		567BB54117C6296C00C75F54 /* NSData+MKBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MKBase64.h"; sourceTree = "<group>"; };
+		567BB54217C6296C00C75F54 /* NSData+MKBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MKBase64.m"; sourceTree = "<group>"; };
+		567BB54317C6296C00C75F54 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		567BB54417C6296C00C75F54 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		567BB54517C6296C00C75F54 /* MKSKProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKSKProduct.h; sourceTree = "<group>"; };
+		567BB54617C6296C00C75F54 /* MKSKProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKSKProduct.m; sourceTree = "<group>"; };
+		567BB54717C6296C00C75F54 /* MKSKSubscriptionProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKSKSubscriptionProduct.h; sourceTree = "<group>"; };
+		567BB54817C6296C00C75F54 /* MKSKSubscriptionProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKSKSubscriptionProduct.m; sourceTree = "<group>"; };
+		567BB54917C6296C00C75F54 /* MKStoreKitConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreKitConfigs.h; sourceTree = "<group>"; };
+		567BB54A17C6296C00C75F54 /* MKStoreKitConfigs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MKStoreKitConfigs.plist; sourceTree = "<group>"; };
+		567BB54B17C6296C00C75F54 /* MKStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreManager.h; sourceTree = "<group>"; };
+		567BB54C17C6296C00C75F54 /* MKStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKStoreManager.m; sourceTree = "<group>"; };
+		567BB54D17C6296C00C75F54 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.mdown; sourceTree = "<group>"; };
+		567BB54E17C6296C00C75F54 /* VerificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationController.h; sourceTree = "<group>"; };
+		567BB54F17C6296C00C75F54 /* VerificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationController.m; sourceTree = "<group>"; };
+		567BB55817C6299B00C75F54 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		567FCABD17A7CC9F00F150A8 /* CHSelectedUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSelectedUserView.h; sourceTree = "<group>"; };
 		567FCABE17A7CC9F00F150A8 /* CHSelectedUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSelectedUserView.m; sourceTree = "<group>"; };
 		567FCAC017A7CD7A00F150A8 /* CHSelectedUserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHSelectedUserView.xib; sourceTree = "<group>"; };
@@ -834,6 +859,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				567BB55917C6299B00C75F54 /* StoreKit.framework in Frameworks */,
 				567BB53A17BD1B5B00C75F54 /* libz.dylib in Frameworks */,
 				567BB52017BBD26900C75F54 /* AssetsLibrary.framework in Frameworks */,
 				AA27E3CB17AFA87700C98B6C /* MessageUI.framework in Frameworks */,
@@ -922,6 +948,7 @@
 		5640153E176B40D000C028CE = {
 			isa = PBXGroup;
 			children = (
+				567BB55817C6299B00C75F54 /* StoreKit.framework */,
 				567BB53917BD1B5A00C75F54 /* libz.dylib */,
 				567BB51F17BBD26900C75F54 /* AssetsLibrary.framework */,
 				56401550176B40D000C028CE /* CashHoppers */,
@@ -1225,6 +1252,37 @@
 				567BB53D17C4E26900C75F54 /* CHPaymentsManager.m */,
 			);
 			name = "Frog Legs Payments";
+			sourceTree = "<group>";
+		};
+		567BB53F17C6296C00C75F54 /* MKStoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				567BB54017C6296C00C75F54 /* Externals */,
+				567BB54517C6296C00C75F54 /* MKSKProduct.h */,
+				567BB54617C6296C00C75F54 /* MKSKProduct.m */,
+				567BB54717C6296C00C75F54 /* MKSKSubscriptionProduct.h */,
+				567BB54817C6296C00C75F54 /* MKSKSubscriptionProduct.m */,
+				567BB54917C6296C00C75F54 /* MKStoreKitConfigs.h */,
+				567BB54A17C6296C00C75F54 /* MKStoreKitConfigs.plist */,
+				567BB54B17C6296C00C75F54 /* MKStoreManager.h */,
+				567BB54C17C6296C00C75F54 /* MKStoreManager.m */,
+				567BB54D17C6296C00C75F54 /* README.mdown */,
+				567BB54E17C6296C00C75F54 /* VerificationController.h */,
+				567BB54F17C6296C00C75F54 /* VerificationController.m */,
+			);
+			name = MKStoreKit;
+			path = lib/MKStoreKit;
+			sourceTree = SOURCE_ROOT;
+		};
+		567BB54017C6296C00C75F54 /* Externals */ = {
+			isa = PBXGroup;
+			children = (
+				567BB54117C6296C00C75F54 /* NSData+MKBase64.h */,
+				567BB54217C6296C00C75F54 /* NSData+MKBase64.m */,
+				567BB54317C6296C00C75F54 /* SFHFKeychainUtils.h */,
+				567BB54417C6296C00C75F54 /* SFHFKeychainUtils.m */,
+			);
+			path = Externals;
 			sourceTree = "<group>";
 		};
 		567FCABB17A7CC3A00F150A8 /* Controllers */ = {
@@ -1691,6 +1749,7 @@
 		E1CF6C14177D7855003D9624 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				567BB53F17C6296C00C75F54 /* MKStoreKit */,
 				AACEB95F17AB8D0B00691F6B /* FHSTwitterEngine */,
 				AA4C1F5117904E910071D0F9 /* OpenSource */,
 				AA4C1F4717904E710071D0F9 /* lib */,
@@ -1931,6 +1990,8 @@
 				AA0E002A17B928E200B7A681 /* CHPrizeListVC.xib in Resources */,
 				AA0E002C17B92AE000B7A681 /* icon_dollar.png in Resources */,
 				AA4E223517BCD8C900E86B23 /* CHBuyHopVC.xib in Resources */,
+				567BB55417C6296C00C75F54 /* MKStoreKitConfigs.plist in Resources */,
+				567BB55617C6296C00C75F54 /* README.mdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2113,6 +2174,12 @@
 				AA4E223417BCD8C900E86B23 /* CHBuyHopVC.m in Sources */,
 				AA18AE0617C242A800C4F259 /* CHAdditionalSigninFormVC.m in Sources */,
 				567BB53E17C4E26900C75F54 /* CHPaymentsManager.m in Sources */,
+				567BB55017C6296C00C75F54 /* NSData+MKBase64.m in Sources */,
+				567BB55117C6296C00C75F54 /* SFHFKeychainUtils.m in Sources */,
+				567BB55217C6296C00C75F54 /* MKSKProduct.m in Sources */,
+				567BB55317C6296C00C75F54 /* MKSKSubscriptionProduct.m in Sources */,
+				567BB55517C6296C00C75F54 /* MKStoreManager.m in Sources */,
+				567BB55717C6296C00C75F54 /* VerificationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

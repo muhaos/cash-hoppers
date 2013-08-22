@@ -10,6 +10,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "CHHop.h"
 #import "CHPaymentsManager.h"
+#import "MKStoreManager.h"
+#import "CHLoadingVC.h"
 
 
 @interface CHBuyHopVC ()
@@ -39,7 +41,7 @@
     self.yourBalanceActivityView.hidden = NO;
     
     [[CHPaymentsManager instance] getBalanceWithCompletionHandler:^(NSNumber* balance){
-        if (balance != nil) {
+        if (balance != nil && ![balance isKindOfClass:[NSNull class]]) {
             yourRibbits = [balance intValue];
             self.yourBalanceLabel.text = [NSString stringWithFormat:@"%i", [balance intValue]];
             if (yourRibbits < [self.currentHop.price intValue]) {
@@ -69,16 +71,47 @@
 
 
 - (void) buyRibbits:(NSNumber*) count sender:(UIButton*) button {
+    [[CHLoadingVC sharedLoadingVC] showInController:self withText:@"Please wait..."];
+    
     button.enabled = NO;
-    [[CHPaymentsManager instance] refillBalanceFor:count withCompletionHandler:^(NSError* error){
-        if (error == nil) {
-            [self refreshBalance];
-        } else {
-            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"CANT BUY RIBBITS: %@", [error localizedDescription]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            [av show];
-        }
-        button.enabled = YES;
-    }];
+    
+    NSString* productID = nil;
+    switch ([count intValue]) {
+        case 10:
+            productID = kProductRibbitsTier1;
+            break;
+        case 50:
+            productID = kProductRibbitsTier2;
+            break;
+        case 100:
+            productID = kProductRibbitsTier3;
+            break;
+    }
+    
+    [[MKStoreManager sharedManager] buyFeature:productID
+                                    onComplete:^(NSString* purchasedFeature,
+                                                 NSData* purchasedReceipt,
+                                                 NSArray* availableDownloads)
+     {
+         
+         [[CHPaymentsManager instance] refillBalanceFor:count withCompletionHandler:^(NSError* error){
+             if (error == nil) {
+                 [self refreshBalance];
+             } else {
+                 UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"CANT BUY RIBBITS: %@", [error localizedDescription]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                 [av show];
+             }
+             button.enabled = YES;
+
+             [[CHLoadingVC sharedLoadingVC] hide];
+
+         }];
+         
+     }
+                                   onCancelled:^
+     {
+         [[CHLoadingVC sharedLoadingVC] hide];
+     }];
 }
 
 
