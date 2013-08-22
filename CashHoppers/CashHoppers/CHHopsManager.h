@@ -33,6 +33,8 @@
 - (void) loadYesterdayWinnerWithCompletionHandler:(void (^)(NSDictionary* yesterdayWinnerDic)) handler;
 - (void) notifiServerOfSharingWithService:(NSString*) serviceName andHopTaskID:(NSNumber*) hopTaskID;
 
+- (void) scoreForHopID:(NSNumber*) _id completionHandler:(void (^)(NSNumber* score, NSNumber* rank, NSNumber* hoppers_count)) handler;
+
 
 
 @end

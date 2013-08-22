@@ -265,5 +265,13 @@
 }
 
 
+- (void) scoreForHopID:(NSNumber*) _id completionHandler:(void (^)(NSNumber* score, NSNumber* rank, NSNumber* hoppers_count)) handler {
+    NSString* path = [NSString stringWithFormat:@"/api/hop/score.json?hop_id=%i", [_id intValue]];
+    [self requestWithMethod:@"GET" urlPath:path block:^(NSError* error, NSDictionary* json){
+        handler([json objectForKey:@"score"], [json objectForKey:@"rank"], [json objectForKey:@"hoppers_count"]);
+    }];
+}
+
+
 
 @end

@@ -60,6 +60,14 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     [self showAdsWithType:@"ROFL" andHopID:self.currentHop.identifier];
+    
+    self.scoreLabel.text = @"-";
+    self.rankLabel.text = @"-";
+
+    [[CHHopsManager instance] scoreForHopID:self.currentHop.identifier completionHandler:^(NSNumber* score, NSNumber* rank, NSNumber* hoppers_count){
+        self.scoreLabel.text = [NSString stringWithFormat:@"%i pts", [score intValue]];
+        self.rankLabel.text = [NSString stringWithFormat:@"%i of %i", [rank intValue], [hoppers_count intValue]];
+    }];
 }
 
 

@@ -48,6 +48,7 @@
     if ([[[CHUserManager instance].userSettings objectForKey:@"ad_enable"] intValue] == NO) {
         self.balanceLabel.text = @"Already buyed!";
         self.buyNowButton.hidden = YES;
+        self.balanceActivityView.hidden = YES;
     } else {
         
         self.balanceLabel.hidden = YES;
