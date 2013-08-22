@@ -35,6 +35,9 @@
         _currentUser = user;
     }];
 
+    [self updateUserSettingsWithCompletionBlock:^(NSError* error){
+        
+    }];
 }
 
 

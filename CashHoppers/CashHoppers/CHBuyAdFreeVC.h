@@ -15,6 +15,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *priceLabel;
 @property (strong, nonatomic) IBOutlet CHCheckMarkView *checkMark;
 @property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (strong, nonatomic) IBOutlet UILabel *balanceLabel;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *balanceActivityView;
+
+
 - (IBAction)buyPressed:(id)sender;
 
 @end

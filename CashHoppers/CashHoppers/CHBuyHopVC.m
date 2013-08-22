@@ -93,7 +93,7 @@
                                                  NSData* purchasedReceipt,
                                                  NSArray* availableDownloads)
      {
-         
+    
          [[CHPaymentsManager instance] refillBalanceFor:count withCompletionHandler:^(NSError* error){
              if (error == nil) {
                  [self refreshBalance];

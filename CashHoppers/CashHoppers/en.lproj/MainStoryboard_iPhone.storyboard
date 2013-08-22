@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -4293,7 +4293,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="OpenSans-CondensedBold"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="For $3.99, you can eliminate the in-app ads from your hopping experience." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zDd-rR-gZH">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="For 20 Ribbits, you can eliminate the in-app ads from your hopping experience." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zDd-rR-gZH">
                                 <rect key="frame" x="29" y="63" width="262" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -4304,7 +4304,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2Ws-LR-Oh3">
-                                <rect key="frame" x="103" y="125" width="115" height="39"/>
+                                <rect key="frame" x="103" y="179" width="115" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="BUY NOW!" backgroundImage="yellow_button.png">
@@ -4319,7 +4319,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YMP-Dg-GDE" customClass="CHCheckMarkView">
-                                <rect key="frame" x="20" y="189" width="22" height="20"/>
+                                <rect key="frame" x="20" y="239" width="22" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button">
@@ -4331,7 +4331,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Check here if you would like to still receive special promotions and discounts from our sponsors via email." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5MF-el-UrM">
-                                <rect key="frame" x="58" y="183" width="242" height="50"/>
+                                <rect key="frame" x="58" y="233" width="242" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -4340,12 +4340,25 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="YOUR BALANCE:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uek-3N-zXE">
+                                <rect key="frame" x="29" y="111" width="262" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" id="8L2-Mm-WRY">
+                                <rect key="frame" x="148" y="145" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="lH5-fG-U3F"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
+                        <outlet property="balanceActivityView" destination="8L2-Mm-WRY" id="rKT-jz-4EB"/>
+                        <outlet property="balanceLabel" destination="uek-3N-zXE" id="NR2-ei-PN5"/>
                         <outlet property="buyNowButton" destination="2Ws-LR-Oh3" id="zKm-lc-ivN"/>
                         <outlet property="checkMark" destination="YMP-Dg-GDE" id="jPD-Ko-2b7"/>
                     </connections>
@@ -4473,6 +4486,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CHBuyAdFreeVC.h"/>
             <relationships>
                 <relationship kind="action" name="buyPressed:"/>
+                <relationship kind="outlet" name="balanceActivityView" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="balanceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="buyNowButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="checkMark" candidateClass="CHCheckMarkView"/>
                 <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>

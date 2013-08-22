@@ -9,6 +9,7 @@
 #import "UIViewController+Utils.h"
 #import "CHAdvertisingVC.h"
 #import "CHAppDelegate.h"
+#import "CHUserManager.h"
 
 @implementation UIViewController (Utils)
 
@@ -27,6 +28,15 @@
 static CHAdvertisingVC* vc = nil;
 
 - (void) showAdsWithType:(NSString*) adsType andHopID:(NSNumber*) hopID {
+    
+    if ([CHUserManager instance].userSettings == nil) {
+        [[CHUserManager instance] updateUserSettingsWithCompletionBlock:^(NSError* error){
+        }];
+    } else {
+        if ([[[CHUserManager instance].userSettings objectForKey:@"ad_enable"] intValue] == NO) {
+            return;
+        }
+    }
     
 
     if (vc) {
