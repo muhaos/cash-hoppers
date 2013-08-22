@@ -197,6 +197,11 @@
 
 #pragma mark - ibactions
 
+- (IBAction)shareButtonTapped:(id)sender
+{
+    [self adsClosedTapped];
+}
+
 - (IBAction)resignResponder:(id)sender {
     
     [_textView resignFirstResponder];
