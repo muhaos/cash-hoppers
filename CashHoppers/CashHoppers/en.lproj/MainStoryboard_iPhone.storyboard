@@ -2566,7 +2566,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans-Bold"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <imageView contentMode="scaleToFill" image="Take-Photo.png" id="61U-zc-veO">
+                                    <imageView contentMode="scaleToFill" image="take_photo.png" id="61U-zc-veO">
                                         <rect key="frame" x="20" y="169" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
@@ -4376,7 +4376,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Take-Photo.png" width="191" height="180"/>
         <image name="add_icon_in_cell.png" width="39" height="39"/>
         <image name="bk_round.png" width="148" height="149"/>
         <image name="black_separator.png" width="509" height="3"/>
@@ -4428,6 +4427,7 @@
         <image name="settings_icon.png" width="46" height="46"/>
         <image name="special_hops_holder.png" width="640" height="89"/>
         <image name="tabbar_bg.png" width="326" height="78"/>
+        <image name="take_photo.png" width="194" height="185"/>
         <image name="title_holder.png" width="661" height="89"/>
         <image name="yellow_button.png" width="234" height="109"/>
     </resources>
@@ -4890,9 +4890,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
