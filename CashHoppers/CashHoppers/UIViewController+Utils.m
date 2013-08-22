@@ -30,7 +30,8 @@ static CHAdvertisingVC* vc = nil;
     
 
     if (vc) {
-        [vc closeTapped:nil];
+        [vc.view removeFromSuperview];
+        vc.selfRef = nil;
         vc = nil;
     }
     

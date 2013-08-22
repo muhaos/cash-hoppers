@@ -147,7 +147,7 @@
     [mailComposer setToRecipients:emailAddresses];
     [mailComposer setSubject:sendSubject];
     [mailComposer setMessageBody:sendMessage isHTML:NO];
-    [self presentViewController:mailComposer animated:YES completion:NULL];
+    [self presentModalViewController:mailComposer animated:YES];
 }
 
 
@@ -160,7 +160,7 @@
 
 
 -(void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 

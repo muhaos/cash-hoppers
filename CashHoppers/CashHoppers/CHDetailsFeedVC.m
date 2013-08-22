@@ -302,7 +302,7 @@
 -(void) textViewDidBeginEditing:(UITextView *)textView
 {
     textView.text = @"";
-    textView.textColor = [UIColor blackColor];
+    textView.textColor = [UIColor darkGrayColor];
 }
 
 -(void)hideKeyboard{

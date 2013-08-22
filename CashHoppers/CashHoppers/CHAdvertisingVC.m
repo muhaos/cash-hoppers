@@ -57,7 +57,7 @@ static BOOL isAdsShowed = false;
         }
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        
+        [self closeTapped:nil];
         NSLog(@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]);
         
 //        UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
