@@ -29,7 +29,7 @@
     
     yourRibbits = 0;
     nameHopLabel.text = self.currentHop.name;
-    costHopLabel.text = [NSString stringWithFormat:@"%@", self.currentHop.price];
+    costHopLabel.text = [NSString stringWithFormat:@"%i", [self.currentHop.price intValue]];
     
     [self refreshBalance];
 }
@@ -66,7 +66,18 @@
 
 - (IBAction)buyNowButtonTapped:(id)sender
 {
-    [self.view removeFromSuperview];
+    [[CHPaymentsManager instance] buyHopWithID:self.currentHop.identifier block:^(NSError* error){
+        if (error == nil) {
+            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"SUCCESS" message:@"Hop buyed!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [av show];
+            self.currentHop.purchased = @YES;
+            [self.view removeFromSuperview];
+        } else {
+            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"Can't buy hop" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [av show];
+        }
+    }];
+    
 }
 
 

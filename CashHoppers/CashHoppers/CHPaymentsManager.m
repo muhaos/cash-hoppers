@@ -51,5 +51,12 @@
 }
 
 
+- (void) buyHopWithID:(NSNumber*) _id block:(void (^)(NSError* error)) handler {
+    NSString* path = [NSString stringWithFormat:@"/api/payment/buy_hop.json?hop_id=%i", [_id intValue]];
+    [self requestWithMethod:@"POST" urlPath:path block:^(NSError* error, NSDictionary* json){
+        handler(error);
+    }];
+}
+
 
 @end

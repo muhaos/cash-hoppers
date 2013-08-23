@@ -24,13 +24,14 @@
     self.time_end = [CHBaseModel safeDateFrom:[dic objectForKey:@"time_end"] dateFromatter:df defaultValue:nil];
     
     self.code = [CHBaseModel safeStringFrom:[dic objectForKey:@"code"] defaultValue:@""];
-    self.price = [CHBaseModel safeStringFrom:[dic objectForKey:@"price"] defaultValue:@""];
+    self.price = [CHBaseModel safeNumberFrom:[dic objectForKey:@"price"] defaultValue:@0];
     self.jackpot = [CHBaseModel safeNumberFrom:[dic objectForKey:@"jackpot"] defaultValue:@0];
     self.daily_hop = [dic objectForKey:@"daily_hop"];
     self.close = [dic objectForKey:@"close"];
     self.event = [CHBaseModel safeStringFrom:[dic objectForKey:@"event"] defaultValue:@""];
     self.logoUrlString = [CHBaseModel safeStringFrom:[dic objectForKey:@"logo"] defaultValue:nil];
-
+    self.purchased = [CHBaseModel safeNumberFrom:[dic objectForKey:@"purchased"] defaultValue:@NO];
+    
 }
 
 
@@ -39,7 +40,7 @@
        return CHHopTypeCompleted;
     } else if (![self.code isEqualToString:@""]) {
         return CHHopTypeWithCode;
-    } else if (![self.price isEqualToString:@""] && [self.price intValue] != 0) {
+    } else if ([self.price intValue] != 0) {
         return CHHopTypeWithEntryFee;
     } else {
         return CHHopTypeFree;

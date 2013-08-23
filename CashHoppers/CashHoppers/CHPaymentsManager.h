@@ -27,4 +27,7 @@
 - (void) removeAdsWithCompletionHandler:(void (^)(NSError* error)) handler;
 
 
+- (void) buyHopWithID:(NSNumber*) _id block:(void (^)(NSError* error)) handler;
+
+
 @end

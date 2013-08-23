@@ -54,7 +54,7 @@
     [[self prewPrizeHopLabel] setText:@"Grand Prize:"];
     [[self prewCountHopLabel] setText:[NSString stringWithFormat:@"$%i", [self.currentHop.jackpot integerValue]]];
     [[self prewFeeLabel] setText:@"Entry Fee:"];
-    [[self prewCountFeeLabel] setText:[NSString stringWithFormat:@"$%@", self.currentHop.price]];
+    [[self prewCountFeeLabel] setText:[NSString stringWithFormat:@"$%i", [self.currentHop.price intValue]]];
     [[self prewVerticalIndicator] setImage:[UIImage imageNamed:@"av_indicator_cell"]];
 }
 
