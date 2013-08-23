@@ -199,6 +199,7 @@
 
 - (IBAction)shareButtonTapped:(id)sender
 {
+    [_textView resignFirstResponder];
     [self adsClosedTapped];
 }
 

@@ -26,6 +26,7 @@
 - (void) initCacheWithName:(NSString*) cacheName andExpirationTime:(NSTimeInterval) expirationTime;
 - (CHBaseModel*) findObjectWithID:(NSNumber*) _id inCache:(NSString*) cacheName;
 - (void) putObject:(CHBaseModel*)obj intoCache:(NSString*) cacheName;
+- (void) removeObjectWithID:(NSNumber*) _id fromCache:(NSString*) cacheName;
 
 
 

@@ -72,6 +72,18 @@
 }
 
 
+- (void) removeObjectWithID:(NSNumber*) _id fromCache:(NSString*) cacheName {
+    NSDictionary* cache = [self.caches objectForKey:cacheName];
+    if (cache == nil) {
+        @throw [NSException exceptionWithName:@"CHBaseManager" reason:[NSString stringWithFormat:@"Can't fint object in uninitialized cache \"%@\"", cacheName] userInfo:nil];
+    }
+    CHBaseModel* obj = [self findObjectWithID:_id inArray:[cache objectForKey:@"objects"]];
+    
+    if (obj) {
+        [[cache objectForKey:@"objects"] removeObject:obj];
+    }
+}
+
 
 
 - (void) defaultErrorHandlerForReqest:(NSURLRequest*) request responce: (NSHTTPURLResponse *)response :(NSError *)error :(id) JSON {
