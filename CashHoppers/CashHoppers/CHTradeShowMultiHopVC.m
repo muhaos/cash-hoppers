@@ -68,6 +68,8 @@
         self.scoreLabel.text = [NSString stringWithFormat:@"%i pts", [score intValue]];
         self.rankLabel.text = [NSString stringWithFormat:@"%i of %i", [rank intValue], [hoppers_count intValue]];
     }];
+    
+    [self.multiHopTable reloadData];
 }
 
 
@@ -143,7 +145,7 @@
 {
     CHHopTask* hopTask = [self.currentHop.tasks objectAtIndex:indexPath.row];
     
-    if (![self.currentHop.price intValue] != 0 && [self.currentHop.purchased boolValue] == NO) {
+    if ([self.currentHop.price intValue] != 0 && [self.currentHop.purchased boolValue] == NO) {
         [[CHBuyHopVC sharedBuyHopVC] showInController:self.parentViewController.parentViewController withHop:self.currentHop];
     } else {
         [self performSegueWithIdentifier:@"new_hop_segue" sender:hopTask];
