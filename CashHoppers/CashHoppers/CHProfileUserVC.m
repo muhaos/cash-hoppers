@@ -85,6 +85,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         } else {
             UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"PROFILE" message:@"Profile updated!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [av show];
+            [[CHUserManager instance] removeObjectWithID:[CHUserManager instance].currentUser.identifier fromCache:@"users"];
+            [[CHUserManager instance] updateCurrentUser];
         }
         
         [[CHLoadingVC sharedLoadingVC] hide];

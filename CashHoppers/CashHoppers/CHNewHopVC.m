@@ -199,6 +199,7 @@
 
 - (IBAction)shareButtonTapped:(id)sender
 {
+    [_textView resignFirstResponder];
     [self adsClosedTapped];
 }
 
@@ -252,6 +253,7 @@
                 [self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier];
                 [self saveImageCopyToGalery];
                 self.submitButton.hidden = YES;
+                [self adsClosedTapped];
             }
             [[CHLoadingVC sharedLoadingVC] hide];
         }];
