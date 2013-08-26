@@ -265,6 +265,7 @@
 		AACEB97C17AB8D0B00691F6B /* OARequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = AACEB97017AB8D0B00691F6B /* OARequestParameter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AACEB97D17AB8D0B00691F6B /* OAServiceTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = AACEB97217AB8D0B00691F6B /* OAServiceTicket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AACEB97E17AB8D0B00691F6B /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = AACEB97417AB8D0B00691F6B /* OAToken.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AAF9EE5717CB8E0600186342 /* CHHelpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9EE5617CB8E0600186342 /* CHHelpVC.m */; };
 		AAFBE33117A1422A00F408C2 /* button_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFBE32F17A1422A00F408C2 /* button_delete.png */; };
 		AAFBE33217A1422A00F408C2 /* compose_new_message.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFBE33017A1422A00F408C2 /* compose_new_message.png */; };
 		AAFBE33517A148D100F408C2 /* CHIndividualMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFBE33417A148D100F408C2 /* CHIndividualMessageVC.m */; };
@@ -747,6 +748,8 @@
 		AACEB97317AB8D0B00691F6B /* OAToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAToken.h; sourceTree = "<group>"; };
 		AACEB97417AB8D0B00691F6B /* OAToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAToken.m; sourceTree = "<group>"; };
 		AACEB97517AB8D0B00691F6B /* OAuthConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer.h; sourceTree = "<group>"; };
+		AAF9EE5517CB8E0600186342 /* CHHelpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHelpVC.h; sourceTree = "<group>"; };
+		AAF9EE5617CB8E0600186342 /* CHHelpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHelpVC.m; sourceTree = "<group>"; };
 		AAFBE32F17A1422A00F408C2 /* button_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_delete.png; sourceTree = "<group>"; };
 		AAFBE33017A1422A00F408C2 /* compose_new_message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compose_new_message.png; sourceTree = "<group>"; };
 		AAFBE33317A148D100F408C2 /* CHIndividualMessageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHIndividualMessageVC.h; sourceTree = "<group>"; };
@@ -1065,6 +1068,8 @@
 				AA0E001217B8F8E100B7A681 /* CHPushNotificationsVC.m */,
 				AA0E001F17B90ACB00B7A681 /* CHPushNotificationsCell.h */,
 				AA0E002017B90ACB00B7A681 /* CHPushNotificationsCell.m */,
+				AAF9EE5517CB8E0600186342 /* CHHelpVC.h */,
+				AAF9EE5617CB8E0600186342 /* CHHelpVC.m */,
 			);
 			path = CashHoppers;
 			sourceTree = "<group>";
@@ -2184,6 +2189,7 @@
 				567BB55317C6296C00C75F54 /* MKSKSubscriptionProduct.m in Sources */,
 				567BB55517C6296C00C75F54 /* MKStoreManager.m in Sources */,
 				567BB55717C6296C00C75F54 /* VerificationController.m in Sources */,
+				AAF9EE5717CB8E0600186342 /* CHHelpVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1656,11 +1656,11 @@
             <objects>
                 <viewController id="OtY-Mi-bR2" customClass="CHAddFriendVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nI1-wd-KsW">
-                        <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="mhL-Jd-Gsa">
-                                <rect key="frame" x="130" y="40" width="60" height="58"/>
+                                <rect key="frame" x="130" y="40" width="60" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4tJ-qa-cI4">
@@ -2957,7 +2957,7 @@
                     </connections>
                 </tableView>
             </objects>
-            <point key="canvasLocation" x="1081" y="2105"/>
+            <point key="canvasLocation" x="1175" y="2169"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c3t-76-Cmr">
@@ -2972,7 +2972,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1x0-x9-TAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="588" y="2105"/>
+            <point key="canvasLocation" x="588" y="2169"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ilz-Fm-MTx">
@@ -2987,7 +2987,32 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0u-IS-Ofh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="588" y="2785"/>
+            <point key="canvasLocation" x="588" y="2901"/>
+        </scene>
+        <!--HelpVC-->
+        <scene sceneID="caw-3G-Doo">
+            <objects>
+                <viewController id="OnC-Hs-ty8" customClass="CHHelpVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OXe-fK-uNg">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="Rlr-Ur-btB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qmq-Qg-Dzq"/>
+                    <connections>
+                        <outlet property="contentWebView" destination="Rlr-Ur-btB" id="79g-UT-TOs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9gD-pb-o3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1175" y="3647"/>
         </scene>
         <!--Add Friends Social NetworksVC-->
         <scene sceneID="Vdf-cS-Ney">
@@ -3083,7 +3108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQY-wt-uIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1837" y="2105"/>
+            <point key="canvasLocation" x="2363" y="2105"/>
         </scene>
         <!--Menu SlidingVC-->
         <scene sceneID="Hwo-MI-aaI">
@@ -3172,6 +3197,7 @@
                         <segue destination="uWo-2x-ao7" kind="modal" identifier="find_friends" id="Vjf-8J-mqP"/>
                         <segue destination="uoT-Gt-Jms" kind="modal" identifier="ad_free_version" id="ciF-lL-1fh"/>
                         <segue destination="boX-8C-610" kind="modal" identifier="profile_user" id="47o-Pl-jEB"/>
+                        <segue destination="cTp-Xe-FX8" kind="modal" identifier="how_to_play_faq" id="eCE-dE-0yT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNK-pM-GZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3626,7 +3652,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i05-ky-EAs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3498" y="2500"/>
+            <point key="canvasLocation" x="4024" y="2500"/>
         </scene>
         <!--Push NotificationsVC-->
         <scene sceneID="WNh-aC-2ni">
@@ -4403,7 +4429,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SRg-5k-MC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1081" y="2785"/>
+            <point key="canvasLocation" x="1175" y="2901"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kat-ze-PdG">
@@ -4435,6 +4461,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uOm-6v-ElX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jHC-Xe-yMX">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8NG-tL-DMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="cTp-Xe-FX8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BTF-AA-S9I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OnC-Hs-ty8" kind="relationship" relationship="rootViewController" id="ktt-Bf-uaX"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="588" y="3647"/>
         </scene>
     </scenes>
     <resources>
@@ -4662,6 +4706,12 @@
             <relationships>
                 <relationship kind="action" name="settingsButtonTapped:"/>
                 <relationship kind="outlet" name="photoCollectionView" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+        <class className="CHHelpVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHHelpVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentWebView" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="CHHomeScreenViewController" superclassName="UIViewController">
@@ -4959,9 +5009,6 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -4971,8 +5018,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="lvk-fo-Rcf"/>
         <segue reference="Wv3-IZ-arJ"/>
-        <segue reference="dQd-F6-f2d"/>
         <segue reference="Bjs-zb-Rk3"/>
         <segue reference="iNc-aT-tqd"/>
+        <segue reference="ygN-Sf-oO2"/>
     </inferredMetricsTieBreakers>
 </document>
