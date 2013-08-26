@@ -1751,7 +1751,7 @@
             <objects>
                 <viewController storyboardIdentifier="DetailFeedVC" id="jPZ-MB-CzT" customClass="CHDetailsFeedVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BRh-qX-Sku">
-                        <rect key="frame" x="0.0" y="44" width="320" height="900"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="iYL-i3-iPO">
@@ -3489,11 +3489,11 @@
             <objects>
                 <viewController id="1pX-81-u3g" customClass="CHComposeMessageVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vhH-DP-po4">
-                        <rect key="frame" x="0.0" y="64" width="320" height="704"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="HOE-uc-pnc">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="704"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="title_holder.png" id="tsg-jE-U4n">
@@ -4969,10 +4969,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Zbe-DI-nGM"/>
         <segue reference="lvk-fo-Rcf"/>
-        <segue reference="SWG-0R-sWo"/>
-        <segue reference="dQd-F6-f2d"/>
         <segue reference="Wv3-IZ-arJ"/>
+        <segue reference="dQd-F6-f2d"/>
+        <segue reference="Bjs-zb-Rk3"/>
+        <segue reference="iNc-aT-tqd"/>
     </inferredMetricsTieBreakers>
 </document>

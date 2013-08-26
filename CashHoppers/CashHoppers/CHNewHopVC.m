@@ -253,7 +253,6 @@
                 [self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier];
                 [self saveImageCopyToGalery];
                 self.submitButton.hidden = YES;
-                [self adsClosedTapped];
             }
             [[CHLoadingVC sharedLoadingVC] hide];
         }];

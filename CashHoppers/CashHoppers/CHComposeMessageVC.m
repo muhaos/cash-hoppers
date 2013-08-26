@@ -46,7 +46,7 @@
     }];
     
     [self loyoutSearchView];
-    self.scroolView.contentSize = CGSizeMake(320.0f, self.view.bounds.size.height + 200.0f);
+    self.scroolView.contentSize = CGSizeMake(320.0f, self.view.bounds.size.height + 100.0f);
 }
 
 
@@ -192,7 +192,7 @@
 {
     CHComposeMessageCell *cell = (CHComposeMessageCell*) [tableView cellForRowAtIndexPath:indexPath];
     CHUser* tappedUser = searchResultUsers[indexPath.row];
-
+    
     cell.accessoryView = nil;
     
     if ([selectedUserArray containsObject:tappedUser]) {
@@ -212,7 +212,7 @@
 
 - (void) scrollToFindTextField
 {
-    CGPoint offset = CGPointMake(0 ,searchTextField.frame.origin.y +45);
+    CGPoint offset = CGPointMake(0 ,searchTextField.frame.origin.y +30);
     [self.scroolView setContentOffset:offset animated:YES];
 }
 
@@ -242,7 +242,7 @@
             }
             
             CHSelectedUserView* selectedUserView = [[CHSelectedUserView alloc] init];
-            CHUser* user = searchResultUsers[row * 3 + i];
+            CHUser* user = selectedUserArray[row * 3 + i];
             NSString* userName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
             
             selectedUserView.view.layer.cornerRadius = 2.0f;
