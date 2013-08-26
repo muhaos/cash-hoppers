@@ -73,7 +73,7 @@
         self.currentPrizes = [NSMutableArray new];
         for (NSDictionary* d in prizes) {
             NSString* prize_position = [d objectForKey:@"title"];
-            NSString* prize_value = [NSString stringWithFormat:@"$%i", [[d objectForKey:@"cost"] intValue]];
+            NSString* prize_value = [NSString stringWithFormat:@"%@", [d objectForKey:@"cost"]];
             [self.currentPrizes addObject:@{@"prize_position": prize_position, @"prize_value": prize_value }];
         }
         

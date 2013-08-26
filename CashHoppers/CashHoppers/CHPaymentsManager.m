@@ -45,7 +45,7 @@
 
 
 - (void) removeAdsWithCompletionHandler:(void (^)(NSError* error)) handler {
-    [self requestWithMethod:@"POST" urlPath:@"/api/payment/disable_ads.json" block:^(NSError* error, NSDictionary* json){
+    [self requestWithMethod:@"POST" urlPath:@"/api/payment/disable_ads.json" block:^(NSError* error, NSDictionary* json) {
         handler(error);
     }];
 }

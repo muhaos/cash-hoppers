@@ -32,6 +32,8 @@
     self.logoUrlString = [CHBaseModel safeStringFrom:[dic objectForKey:@"logo"] defaultValue:nil];
     self.purchased = [CHBaseModel safeNumberFrom:[dic objectForKey:@"purchased"] defaultValue:@NO];
     
+    NSLog(@"%@ purchased: %i", self.name, [self.purchased intValue]);
+    
 }
 
 
