@@ -147,17 +147,9 @@
 }
 
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"how_to_play_faq"]) {
-     //   CHHelpVC* vc = segue.destinationViewController;
-        
+    if ([segue.identifier isEqualToString:@"how_to_play_faq"])
+    {
         UINavigationController *navController = (UINavigationController*)[segue destinationViewController];
         CHHelpVC *vc  = [navController topViewController];
 
@@ -170,6 +162,12 @@
             vc.url = [NSString stringWithFormat:@"http://perechin.net:3000/pages/faq"];   
         }
     }
+}
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
 }
 
 
