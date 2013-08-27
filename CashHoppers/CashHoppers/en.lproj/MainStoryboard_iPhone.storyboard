@@ -2823,6 +2823,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Who are you looking for?" minimumFontSize="17" clearButtonMode="whileEditing" id="opB-9k-biG">
                                         <rect key="frame" x="51" y="63" width="249" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
@@ -4465,7 +4466,6 @@
         <!--Navigation Controller-->
         <scene sceneID="jHC-Xe-yMX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8NG-tL-DMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="cTp-Xe-FX8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BTF-AA-S9I">
@@ -4477,6 +4477,7 @@
                         <segue destination="OnC-Hs-ty8" kind="relationship" relationship="rootViewController" id="ktt-Bf-uaX"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8NG-tL-DMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="588" y="3647"/>
         </scene>
