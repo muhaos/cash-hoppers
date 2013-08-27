@@ -151,7 +151,7 @@
         NSArray *emailAddresses = [[NSArray alloc] initWithObjects:nil];
         NSString *sendSubject = [[NSString alloc] initWithFormat:@" "];
         NSString *sendMessage = [[NSString alloc] initWithFormat:@"This is cashhoppers"];
-        
+                 
         [mailComposer setToRecipients:emailAddresses];
         [mailComposer setSubject:sendSubject];
         [mailComposer setMessageBody:sendMessage isHTML:NO];

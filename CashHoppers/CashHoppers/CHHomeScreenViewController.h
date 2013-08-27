@@ -14,6 +14,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *bannerImView;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIButton *menuButton;
+@property (strong, nonatomic) IBOutlet UIButton *dailyHopButton;
+@property (strong, nonatomic) IBOutlet UILabel *dailyHopExists;
 
 // other hops list
 @property (strong, nonatomic) IBOutlet UIView* firstHopContainer;

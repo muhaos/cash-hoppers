@@ -804,6 +804,16 @@
                                         <rect key="frame" x="102" y="102" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </activityIndicatorView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Daily HOP does not exists" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1ly-yF-SZD">
+                                        <rect key="frame" x="55" y="102" width="245" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="OpenSans-CondensedBold"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -833,6 +843,8 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="bannerImView" destination="ee1-y1-tAu" id="LwF-X6-hoa"/>
+                        <outlet property="dailyHopButton" destination="o74-Qq-G0J" id="Lpe-7z-Cuk"/>
+                        <outlet property="dailyHopExists" destination="1ly-yF-SZD" id="R8a-Hu-S3K"/>
                         <outlet property="dailyHopImageView" destination="YGC-y9-TCI" id="cZS-Fb-BXL"/>
                         <outlet property="dailyHopIndicator" destination="F3S-1m-PLN" id="uOu-tK-c3x"/>
                         <outlet property="dailyHopNameLabel" destination="kmF-YX-hqh" id="j73-HK-0zd"/>
@@ -4725,6 +4737,8 @@
                 <relationship kind="action" name="topBannerTapped:"/>
                 <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="bannerImView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="dailyHopButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dailyHopExists" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="dailyHopImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="dailyHopIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="dailyHopNameLabel" candidateClass="UILabel"/>

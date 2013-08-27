@@ -150,8 +150,12 @@
     self.dailyHopIndicator.hidden = (dailyHopsCount > 0);
     self.dailyHopNameLabel.hidden = (dailyHopsCount <= 0);
     self.dailyHopImageView.hidden = (dailyHopsCount <= 0);
+    self.dailyHopButton.hidden = (dailyHopsCount <= 0);
+    self.dailyHopIndicator.hidden = (dailyHopsCount <= 0);
+    self.dailyHopExists.hidden = (dailyHopsCount > 0);
     
     if (dailyHopsCount > 0) {
+        self.dailyHopIndicator.hidden = YES;
         CHHop* dailyHop = [CHHopsManager instance].dailyHops[0];
         NSString* hopName = dailyHop.name;
         NSString* hopTaskName = [dailyHop.tasks[0] text];
@@ -278,6 +282,8 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self.friendsFeedUpdatedNotification];
     [[NSNotificationCenter defaultCenter] removeObserver:self.globalFeedUpdatedNotification];
     [[NSNotificationCenter defaultCenter] removeObserver:self.feedItemUpdatedNotification];
+    [self setDailyHopButton:nil];
+    [self setDailyHopExists:nil];
     [super viewDidUnload];
 }
 
