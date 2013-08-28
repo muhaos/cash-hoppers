@@ -240,15 +240,17 @@
 
 - (void) syncUserSettings {
     NSError *error = nil;
-    NSData *json = [NSJSONSerialization dataWithJSONObject:self.userSettings options:0 error:&error];
+    NSMutableDictionary  *dic = [NSMutableDictionary new];
+    [dic setObject:self.userSettings forKey:@"user_settings"];
+    NSData *json = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&error];
 
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
     NSString *path = [NSString stringWithFormat:@"/api/settings/set.json?api_key=%@&authentication_token=%@", CH_API_KEY, aToken];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"POST" path:path parameters:nil];
+ 
     [request setHTTPBody:json];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
         
