@@ -22,7 +22,7 @@ NSString *const FBSessionStateChangedNotification =
 @"com.facebook.samples.LoginHowTo:FBSessionStateChangedNotification";
 
 @implementation CHAppDelegate
-@synthesize homeScreenVC, navController, menuContainerVC;
+@synthesize homeScreenVC, navController, menuContainerVC, netStatus, hostReach;
 @synthesize loggedInUserID = _loggedInUserID;
 @synthesize loggedInSession = _loggedInSession;
 
@@ -62,10 +62,32 @@ NSString *const FBSessionStateChangedNotification =
         self.appUsageCheckEnabled = [defaults boolForKey:@"AppUsageCheck"];
     }
 
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+    self.hostReach = [Reachability reachabilityWithHostName:@"www.apple.com"];
+    [hostReach startNotifier];
+    [self updateInterfaceWithReachability: hostReach];
+    
+    
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
     return YES;
+}
+
+
+- (void) updateInterfaceWithReachability: (Reachability*) curReach {
+    self.netStatus = [curReach currentReachabilityStatus];
+}
+
+
+- (void) reachabilityChanged: (NSNotification* )note {
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
+    [self updateInterfaceWithReachability: curReach];
 }
 
 

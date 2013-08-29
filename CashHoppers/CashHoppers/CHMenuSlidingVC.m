@@ -121,6 +121,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.netStatus == NotReachable) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+                                                     message:@""
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+    } else {
+    
     switch (indexPath.row) {
         case 0:
             [self performSegueWithIdentifier:@"profile_user" sender:self];
@@ -141,6 +151,7 @@
             break;
         default:
             break;
+    }
     }
     
        [tableView deselectRowAtIndexPath:indexPath animated:YES];

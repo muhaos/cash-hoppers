@@ -268,6 +268,7 @@
 		AAD980E817CF4C46004E94C9 /* CHMessageNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD980E717CF4C46004E94C9 /* CHMessageNotification.m */; };
 		AAD980EB17CF4C6E004E94C9 /* CHNewHopNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD980EA17CF4C6E004E94C9 /* CHNewHopNotification.m */; };
 		AAD980EE17CF4C90004E94C9 /* CHHopAboutToEndNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD980ED17CF4C90004E94C9 /* CHHopAboutToEndNotification.m */; };
+		AAD980F217CF9605004E94C9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD980F117CF9605004E94C9 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AAF9EE5717CB8E0600186342 /* CHHelpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9EE5617CB8E0600186342 /* CHHelpVC.m */; };
 		AAFBE33117A1422A00F408C2 /* button_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFBE32F17A1422A00F408C2 /* button_delete.png */; };
 		AAFBE33217A1422A00F408C2 /* compose_new_message.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFBE33017A1422A00F408C2 /* compose_new_message.png */; };
@@ -757,6 +758,8 @@
 		AAD980EA17CF4C6E004E94C9 /* CHNewHopNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHNewHopNotification.m; sourceTree = "<group>"; };
 		AAD980EC17CF4C90004E94C9 /* CHHopAboutToEndNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHopAboutToEndNotification.h; sourceTree = "<group>"; };
 		AAD980ED17CF4C90004E94C9 /* CHHopAboutToEndNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHopAboutToEndNotification.m; sourceTree = "<group>"; };
+		AAD980F017CF9605004E94C9 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		AAD980F117CF9605004E94C9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		AAF9EE5517CB8E0600186342 /* CHHelpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHelpVC.h; sourceTree = "<group>"; };
 		AAF9EE5617CB8E0600186342 /* CHHelpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHelpVC.m; sourceTree = "<group>"; };
 		AAFBE32F17A1422A00F408C2 /* button_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_delete.png; sourceTree = "<group>"; };
@@ -873,13 +876,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA4C1F4617904E3D0071D0F9 /* SystemConfiguration.framework in Frameworks */,
 				567BB55917C6299B00C75F54 /* StoreKit.framework in Frameworks */,
 				567BB53A17BD1B5B00C75F54 /* libz.dylib in Frameworks */,
 				567BB52017BBD26900C75F54 /* AssetsLibrary.framework in Frameworks */,
 				AA27E3CB17AFA87700C98B6C /* MessageUI.framework in Frameworks */,
 				AAABFF4C17A997D8000B6C2F /* Accounts.framework in Frameworks */,
 				AAA63986179333A200D929D6 /* libxml2.dylib in Frameworks */,
-				AA4C1F4617904E3D0071D0F9 /* SystemConfiguration.framework in Frameworks */,
 				AA4C1F44178FFAFD0071D0F9 /* Security.framework in Frameworks */,
 				AA4C1F42178FFAF20071D0F9 /* libsqlite3.dylib in Frameworks */,
 				AA4C1F40178FFAD50071D0F9 /* AdSupport.framework in Frameworks */,
@@ -1630,6 +1633,16 @@
 			path = Crytpo;
 			sourceTree = "<group>";
 		};
+		AAD980EF17CF9604004E94C9 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				AAD980F017CF9605004E94C9 /* Reachability.h */,
+				AAD980F117CF9605004E94C9 /* Reachability.m */,
+			);
+			name = Reachability;
+			path = ../Reachability;
+			sourceTree = "<group>";
+		};
 		E176E67A179881FD004BFF02 /* MFSideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1772,6 +1785,7 @@
 		E1CF6C14177D7855003D9624 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				AAD980EF17CF9604004E94C9 /* Reachability */,
 				567BB53F17C6296C00C75F54 /* MKStoreKit */,
 				AACEB95F17AB8D0B00691F6B /* FHSTwitterEngine */,
 				AA4C1F5117904E910071D0F9 /* OpenSource */,
@@ -2208,6 +2222,7 @@
 				AAD980E817CF4C46004E94C9 /* CHMessageNotification.m in Sources */,
 				AAD980EB17CF4C6E004E94C9 /* CHNewHopNotification.m in Sources */,
 				AAD980EE17CF4C90004E94C9 /* CHHopAboutToEndNotification.m in Sources */,
+				AAD980F217CF9605004E94C9 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

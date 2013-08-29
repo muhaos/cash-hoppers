@@ -117,6 +117,15 @@
 
 
 - (IBAction)twitterFriendsTapped:(id)sender {
+    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.netStatus == NotReachable) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+                                                     message:@""
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+    } else {
     if ([[FHSTwitterEngine sharedEngine]isAuthorized]) {
         headerText = @"TWITTER FRIENDS";
         [self performSegueWithIdentifier:@"friends" sender:self];
@@ -124,16 +133,26 @@
         [[FHSTwitterEngine sharedEngine]showOAuthLoginControllerFromViewController:self withCompletion:^(BOOL success) {
             NSLog(success?@"L0L success":@"O noes!!! Loggen faylur!!!");
         }];
-    }
+    }}
 }
 
 
 - (IBAction)facebookFriendsTapped:(id)sender {
     CHAppDelegate *appDelegate = (CHAppDelegate *) [[UIApplication sharedApplication] delegate];
+    if (appDelegate.netStatus == NotReachable) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+                                                     message:@""
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+    } else {
+    
     if (FBSession.activeSession.isOpen) {
         [appDelegate sendRequest];
     } else {
         [appDelegate openSessionWithAllowLoginUI:YES];
+    }
     }
 }
 
@@ -145,6 +164,15 @@
 
 
 - (IBAction)sendEmailTapped:(id)sender {
+    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.netStatus == NotReachable) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+                                                     message:@""
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+    } else {
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
         mailComposer.mailComposeDelegate = self;
@@ -163,6 +191,7 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles: nil];
         [alert show];
+    }
     }
 }
 
