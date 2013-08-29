@@ -49,16 +49,6 @@
 {
     [super viewDidLoad];
     
-    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
-    if (appDelegate.netStatus == NotReachable) {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
-                                                     message:@""
-                                                    delegate:nil
-                                           cancelButtonTitle:@"OK"
-                                           otherButtonTitles:nil];
-        [av show];
-    } 
-    
     [menuButton addTarget:self action:@selector(menuTapped:) forControlEvents:UIControlEventTouchUpInside];
     
     [_scrollView setContentSize:CGSizeMake(340,470)];
