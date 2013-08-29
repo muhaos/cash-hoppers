@@ -265,6 +265,9 @@
 		AACEB97C17AB8D0B00691F6B /* OARequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = AACEB97017AB8D0B00691F6B /* OARequestParameter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AACEB97D17AB8D0B00691F6B /* OAServiceTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = AACEB97217AB8D0B00691F6B /* OAServiceTicket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AACEB97E17AB8D0B00691F6B /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = AACEB97417AB8D0B00691F6B /* OAToken.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AAD980E817CF4C46004E94C9 /* CHMessageNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD980E717CF4C46004E94C9 /* CHMessageNotification.m */; };
+		AAD980EB17CF4C6E004E94C9 /* CHNewHopNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD980EA17CF4C6E004E94C9 /* CHNewHopNotification.m */; };
+		AAD980EE17CF4C90004E94C9 /* CHHopAboutToEndNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD980ED17CF4C90004E94C9 /* CHHopAboutToEndNotification.m */; };
 		AAF9EE5717CB8E0600186342 /* CHHelpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9EE5617CB8E0600186342 /* CHHelpVC.m */; };
 		AAFBE33117A1422A00F408C2 /* button_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFBE32F17A1422A00F408C2 /* button_delete.png */; };
 		AAFBE33217A1422A00F408C2 /* compose_new_message.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFBE33017A1422A00F408C2 /* compose_new_message.png */; };
@@ -748,6 +751,12 @@
 		AACEB97317AB8D0B00691F6B /* OAToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAToken.h; sourceTree = "<group>"; };
 		AACEB97417AB8D0B00691F6B /* OAToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAToken.m; sourceTree = "<group>"; };
 		AACEB97517AB8D0B00691F6B /* OAuthConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer.h; sourceTree = "<group>"; };
+		AAD980E617CF4C46004E94C9 /* CHMessageNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMessageNotification.h; sourceTree = "<group>"; };
+		AAD980E717CF4C46004E94C9 /* CHMessageNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMessageNotification.m; sourceTree = "<group>"; };
+		AAD980E917CF4C6E004E94C9 /* CHNewHopNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNewHopNotification.h; sourceTree = "<group>"; };
+		AAD980EA17CF4C6E004E94C9 /* CHNewHopNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHNewHopNotification.m; sourceTree = "<group>"; };
+		AAD980EC17CF4C90004E94C9 /* CHHopAboutToEndNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHopAboutToEndNotification.h; sourceTree = "<group>"; };
+		AAD980ED17CF4C90004E94C9 /* CHHopAboutToEndNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHopAboutToEndNotification.m; sourceTree = "<group>"; };
 		AAF9EE5517CB8E0600186342 /* CHHelpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHelpVC.h; sourceTree = "<group>"; };
 		AAF9EE5617CB8E0600186342 /* CHHelpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHelpVC.m; sourceTree = "<group>"; };
 		AAFBE32F17A1422A00F408C2 /* button_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_delete.png; sourceTree = "<group>"; };
@@ -1394,6 +1403,12 @@
 				567FCAE317ABDAF100F150A8 /* CHLikeNotification.m */,
 				567FCAE517ABDBDB00F150A8 /* CHFriendInviteAcceptedNotification.h */,
 				567FCAE617ABDBDD00F150A8 /* CHFriendInviteAcceptedNotification.m */,
+				AAD980E617CF4C46004E94C9 /* CHMessageNotification.h */,
+				AAD980E717CF4C46004E94C9 /* CHMessageNotification.m */,
+				AAD980E917CF4C6E004E94C9 /* CHNewHopNotification.h */,
+				AAD980EA17CF4C6E004E94C9 /* CHNewHopNotification.m */,
+				AAD980EC17CF4C90004E94C9 /* CHHopAboutToEndNotification.h */,
+				AAD980ED17CF4C90004E94C9 /* CHHopAboutToEndNotification.m */,
 			);
 			name = Notifications;
 			sourceTree = "<group>";
@@ -2190,6 +2205,9 @@
 				567BB55517C6296C00C75F54 /* MKStoreManager.m in Sources */,
 				567BB55717C6296C00C75F54 /* VerificationController.m in Sources */,
 				AAF9EE5717CB8E0600186342 /* CHHelpVC.m in Sources */,
+				AAD980E817CF4C46004E94C9 /* CHMessageNotification.m in Sources */,
+				AAD980EB17CF4C6E004E94C9 /* CHNewHopNotification.m in Sources */,
+				AAD980EE17CF4C90004E94C9 /* CHHopAboutToEndNotification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

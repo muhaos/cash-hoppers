@@ -168,8 +168,9 @@
         
         switch (notif.notificationType) {
             case CHNotificationTypeNone:
-            case CHNotificationTypeFriendInviteAccepted:
-            case CHNotificationTypeEndOfHop: {
+            case CHNotificationTypeMessage:
+            case CHNotificationTypeNewHop:
+            case CHNotificationTypeHopAboutToEnd:{
                 [[cell likeCommentImageView] setHidden:YES];
                 [cell setAccessoryType:UITableViewCellAccessoryNone];
                 break;
@@ -214,8 +215,9 @@
         CHBaseNotification* notif = [self.currentItemsList objectAtIndex:indexPath.row];
         
         switch (notif.notificationType) {
-            case CHNotificationTypeFriendInviteAccepted:
-            case CHNotificationTypeEndOfHop:
+            case CHNotificationTypeMessage:
+            case CHNotificationTypeHopAboutToEnd:
+            case CHNotificationTypeNewHop:
             case CHNotificationTypeFriendInvite: {
                 return nil;
             }
@@ -257,8 +259,9 @@
         CHFriendsFeedItem* feedItem = nil;
         
         switch (notif.notificationType) {
-            case CHNotificationTypeFriendInviteAccepted:
-            case CHNotificationTypeEndOfHop:
+            case CHNotificationTypeMessage:
+            case CHNotificationTypeHopAboutToEnd:
+            case CHNotificationTypeNewHop:
             case CHNotificationTypeFriendInvite: {
                 break;
             }

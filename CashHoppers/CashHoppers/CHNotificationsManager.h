@@ -9,10 +9,11 @@
 #import "CHBaseManager.h"
 
 #import "CHFriendInviteNotification.h"
-#import "CHFriendInviteAcceptedNotification.h"
-#import "CHEndOfHopNotification.h"
 #import "CHCommentNotification.h"
 #import "CHLikeNotification.h"
+#import "CHMessageNotification.h"
+#import "CHNewHopNotification.h"
+#import "CHHopAboutToEndNotification.h"
 
 
 #define CH_NOTIFICATION_UPDATED @"CH_NOTIFICATION_UPDATED"
