@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHHelpVC : UIViewController
+@interface CHHelpVC : UIViewController <UIWebViewDelegate>
 @property (strong, nonatomic) IBOutlet UIWebView *contentWebView;
 @property (retain, nonatomic) NSString* url;
 @end
