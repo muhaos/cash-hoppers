@@ -23,7 +23,6 @@
 - (IBAction)googleFriendsTapped:(id)sender;
 - (IBAction)sendEmailTapped:(id)sender;
 - (IBAction)cancelSearchButtonTapped:(id)sender;
-
 - (IBAction) searchFieldChanged:(id)sender;
 
 @end

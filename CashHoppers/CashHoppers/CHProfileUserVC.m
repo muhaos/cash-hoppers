@@ -38,13 +38,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [self.emailTextField setText:user.email];
     [self.firstNameTextField setText:user.first_name];
     [self.lastNameTextField setText:user.last_name];
-    //[self.zipTextField setText:user.zip];
+    [self.zipTextField setText:user.zip];
     [self.usernameTextField setText:user.user_name];
     [self.twitterTextField setText:user.twitter];
     [self.facebookTextField setText:user.facebook];
     [self.googlePlusTextField setText:user.google];
     [self.contactTextField setText:user.contact];
-    //[self.phoneTextField setText:user.phone];
+    [self.phoneTextField setText:user.phone];
     
     [self.photoImageView setImageWithURL:[user avatarURL] placeholderImage:[UIImage imageNamed:@"image_avatar.png"]];
     
@@ -77,7 +77,12 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     }
     
     [[CHLoadingVC sharedLoadingVC] showInController:self.view.window.rootViewController withText:@"Saving profile..."];
-    
+    if (self.changedAvatarImage == nil) {
+        self.changedAvatarImage = self.photoImageView.image;
+    }
+    if ([self.phoneTextField.text isEqualToString:@""]) {
+        self.phoneTextField.text = @"9";
+    }
     [[CHUserManager instance] updateUserProfileWithUser:user newPassword:newPassword newAvatar:self.changedAvatarImage completionHandler:^(NSError* error) {
         if (error != nil) {
             UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"Can't save profile" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];

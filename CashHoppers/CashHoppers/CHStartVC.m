@@ -118,7 +118,17 @@
 
 
 - (IBAction)loginGPlusTapped:(id)sender {
-    [signIn authenticate];
+    CHAppDelegate * appDelegate = (CHAppDelegate *) [[UIApplication sharedApplication] delegate];
+    if (appDelegate.netStatus == NotReachable) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+                                                     message:@""
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+    } else {
+        [signIn authenticate];
+    }
 }
 
 
@@ -147,21 +157,29 @@
 static BOOL needLoginWithFacebook = NO;
 - (IBAction)loginWithFBTapped:(id)sender {
     CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    needLoginWithFacebook = YES;
-    
-    if (FBSession.activeSession.isOpen) {
-        if (FBSession.activeSession.state == FBSessionStateClosedLoginFailed){
-        } else {
-            [self userFacebookDetails];
-        }
+    if (appDelegate.netStatus == NotReachable) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+                                                     message:@""
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
     } else {
-        appDelegate.loggedInSession = [[FBSession alloc] init];
-        [appDelegate.loggedInSession openWithCompletionHandler:^(FBSession *session,
+        needLoginWithFacebook = YES;
+        
+        if (FBSession.activeSession.isOpen) {
+            if (FBSession.activeSession.state == FBSessionStateClosedLoginFailed){
+            } else {
+                [self userFacebookDetails];
+            }
+        } else {
+            appDelegate.loggedInSession = [[FBSession alloc] init];
+            [appDelegate.loggedInSession openWithCompletionHandler:^(FBSession *session,
                                                          FBSessionState status,
                                                          NSError *error){
             //[self userFacebookDetails];
-        }];
+            }];
+        }
     }
 }
 
@@ -200,12 +218,22 @@ static BOOL needLoginWithFacebook = NO;
 
 //for twitter
 - (IBAction)loginWithTwitterTapped:(id)sender {
-    static CHStartVC* selfRef;
-    selfRef = self;
-    [[FHSTwitterEngine sharedEngine]showOAuthLoginControllerFromViewController:self withCompletion:^(BOOL success) {
-        NSLog(success?@"L0L success":@"O noes!!! Loggen faylur!!!");
-        [selfRef userTwitterDetails];
-    }];
+    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.netStatus == NotReachable) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+                                                     message:@""
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+    } else {
+        static CHStartVC* selfRef;
+        selfRef = self;
+        [[FHSTwitterEngine sharedEngine]showOAuthLoginControllerFromViewController:self withCompletion:^(BOOL success) {
+            NSLog(success?@"L0L success":@"O noes!!! Loggen faylur!!!");
+            [selfRef userTwitterDetails];
+        }];
+    }
 }
 
 

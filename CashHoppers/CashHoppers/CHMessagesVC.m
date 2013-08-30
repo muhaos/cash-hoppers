@@ -37,6 +37,16 @@
 
 - (void)viewDidLoad
 {
+    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.netStatus == NotReachable) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+                                                     message:@""
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+    }
+    
     self.messagesButtonActive = YES;   
     [self activeButton:YES];
     
@@ -168,8 +178,9 @@
         
         switch (notif.notificationType) {
             case CHNotificationTypeNone:
-            case CHNotificationTypeFriendInviteAccepted:
-            case CHNotificationTypeEndOfHop: {
+            case CHNotificationTypeMessage:
+            case CHNotificationTypeNewHop:
+            case CHNotificationTypeHopAboutToEnd:{
                 [[cell likeCommentImageView] setHidden:YES];
                 [cell setAccessoryType:UITableViewCellAccessoryNone];
                 break;
@@ -214,8 +225,9 @@
         CHBaseNotification* notif = [self.currentItemsList objectAtIndex:indexPath.row];
         
         switch (notif.notificationType) {
-            case CHNotificationTypeFriendInviteAccepted:
-            case CHNotificationTypeEndOfHop:
+            case CHNotificationTypeMessage:
+            case CHNotificationTypeHopAboutToEnd:
+            case CHNotificationTypeNewHop:
             case CHNotificationTypeFriendInvite: {
                 return nil;
             }
@@ -257,8 +269,9 @@
         CHFriendsFeedItem* feedItem = nil;
         
         switch (notif.notificationType) {
-            case CHNotificationTypeFriendInviteAccepted:
-            case CHNotificationTypeEndOfHop:
+            case CHNotificationTypeMessage:
+            case CHNotificationTypeHopAboutToEnd:
+            case CHNotificationTypeNewHop:
             case CHNotificationTypeFriendInvite: {
                 break;
             }

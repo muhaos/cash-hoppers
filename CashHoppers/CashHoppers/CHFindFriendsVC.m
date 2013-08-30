@@ -18,6 +18,10 @@
 #import "CHUserManager.h"
 
 @interface CHFindFriendsVC ()
+{
+    CGRect screenRect ; 
+    CGFloat screenHeight;
+}
 
 @end
 
@@ -28,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    screenRect = [[UIScreen mainScreen] bounds];
+    screenHeight = screenRect.size.height;
     [self setupTriangleBackButton];
     [self customTableView];
     [[FHSTwitterEngine sharedEngine]permanentlySetConsumerKey:@"mW5vfqMKEx1HGME7OeGCg" andSecret:@"RjiYj98WZSjKBbHn9r3hGYvMfptYPp5pQCP8h4gNH5A"];
@@ -42,7 +49,7 @@
 {
     findFriendsSearchTableView.layer.borderColor = [UIColor colorWithRed:204/256.0f green:204/256.0f blue:204/256.0f alpha:0.6f].CGColor;
     findFriendsSearchTableView.layer.borderWidth = 1.0f;
-    findFriendsSearchTableView.frame = CGRectMake(20, searchTextField.frame.origin.y+35, 280, 240);
+    findFriendsSearchTableView.frame = CGRectMake(20, searchTextField.frame.origin.y+35, 280, screenHeight - 250);
     findFriendsSearchTableView.layer.cornerRadius = 3.0f;
 }
 
@@ -71,7 +78,7 @@
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3f];
     CGRect frame = contentView.frame; frame.origin.y = -55;
-    findFriendsSearchTableView.frame = CGRectMake(20, searchTextField.frame.origin.y+35, 280, 240);
+    findFriendsSearchTableView.frame = CGRectMake(20, searchTextField.frame.origin.y+35, 280, screenHeight - 330);
     [contentView setFrame:frame];
     [UIView commitAnimations];
 
@@ -88,7 +95,7 @@
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.2f];
     CGRect frame = contentView.frame; frame.origin.y = 0;
-    findFriendsSearchTableView.frame = CGRectMake(20, searchTextField.frame.origin.y+35, 280, 350);
+    findFriendsSearchTableView.frame = CGRectMake(20, searchTextField.frame.origin.y+35, 280, screenHeight- 180);
     [contentView setFrame:frame];
     [UIView commitAnimations];
 }
@@ -110,6 +117,15 @@
 
 
 - (IBAction)twitterFriendsTapped:(id)sender {
+    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.netStatus == NotReachable) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+                                                     message:@""
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+    } else {
     if ([[FHSTwitterEngine sharedEngine]isAuthorized]) {
         headerText = @"TWITTER FRIENDS";
         [self performSegueWithIdentifier:@"friends" sender:self];
@@ -117,16 +133,26 @@
         [[FHSTwitterEngine sharedEngine]showOAuthLoginControllerFromViewController:self withCompletion:^(BOOL success) {
             NSLog(success?@"L0L success":@"O noes!!! Loggen faylur!!!");
         }];
-    }
+    }}
 }
 
 
 - (IBAction)facebookFriendsTapped:(id)sender {
     CHAppDelegate *appDelegate = (CHAppDelegate *) [[UIApplication sharedApplication] delegate];
+    if (appDelegate.netStatus == NotReachable) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+                                                     message:@""
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+    } else {
+    
     if (FBSession.activeSession.isOpen) {
         [appDelegate sendRequest];
     } else {
         [appDelegate openSessionWithAllowLoginUI:YES];
+    }
     }
 }
 
@@ -138,13 +164,22 @@
 
 
 - (IBAction)sendEmailTapped:(id)sender {
+    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.netStatus == NotReachable) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+                                                     message:@""
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+    } else {
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
         mailComposer.mailComposeDelegate = self;
         NSArray *emailAddresses = [[NSArray alloc] initWithObjects:nil];
         NSString *sendSubject = [[NSString alloc] initWithFormat:@" "];
         NSString *sendMessage = [[NSString alloc] initWithFormat:@"This is cashhoppers"];
-        
+                 
         [mailComposer setToRecipients:emailAddresses];
         [mailComposer setSubject:sendSubject];
         [mailComposer setMessageBody:sendMessage isHTML:NO];
@@ -156,6 +191,7 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles: nil];
         [alert show];
+    }
     }
 }
 

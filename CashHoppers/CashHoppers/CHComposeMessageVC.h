@@ -16,6 +16,9 @@
 @property (strong, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) IBOutlet UIImageView *searchImageView;
 @property (strong, nonatomic) IBOutlet UIView *bottomView;
+@property (strong, nonatomic) IBOutlet UIScrollView *scroolView;
+@property (strong, nonatomic) IBOutlet UIView *bottomHiddenView;
+
 
 - (IBAction)sendMessageTapped:(id)sender;
 

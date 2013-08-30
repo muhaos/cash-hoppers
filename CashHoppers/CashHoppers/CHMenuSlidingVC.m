@@ -13,12 +13,14 @@
 #import "MFSideMenuContainerViewController.h"
 #import "CHAppDelegate.h"
 #import "CHAPIClient.h"
+#import "CHHelpVC.h"
 
 @interface CHMenuSlidingVC () <UITableViewDataSource, UITableViewDelegate>
+@property (retain, nonatomic) NSString *link;
 @end
 
 @implementation CHMenuSlidingVC
-@synthesize menuTable;
+@synthesize menuTable, link;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -119,10 +121,27 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.netStatus == NotReachable) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+                                                     message:@""
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+    } else {
     
     switch (indexPath.row) {
         case 0:
             [self performSegueWithIdentifier:@"profile_user" sender:self];
+            break;
+        case 1:
+            link = @"how_to_play";
+            [self performSegueWithIdentifier:@"how_to_play_faq" sender:self];
+            break;
+        case 2:
+            link = @"faq";
+            [self performSegueWithIdentifier:@"how_to_play_faq" sender:self];
             break;
         case 3:
             [self performSegueWithIdentifier:@"find_friends" sender:self];
@@ -133,15 +152,33 @@
         default:
             break;
     }
+    }
     
        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"how_to_play_faq"])
+    {
+        UINavigationController *navController = (UINavigationController*)[segue destinationViewController];
+        CHHelpVC *vc  = [navController topViewController];
+
+        if ([link isEqualToString:@"how_to_play"])
+        {
+            vc.url = [NSString stringWithFormat:@"http://perechin.net:3000/#yellow-page"];
+        }
+        if ([link isEqualToString:@"faq"])
+        {
+            vc.url = [NSString stringWithFormat:@"http://perechin.net:3000/pages/faq"];   
+        }
+    }
 }
 
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
