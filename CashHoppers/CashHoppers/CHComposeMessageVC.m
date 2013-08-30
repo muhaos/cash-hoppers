@@ -23,7 +23,7 @@
 @end
 
 @implementation CHComposeMessageVC
-@synthesize inputMessageTextView, searchTextField, userListTable, containerView, searchImageView, bottomView;
+@synthesize inputMessageTextView, searchTextField, userListTable, containerView, searchImageView, bottomView, scroolView;
 
 - (void)viewDidLoad
 {
@@ -46,6 +46,7 @@
     }];
     
     [self loyoutSearchView];
+    self.scroolView.contentSize = CGSizeMake(320.0f, self.view.bounds.size.height + 100.0f);
 }
 
 
@@ -191,7 +192,7 @@
 {
     CHComposeMessageCell *cell = (CHComposeMessageCell*) [tableView cellForRowAtIndexPath:indexPath];
     CHUser* tappedUser = searchResultUsers[indexPath.row];
-
+    
     cell.accessoryView = nil;
     
     if ([selectedUserArray containsObject:tappedUser]) {
@@ -204,7 +205,15 @@
     }
 
     [self loyoutSearchView];
+    [self scrollToFindTextField];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+
+- (void) scrollToFindTextField
+{
+    CGPoint offset = CGPointMake(0 ,searchTextField.frame.origin.y +30);
+    [self.scroolView setContentOffset:offset animated:YES];
 }
 
 
@@ -217,7 +226,7 @@
     containerView.frame = CGRectMake(containerView.frame.origin.x, containerView.frame.origin.y, containerView.frame.size.width, containerHeight);
   
     float userTableY = containerView.frame.origin.y+containerHeight;
-    userListTable.frame = CGRectMake(userListTable.frame.origin.x, userTableY, userListTable.frame.size.width, (self.view.frame.size.height + 44) - userTableY - 216);
+    userListTable.frame = CGRectMake(userListTable.frame.origin.x, userTableY, userListTable.frame.size.width, userListTable.frame.size.height);
     
     for (CHSelectedUserView* userView in selectedUserViews) {
         [userView.view removeFromSuperview];
@@ -233,8 +242,7 @@
             }
             
             CHSelectedUserView* selectedUserView = [[CHSelectedUserView alloc] init];
-            
-            CHUser* user = searchResultUsers[row * 3 + i];
+            CHUser* user = selectedUserArray[row * 3 + i];
             NSString* userName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
             
             selectedUserView.view.layer.cornerRadius = 2.0f;
@@ -292,6 +300,7 @@
     [self setContainerView:nil];
     [self setSearchImageView:nil];
     [self setBottomView:nil];
+    [self setScroolView:nil];
     [super viewDidUnload];
 }
 

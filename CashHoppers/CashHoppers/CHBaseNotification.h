@@ -11,10 +11,11 @@
 enum CHNotificationType {
     CHNotificationTypeNone = 0,
     CHNotificationTypeFriendInvite,
-    CHNotificationTypeEndOfHop,
     CHNotificationTypeComment,
     CHNotificationTypeLike,
-    CHNotificationTypeFriendInviteAccepted
+    CHNotificationTypeMessage,
+    CHNotificationTypeNewHop,
+    CHNotificationTypeHopAboutToEnd,
 };
     
 

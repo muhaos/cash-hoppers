@@ -32,14 +32,16 @@
 + (enum CHNotificationType) notificationTypeFromString:(NSString*) typeStr {
     if ([typeStr isEqualToString:@"Friend invite"]) {
         return CHNotificationTypeFriendInvite;
-    } else if ([typeStr isEqualToString:@"End of hop"]) {
-        return CHNotificationTypeEndOfHop;
+    } else if ([typeStr isEqualToString:@"Hop about to end"]) {
+        return CHNotificationTypeHopAboutToEnd;
     } else if ([typeStr isEqualToString:@"Comment"]) {
         return CHNotificationTypeComment;
     } else if ([typeStr isEqualToString:@"Like"]) {
         return CHNotificationTypeLike;
-    } else if ([typeStr isEqualToString:@"Friend invite accept"]) {
-        return CHNotificationTypeFriendInviteAccepted;
+    } else if ([typeStr isEqualToString:@"Message"]) {
+        return CHNotificationTypeMessage;
+    } else if ([typeStr isEqualToString:@"New hop"]){
+        return CHNotificationTypeNewHop;
     }
     return CHNotificationTypeNone;
 }

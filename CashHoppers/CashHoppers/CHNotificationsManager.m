@@ -1,4 +1,4 @@
-//
+    //
 //  CHNotificationsManager.m
 //  CashHoppers
 //
@@ -40,19 +40,16 @@
         
         NSMutableArray* resultNotifs = [NSMutableArray new];
         NSArray* notifsList = [JSON objectForKey:@"events"];
+        NSLog(@"%@",JSON);
         
         if (notifsList) {
             for (NSDictionary* notifDic in notifsList) {
                 enum CHNotificationType nType = [CHBaseNotification notificationTypeFromString:[notifDic objectForKey:@"event_type"]];
                 CHBaseNotification* newNotif = nil;
-                
+
                 switch (nType) {
                     case CHNotificationTypeFriendInvite: {
                         newNotif = [[CHFriendInviteNotification alloc] init];
-                        break;
-                    }
-                    case CHNotificationTypeEndOfHop: {
-                        newNotif = [[CHEndOfHopNotification alloc] init];
                         break;
                     }
                     case CHNotificationTypeComment: {
@@ -63,9 +60,16 @@
                         newNotif = [[CHLikeNotification alloc] init];
                         break;
                     }
-                    case CHNotificationTypeFriendInviteAccepted: {
-                        newNotif = [[CHFriendInviteAcceptedNotification alloc] init];
+                    case CHNotificationTypeMessage: {
+                        newNotif = [[CHMessageNotification alloc] init];
                         break;
+                    }
+                    case CHNotificationTypeNewHop: {
+                        newNotif = [[CHNewHopNotification alloc] init];
+                        break;
+                    }
+                    case CHNotificationTypeHopAboutToEnd: {
+                        newNotif = [[CHHopAboutToEndNotification alloc] init];
                     }
                     case CHNotificationTypeNone: {
                     }
@@ -76,7 +80,6 @@
             }
             
             handler(resultNotifs);
-            
             for (CHBaseNotification* n in resultNotifs) {
                 [n loadParts];
             }

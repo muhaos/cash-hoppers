@@ -163,6 +163,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 
 - (IBAction)addPhotoTapped:(id)sender {
+    [self.emailTextField resignFirstResponder];
+    [self.firstNameTextField resignFirstResponder];
+    [self.lastNameTextField resignFirstResponder];
+    [self.zipTextField resignFirstResponder];
+    [self.userNameTextField resignFirstResponder];
+    [self.passwordTextField resignFirstResponder];
+    
     UIImagePickerController * picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;

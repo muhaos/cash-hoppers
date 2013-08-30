@@ -245,6 +245,7 @@
 
 
 - (IBAction)submitPressed:(id)sender {
+    [self.textView resignFirstResponder];
     [[CHLoadingVC sharedLoadingVC] showInController:self.view.window.rootViewController withText:@"Processing..."];
     if (takePhoto == YES) {
         [[CHHopsManager instance] completeHopTask:self.currentHopTask withPhoto:photoImView.image comment:_textView.text completionHandler:^(BOOL success) {
@@ -253,7 +254,6 @@
                 [self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier];
                 [self saveImageCopyToGalery];
                 self.submitButton.hidden = YES;
-                [self adsClosedTapped];
             }
             [[CHLoadingVC sharedLoadingVC] hide];
         }];

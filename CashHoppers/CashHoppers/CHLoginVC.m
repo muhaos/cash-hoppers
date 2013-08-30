@@ -131,6 +131,16 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 - (IBAction)loginTapped:(id)sender {
     
+    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.netStatus == NotReachable) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+                                                     message:@""
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+    } else {
+    
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:_emailField.text /*jekahy343@gmail.com"*/ forKey:@"email"];
     [params setObject:_passwordField.text/*@"12345678"*/ forKey:@"password"];
@@ -202,7 +212,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         [operation start];
         [DELEGATE.menuContainerVC setMenuState:MFSideMenuStateClosed];
 
-    }
+    }}
 
 }
 

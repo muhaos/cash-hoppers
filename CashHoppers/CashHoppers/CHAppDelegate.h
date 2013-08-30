@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CHHomeScreenViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "Reachability.h"
 
 extern NSString *const FBSessionStateChangedNotification;
 
@@ -26,7 +27,10 @@ extern NSString *const FBSessionStateChangedNotification;
 @property (strong, nonatomic) NSString *loggedInUserID;
 @property (strong, nonatomic) FBSession *loggedInSession;
 @property (nonatomic, assign) BOOL appUsageCheckEnabled;
+@property (assign, nonatomic) NetworkStatus netStatus;
+@property (strong, nonatomic) Reachability  *hostReach;
 
+- (void)updateInterfaceWithReachability:(Reachability*) curReach;
 - (void)switchViewTo:(enum CHView)view;
 - (void)openSession;
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
