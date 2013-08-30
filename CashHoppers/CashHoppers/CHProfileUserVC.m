@@ -77,7 +77,12 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     }
     
     [[CHLoadingVC sharedLoadingVC] showInController:self.view.window.rootViewController withText:@"Saving profile..."];
-    
+    if (self.changedAvatarImage == nil) {
+        self.changedAvatarImage = self.photoImageView.image;
+    }
+    if ([self.phoneTextField.text isEqualToString:@""]) {
+        self.phoneTextField.text = @"9";
+    }
     [[CHUserManager instance] updateUserProfileWithUser:user newPassword:newPassword newAvatar:self.changedAvatarImage completionHandler:^(NSError* error) {
         if (error != nil) {
             UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"Can't save profile" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];

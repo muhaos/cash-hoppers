@@ -14,16 +14,9 @@
 - (void) updateFromDictionary:(NSDictionary*) dic {
     [super updateFromDictionary:dic];
     
-//    NSDictionary *hopDic = [NSDictionary new];
-//
-//    if ([dic objectForKey:@"hop"] != nil && ![[dic objectForKey:@"hop"] isEqual: @"<null>"]) {
-//        hopDic = [dic objectForKey:@"hop"];
-//    }
-//    
-//   
-//  //  self.hopName = [hopDic objectForKey:@"name"];
-// //   NSLog(@"%@", hopDic);
-//    self.hopName = [NSString stringWithFormat:@"%@", [hopDic objectForKey:@"first_name"]];
+    NSDictionary *hopDic = [NSDictionary new];
+    hopDic = [dic objectForKey:@"hop"];
+    self.hopName = [hopDic objectForKey:@"name"];
 }
 
 
