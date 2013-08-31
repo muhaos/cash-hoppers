@@ -118,6 +118,7 @@
 		AA1161F71778514F00D0E750 /* CHAdvertisingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1161F51778514F00D0E750 /* CHAdvertisingVC.xib */; };
 		AA1161FA1778549F00D0E750 /* buton_cancel_reclama.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1161F81778549F00D0E750 /* buton_cancel_reclama.png */; };
 		AA1161FB1778549F00D0E750 /* reclama.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1161F91778549F00D0E750 /* reclama.png */; };
+		AA121E5817D0CB2000FC87BD /* CHHopShopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA121E5717D0CB2000FC87BD /* CHHopShopVC.m */; };
 		AA169459178D941500D09372 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA169456178D941500D09372 /* ECSlidingViewController.m */; };
 		AA16945A178D941500D09372 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA169458178D941500D09372 /* UIImage+ImageWithUIView.m */; };
 		AA16945D178D95B800D09372 /* CHInitSlidingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA16945C178D95B800D09372 /* CHInitSlidingVC.m */; };
@@ -518,6 +519,8 @@
 		AA1161F51778514F00D0E750 /* CHAdvertisingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHAdvertisingVC.xib; sourceTree = "<group>"; };
 		AA1161F81778549F00D0E750 /* buton_cancel_reclama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buton_cancel_reclama.png; sourceTree = "<group>"; };
 		AA1161F91778549F00D0E750 /* reclama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reclama.png; sourceTree = "<group>"; };
+		AA121E5617D0CB2000FC87BD /* CHHopShopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHopShopVC.h; sourceTree = "<group>"; };
+		AA121E5717D0CB2000FC87BD /* CHHopShopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHopShopVC.m; sourceTree = "<group>"; };
 		AA169455178D941500D09372 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
 		AA169456178D941500D09372 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
 		AA169457178D941500D09372 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
@@ -1082,6 +1085,8 @@
 				AA0E002017B90ACB00B7A681 /* CHPushNotificationsCell.m */,
 				AAF9EE5517CB8E0600186342 /* CHHelpVC.h */,
 				AAF9EE5617CB8E0600186342 /* CHHelpVC.m */,
+				AA121E5617D0CB2000FC87BD /* CHHopShopVC.h */,
+				AA121E5717D0CB2000FC87BD /* CHHopShopVC.m */,
 			);
 			path = CashHoppers;
 			sourceTree = "<group>";
@@ -2223,6 +2228,7 @@
 				AAD980EB17CF4C6E004E94C9 /* CHNewHopNotification.m in Sources */,
 				AAD980EE17CF4C90004E94C9 /* CHHopAboutToEndNotification.m in Sources */,
 				AAD980F217CF9605004E94C9 /* Reachability.m in Sources */,
+				AA121E5817D0CB2000FC87BD /* CHHopShopVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

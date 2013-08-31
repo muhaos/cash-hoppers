@@ -67,7 +67,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 6;
 }
 
 
@@ -99,11 +99,13 @@
                 cell.label.text = @"Find Friends";
                 cell.icon.image = [UIImage imageNamed:@"find_icon.png"];
                 break;
-            case 4:{
+            case 4:
                 cell.label.text = @"Buy Ad Free Version";
                 cell.icon.image = [UIImage imageNamed:@"buy_add_free_icon.png"];
                 break;
-            }
+            case 5:
+                cell.label.text = @"Shop Ribbits";
+                cell.icon.image = [UIImage imageNamed:@"buy_add_free_icon.png"];
             default:
                 break;
         }
@@ -122,6 +124,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     if (appDelegate.netStatus == NotReachable) {
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
                                                      message:@""
@@ -130,30 +133,31 @@
                                            otherButtonTitles:nil];
         [av show];
     } else {
-    
-    switch (indexPath.row) {
-        case 0:
-            [self performSegueWithIdentifier:@"profile_user" sender:self];
-            break;
-        case 1:
-            link = @"how_to_play";
-            [self performSegueWithIdentifier:@"how_to_play_faq" sender:self];
-            break;
-        case 2:
-            link = @"faq";
-            [self performSegueWithIdentifier:@"how_to_play_faq" sender:self];
-            break;
-        case 3:
-            [self performSegueWithIdentifier:@"find_friends" sender:self];
-            break;
-        case 4:
-            [self performSegueWithIdentifier:@"ad_free_version" sender:self];
-            break;
-        default:
-            break;
+        switch (indexPath.row) {
+            case 0:
+                [self performSegueWithIdentifier:@"profile_user" sender:self];
+                break;
+            case 1:
+                link = @"how_to_play";
+                [self performSegueWithIdentifier:@"how_to_play_faq" sender:self];
+                break;
+            case 2:
+                link = @"faq";
+                [self performSegueWithIdentifier:@"how_to_play_faq" sender:self];
+                break;
+            case 3:
+                [self performSegueWithIdentifier:@"find_friends" sender:self];
+                break;
+            case 4:
+                [self performSegueWithIdentifier:@"ad_free_version" sender:self];
+                break;
+            case 5:
+                [self performSegueWithIdentifier:@"hop_shop" sender:self];
+                break;
+            default:
+                break;
+        }
     }
-    }
-    
        [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
