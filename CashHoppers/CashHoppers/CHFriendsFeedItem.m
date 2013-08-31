@@ -28,6 +28,11 @@
     self.comment = [CHBaseModel safeStringFrom:[dic objectForKey:@"comment"] defaultValue:@""];
     self.liked = [dic objectForKey:@"liked"];
     self.numberOfLikes = [dic objectForKey:@"likes_count"];
+    
+    ////
+    self.numberOfComments = [dic objectForKey:@"comments_count"];
+    /////
+    
     self.photoURL = [CHBaseModel safeStringFrom:[dic objectForKey:@"photo"] defaultValue:@""];
     self.smallPhotoURL = [CHBaseModel safeStringFrom:[dic objectForKey:@"small_photo"] defaultValue:@""];
     self.time_ago = [CHBaseModel safeStringFrom:[dic objectForKey:@"time_ago"] defaultValue:@"some time ago"];

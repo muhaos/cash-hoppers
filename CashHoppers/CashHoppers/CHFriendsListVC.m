@@ -174,7 +174,7 @@
     
     //cell.timeLabel.text = [NSString stringWithFormat:@"%i m",timeSinceCompleted];
     cell.numberLikesLabel.text = [fItem.numberOfLikes stringValue];
- //   cell.numberCommentsLabel.text = [fItem.nu];
+    cell.numberCommentsLabel.text = [fItem.numberOfComments stringValue];
     [cell numberCommentsLabel].layer.cornerRadius = 3.0f;
     [cell numberLikesLabel].layer.cornerRadius = 3.0f;
     
