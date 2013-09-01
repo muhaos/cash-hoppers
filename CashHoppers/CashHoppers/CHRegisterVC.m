@@ -151,7 +151,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
             } else {
                 errMsg = [error localizedDescription];
             }
-            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"REGISTRATION" message:[NSString stringWithFormat:@"Registration unsuccessful: %@", errMsg] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"REGISTRATION" message:[NSString stringWithFormat:@"Registration unsuccessful : %@", errMsg] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [av show];
             [[CHLoadingVC sharedLoadingVC] hide];
         }];

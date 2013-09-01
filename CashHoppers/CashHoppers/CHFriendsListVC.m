@@ -175,13 +175,14 @@
     //cell.timeLabel.text = [NSString stringWithFormat:@"%i m",timeSinceCompleted];
     cell.numberLikesLabel.text = [fItem.numberOfLikes stringValue];
     cell.numberCommentsLabel.text = [fItem.numberOfComments stringValue];
+    
     [cell numberCommentsLabel].layer.cornerRadius = 3.0f;
     [cell numberLikesLabel].layer.cornerRadius = 3.0f;
     
     [cell.imageView setImage:nil];
     
     cell.currentFeedItem = (CHFriendsFeedItem*)[self.feedItems objectAtIndex:indexPath.row];
-///
+
     BOOL canAddToFriend = (fItem.user != nil && fItem.user.friendship_status == nil && [fItem.user.identifier intValue] != [[CHUserManager instance].currentUser.identifier intValue]);
     
     if (canAddToFriend == NO) {

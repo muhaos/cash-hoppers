@@ -7,6 +7,8 @@
 //
 
 #import "CHResetPasswordVC.h"
+#import "CHAPIClient.h"
+#import "CHAppDelegate.h"
 
 @interface CHResetPasswordVC ()
 
@@ -19,8 +21,7 @@
 @synthesize emailTextField;
 
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [emailTextField becomeFirstResponder];
     [self setupTriangleBackButton];
@@ -44,20 +45,40 @@
 }
 
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-- (void)viewDidUnload {
-    [self setEmailTextField:nil];
-    [super viewDidUnload];
-}
-
-
 - (IBAction)signInTapped:(id)sender {
+    CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    if (appDelegate.netStatus == NotReachable) {
+
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+                                                     message:@""
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+    } else {
+        NSString *path = [NSString stringWithFormat:@"/api/sessions/reset_password.json?api_key=%@&email=%@", CH_API_KEY, emailTextField.text];
+        
+        NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"POST" path:path parameters:nil];
+        
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Success"
+                                                         message:@"Confirmation instructions sended. Please check your email."
+                                                        delegate:nil
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil];
+            [av show];
+
+        }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                     message:@"Error"
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+            [av show];
+        }];
+        [operation start];
+    }
 }
 
 
@@ -67,5 +88,18 @@
 	[textField resignFirstResponder];
 	return YES;
 }
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
+
+- (void)viewDidUnload {
+    [self setEmailTextField:nil];
+    [super viewDidUnload];
+}
+
 
 @end
