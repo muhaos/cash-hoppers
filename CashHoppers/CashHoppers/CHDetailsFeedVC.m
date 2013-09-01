@@ -363,7 +363,10 @@
             [self reloadData];
         }];
     }
+    self.addComentTextView.text = @"";
+    [self.addComentTextView resignFirstResponder];
 }
+
 
 - (IBAction)scrollViewTapped:(id)sender {
     
