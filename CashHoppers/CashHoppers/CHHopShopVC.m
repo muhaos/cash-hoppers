@@ -24,6 +24,7 @@
     [self setupTriangleBackButton];
     self.activityIndicator.hidden = YES;
     self.yourRibbits = 0;
+    [self refreshBalance];
 }
 
 
