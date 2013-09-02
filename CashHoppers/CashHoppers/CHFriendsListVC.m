@@ -95,6 +95,7 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     [self showAdsWithType:@"RPOU" andHopID:nil];
+    [[CHFriendsFeedManager instance] refreshFeeds];
 }
 
 
