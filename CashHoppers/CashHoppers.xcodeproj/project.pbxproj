@@ -266,6 +266,7 @@
 		AACEB97C17AB8D0B00691F6B /* OARequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = AACEB97017AB8D0B00691F6B /* OARequestParameter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AACEB97D17AB8D0B00691F6B /* OAServiceTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = AACEB97217AB8D0B00691F6B /* OAServiceTicket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AACEB97E17AB8D0B00691F6B /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = AACEB97417AB8D0B00691F6B /* OAToken.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AAD8AFFF17D5DA4700D80071 /* nav_bar_not_label.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD8AFFE17D5DA4700D80071 /* nav_bar_not_label.png */; };
 		AAD980E817CF4C46004E94C9 /* CHMessageNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD980E717CF4C46004E94C9 /* CHMessageNotification.m */; };
 		AAD980EB17CF4C6E004E94C9 /* CHNewHopNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD980EA17CF4C6E004E94C9 /* CHNewHopNotification.m */; };
 		AAD980EE17CF4C90004E94C9 /* CHHopAboutToEndNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD980ED17CF4C90004E94C9 /* CHHopAboutToEndNotification.m */; };
@@ -755,6 +756,7 @@
 		AACEB97317AB8D0B00691F6B /* OAToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAToken.h; sourceTree = "<group>"; };
 		AACEB97417AB8D0B00691F6B /* OAToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAToken.m; sourceTree = "<group>"; };
 		AACEB97517AB8D0B00691F6B /* OAuthConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer.h; sourceTree = "<group>"; };
+		AAD8AFFE17D5DA4700D80071 /* nav_bar_not_label.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_not_label.png; sourceTree = "<group>"; };
 		AAD980E617CF4C46004E94C9 /* CHMessageNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMessageNotification.h; sourceTree = "<group>"; };
 		AAD980E717CF4C46004E94C9 /* CHMessageNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMessageNotification.m; sourceTree = "<group>"; };
 		AAD980E917CF4C6E004E94C9 /* CHNewHopNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNewHopNotification.h; sourceTree = "<group>"; };
@@ -1132,6 +1134,7 @@
 		5640158B176B433B00C028CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AAD8AFFE17D5DA4700D80071 /* nav_bar_not_label.png */,
 				AA8557D117C63589002E8775 /* take_photo.png */,
 				AA0E002217B90DC600B7A681 /* icon_indicator_off.png */,
 				AA0E002317B90DC600B7A681 /* icon_indicator_on.png */,
@@ -2035,6 +2038,7 @@
 				567BB55417C6296C00C75F54 /* MKStoreKitConfigs.plist in Resources */,
 				567BB55617C6296C00C75F54 /* README.mdown in Resources */,
 				AA8557D217C6358D002E8775 /* take_photo.png in Resources */,
+				AAD8AFFF17D5DA4700D80071 /* nav_bar_not_label.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

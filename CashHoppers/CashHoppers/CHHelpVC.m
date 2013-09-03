@@ -23,6 +23,7 @@
 
     NSURL *howToPlay = [NSURL URLWithString:url];
     [contentWebView loadRequest:[NSURLRequest requestWithURL:howToPlay]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_bar_not_label.png"] forBarMetrics:UIBarMetricsDefault];
 }
 
 
