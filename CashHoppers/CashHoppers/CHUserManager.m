@@ -248,6 +248,9 @@
     NSString *path = [NSString stringWithFormat:@"/api/settings/set.json?api_key=%@&authentication_token=%@", CH_API_KEY, aToken];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"POST" path:path parameters:nil];
  
+    NSLog(@"%@", [dic objectForKey:@"user_settings"]);
+    
+    
     [request setHTTPBody:json];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {

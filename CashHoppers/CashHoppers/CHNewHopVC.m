@@ -92,6 +92,9 @@
     [self.taskLogoImageView setImageWithURL:[self.currentHopTask logoURL]];
     
     [self setHopTaskName:[NSString stringWithFormat:@"%@: %@", self.currentHopTask.hop.name, self.currentHopTask.text] withBoldString:self.currentHopTask.hop.name];
+    
+//    [self.photoImView setImageWithURL:[self.currentHopTask photoUrlString]];
+//    self.textView.text = self.currentHopTask.comment;
 }
 
 

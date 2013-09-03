@@ -74,8 +74,7 @@
                 cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
                 break;
             case 2:
-                cell.nameNotificationLabel.text = @"Alert me when sameone comments or likes my picks";
-                
+                cell.nameNotificationLabel.text = @"Alert me when someone comments or likes my picks";
                 if ([[s objectForKey:@"like"] boolValue]) {
                     cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
                 } else {
@@ -94,6 +93,7 @@
                 break;
             case 4:{
                 cell.nameNotificationLabel.text = @"Alert me when a HOP is about to end if I have not completed it";
+                
                 if ([[s objectForKey:@"end_of_hop"] boolValue]) {
                     cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
                 } else {
@@ -135,7 +135,7 @@
             cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
             break;
         case 2:
-            cell.nameNotificationLabel.text = @"Alert me when sameone comments or likes my picks";
+            cell.nameNotificationLabel.text = @"Alert me when someone comments or likes my picks";
             [s setObject:@(![[s objectForKey:@"like"] boolValue]) forKey:@"like"];
             if ([[s objectForKey:@"like"] boolValue]) {
                 cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];

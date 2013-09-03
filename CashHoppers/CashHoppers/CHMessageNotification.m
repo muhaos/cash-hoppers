@@ -19,9 +19,15 @@
     friendDic = [dic objectForKey:@"friend"];
     
     NSDictionary *messageDic = [NSDictionary new];
-    messageDic = [dic objectForKey:@"message"];
     
-    self.text = [messageDic objectForKey:@"text"];
+    NSDictionary *dict = [NSDictionary new];
+    if ([messageDic isEqualToDictionary:dict]) {
+            messageDic = [dic objectForKey:@"message"];
+    }else {
+        NSDictionary *emptyDic = [NSDictionary dictionaryWithObject:@"" forKey:@"text"];
+        messageDic = emptyDic;
+    }
+
     self.userAvatarURLString = [CHBaseModel safeStringFrom:[friendDic objectForKey:@"avatar"] defaultValue:nil] ;
     self.userName = [NSString stringWithFormat:@"%@ %@", [friendDic objectForKey:@"first_name"], [friendDic objectForKey:@"last_name"]];
     self.sender_id = [CHBaseModel safeNumberFrom:[dic objectForKey:@"sender_id"] defaultValue:nil];
