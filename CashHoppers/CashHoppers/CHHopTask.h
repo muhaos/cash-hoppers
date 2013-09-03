@@ -21,6 +21,6 @@
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
 - (NSURL*) logoURL;
-//- (NSURL*) photoURL;
+- (NSURL*) photoURL;
 
 @end
