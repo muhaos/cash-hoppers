@@ -83,11 +83,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.submitButton.hidden = [self.currentHopTask.completed boolValue];
-    if ([self.currentHopTask.completed boolValue] == YES) {
-        self.sharingView.hidden = NO;
-    }else {
-        self.sharingView.hidden = YES;
-    }
     self.hopTitleLabel.text = [NSString stringWithFormat:@"%@   %@", self.currentHopTask.hop.name, [self.currentHopTask.hop dateString]];
     [self.taskLogoImageView setImageWithURL:[self.currentHopTask logoURL]];
     
@@ -96,6 +91,9 @@
         self.textView.text = self.currentHopTask.comment;
         [self.photoImView setImageWithURL:[self.currentHopTask photoURL]];
         self.textView.editable = NO;
+        self.sharingView.hidden = NO;
+    } else {
+        self.sharingView.hidden = YES;
     }
 }
 
@@ -259,6 +257,7 @@
                 [self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier];
                 [self saveImageCopyToGalery];
                 self.submitButton.hidden = YES;
+                [self adsClosedTapped];
             }
             [[CHLoadingVC sharedLoadingVC] hide];
         }];
