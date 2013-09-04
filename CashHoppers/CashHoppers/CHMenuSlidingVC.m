@@ -217,7 +217,8 @@
         
         [operation start];
     }
-    
+    [FBSession.activeSession closeAndClearTokenInformation];
+
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"a_token"];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:[NSBundle mainBundle]];

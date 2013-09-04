@@ -20,7 +20,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 
-@interface CHStartVC ()
+@interface CHStartVC ()<FBWebDialogsDelegate>
 
 @property (retain, nonatomic) GPPSignIn *signIn;
 @property (retain, nonatomic) GTLPlusPerson *personData;
@@ -166,7 +166,7 @@ static BOOL needLoginWithFacebook = NO;
         [av show];
     } else {
         needLoginWithFacebook = YES;
-        
+
         if (FBSession.activeSession.isOpen) {
             if (FBSession.activeSession.state == FBSessionStateClosedLoginFailed){
             } else {
@@ -177,7 +177,7 @@ static BOOL needLoginWithFacebook = NO;
             [appDelegate.loggedInSession openWithCompletionHandler:^(FBSession *session,
                                                          FBSessionState status,
                                                          NSError *error){
-            //[self userFacebookDetails];
+                
             }];
         }
     }
@@ -214,7 +214,6 @@ static BOOL needLoginWithFacebook = NO;
          }];
     }
 }
-
 
 //for twitter
 - (IBAction)loginWithTwitterTapped:(id)sender {
