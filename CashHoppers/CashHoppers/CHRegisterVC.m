@@ -128,7 +128,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
             NSString *message;
             if(success == 1){
                 message = [NSString stringWithFormat:@"Registration successful: %@",[JSON objectForKey:@"message"]];
-//                message = @"Check your email and confirm registration.";
+                message = @"Registration successful: Check your email and confirm registration.";
                 [self backButtonTapped];
 
             }else{

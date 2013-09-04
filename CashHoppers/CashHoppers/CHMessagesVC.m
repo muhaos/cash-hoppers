@@ -157,7 +157,7 @@
     
     if (self.messagesButtonActive) {
         CHMessage* message = [self.currentItemsList objectAtIndex:indexPath.row];
-        
+
         NSString* friendName = [NSString stringWithFormat:@"%@ %@", message.friend_first_name, message.friend_last_name];
         [[cell nameLabel] setText:friendName];
         [[cell photoImageView] setImageWithURL:[message friendAvatarURL]];

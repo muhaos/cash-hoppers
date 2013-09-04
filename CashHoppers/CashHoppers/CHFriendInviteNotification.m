@@ -17,7 +17,13 @@
     NSDictionary* friendDic = [dic objectForKey:@"friend"];
     self.friendID = [friendDic objectForKey:@"id"];
     self.userAvatarURLString = [CHBaseModel safeStringFrom:[friendDic objectForKey:@"avatar"] defaultValue:nil] ;
-    self.userName = [NSString stringWithFormat:@"%@ %@", [friendDic objectForKey:@"first_name"], [friendDic objectForKey:@"last_name"]];
+    
+    if ([[friendDic objectForKey:@"first_name"] isEqual:[NSNull null]] && [[friendDic objectForKey:@"last_name"] isEqual:[NSNull null]]) {
+        self.userName = [NSString stringWithFormat:@"%@", [friendDic objectForKey:@"user_name"]];
+    } else {
+        self.userName = [NSString stringWithFormat:@"%@ %@", [friendDic objectForKey:@"first_name"], [friendDic objectForKey:@"last_name"]];
+    }
+    
     self.friends_status = [CHBaseModel safeStringFrom:[friendDic objectForKey:@"friendship_status"] defaultValue:nil];
 }
 

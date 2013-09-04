@@ -40,11 +40,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [self setupTriangleBackButton];
     
     
-    [[CHLoadingVC sharedLoadingVC] showInController:self withText:@"Please wait..."];
+//    [[CHLoadingVC sharedLoadingVC] showInController:self withText:@"Please wait..."];
     
     [[CHUserManager instance] isUserExistsForService:self.provider userID:self.idUser completionHandler:^(NSError* error, BOOL exist){
 
-        [[CHLoadingVC sharedLoadingVC] hide];
+//        [[CHLoadingVC sharedLoadingVC] hide];
         
         if (exist) {
             NSMutableDictionary* params = [NSMutableDictionary new];
@@ -80,7 +80,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     
     NSString* userName = firstNameUser;
     if (firstNameUser == nil) {
-        userName = screenNameUser;
+        if (screenNameUser == nil) {
+            userName = emailUser;
+        } else {
+            userName = screenNameUser;
+        }
     }
     
     [params setObject:userName forKey:@"name"];
