@@ -75,7 +75,7 @@
                 break;
             case 2:
                 cell.nameNotificationLabel.text = @"Alert me when someone comments or likes my picks";
-                if ([[s objectForKey:@"like"] boolValue]) {
+                if ([[s objectForKey:@"comment_or_like"] boolValue]) {
                     cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
                 } else {
                     cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_off.png"];
@@ -94,7 +94,7 @@
             case 4:{
                 cell.nameNotificationLabel.text = @"Alert me when a HOP is about to end if I have not completed it";
                 
-                if ([[s objectForKey:@"end_of_hop"] boolValue]) {
+                if ([[s objectForKey:@"hop_about_to_end"] boolValue]) {
                     cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
                 } else {
                     cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_off.png"];
@@ -136,8 +136,8 @@
             break;
         case 2:
             cell.nameNotificationLabel.text = @"Alert me when someone comments or likes my picks";
-            [s setObject:@(![[s objectForKey:@"like"] boolValue]) forKey:@"like"];
-            if ([[s objectForKey:@"like"] boolValue]) {
+            [s setObject:@(![[s objectForKey:@"comment_or_like"] boolValue]) forKey:@"comment_or_like"];
+            if ([[s objectForKey:@"comment_or_like"] boolValue]) {
                 cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
             } else {
                 cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_off.png"];
@@ -157,8 +157,8 @@
         case 4:{
             cell.nameNotificationLabel.text = @"Alert me when a HOP is about to end if I have not completed it";
 
-            [s setObject:@(![[s objectForKey:@"end_of_hop"] boolValue]) forKey:@"end_of_hop"];
-            if ([[s objectForKey:@"end_of_hop"] boolValue]) {
+            [s setObject:@(![[s objectForKey:@"hop_about_to_end"] boolValue]) forKey:@"hop_about_to_end"];
+            if ([[s objectForKey:@"hop_about_to_end"] boolValue]) {
                 cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_on.png"];
             } else {
                 cell.indicatorImageView.image = [UIImage imageNamed:@"icon_indicator_off.png"];
