@@ -95,9 +95,6 @@
     } else {
         self.sharingView.hidden = YES;
     }
-//    if (self.currentHopTask) {
-//        
-//    }
 }
 
 

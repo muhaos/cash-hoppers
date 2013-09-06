@@ -159,6 +159,8 @@
     if ([segue.identifier isEqualToString:@"new_hop_segue"]) {
         CHNewHopVC* c = (CHNewHopVC*)segue.destinationViewController;
         c.currentHopTask = sender;
+        c.view;
+        c.winnterButton.hidden = YES;
     }
 }
 
