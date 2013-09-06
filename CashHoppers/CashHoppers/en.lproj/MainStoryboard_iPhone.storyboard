@@ -4671,10 +4671,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ygN-Sf-oO2"/>
-        <segue reference="lvk-fo-Rcf"/>
-        <segue reference="iNc-aT-tqd"/>
         <segue reference="Bjs-zb-Rk3"/>
+        <segue reference="iNc-aT-tqd"/>
+        <segue reference="gri-tX-sSQ"/>
         <segue reference="Wv3-IZ-arJ"/>
+        <segue reference="ygN-Sf-oO2"/>
     </inferredMetricsTieBreakers>
 </document>

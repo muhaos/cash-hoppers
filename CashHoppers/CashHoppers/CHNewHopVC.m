@@ -95,6 +95,9 @@
     } else {
         self.sharingView.hidden = YES;
     }
+//    if (self.currentHopTask) {
+//        
+//    }
 }
 
 
@@ -137,7 +140,6 @@
     
     NSInteger count = CH_NUMBER_OF_CHARACTERS-textView.text.length;
     _charCountLabel.text = [NSString stringWithFormat:@"%d", count];
-    
 }
 
 -(void)textViewDidEndEditing:(UITextView *)textView{
@@ -150,6 +152,10 @@
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
+    if ([text isEqualToString:@"\n"])
+    {
+        [textView resignFirstResponder];
+    }
     return textView.text.length + (text.length - range.length) <= 140;
 }
 
@@ -213,22 +219,24 @@
 }
 
 - (IBAction)photoTapped:(id)sender {
-    takePhoto = YES;
-    UIImagePickerController *poc = [[UIImagePickerController alloc] init];
-    [poc setTitle:@"Take a photo."];
-    [poc setDelegate:self];
+    if ([self.currentHopTask.completed boolValue] == NO) {
+        takePhoto = YES;
+        UIImagePickerController *poc = [[UIImagePickerController alloc] init];
+        [poc setTitle:@"Take a photo."];
+        [poc setDelegate:self];
+
 #if TARGET_IPHONE_SIMULATOR
-    [poc setSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
-#elif TARGET_OS_IPHONE
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        [poc setSourceType:UIImagePickerControllerSourceTypeCamera];
-    }else{
         [poc setSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
-    }
+#elif TARGET_OS_IPHONE
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            [poc setSourceType:UIImagePickerControllerSourceTypeCamera];
+        }else{
+            [poc setSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
+        }
 #else
 #endif
-    
-    [self presentViewController:poc animated:YES completion:nil];
+        [self presentViewController:poc animated:YES completion:nil];
+    }
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
