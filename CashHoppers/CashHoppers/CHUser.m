@@ -18,7 +18,7 @@
     self.first_name = [CHBaseModel safeStringFrom:[dic objectForKey:@"first_name"] defaultValue:@""];
     self.last_name = [CHBaseModel safeStringFrom:[dic objectForKey:@"last_name"] defaultValue:@""];
     self.user_name = [CHBaseModel safeStringFrom:[dic objectForKey:@"user_name"] defaultValue:@""];
-    //self.zip;
+    self.zip = [CHBaseModel safeStringFrom:[dic objectForKey:@"zip"] defaultValue:@""];
     self.contact = [CHBaseModel safeStringFrom:[dic objectForKey:@"contact"] defaultValue:@""];
     self.phone = [CHBaseModel safeStringFrom:[dic objectForKey:@"phone"] defaultValue:@""];
     self.bio = [CHBaseModel safeStringFrom:[dic objectForKey:@"bio"] defaultValue:@""];
@@ -49,6 +49,7 @@
     [formData appendPartWithFormData:[self.twitter dataUsingEncoding:NSUTF8StringEncoding] name:@"twitter"];
     [formData appendPartWithFormData:[self.facebook dataUsingEncoding:NSUTF8StringEncoding] name:@"facebook"];
     [formData appendPartWithFormData:[self.google dataUsingEncoding:NSUTF8StringEncoding] name:@"google"];
+    [formData appendPartWithFormData:[self.zip dataUsingEncoding:NSUTF8StringEncoding] name:@"zip"];
 }
 
 

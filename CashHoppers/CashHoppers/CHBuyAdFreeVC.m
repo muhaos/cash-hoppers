@@ -88,10 +88,21 @@
             UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't buy ad free version: %@", [error localizedDescription]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [av show];
         } else {
-            [[CHUserManager instance].userSettings setObject:@NO forKey:@"ad_enable"];
-            [[CHUserManager instance] updateUserSettingsWithCompletionBlock:^(NSError* error){
+//            [[CHUserManager instance].userSettings setObject:@NO forKey:@"ad_enable"];
+////            [[CHUserManager instance] updateUserSettingsWithCompletionBlock:^(NSError* error){
+////            
+////            }];
             
-            }];
+//            CHUser* curUser = [CHUserManager instance].currentUser;
+//
+//            
+//            [[CHUserManager instance] loadUserForID:curUser.identifier completionHandler:^(CHUser* user) {
+//                NSMutableDictionary *dic = [NSMutableDictionary new];
+//                dic = user;
+//            }];
+            
+
+            
         }
         [self refreshBalance];
         [[CHLoadingVC sharedLoadingVC] hide];

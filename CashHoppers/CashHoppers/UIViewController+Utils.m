@@ -33,12 +33,22 @@ static CHAdvertisingVC* vc = nil;
         [[CHUserManager instance] updateUserSettingsWithCompletionBlock:^(NSError* error){
         }];
     } else {
-        if ([[[CHUserManager instance].userSettings objectForKey:@"ad_enable"] intValue] == NO) {
-            return;
-        }
+//        if ([[[CHUserManager instance].userSettings objectForKey:@"ad_enable"] intValue] == NO) {
+//            return;
+//        }
+        
+        CHUser* curUser = [CHUserManager instance].currentUser;
+    
+        [[CHUserManager instance] loadUserForID:curUser.identifier completionHandler:^(CHUser* user) {
+            
+        }];
+
     }
     
 
+    
+    
+    
     if (vc) {
         [vc.view removeFromSuperview];
         vc.selfRef = nil;

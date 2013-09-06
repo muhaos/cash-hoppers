@@ -39,7 +39,7 @@
 {
     CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
     if (appDelegate.netStatus == NotReachable) {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"No internet connection!"
                                                      message:@""
                                                     delegate:nil
                                            cancelButtonTitle:@"OK"
@@ -252,6 +252,8 @@
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     } else {
         CHBaseNotification* notif = [self.currentItemsList objectAtIndex:indexPath.row];
+        
+        
         [self performSegueWithIdentifier:@"news_feed_segue" sender:notif];
     }
     
@@ -280,7 +282,7 @@
                 break;
             }
             case CHNotificationTypeLike: {
-                feedItem = ((CHLikeNotification*)notif).feedItem;
+               feedItem = ((CHLikeNotification*)notif).feedItem;
                 break;
             }
         }

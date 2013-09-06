@@ -119,7 +119,7 @@
 - (IBAction)twitterFriendsTapped:(id)sender {
     CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
     if (appDelegate.netStatus == NotReachable) {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"No internet connection!"
                                                      message:@""
                                                     delegate:nil
                                            cancelButtonTitle:@"OK"
@@ -140,7 +140,7 @@
 - (IBAction)facebookFriendsTapped:(id)sender {
     CHAppDelegate *appDelegate = (CHAppDelegate *) [[UIApplication sharedApplication] delegate];
     if (appDelegate.netStatus == NotReachable) {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"No internet connection!"
                                                      message:@""
                                                     delegate:nil
                                            cancelButtonTitle:@"OK"
@@ -166,7 +166,7 @@
 - (IBAction)sendEmailTapped:(id)sender {
     CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
     if (appDelegate.netStatus == NotReachable) {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"No internet connection!"
                                                      message:@""
                                                     delegate:nil
                                            cancelButtonTitle:@"OK"

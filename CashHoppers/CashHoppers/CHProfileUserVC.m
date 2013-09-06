@@ -64,6 +64,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     user.twitter = self.twitterTextField.text;
     user.facebook = self.facebookTextField.text;
     user.google = self.googlePlusTextField.text;
+    user.zip = self.zipTextField.text;
     
     NSString* newPassword = nil;
     if (![self.changePasswordTextField.text isEqualToString:@""]) {

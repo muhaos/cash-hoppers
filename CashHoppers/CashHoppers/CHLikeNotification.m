@@ -37,6 +37,8 @@
 
 - (void) loadParts {
     
+    NSLog(@"%@", self.user_hop_task_id);
+    
     [[CHFriendsFeedManager instance] loadFeedItemWithID:self.user_hop_task_id completionHandler:^(CHFriendsFeedItem* feedItem){
         
         self.feedItem = feedItem;
