@@ -8,6 +8,7 @@
 
 #import "CHNewHopNotification.h"
 #import "CHHop.h"
+#import "CHAPIClient.h"
 
 @implementation CHNewHopNotification
 
@@ -17,6 +18,7 @@
     NSDictionary *hopDic = [NSDictionary new];
     hopDic = [dic objectForKey:@"hop"];
     self.hopName = [hopDic objectForKey:@"name"];
+    self.userAvatarURLString = [CHBaseModel safeStringFrom:[hopDic objectForKey:@"logo"] defaultValue:nil];
 }
 
 
@@ -25,5 +27,6 @@
     resultStr = [NSString stringWithFormat:@"The \"%@\" hop start.", self.hopName];
     return [self attributedString:resultStr withBoldString:nil];
 }
+
 
 @end

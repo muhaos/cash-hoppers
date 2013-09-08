@@ -172,7 +172,12 @@
         cell.delegate = self;
         
         [[cell nameLabel] setText: notif.userName];
+        
         [[cell photoImageView] setImageWithURL: [notif userAvatarURL]];
+        if (notif.notificationType == CHNotificationTypeNewHop) {
+            [[cell photoImageView] setImageWithURL: [notif userAvatarURL ]];
+        }
+        
         cell.messageLabel.attributedText = [notif notificationDescription];
         cell.timeLabel.text = [NSString stringWithFormat:@"%@ ago", notif.time_ago];
         

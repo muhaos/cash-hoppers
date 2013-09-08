@@ -170,7 +170,7 @@
 
         if ([link isEqualToString:@"how_to_play"])
         {
-            vc.url = [NSString stringWithFormat:@"http://perechin.net:3000/#yellow-page"];
+            vc.url = [NSString stringWithFormat:@"http://perechin.net:3000/#how_to_play"];
         }
         if ([link isEqualToString:@"faq"])
         {

@@ -44,16 +44,16 @@
 
 
 - (void) refreshBalance {
+    NSLog(@"AD ENABLE: %d", [[CHUserManager instance].currentUser.adEnabled intValue]);
     
-    if ([[[CHUserManager instance].userSettings objectForKey:@"ad_enable"] intValue] == NO) {
+    if ([[CHUserManager instance].currentUser.adEnabled intValue] == NO) {
         self.balanceLabel.text = @"Already buyed!";
         self.buyNowButton.hidden = YES;
         self.balanceActivityView.hidden = YES;
     } else {
-        
         self.balanceLabel.hidden = YES;
         self.balanceActivityView.hidden = NO;
-        self.buyNowButton.enabled = NO;
+        self.buyNowButton.enabled = NO; 
         self.buyNowButton.alpha = 0.5f;
         
         [[CHPaymentsManager instance] getBalanceWithCompletionHandler:^(NSNumber* balance){
@@ -74,9 +74,7 @@
             self.balanceLabel.hidden = NO;
             self.balanceActivityView.hidden = YES;
         }];
-
     }
-    
 }
 
 
@@ -88,21 +86,10 @@
             UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't buy ad free version: %@", [error localizedDescription]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [av show];
         } else {
-//            [[CHUserManager instance].userSettings setObject:@NO forKey:@"ad_enable"];
-////            [[CHUserManager instance] updateUserSettingsWithCompletionBlock:^(NSError* error){
-////            
-////            }];
-            
-//            CHUser* curUser = [CHUserManager instance].currentUser;
-//
+            [CHUserManager instance].currentUser.adEnabled = [NSNumber numberWithInt:0];
+//            [[CHUserManager instance] updateUserSettingsWithCompletionBlock:^(NSError* error){
 //            
-//            [[CHUserManager instance] loadUserForID:curUser.identifier completionHandler:^(CHUser* user) {
-//                NSMutableDictionary *dic = [NSMutableDictionary new];
-//                dic = user;
 //            }];
-            
-
-            
         }
         [self refreshBalance];
         [[CHLoadingVC sharedLoadingVC] hide];
@@ -118,7 +105,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

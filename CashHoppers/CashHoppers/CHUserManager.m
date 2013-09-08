@@ -34,7 +34,7 @@
     [self loadUserForID:nil completionHandler:^(CHUser* user) {
         _currentUser = user;
     }];
-
+    
     [self updateUserSettingsWithCompletionBlock:^(NSError* error){
         
     }];
@@ -221,14 +221,8 @@
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        
-        if ([JSON objectForKey:@"friend_invite"] != nil) {
-            self.userSettings = [JSON mutableCopy];
+          self.userSettings = [JSON mutableCopy];
             block(nil);
-        } else {
-            block([[NSError alloc] init]);
-        }
-        
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
         block(error);

@@ -17,6 +17,7 @@
 #import "CHFriendsFeedManager.h"
 #import "CHUser.h"
 #import "UIImageView+AFNetworking.h"
+#import "CHUserManager.h"
 
 @interface CHHomeScreenViewController ()
 
@@ -93,37 +94,36 @@
 
 
 - (void) loadTopADS {
-    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
-    NSString *path = [NSString stringWithFormat:@"/api/ads/get_ads.json?api_key=%@&authentication_token=%@&ad_type=%@", CH_API_KEY, aToken, @"RCH"];
+    NSLog(@"ed enable: %d", [[CHUserManager instance].currentUser.adEnabled intValue]);
     
-    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+    if ([[CHUserManager instance].currentUser.adEnabled intValue] == YES) {
+        NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+        NSString *path = [NSString stringWithFormat:@"/api/ads/get_ads.json?api_key=%@&authentication_token=%@&ad_type=%@", CH_API_KEY, aToken, @"RCH"];
         
-        NSDictionary* ads_json = [JSON objectForKey:@"ad"];
-        if (ads_json) {
+        NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
+        
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             
-            self.adsImageURL = [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:[ads_json objectForKey:@"picture"]]];
-            [self.bannerImView setImageWithURL:self.adsImageURL];
-            self.adsLinkURL = [NSURL URLWithString:[ads_json objectForKey:@"link"]];
-        }
+            NSDictionary* ads_json = [JSON objectForKey:@"ad"];
+            if (ads_json) {
+                self.adsImageURL = [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:[ads_json objectForKey:@"picture"]]];
+                [self.bannerImView setImageWithURL:self.adsImageURL];
+                self.adsLinkURL = [NSURL URLWithString:[ads_json objectForKey:@"link"]];
+            }
         
-    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]);
+        }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+            NSLog(@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]);
 //        UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
 //        [av show];
-        
-    }];
-    
-    [operation start];
+        }];
+        [operation start];
+    }
 }
 
 
 - (IBAction) topBannerTapped:(id)sender {
     [[UIApplication sharedApplication] openURL:self.adsLinkURL];
 }
-
-
 
 
 - (void) setDailyHopTaskName:(NSString*) wholeStr withBoldString:(NSString*) boldPartStr {

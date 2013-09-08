@@ -9,6 +9,7 @@
 #import "CHBaseManager.h"
 #import "CHBaseModel.h"
 #import "CHAPIClient.h"
+#import "CHStartVC.h"
 
 @interface CHBaseManager ()
 
@@ -94,7 +95,7 @@
         errMsg = [error localizedDescription];
     }
     
-    NSLog(@"Can't load url: %@ \n %@", request.URL, errMsg);
+    NSLog(@"Can't load url: %@ \n=%@", request.URL, errMsg);
 //    UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't load url: %@ \n %@", request.URL, errMsg] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
 //    [av show];
 }

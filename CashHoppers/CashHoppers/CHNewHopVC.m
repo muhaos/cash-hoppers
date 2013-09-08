@@ -91,6 +91,7 @@
         self.textView.text = self.currentHopTask.comment;
         [self.photoImView setImageWithURL:[self.currentHopTask photoURL]];
         self.textView.editable = NO;
+        self.textView.textColor = [UIColor darkGrayColor];
         self.sharingView.hidden = NO;
     } else {
         self.sharingView.hidden = YES;
@@ -262,7 +263,6 @@
                 [self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier];
                 [self saveImageCopyToGalery];
                 self.submitButton.hidden = YES;
-                [self adsClosedTapped];
             }
             [[CHLoadingVC sharedLoadingVC] hide];
         }];

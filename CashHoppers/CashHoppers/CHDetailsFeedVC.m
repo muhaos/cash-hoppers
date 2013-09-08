@@ -291,10 +291,10 @@
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-//    if ([text isEqualToString:@"\n"])
-//    {
-//        [textView resignFirstResponder];
-//    }
+    if ([text isEqualToString:@"\n"])
+    {
+        [textView resignFirstResponder];
+    }
     return YES;
 }
 
@@ -342,26 +342,32 @@
 
 
 - (IBAction)likePressed:(id)sender {
-    if([_feedItem.liked boolValue]){
-        return;
-    }
-    [[CHFriendsFeedManager instance]postLikeForFeedItem:_feedItem completionHandler:^(NSError *error) {
-        if(!error){
-            [_likeButton setBackgroundImage:[UIImage imageNamed:@"like_icon_on"] forState:UIControlStateNormal];
-            _feedItem.liked = @1;
-            _feedItem.numberOfLikes = @([_feedItem.numberOfLikes intValue]+1);
-            _countLikeLabel.text = [NSString stringWithFormat:@"%d", [_feedItem.numberOfLikes intValue]];
+    if (_feedItem.user.friendship_status != nil) {
+        if([_feedItem.liked boolValue]){
+            return;
         }
-    }];
+        
+        [[CHFriendsFeedManager instance]postLikeForFeedItem:_feedItem completionHandler:^(NSError *error) {
+            if(!error){
+                [_likeButton setBackgroundImage:[UIImage imageNamed:@"like_icon_on"] forState:UIControlStateNormal];
+                _feedItem.liked = @1;
+                _feedItem.numberOfLikes = @([_feedItem.numberOfLikes intValue]+1);
+                _countLikeLabel.text = [NSString stringWithFormat:@"%d", [_feedItem.numberOfLikes intValue]];
+            }
+        }];
+    }
 }
 
+
 - (IBAction)postCommentTapped:(id)sender {
-    if (![self.addComentTextView.text isEqual: @"Add coment ..."]) {
-        _postCommentButton.enabled = FALSE;
-        [[CHFriendsFeedManager instance] postCommentForFeedItem:_feedItem withText:_addComentTextView.text completionHandler:^(BOOL success) {
-            _postCommentButton.enabled = TRUE;
-            [self reloadData];
-        }];
+    if (_feedItem.user.friendship_status != nil) {
+        if (![self.addComentTextView.text isEqual: @"Add coment ..."]) {
+            _postCommentButton.enabled = FALSE;
+            [[CHFriendsFeedManager instance] postCommentForFeedItem:_feedItem withText:_addComentTextView.text completionHandler:^(BOOL success) {
+                _postCommentButton.enabled = TRUE;
+                [self reloadData];
+            }];
+        }
     }
     self.addComentTextView.text = @"";
     [self.addComentTextView resignFirstResponder];

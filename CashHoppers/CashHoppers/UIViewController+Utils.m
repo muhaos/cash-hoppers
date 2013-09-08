@@ -33,9 +33,10 @@ static CHAdvertisingVC* vc = nil;
         [[CHUserManager instance] updateUserSettingsWithCompletionBlock:^(NSError* error){
         }];
     } else {
-//        if ([[[CHUserManager instance].userSettings objectForKey:@"ad_enable"] intValue] == NO) {
-//            return;
-//        }
+        NSLog(@"ED ENABLE: %d", [[CHUserManager instance].currentUser.adEnabled intValue]);
+        if ([[CHUserManager instance].currentUser.adEnabled intValue] == NO) {
+            return;
+        }
         
         CHUser* curUser = [CHUserManager instance].currentUser;
     
@@ -44,10 +45,6 @@ static CHAdvertisingVC* vc = nil;
         }];
 
     }
-    
-
-    
-    
     
     if (vc) {
         [vc.view removeFromSuperview];
