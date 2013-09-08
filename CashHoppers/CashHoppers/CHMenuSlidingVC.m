@@ -14,6 +14,8 @@
 #import "CHAppDelegate.h"
 #import "CHAPIClient.h"
 #import "CHHelpVC.h"
+#import "GPPSignIn.h"
+#import "FHSTwitterEngine.h"
 
 @interface CHMenuSlidingVC () <UITableViewDataSource, UITableViewDelegate>
 @property (retain, nonatomic) NSString *link;
@@ -218,6 +220,12 @@
         [operation start];
     }
     [FBSession.activeSession closeAndClearTokenInformation];
+    
+    [[GPPSignIn sharedInstance] disconnect];
+    [[GPPSignIn sharedInstance] signOut];
+    
+    [[FHSTwitterEngine sharedEngine] clearAccessToken];
+    [[FHSTwitterEngine sharedEngine] clearConsumer];
 
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"a_token"];
     

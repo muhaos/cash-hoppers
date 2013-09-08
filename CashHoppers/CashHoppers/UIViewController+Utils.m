@@ -33,7 +33,7 @@ static CHAdvertisingVC* vc = nil;
         [[CHUserManager instance] updateUserSettingsWithCompletionBlock:^(NSError* error){
         }];
     } else {
-        NSLog(@"ED ENABLE: %d", [[CHUserManager instance].currentUser.adEnabled intValue]);
+        NSLog(@"AD ENABLE: %d", [[CHUserManager instance].currentUser.adEnabled intValue]);
         if ([[CHUserManager instance].currentUser.adEnabled intValue] == NO) {
             return;
         }
