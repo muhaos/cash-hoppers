@@ -32,7 +32,7 @@
     self.contactAsTextView.hidden = YES;
     self.photoImageView.image = nil;
     
-//    photoImageView.layer.cornerRadius = 70;
+    photoImageView.layer.cornerRadius = 70;
     photoImageView.clipsToBounds = YES;
     
     [[CHHopsManager instance] loadYesterdayWinnerWithCompletionHandler:^(NSDictionary* winnerDic) {

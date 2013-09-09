@@ -221,7 +221,7 @@
 {
     int rowsNum = ceilf([selectedUserArray count] / 3.0f);
     
-    float containerHeight = 35.0f * rowsNum + 35.0f;
+    float containerHeight = 35.0f * rowsNum + 40.0f;
     
     containerView.frame = CGRectMake(containerView.frame.origin.x, containerView.frame.origin.y, containerView.frame.size.width, containerHeight);
   
