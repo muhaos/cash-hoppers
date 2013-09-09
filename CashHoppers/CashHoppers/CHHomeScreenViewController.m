@@ -115,6 +115,9 @@
 //        [av show];
         }];
         [operation start];
+    }else{
+        
+
     }
 }
 

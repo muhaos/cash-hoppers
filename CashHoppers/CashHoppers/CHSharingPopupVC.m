@@ -87,7 +87,11 @@
         };
         [self.currentController presentViewController:tw animated:YES completion:nil];
     }else{
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"dfvdfv" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"No Facebook Account"
+                                                     message:@"There are no Facebook accounts configured. You can add or create Facebook account in Settings."
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
         [av show];
     }
 
@@ -117,6 +121,13 @@
         };
 
         [self.currentController presentViewController: tweetSheet animated: YES completion: nil];
+    }else{
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"No Twitter Account"
+                                                      message:@"There are no Twitter accounts configured. You can add or create Twitter account in Settings."
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
     }
 }
 
