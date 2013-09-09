@@ -94,8 +94,6 @@
 
 
 - (void) loadTopADS {
-    NSLog(@"ed enable: %d", [[CHUserManager instance].currentUser.adEnabled intValue]);
-    
     if ([[CHUserManager instance].currentUser.adEnabled intValue] == YES) {
         NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
         NSString *path = [NSString stringWithFormat:@"/api/ads/get_ads.json?api_key=%@&authentication_token=%@&ad_type=%@", CH_API_KEY, aToken, @"RCH"];
@@ -152,7 +150,6 @@
     self.dailyHopImageView.hidden = (dailyHopsCount <= 0);
     self.dailyHopButton.hidden = (dailyHopsCount <= 0);
     self.dailyHopIndicator.hidden = (dailyHopsCount <= 0);
-    self.dailyHopExists.hidden = (dailyHopsCount > 0);
     
     if (dailyHopsCount > 0) {
         self.dailyHopIndicator.hidden = YES;
@@ -161,6 +158,7 @@
         NSString* hopTaskName = [dailyHop.tasks[0] text];
         [self setDailyHopTaskName:[NSString stringWithFormat:@"%@: %@", hopName, hopTaskName] withBoldString:hopName];
         [self.dailyHopImageView setImageWithURL:[dailyHop logoURL]];
+        self.dailyHopExists.hidden = (dailyHopsCount > 0);
     }
 }
 

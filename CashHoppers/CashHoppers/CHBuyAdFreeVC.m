@@ -87,9 +87,9 @@
             [av show];
         } else {
             [CHUserManager instance].currentUser.adEnabled = [NSNumber numberWithInt:0];
-//            [[CHUserManager instance] updateUserSettingsWithCompletionBlock:^(NSError* error){
-//            
-//            }];
+            [[CHUserManager instance] updateUserSettingsWithCompletionBlock:^(NSError* error){
+            
+            }];
         }
         [self refreshBalance];
         [[CHLoadingVC sharedLoadingVC] hide];
