@@ -201,8 +201,7 @@
             [[cell numberCommentsLabel] setHidden:YES];
             [[cell numberLikesLabel] setHidden:YES];
         } else {
-            NSLog(@"%i",[fItem.comment integerValue] );
-            if ([fItem.comment integerValue]==0) {
+            if ([fItem.numberOfComments integerValue] == 0) {
                 [[cell commentButton] setBackgroundImage:[UIImage imageNamed:@"comment_icon_n"] forState:UIControlStateNormal];
             }else{
                 [[cell commentButton] setBackgroundImage:[UIImage imageNamed:@"comment_icon_on"] forState:UIControlStateNormal];
