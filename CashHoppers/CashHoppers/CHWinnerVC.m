@@ -9,6 +9,8 @@
 #import "CHWinnerVC.h"
 #import <QuartzCore/QuartzCore.h>
 #import "CHHopsManager.h"
+#import "AFNetworking.h"
+#import "CHAPIClient.h"
 
 
 @interface CHWinnerVC ()
@@ -40,7 +42,14 @@
         if (winnerDic) {
             self.dateLabel.text = [NSString stringWithFormat:@"%@ ($%i JACKPOT)", [winnerDic objectForKey:@"hop_name"], [[winnerDic objectForKey:@"cost"] intValue]];
             self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [winnerDic objectForKey:@"winners_first_name"], [winnerDic objectForKey:@"winners_last_name"]];
-
+            
+            
+            NSString *urlStr  = [CHBaseModel safeStringFrom:[winnerDic objectForKey:@"winners_avatar"] defaultValue:nil] ;
+            
+            NSURL* avatarUrl = [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:urlStr]];
+            
+           [photoImageView setImageWithURL:avatarUrl];
+            
             self.dateLabel.hidden = NO;
             self.contactAsTextView.hidden = NO;
             

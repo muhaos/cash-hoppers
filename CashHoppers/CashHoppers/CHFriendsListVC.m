@@ -201,7 +201,13 @@
             [[cell numberCommentsLabel] setHidden:YES];
             [[cell numberLikesLabel] setHidden:YES];
         } else {
-            [[cell commentButton] setBackgroundImage:[UIImage imageNamed:@"comment_icon_on"] forState:UIControlStateNormal];
+            NSLog(@"%i",[fItem.comment integerValue] );
+            if ([fItem.comment integerValue]==0) {
+                [[cell commentButton] setBackgroundImage:[UIImage imageNamed:@"comment_icon_n"] forState:UIControlStateNormal];
+            }else{
+                [[cell commentButton] setBackgroundImage:[UIImage imageNamed:@"comment_icon_on"] forState:UIControlStateNormal];
+            }
+            
             if([fItem.liked integerValue]==0){
                 [[cell likeButton] setBackgroundImage:[UIImage imageNamed:@"like_icon_off"] forState:UIControlStateNormal];
             }else{
