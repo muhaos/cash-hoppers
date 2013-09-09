@@ -240,6 +240,7 @@
 		AA9991B317734FE7005A56EF /* button_photo_border.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9991B217734FE7005A56EF /* button_photo_border.png */; };
 		AA9991B517735D6F005A56EF /* image_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9991B417735D6F005A56EF /* image_avatar.png */; };
 		AAA63986179333A200D929D6 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA63985179333A200D929D6 /* libxml2.dylib */; };
+		AAA7CABF17DE2447002BD04C /* UIImage+FixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA7CABE17DE2447002BD04C /* UIImage+FixOrientation.m */; };
 		AAABFF4C17A997D8000B6C2F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAABFF4B17A997D8000B6C2F /* Accounts.framework */; };
 		AABEE14C178AE12C008F2DD2 /* CHTradeShowEntryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AABEE14A178AE12C008F2DD2 /* CHTradeShowEntryVC.m */; };
 		AABEE14D178AE12C008F2DD2 /* CHTradeShowEntryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AABEE14B178AE12C008F2DD2 /* CHTradeShowEntryVC.xib */; };
@@ -469,6 +470,7 @@
 		567FCAE317ABDAF100F150A8 /* CHLikeNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHLikeNotification.m; sourceTree = "<group>"; };
 		567FCAE517ABDBDB00F150A8 /* CHFriendInviteAcceptedNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHFriendInviteAcceptedNotification.h; sourceTree = "<group>"; };
 		567FCAE617ABDBDD00F150A8 /* CHFriendInviteAcceptedNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHFriendInviteAcceptedNotification.m; sourceTree = "<group>"; };
+		56C5DC9A17DDF8DE00DD9F5F /* UIImage+FixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FixOrientation.h"; sourceTree = "<group>"; };
 		56D59AF31796CD4B005A05F3 /* CHBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHBaseModel.h; sourceTree = "<group>"; };
 		56D59AF41796CD4B005A05F3 /* CHBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHBaseModel.m; sourceTree = "<group>"; };
 		56D59AF61796CD6E005A05F3 /* CHHop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHop.h; sourceTree = "<group>"; };
@@ -715,6 +717,7 @@
 		AA9991B217734FE7005A56EF /* button_photo_border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_photo_border.png; sourceTree = "<group>"; };
 		AA9991B417735D6F005A56EF /* image_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_avatar.png; sourceTree = "<group>"; };
 		AAA63985179333A200D929D6 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		AAA7CABE17DE2447002BD04C /* UIImage+FixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+FixOrientation.m"; path = "../UIImage+FixOrientation.m"; sourceTree = "<group>"; };
 		AAABFF4B17A997D8000B6C2F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		AABEE149178AE12C008F2DD2 /* CHTradeShowEntryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTradeShowEntryVC.h; sourceTree = "<group>"; };
 		AABEE14A178AE12C008F2DD2 /* CHTradeShowEntryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTradeShowEntryVC.m; sourceTree = "<group>"; };
@@ -1687,6 +1690,8 @@
 		E1B074FB177B58E000D7BCD0 /* Custom Elements */ = {
 			isa = PBXGroup;
 			children = (
+				56C5DC9A17DDF8DE00DD9F5F /* UIImage+FixOrientation.h */,
+				AAA7CABE17DE2447002BD04C /* UIImage+FixOrientation.m */,
 				567BB52117BBD29C00C75F54 /* ALAssetsLibrary+CustomPhotoAlbum.h */,
 				567BB52217BBD29C00C75F54 /* ALAssetsLibrary+CustomPhotoAlbum.m */,
 				56115548179EA7CA00DAA76E /* Custom Font From Storyboard */,
@@ -2233,6 +2238,7 @@
 				AAD980EE17CF4C90004E94C9 /* CHHopAboutToEndNotification.m in Sources */,
 				AAD980F217CF9605004E94C9 /* Reachability.m in Sources */,
 				AA121E5817D0CB2000FC87BD /* CHHopShopVC.m in Sources */,
+				AAA7CABF17DE2447002BD04C /* UIImage+FixOrientation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

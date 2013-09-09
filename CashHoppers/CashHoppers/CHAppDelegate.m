@@ -16,6 +16,7 @@
 #import "CHUserManager.h"
 #import "CHMessagesManager.h"
 #import "TestFlight.h"
+#import "MKStoreManager.h"
 
 
 NSString *const FBSessionStateChangedNotification =
@@ -34,6 +35,8 @@ NSString *const FBSessionStateChangedNotification =
     
     [TestFlight takeOff:@"10699439-c03f-4eee-9e7f-9f9c879da396"];
 
+    
+    [MKStoreManager sharedManager];
     
     [self setupApperences];
    
