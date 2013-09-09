@@ -102,8 +102,10 @@
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 
-        NSDictionary* json_task = [JSON objectForKey:@"user_hop_task"];
+        NSMutableDictionary* json_task = [JSON objectForKey:@"user_hop_task"];
         if (json_task) {
+            json_task = [json_task mutableCopy];
+            [json_task setObject:_id forKey:@"id"];
             if ([CHFriendsFeedItem isValidFeedDictionary:json_task]) {
                 CHFriendsFeedItem* newFeedItem = [[CHFriendsFeedItem alloc] init];
                 [newFeedItem updateFromDictionary:json_task];

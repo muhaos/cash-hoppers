@@ -257,8 +257,6 @@
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     } else {
         CHBaseNotification* notif = [self.currentItemsList objectAtIndex:indexPath.row];
-        
-        
         [self performSegueWithIdentifier:@"news_feed_segue" sender:notif];
     }
     
