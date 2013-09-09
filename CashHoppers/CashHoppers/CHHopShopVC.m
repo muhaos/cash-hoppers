@@ -89,6 +89,7 @@
      }
                                    onCancelled:^
      {
+         button.enabled = YES;
          [[CHLoadingVC sharedLoadingVC] hide];
      }];
 }
