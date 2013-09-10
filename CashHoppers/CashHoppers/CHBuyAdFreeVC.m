@@ -44,8 +44,6 @@
 
 
 - (void) refreshBalance {
-    NSLog(@"AD ENABLE: %d", [[CHUserManager instance].currentUser.adEnabled intValue]);
-    
     if ([[CHUserManager instance].currentUser.adEnabled intValue] == NO) {
         self.balanceLabel.text = @"Already buyed!";
         self.buyNowButton.hidden = YES;
@@ -87,9 +85,7 @@
             [av show];
         } else {
             [CHUserManager instance].currentUser.adEnabled = [NSNumber numberWithInt:0];
-            [[CHUserManager instance] updateUserSettingsWithCompletionBlock:^(NSError* error){
-            
-            }];
+            [[CHUserManager instance] updateCurrentUser];
         }
         [self refreshBalance];
         [[CHLoadingVC sharedLoadingVC] hide];

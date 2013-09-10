@@ -30,7 +30,7 @@
     self.avatarUrlString = [CHBaseModel safeStringFrom:[dic objectForKey:@"avatar"] defaultValue:@""];
     self.friends_count = [CHBaseModel safeNumberFrom:[dic objectForKey:@"friends_count"] defaultValue:@0];
     self.friendship_status = [CHBaseModel safeStringFrom:[dic objectForKey:@"friendship_status"] defaultValue:nil];
-    self.adEnabled = [CHBaseModel safeNumberFrom:[dic objectForKey:@"ad_enabled"] defaultValue:[NSNumber numberWithInt:1]];
+    self.adEnabled = [CHBaseModel safeNumberFrom:[dic objectForKey:@"ad_enable"] defaultValue:@NO];
 }
 
 
