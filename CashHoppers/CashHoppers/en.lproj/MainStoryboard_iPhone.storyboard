@@ -1645,7 +1645,7 @@
             <objects>
                 <viewController id="OtY-Mi-bR2" customClass="CHAddFriendVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nI1-wd-KsW">
-                        <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="836"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="mhL-Jd-Gsa">
@@ -1956,6 +1956,22 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans-Bold"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pRC-jK-hqj">
+                                        <rect key="frame" x="84" y="630" width="152" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <inset key="imageEdgeInsets" minX="16" minY="10" maxX="16" maxY="10"/>
+                                        <state key="normal" title="Button" image="button_add_friend.png" backgroundImage="yellow_button.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addFriendButtonTapped:" destination="jPZ-MB-CzT" eventType="touchUpInside" id="MHh-F1-GoU"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <connections>
@@ -1970,6 +1986,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="addComentTextView" destination="lWC-Or-y08" id="hJ5-pw-pxE"/>
+                        <outlet property="addFriendButton" destination="pRC-jK-hqj" id="Tm0-3i-WPc"/>
                         <outlet property="commentTable" destination="ZPQ-0e-FFT" id="4Ho-LN-VvB"/>
                         <outlet property="countCommentLabel" destination="JLQ-S2-oq4" id="0qd-d1-FUc"/>
                         <outlet property="countLikeLabel" destination="A9C-BF-D9o" id="uYL-da-jVq"/>
@@ -1983,6 +2000,7 @@
                         <outlet property="postCommentButton" destination="drX-Sw-w0P" id="NTa-aj-HSJ"/>
                         <outlet property="taskCompletedLabel" destination="5Fo-RY-pO2" id="FsE-M9-5BH"/>
                         <outlet property="timeLabel" destination="GS6-tf-QH7" id="PP9-rM-Cvl"/>
+                        <segue destination="OtY-Mi-bR2" kind="push" identifier="detail_add_friend" id="m1v-68-Zev"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ko6-fb-3wG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4616,6 +4634,7 @@
         <image name="buton_cancel_reclama.png" width="32" height="32"/>
         <image name="button_accept.png" width="86" height="34"/>
         <image name="button_add_as_friend.png" width="255" height="68"/>
+        <image name="button_add_friend.png" width="156" height="37"/>
         <image name="button_decline.png" width="86" height="34"/>
         <image name="button_facebook.png" width="497" height="81"/>
         <image name="button_forget_passwd.png" width="345" height="25"/>
@@ -4671,10 +4690,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="iNc-aT-tqd"/>
+        <segue reference="Bjs-zb-Rk3"/>
+        <segue reference="m1v-68-Zev"/>
         <segue reference="gri-tX-sSQ"/>
         <segue reference="Wv3-IZ-arJ"/>
-        <segue reference="dQd-F6-f2d"/>
-        <segue reference="Bjs-zb-Rk3"/>
-        <segue reference="iNc-aT-tqd"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -29,9 +29,11 @@
 @property (strong, nonatomic) NSMutableArray *comments;
 @property (assign, nonatomic) CHFriendsFeedItem *feedItem;
 @property (strong, nonatomic) IBOutlet UIButton *likeButton;
+@property (strong, nonatomic) IBOutlet UIButton *addFriendButton;
 
 - (IBAction)likePressed:(id)sender;
 - (IBAction)postCommentTapped:(id)sender;
 - (IBAction)scrollViewTapped:(id)sender;
+- (IBAction)addFriendButtonTapped:(id)sender;
 
 @end
