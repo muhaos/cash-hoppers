@@ -29,21 +29,12 @@ static CHAdvertisingVC* vc = nil;
 
 - (void) showAdsWithType:(NSString*) adsType andHopID:(NSNumber*) hopID {
     
-    if ([CHUserManager instance].userSettings == nil) {
-        [[CHUserManager instance] updateUserSettingsWithCompletionBlock:^(NSError* error){
-        }];
+    if ([CHUserManager instance].currentUser == nil) {
+        [[CHUserManager instance] updateCurrentUser];
     } else {
-        NSLog(@"AD ENABLE: %d", [[CHUserManager instance].currentUser.adEnabled intValue]);
         if ([[CHUserManager instance].currentUser.adEnabled intValue] == NO) {
             return;
         }
-        
-        CHUser* curUser = [CHUserManager instance].currentUser;
-    
-        [[CHUserManager instance] loadUserForID:curUser.identifier completionHandler:^(CHUser* user) {
-            
-        }];
-
     }
     
     if (vc) {

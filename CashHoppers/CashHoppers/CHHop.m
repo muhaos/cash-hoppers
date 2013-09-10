@@ -51,6 +51,9 @@
 
 
 - (BOOL) isAllTasksCompleted {
+    if (self.tasks == nil || [self.tasks count] <= 0) {
+        return NO;
+    }
     for (CHHopTask* t in  self.tasks) {
         if ([t.completed boolValue] != YES) {
             return NO;
