@@ -86,41 +86,15 @@
             }
         };
         [self.currentController presentViewController:tw animated:YES completion:nil];
+    }else{
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"No Facebook Account"
+                                                     message:@"There are no Facebook accounts configured. You can add or create Facebook account in Settings."
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
     }
 
-//    id<FBOpenGraphAction> action = (id<FBOpenGraphAction>)[FBGraphObject graphObject];
-//    [action setObject:@"https://apps.notrepro.net/fbsdktoolkit/objects/book/Snow-Crash.html"forKey:@"book"];
-//    
-//    FBOpenGraphActionShareDialogParams* params = [[FBOpenGraphActionShareDialogParams alloc]init];
-//    params.actionType = @"books.reads";
-//    params.action = action;
-//    params.previewPropertyName = @"book";
-//    
-//    // Show the Share dialog if available
-//    if([FBDialogs canPresentShareDialogWithOpenGraphActionParams:params]) {
-//        
-//        [FBDialogs presentShareDialogWithOpenGraphAction:[params action]
-//                                              actionType:[params actionType]
-//                                     previewPropertyName:[params previewPropertyName]
-//                                                 handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
-//                                                     // handle response or error
-//                                                 }];
-//        
-//    }
-//    // If the Facebook app isn't available, show the Feed dialog as a fallback
-//    else {
-//        NSDictionary* params = @{@"name": @"Snow Crash",
-//                                 @"caption": @"Classic cyberpunk",
-//                                 @"description": @"In reality, Hiro Protagonist delivers pizza for Uncle Enzo's CosoNostra Pizza Inc., but in the Metaverse he's a warrior prince. ",
-//                                 @"link": @"https://apps.notrepro.net/fbsdktoolkit/objects/book/Snow-Crash.html",
-//                                 @"image": @"http://upload.wikimedia.org/wikipedia/en/d/d5/Snowcrash.jpg"};
-//        
-//        [FBWebDialogs presentFeedDialogModallyWithSession:nil
-//                                               parameters:params
-//                                                  handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
-//                                                      // handle response or error
-//                                                  }];
-//    }
 }
 
 - (IBAction)gPlusButTapped:(id)sender {
@@ -147,6 +121,13 @@
         };
 
         [self.currentController presentViewController: tweetSheet animated: YES completion: nil];
+    }else{
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"No Twitter Account"
+                                                      message:@"There are no Twitter accounts configured. You can add or create Twitter account in Settings."
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
     }
 }
 

@@ -15,6 +15,8 @@
 #import "CHHop.h"
 #import "CHFeedItemComment.h"
 #import "AFNetworking.h"
+#import "CHUserManager.h"
+#import "CHAddFriendVC.h"
 
 @interface CHDetailsFeedVC ()
 @property (assign, nonatomic) BOOL oldNavBarStatus;
@@ -58,6 +60,14 @@
     }else{
         [_likeButton setBackgroundImage:[UIImage imageNamed:@"like_icon_on"] forState:UIControlStateNormal];
     }
+    
+    if (_feedItem.user.friendship_status == nil && [_feedItem.user.identifier intValue] != [[CHUserManager instance].currentUser.identifier intValue]) {
+        self.postCommentButton.hidden = YES;
+        self.addComentTextView.hidden = YES;
+    } else {
+        self.addFriendButton.hidden = YES;
+    }
+    
     [self reloadData];
     [self registerForNotifications];
     
@@ -337,6 +347,7 @@
     [self setMyScroolView:nil];
     [self setLikedPersonsLabel:nil];
     [self setLikeButton:nil];
+    [self setAddFriendButton:nil];
     [super viewDidUnload];
 }
 
@@ -379,5 +390,14 @@
     [self hideKeyboard];
 }
 
+- (IBAction)addFriendButtonTapped:(id)sender {
+    [self performSegueWithIdentifier:@"detail_add_friend" sender:_feedItem.user];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"detail_add_friend"]) {
+        ((CHAddFriendVC*)segue.destinationViewController).currentUser = sender;
+    }
+}
 
 @end

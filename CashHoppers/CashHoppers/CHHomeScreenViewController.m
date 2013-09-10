@@ -115,6 +115,11 @@
 //        [av show];
         }];
         [operation start];
+    }else{
+        CGRect newFrame = self.scrollView.frame;
+        newFrame.origin.y -= 40;
+        newFrame.size.height += 40;
+        self.scrollView.frame = newFrame;
     }
 }
 
