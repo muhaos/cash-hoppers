@@ -12,8 +12,10 @@
 
 @interface CHNewHopNotification : CHBaseNotification
 
-@property (nonatomic, retain) NSString *hopName;
-@property (nonatomic, retain) NSString* hopLogoURLString;
+@property (nonatomic, strong) NSString *hopName;
+@property (nonatomic, strong) NSString* hopLogoURLString;
+@property (nonatomic, strong) NSNumber *hopID;
+@property (nonatomic, strong) NSNumber *isDailyHop;
 
 - (NSAttributedString*) notificationDescription;
 - (void) updateFromDictionary:(NSDictionary*) dic;

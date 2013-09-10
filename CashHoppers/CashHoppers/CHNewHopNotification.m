@@ -19,13 +19,15 @@
     hopDic = [dic objectForKey:@"hop"];
     self.hopName = [hopDic objectForKey:@"name"];
     self.userAvatarURLString = [CHBaseModel safeStringFrom:[hopDic objectForKey:@"logo"] defaultValue:nil];
+    self.hopID = [hopDic objectForKey:@"id"];
+    self.isDailyHop = [hopDic objectForKey:@"daily"];
 }
 
 
 - (NSAttributedString*) notificationDescription {
     NSString* resultStr = nil;
     resultStr = [NSString stringWithFormat:@"The \"%@\" hop start.", self.hopName];
-    return [self attributedString:resultStr withBoldString:nil];
+    return [self attributedString:resultStr withBoldString:self.hopName];
 }
 
 

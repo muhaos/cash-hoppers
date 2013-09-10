@@ -23,6 +23,7 @@ extern NSString *const FBSessionStateChangedNotification;
 @property (strong, nonatomic) MFSideMenuContainerViewController *menuContainerVC;
 @property (nonatomic, assign) BOOL needOpenDailyHops; // for hops chooser
 @property (nonatomic, assign) BOOL needOpenOtherHops;
+@property (nonatomic, strong) NSNumber* needOpenHopWithID;
 @property (nonatomic, assign) BOOL needOpenFriendsFeed; // for tab bar button
 @property (strong, nonatomic) NSString *loggedInUserID;
 @property (strong, nonatomic) FBSession *loggedInSession;

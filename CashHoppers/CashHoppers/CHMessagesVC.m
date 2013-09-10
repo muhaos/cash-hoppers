@@ -18,6 +18,8 @@
 #import "CHUserManager.h"
 #import "CHAppDelegate.h"
 #import "MFSideMenuContainerViewController.h"
+#import "MHCustomTabBarController.h"
+
 
 
 @interface CHMessagesVC () <CHMessagesCellDelegate>
@@ -184,10 +186,13 @@
         switch (notif.notificationType) {
             case CHNotificationTypeNone:
             case CHNotificationTypeMessage:
-            case CHNotificationTypeNewHop:
             case CHNotificationTypeHopAboutToEnd:{
                 [[cell likeCommentImageView] setHidden:YES];
                 [cell setAccessoryType:UITableViewCellAccessoryNone];
+                break;
+            }
+            case CHNotificationTypeNewHop: {
+                [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
                 break;
             }
             case CHNotificationTypeFriendInvite: {
@@ -232,11 +237,11 @@
         switch (notif.notificationType) {
             case CHNotificationTypeMessage:
             case CHNotificationTypeHopAboutToEnd:
-            case CHNotificationTypeNewHop:
             case CHNotificationTypeFriendInvite: {
                 return nil;
             }
             case CHNotificationTypeComment:
+            case CHNotificationTypeNewHop:
             case CHNotificationTypeLike: {
                 return indexPath;
             }
@@ -256,8 +261,20 @@
         [self performSegueWithIdentifier:@"individual_message" sender:message.friend_id];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     } else {
+        
         CHBaseNotification* notif = [self.currentItemsList objectAtIndex:indexPath.row];
-        [self performSegueWithIdentifier:@"news_feed_segue" sender:notif];
+        if (notif.notificationType == CHNotificationTypeNewHop) {
+            CHNewHopNotification* n = (CHNewHopNotification*)notif;
+            DELEGATE.needOpenHopWithID = n.hopID;
+            if ([n.isDailyHop boolValue]) {
+                DELEGATE.needOpenDailyHops = YES;
+            } else {
+                DELEGATE.needOpenOtherHops = YES;
+            }
+            [DELEGATE.tabBarController performSegueWithIdentifier:@"homeScreen" sender:nil];
+        } else {
+            [self performSegueWithIdentifier:@"news_feed_segue" sender:notif];
+        }
     }
     
 }

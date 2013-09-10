@@ -81,10 +81,32 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     self.oldNavBarStatus = self.navigationController.navigationBarHidden;
     
     [self updateTable];
 
+    
+    if (DELEGATE.needOpenHopWithID != nil) {
+        NSIndexPath* ip = nil;
+        for (CHHop* h in self.currentHopsList) {
+            if ([h.identifier intValue] == [DELEGATE.needOpenHopWithID intValue]) {
+                ip = [NSIndexPath indexPathForRow:[self.currentHopsList indexOfObject:h] inSection:0];
+                [self tableView:self.otherHopsTable didSelectRowAtIndexPath:ip];
+            }
+        }
+        if (ip == nil) {
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Hop not found!"
+                                                         message:@""
+                                                        delegate:nil
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil];
+            [av show];
+        }
+        DELEGATE.needOpenHopWithID = nil;
+    }
+    
+    
     self.needShowAD = YES;
     if (self.isDailyHops) {
         [[CHHopsManager instance] refreshDailyHops];
