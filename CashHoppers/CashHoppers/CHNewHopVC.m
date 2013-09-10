@@ -293,6 +293,7 @@
 
 
 - (void) adsClosedTapped {
+    [CHSharingPopupVC instance].imageToShareURL = self.currentHopTask.photoURL;
     [CHSharingPopupVC instance].hopTaskID = self.currentHopTask.identifier;
     [CHSharingPopupVC instance].imageToShare = self.photoImView.image;
     [[CHSharingPopupVC instance]showInController:self.parentViewController.parentViewController];
