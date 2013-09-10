@@ -264,6 +264,9 @@
                 [self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier];
                 [self saveImageCopyToGalery];
                 self.submitButton.hidden = YES;
+                self.textView.editable = NO;
+                self.textView.textColor = [UIColor darkGrayColor];
+                self.sharingView.hidden = NO;
             }
             [[CHLoadingVC sharedLoadingVC] hide];
         }];
