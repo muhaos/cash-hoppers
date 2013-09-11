@@ -41,6 +41,13 @@ NSString *const FBSessionStateChangedNotification =
     [self setupApperences];
    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:[NSBundle mainBundle]];
+    
+    self.loginExpiredNotif = [[NSNotificationCenter defaultCenter] addObserverForName:CH_LOGIN_EXPIRED object:nil queue:nil usingBlock:^(NSNotification* note) {
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:@"a_token"] != nil) {
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"a_token"];
+            self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"main_login_vc"];
+        }
+    }];
 
     self.menuContainerVC = [storyboard instantiateViewControllerWithIdentifier:@"MFSideMenuContainerViewController"];
     UIViewController *tabBarVC = [storyboard instantiateViewControllerWithIdentifier:@"tabBar"];

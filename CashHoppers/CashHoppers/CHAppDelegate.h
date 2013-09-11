@@ -13,6 +13,10 @@
 
 extern NSString *const FBSessionStateChangedNotification;
 
+
+#define CH_LOGIN_EXPIRED @"CH_LOGIN_EXPIRED"
+
+
 @class MHCustomTabBarController, ACAccount,MFSideMenuContainerViewController;
 @interface CHAppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate>
 
@@ -30,6 +34,7 @@ extern NSString *const FBSessionStateChangedNotification;
 @property (nonatomic, assign) BOOL appUsageCheckEnabled;
 @property (assign, nonatomic) NetworkStatus netStatus;
 @property (strong, nonatomic) Reachability  *hostReach;
+@property (strong, nonatomic) id loginExpiredNotif;
 
 - (void)updateInterfaceWithReachability:(Reachability*) curReach;
 - (void)switchViewTo:(enum CHView)view;
