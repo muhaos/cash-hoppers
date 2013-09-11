@@ -530,6 +530,14 @@ didDismissWithButtonIndex:(NSInteger)buttonIndex {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     // We need to properly handle activation of the application with regards to SSO
     // (e.g., returning from iOS 6.0 authorization dialog or from fast app switching).
+    if (self.startVC != nil) {
+        CHStartVC* vc = self.startVC;
+        if (vc.needOpenFacebookAdditionalPage) {
+            [vc userFacebookDetails];
+        }
+    }
+    
+    
     [FBAppCall handleDidBecomeActive];
     if (self.appUsageCheckEnabled && [self checkAppUsageTrigger]) {
         [NSTimer scheduledTimerWithTimeInterval:0.2

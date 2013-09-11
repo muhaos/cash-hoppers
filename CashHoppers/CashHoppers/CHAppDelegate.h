@@ -21,6 +21,7 @@ extern NSString *const FBSessionStateChangedNotification;
 @interface CHAppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) id startVC;
 @property (strong, nonatomic) MHCustomTabBarController *tabBarController;
 @property (strong, nonatomic) CHHomeScreenViewController *homeScreenVC;
 @property (strong, nonatomic) UINavigationController* navController;

@@ -16,5 +16,8 @@ static NSString * const kClientId = @"726071056773.apps.googleusercontent.com";
 
 @interface CHStartVC : UIViewController <GPPSignInDelegate,FHSTwitterEngineAccessTokenDelegate>
 
+@property (nonatomic, assign) BOOL needOpenFacebookAdditionalPage;
+
+- (void)userFacebookDetails;
 
 @end
