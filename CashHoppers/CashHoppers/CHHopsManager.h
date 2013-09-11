@@ -35,4 +35,6 @@
 
 - (void) scoreForHopID:(NSNumber*) _id completionHandler:(void (^)(NSNumber* score, NSNumber* rank, NSNumber* hoppers_count)) handler;
 
+- (void) loadTasksForHop:(CHHop*) hop completionHandler:(void (^)(CHHop* hop)) handler;
+
 @end

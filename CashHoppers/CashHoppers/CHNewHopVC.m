@@ -261,12 +261,22 @@
         [[CHHopsManager instance] completeHopTask:self.currentHopTask withPhoto:[photoImView.image normalizedImage] comment:_textView.text completionHandler:^(BOOL success) {
             if (success) {
                 self.currentHopTask.completed = @YES;
-                [self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier];
                 [self saveImageCopyToGalery];
                 self.submitButton.hidden = YES;
                 self.textView.editable = NO;
                 self.textView.textColor = [UIColor darkGrayColor];
                 self.sharingView.hidden = NO;
+
+                if ([self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier]) {
+                } else {
+                    [CHSharingPopupVC instance].hopTaskID = self.currentHopTask.identifier;
+                    [CHSharingPopupVC instance].imageToShare = self.photoImView.image;
+                    [[CHSharingPopupVC instance]showInController:self.parentViewController.parentViewController];
+                }
+                
+                [[CHHopsManager instance] loadTasksForHop:self.currentHopTask.hop completionHandler:^(CHHop* hop){
+                
+                }];
             }
             [[CHLoadingVC sharedLoadingVC] hide];
         }];

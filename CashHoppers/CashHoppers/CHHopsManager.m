@@ -131,10 +131,10 @@
 
 - (void) loadTasksForHop:(CHHop*) hop completionHandler:(void (^)(CHHop* hop)) handler {
     
-    if (hop.tasks != nil &&  hop.tasks.count > 0) {
-        handler(hop);
-        return;
-    }
+//    if (hop.tasks != nil &&  hop.tasks.count > 0) {
+//        handler(hop);
+//        return;
+//    }
     
     
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];

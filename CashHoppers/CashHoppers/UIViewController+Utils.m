@@ -27,13 +27,13 @@
 
 static CHAdvertisingVC* vc = nil;
 
-- (void) showAdsWithType:(NSString*) adsType andHopID:(NSNumber*) hopID {
+- (BOOL) showAdsWithType:(NSString*) adsType andHopID:(NSNumber*) hopID {
     
     if ([CHUserManager instance].currentUser == nil) {
         [[CHUserManager instance] updateCurrentUser];
     } else {
         if ([[CHUserManager instance].currentUser.adEnabled intValue] == NO) {
-            return;
+            return NO;
         }
     }
     
@@ -61,6 +61,8 @@ static CHAdvertisingVC* vc = nil;
         r.size.height -= offset;
         vc.container.frame = r;
     }
+    
+    return YES;
 }
 
 
