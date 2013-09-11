@@ -30,7 +30,17 @@
 
 
 - (void) initCacheWithName:(NSString*) cacheName andExpirationTime:(NSTimeInterval) expirationTime {
-    [self.caches setObject:@{@"objects":[NSMutableArray new], @"expiration": [NSNumber numberWithDouble:expirationTime]} forKey:cacheName];
+    [self.caches setObject:[@{@"objects":[NSMutableArray new], @"expiration": [NSNumber numberWithDouble:expirationTime]} mutableCopy] forKey:cacheName];
+}
+
+
+- (void) clearCacheWithName:(NSString*) cacheName {
+    NSMutableDictionary* cache = [self.caches objectForKey:cacheName];
+    if (cache == nil) {
+        @throw [NSException exceptionWithName:@"CHBaseManager" reason:[NSString stringWithFormat:@"Can't clear uninitialized cache \"%@\"", cacheName] userInfo:nil];
+    }
+    
+    [cache setObject:[NSMutableArray new] forKey:@"objects"];
 }
 
 

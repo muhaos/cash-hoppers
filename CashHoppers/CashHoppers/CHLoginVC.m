@@ -12,6 +12,8 @@
 #import "CHAppDelegate.h"
 #import "CHUserManager.h"
 #import "MFSideMenuContainerViewController.h"
+#import "CHHopsManager.h"
+
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
@@ -181,6 +183,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
             if(success == 1){
                 message = @"Login successfull!";
+                
+                [[CHUserManager instance] clearCacheWithName:@"users"];
+                [[CHHopsManager instance] clearCacheWithName:@"hops"];
+                
+                
                 [self goToTabBar];
                 
             }else{

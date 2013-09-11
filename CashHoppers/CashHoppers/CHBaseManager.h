@@ -27,7 +27,7 @@
 - (CHBaseModel*) findObjectWithID:(NSNumber*) _id inCache:(NSString*) cacheName;
 - (void) putObject:(CHBaseModel*)obj intoCache:(NSString*) cacheName;
 - (void) removeObjectWithID:(NSNumber*) _id fromCache:(NSString*) cacheName;
-
+- (void) clearCacheWithName:(NSString*) cacheName;
 
 
 @end
