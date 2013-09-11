@@ -99,8 +99,8 @@
 -(void)resizeViewToNormalSize{
     CGRect newFrame = [UIApplication sharedApplication].keyWindow.frame;
     newFrame.size.height -= 110;
-    [UIView animateWithDuration:.3 animations:^{
-        self.view.frame = newFrame;
+    [UIView animateWithDuration:0.3f animations:^{
+        self.myScroolView.frame = newFrame;
     }];
 }
 
@@ -108,8 +108,8 @@
     
     CGRect newFrame = self.view.frame;
     newFrame.size.height -= [self keyboardSize].height;
-    [UIView animateWithDuration:.2 animations:^{
-        self.view.frame = newFrame;
+    [UIView animateWithDuration:0.2f animations:^{
+        self.myScroolView.frame = newFrame;
     }completion:^(BOOL finished) {
         [_myScroolView scrollRectToVisible:_postCommentButton.frame animated:YES];
     }];
@@ -390,14 +390,17 @@
     [self hideKeyboard];
 }
 
+
 - (IBAction)addFriendButtonTapped:(id)sender {
     [self performSegueWithIdentifier:@"detail_add_friend" sender:_feedItem.user];
 }
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"detail_add_friend"]) {
         ((CHAddFriendVC*)segue.destinationViewController).currentUser = sender;
     }
 }
+
 
 @end

@@ -1645,7 +1645,7 @@
             <objects>
                 <viewController id="OtY-Mi-bR2" customClass="CHAddFriendVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nI1-wd-KsW">
-                        <rect key="frame" x="0.0" y="64" width="320" height="836"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="856"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="mhL-Jd-Gsa">
@@ -1740,7 +1740,7 @@
             <objects>
                 <viewController storyboardIdentifier="DetailFeedVC" id="jPZ-MB-CzT" customClass="CHDetailsFeedVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BRh-qX-Sku">
-                        <rect key="frame" x="0.0" y="64" width="320" height="900"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="iYL-i3-iPO">
@@ -1931,7 +1931,7 @@
                                         </connections>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="drX-Sw-w0P">
-                                        <rect key="frame" x="43" y="770" width="234" height="44"/>
+                                        <rect key="frame" x="43" y="760" width="234" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -4690,10 +4690,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="iNc-aT-tqd"/>
         <segue reference="Bjs-zb-Rk3"/>
-        <segue reference="m1v-68-Zev"/>
         <segue reference="gri-tX-sSQ"/>
+        <segue reference="SWG-0R-sWo"/>
+        <segue reference="m1v-68-Zev"/>
         <segue reference="Wv3-IZ-arJ"/>
     </inferredMetricsTieBreakers>
 </document>

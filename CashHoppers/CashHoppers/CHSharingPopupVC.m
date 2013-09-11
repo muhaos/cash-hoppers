@@ -10,6 +10,7 @@
 #import <Social/Social.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "CHHopsManager.h"
+#import "CHNewHopVC.h"
 
 @interface CHSharingPopupVC ()
 
@@ -98,11 +99,10 @@
 }
 
 - (IBAction)gPlusButTapped:(id)sender {
-    
     [GPPShare sharedInstance].delegate = self;
     id<GPPShareBuilder> shareBuilder = [[GPPShare sharedInstance] shareDialog];
     [shareBuilder setPrefillText:@"CASHHOPPERS"];
-    [shareBuilder setURLToShare:[NSURL URLWithString:@"http://www.stti.com.tw/products/Gas_Gun/Non%20Blowback/b/GGH-9502.jpg"]];
+    [shareBuilder setURLToShare:self.imageToShareURL];
     [shareBuilder open];
     
 }
