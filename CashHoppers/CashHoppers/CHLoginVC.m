@@ -184,8 +184,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
                 [self goToTabBar];
                 
             }else{
-              //  message = [NSString stringWithFormat:@"Login unsuccessfull: %@",[JSON objectForKey:@"errors"]];
-                message = [NSString stringWithFormat:@"Login failed - wrong email or password"];
+                message = [NSString stringWithFormat:@"Login unsuccessfull: %@",[JSON objectForKey:@"errors"]];
+              //  message = [NSString stringWithFormat:@"Login failed - wrong email or password"];
                 UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"LOGIN" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
                 
                 [av show];
