@@ -86,7 +86,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     }
     [[CHUserManager instance] updateUserProfileWithUser:user newPassword:newPassword newAvatar:self.changedAvatarImage completionHandler:^(NSError* error) {
         if (error != nil) {
-            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"Can't save profile" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [av show];
         } else {
             UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"PROFILE" message:@"Profile updated!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
