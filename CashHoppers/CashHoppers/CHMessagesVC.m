@@ -71,7 +71,6 @@
         }
         
     }];
-    
 }
 
 
@@ -162,7 +161,7 @@
 
         NSString* friendName = [NSString stringWithFormat:@"%@ %@", message.friend_first_name, message.friend_last_name];
         [[cell nameLabel] setText:friendName];
-        [[cell photoImageView] setImageWithURL:[message friendAvatarURL]];
+        [[cell photoImageView] setImageWithURL:[message friendAvatarURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
         [cell setDefaultAttributedTextForString:message.text];
         cell.timeLabel.text = [NSString stringWithFormat:@"%@ ago", message.time_ago];
         [[cell likeCommentImageView] setHidden:NO];
@@ -175,9 +174,9 @@
         
         [[cell nameLabel] setText: notif.userName];
         
-        [[cell photoImageView] setImageWithURL: [notif userAvatarURL]];
+        [[cell photoImageView] setImageWithURL: [notif userAvatarURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
         if (notif.notificationType == CHNotificationTypeNewHop) {
-            [[cell photoImageView] setImageWithURL: [notif userAvatarURL ]];
+            [[cell photoImageView] setImageWithURL: [notif userAvatarURL ] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
         }
         
         cell.messageLabel.attributedText = [notif notificationDescription];

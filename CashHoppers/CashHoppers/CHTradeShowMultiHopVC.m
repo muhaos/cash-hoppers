@@ -37,7 +37,7 @@
     self.scoreLabel.text = @"550 pts";
     self.rankLabel.text = @"3 of 46";
     self.grandPrizeLabel.text = [NSString stringWithFormat:@"$%i", [self.currentHop.jackpot intValue]];
-    [self.hopImageView setImageWithURL:[self.currentHop logoURL]];
+    [self.hopImageView setImageWithURL:[self.currentHop logoURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
     
     self.hopsTasksUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_HOPS_TASKS_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
         // refresh

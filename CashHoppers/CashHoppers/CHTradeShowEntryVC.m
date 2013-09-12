@@ -24,7 +24,7 @@
     [super viewDidLoad];
 
     tradeShowLabel.text = self.currentHop.name;
-    [tradeShowImageView setImageWithURL: [self.currentHop logoURL]];
+    [tradeShowImageView setImageWithURL: [self.currentHop logoURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
 }
 
 - (void)didReceiveMemoryWarning

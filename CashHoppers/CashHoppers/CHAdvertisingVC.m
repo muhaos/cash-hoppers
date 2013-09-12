@@ -72,8 +72,7 @@ static BOOL isAdsShowed = false;
 - (void) setupADS {
     
     NSURL* imageURL = [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:self.adsImageUrlString]];
-    [self.reclamaImageView setImageWithURL:imageURL];
-
+    [self.reclamaImageView setImageWithURL:imageURL placeholderImage:[UIImage imageNamed: @"spinner.png"]];
 }
 
 

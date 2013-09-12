@@ -85,12 +85,12 @@
     [super viewWillAppear:animated];
     self.submitButton.hidden = [self.currentHopTask.completed boolValue];
     self.hopTitleLabel.text = [NSString stringWithFormat:@"%@   %@", self.currentHopTask.hop.name, [self.currentHopTask.hop dateString]];
-    [self.taskLogoImageView setImageWithURL:[self.currentHopTask logoURL]];
+    [self.taskLogoImageView setImageWithURL:[self.currentHopTask logoURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
     
     [self setHopTaskName:[NSString stringWithFormat:@"%@: %@", self.currentHopTask.hop.name, self.currentHopTask.text] withBoldString:self.currentHopTask.hop.name];
     if ([self.currentHopTask.completed boolValue] == YES) {
         self.textView.text = self.currentHopTask.comment;
-        [self.photoImView setImageWithURL:[self.currentHopTask photoURL]];
+        [self.photoImView setImageWithURL:[self.currentHopTask photoURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
         self.textView.editable = NO;
         self.textView.textColor = [UIColor darkGrayColor];
         self.sharingView.hidden = NO;

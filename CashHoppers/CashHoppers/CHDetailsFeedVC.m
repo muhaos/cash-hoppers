@@ -38,7 +38,7 @@
     self.photoPersonImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:_feedItem.user.avatarURL]];
     self.nameHopLabel.text = _feedItem.hop.name;
     self.taskCompletedLabel.text = _feedItem.completedTaskName;
-    [self.photoHopImageView setImageWithURL:_feedItem.hopImageURL];
+    [self.photoHopImageView setImageWithURL:_feedItem.hopImageURL placeholderImage:[UIImage imageNamed: @"spinner.png"]];
     self.countLikeLabel.text = [_feedItem.numberOfLikes stringValue];
     _timeLabel.text = [NSString stringWithFormat:@"%@ ago", _feedItem.time_ago];
     
@@ -64,6 +64,10 @@
     if (_feedItem.user.friendship_status == nil && [_feedItem.user.identifier intValue] != [[CHUserManager instance].currentUser.identifier intValue]) {
         self.postCommentButton.hidden = YES;
         self.addComentTextView.hidden = YES;
+        [_likeButton setBackgroundImage:[UIImage imageNamed:@"like_icon_on"] forState:UIControlStateNormal];
+        if (self.comments.count == 0) {
+            self.addFriendButton.frame = CGRectMake(95, 500, 152, 44);
+        }
     } else {
         self.addFriendButton.hidden = YES;
     }

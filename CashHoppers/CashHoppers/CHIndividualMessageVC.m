@@ -144,7 +144,7 @@
         NSString* friendName = [NSString stringWithFormat:@"%@ %@", message.senderUser.first_name, message.senderUser.last_name];
         cell.nameLabel.text = friendName;
     }
-    [cell.avatarImageView setImageWithURL:[message.senderUser avatarURL]];
+    [cell.avatarImageView setImageWithURL:[message.senderUser avatarURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
     cell.messageTextView.text = message.text;
     cell.timeLabel.text = [NSString stringWithFormat:@"%@ ago", message.time_ago];
 
