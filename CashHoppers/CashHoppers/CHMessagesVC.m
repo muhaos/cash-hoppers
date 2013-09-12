@@ -191,6 +191,7 @@
                 break;
             }
             case CHNotificationTypeNewHop: {
+                [[cell likeCommentImageView] setHidden:YES];
                 [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
                 break;
             }

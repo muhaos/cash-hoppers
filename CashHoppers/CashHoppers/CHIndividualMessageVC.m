@@ -97,7 +97,9 @@
     [[CHMessagesManager instance] loadMessagesHistoryForFriendID:self.currentFriendID withCompletionHandler:^(NSArray* messages){
         self.currentMessagesList = [messages mutableCopy];
         [self.messagesTable reloadData];
-        [self.messagesTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.currentMessagesList count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:self.needAnimatedScroll];
+        if ([self.currentMessagesList count] > 0) {
+            [self.messagesTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.currentMessagesList count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:self.needAnimatedScroll];
+        }
         self.needAnimatedScroll = YES;
     }];
 }
