@@ -64,6 +64,7 @@
     if (_feedItem.user.friendship_status == nil && [_feedItem.user.identifier intValue] != [[CHUserManager instance].currentUser.identifier intValue]) {
         self.postCommentButton.hidden = YES;
         self.addComentTextView.hidden = YES;
+        [_likeButton setBackgroundImage:[UIImage imageNamed:@"like_icon_on"] forState:UIControlStateNormal];
         if (self.comments.count == 0) {
             self.addFriendButton.frame = CGRectMake(95, 500, 152, 44);
         }
