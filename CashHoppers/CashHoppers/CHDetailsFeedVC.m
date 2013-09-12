@@ -379,13 +379,13 @@
                 [likersSrt appendString:@", "];
             }
         }
-        
+       
         if (likersSrt.length == 0){
-            [likersSrt appendFormat:@"%@ %@ ",self.feedItem.user.first_name, self.feedItem.user.last_name];
+            [likersSrt appendFormat:@"%@ %@ ",[CHUserManager instance].currentUser.first_name , [CHUserManager instance].currentUser.last_name];
         }else{
-            [likersSrt appendFormat:@"%@, %@ %@ ", likersSrt, self.feedItem.user.first_name, self.feedItem.user.last_name];
+            [likersSrt appendFormat:@", %@ %@ ", [CHUserManager instance].currentUser.first_name , [CHUserManager instance].currentUser.last_name];
         }
-        
+
         self.likedPersonsLabel.text = likersSrt;
     }
 }
