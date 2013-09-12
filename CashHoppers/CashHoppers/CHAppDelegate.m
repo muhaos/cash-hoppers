@@ -41,6 +41,13 @@ NSString *const FBSessionStateChangedNotification =
     [self setupApperences];
    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:[NSBundle mainBundle]];
+    
+    self.loginExpiredNotif = [[NSNotificationCenter defaultCenter] addObserverForName:CH_LOGIN_EXPIRED object:nil queue:nil usingBlock:^(NSNotification* note) {
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:@"a_token"] != nil) {
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"a_token"];
+            self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"main_login_vc"];
+        }
+    }];
 
     self.menuContainerVC = [storyboard instantiateViewControllerWithIdentifier:@"MFSideMenuContainerViewController"];
     UIViewController *tabBarVC = [storyboard instantiateViewControllerWithIdentifier:@"tabBar"];
@@ -523,6 +530,14 @@ didDismissWithButtonIndex:(NSInteger)buttonIndex {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     // We need to properly handle activation of the application with regards to SSO
     // (e.g., returning from iOS 6.0 authorization dialog or from fast app switching).
+    if (self.startVC != nil) {
+        CHStartVC* vc = self.startVC;
+        if (vc.needOpenFacebookAdditionalPage) {
+            [vc userFacebookDetails];
+        }
+    }
+    
+    
     [FBAppCall handleDidBecomeActive];
     if (self.appUsageCheckEnabled && [self checkAppUsageTrigger]) {
         [NSTimer scheduledTimerWithTimeInterval:0.2

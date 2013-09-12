@@ -10,6 +10,8 @@
 #import "CHBaseModel.h"
 #import "CHAPIClient.h"
 #import "CHStartVC.h"
+#import "CHAppDelegate.h"
+
 
 @interface CHBaseManager ()
 
@@ -106,6 +108,11 @@
     }
     
     NSLog(@"Can't load url: %@ \n=%@", request.URL, errMsg);
+    
+    if (response.statusCode == 401) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:CH_LOGIN_EXPIRED object:self];
+    }
+    
 //    UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't load url: %@ \n %@", request.URL, errMsg] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
 //    [av show];
 }

@@ -48,6 +48,8 @@
 {
     [super viewDidLoad];
     
+    DELEGATE.startVC = self;
+    
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg_gradient"]];
     self.view.backgroundColor = background;
     
@@ -167,6 +169,8 @@ static BOOL needLoginWithFacebook = NO;
     } else {
         needLoginWithFacebook = YES;
 
+        self.needOpenFacebookAdditionalPage = YES;
+        
         if (FBSession.activeSession.isOpen) {
             if (FBSession.activeSession.state == FBSessionStateClosedLoginFailed){
             } else {
@@ -197,6 +201,7 @@ static BOOL needLoginWithFacebook = NO;
 
 - (void)userFacebookDetails
 {
+    self.needOpenFacebookAdditionalPage = NO;
     socialNetwork = @"facebook";
     if (FBSession.activeSession.isOpen) {
         [[FBRequest requestForMe] startWithCompletionHandler:

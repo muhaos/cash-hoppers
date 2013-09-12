@@ -120,7 +120,17 @@
         handler(nil);
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
-        handler(error);
+        
+        __block NSString* errorMsg = @"Can't update profile";
+        NSDictionary* errors = [JSON objectForKey:@"errors"];
+        if (errors != nil && [errors count] > 0) {
+            errorMsg = @"";
+            [errors enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL* stop){
+                errorMsg = [errorMsg stringByAppendingFormat:@"%@ %@\n", key, obj];
+            }];
+        }
+        
+        handler([NSError errorWithDomain:@"profile update" code:0 userInfo:@{NSLocalizedDescriptionKey:errorMsg}]);
     }];
     
     [operation start];

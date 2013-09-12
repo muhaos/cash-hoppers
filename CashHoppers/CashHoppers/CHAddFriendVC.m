@@ -29,7 +29,7 @@
     [self.photoImageView setImageWithURL:self.currentUser.avatarURL];
     [self.nameLabel setText:[NSString stringWithFormat:@"%@ %@", self.currentUser.first_name, self.currentUser.last_name]];
     [self.descTextView setText:[NSString stringWithFormat:@"%@", self.currentUser.bio]];
-    [self.countFriendsLabel setText:[NSString stringWithFormat:@"%i", [self.currentUser.friends_count intValue]]];
+    [self.countFriendsLabel setText:[NSString stringWithFormat:@"%i friends", [self.currentUser.friends_count intValue]]];
     
     photoImageView.layer.cornerRadius = 4.0f;
     photoImageView.layer.masksToBounds = YES;
