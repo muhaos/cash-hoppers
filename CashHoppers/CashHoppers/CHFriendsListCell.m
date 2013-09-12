@@ -30,10 +30,12 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)commentTapped:(id)sender {
-    [self.delegate commentTappedInCell:self];
 
+- (IBAction)commentTapped:(id)sender
+{
+    [self.delegate commentTappedInCell:self];
 }
+
 
 - (IBAction)likeTapped:(id)sender
 {
