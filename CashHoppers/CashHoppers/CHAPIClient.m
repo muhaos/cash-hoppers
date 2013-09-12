@@ -2,7 +2,9 @@
 #import "AFJSONRequestOperation.h"
 #import "NSDataAdditions.h"
 
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! change port in app delegate for reachability checking!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 static NSString * const kToDoAPIBaseURLString = @"http://perechin.net:3000/";
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 @implementation CHAPIClient
 
