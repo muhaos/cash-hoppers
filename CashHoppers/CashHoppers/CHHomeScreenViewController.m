@@ -162,7 +162,7 @@
         NSString* hopName = dailyHop.name;
         NSString* hopTaskName = [dailyHop.tasks[0] text];
         [self setDailyHopTaskName:[NSString stringWithFormat:@"%@: %@", hopName, hopTaskName] withBoldString:hopName];
-        [self.dailyHopImageView setImageWithURL:[dailyHop logoURL]];
+        [self.dailyHopImageView setImageWithURL:[dailyHop logoURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
         self.dailyHopExists.hidden = (dailyHopsCount > 0);
     }
 }
@@ -183,8 +183,8 @@
         self.feedHopNameLabel.text = self.currentFeedItem.hop.name;
         self.feedHopTaskNameLabel.text = [self.currentFeedItem completedTaskName];
         self.feedTimeLabel.text = @"some time ago";
-        [self.feedHopImageView setImageWithURL:[self.currentFeedItem smallHopImageURL]];
-        [self.feedAvatarImageView setImageWithURL:[self.currentFeedItem.user avatarURL]];
+        [self.feedHopImageView setImageWithURL:[self.currentFeedItem smallHopImageURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
+        [self.feedAvatarImageView setImageWithURL:[self.currentFeedItem.user avatarURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
     } else {
         self.feedIndicator.hidden = NO;
         self.feedContainer.hidden = YES;

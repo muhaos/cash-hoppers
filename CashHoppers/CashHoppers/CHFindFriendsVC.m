@@ -236,7 +236,7 @@
     CHUser* user = self.searchResultUsers[indexPath.row];
     NSString* userName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
     [[cell nameLabel] setText:userName];
-    [[cell photoImageView] setImageWithURL:[user avatarURL]];
+    [[cell photoImageView] setImageWithURL:[user avatarURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
 
     cell.photoImageView.layer.cornerRadius = 17.0f;
     return cell;

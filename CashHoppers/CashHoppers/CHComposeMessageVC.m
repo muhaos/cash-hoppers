@@ -169,7 +169,7 @@
     CHUser* user = searchResultUsers[indexPath.row];
     NSString* userName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
     [[cell nameLabel] setText:userName];
-    [[cell photoImageView] setImageWithURL:[user avatarURL]];
+    [[cell photoImageView] setImageWithURL:[user avatarURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
     
     cell.accessoryView = nil;
     if ([selectedUserArray containsObject:user]) {
@@ -247,7 +247,7 @@
             
             selectedUserView.view.layer.cornerRadius = 2.0f;
             selectedUserView.nameLabel.text = userName;
-            [selectedUserView.photoImageView setImageWithURL:[user avatarURL]];
+            [selectedUserView.photoImageView setImageWithURL:[user avatarURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
             
             [containerView addSubview:selectedUserView.view];
             selectedUserView.view.frame = CGRectMake(i * 90+10, row * 30+5, 80, 25);

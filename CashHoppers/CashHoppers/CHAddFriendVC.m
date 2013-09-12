@@ -26,7 +26,7 @@
     [super viewDidLoad];
     [self setupTriangleBackButton];
     
-    [self.photoImageView setImageWithURL:self.currentUser.avatarURL];
+    [self.photoImageView setImageWithURL:self.currentUser.avatarURL placeholderImage:[UIImage imageNamed: @"spinner.png"]];
     [self.nameLabel setText:[NSString stringWithFormat:@"%@ %@", self.currentUser.first_name, self.currentUser.last_name]];
     [self.descTextView setText:[NSString stringWithFormat:@"%@", self.currentUser.bio]];
     [self.countFriendsLabel setText:[NSString stringWithFormat:@"%i friends", [self.currentUser.friends_count intValue]]];

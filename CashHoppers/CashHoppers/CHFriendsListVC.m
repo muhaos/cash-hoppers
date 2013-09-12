@@ -164,8 +164,8 @@
     [[cell nameHopLabel] setText:fItem.hop.name];
     [[cell timeLabel] setText:[NSString stringWithFormat:@"%@ ago", fItem.time_ago]];
     
-    [[cell photoHopImageView] setImageWithURL:[fItem smallHopImageURL]];
-    [[cell photoPersonImageView] setImageWithURL:[fItem.user avatarURL]];
+    [[cell photoHopImageView] setImageWithURL:[fItem smallHopImageURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
+    [[cell photoPersonImageView] setImageWithURL:[fItem.user avatarURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
     
     [cell photoPersonImageView].layer.cornerRadius = 21.0f;
     [cell photoPersonImageView].layer.masksToBounds = YES;

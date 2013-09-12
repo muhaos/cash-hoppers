@@ -38,7 +38,7 @@
     self.photoPersonImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:_feedItem.user.avatarURL]];
     self.nameHopLabel.text = _feedItem.hop.name;
     self.taskCompletedLabel.text = _feedItem.completedTaskName;
-    [self.photoHopImageView setImageWithURL:_feedItem.hopImageURL];
+    [self.photoHopImageView setImageWithURL:_feedItem.hopImageURL placeholderImage:[UIImage imageNamed: @"spinner.png"]];
     self.countLikeLabel.text = [_feedItem.numberOfLikes stringValue];
     _timeLabel.text = [NSString stringWithFormat:@"%@ ago", _feedItem.time_ago];
     
