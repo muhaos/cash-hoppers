@@ -10,6 +10,9 @@
 #import "CHPaymentsManager.h"
 #import "MKStoreManager.h"
 #import "CHLoadingVC.h"
+#import "CHAppDelegate.h"
+
+
 
 @interface CHHopShopVC ()
 @property (nonatomic, assign) int yourRibbits;
@@ -50,6 +53,14 @@
 
 
 - (void) buyRibbits:(NSNumber*) count sender:(UIButton*) button {
+    
+    if ([DELEGATE.serverReachability currentReachabilityStatus] == NotReachable) {
+        UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Seems like our server is offline. Try later."] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [av show];
+        return;
+    }
+    
+    
     [[CHLoadingVC sharedLoadingVC] showInController:self withText:@"Please wait..."];
     
     button.enabled = NO;

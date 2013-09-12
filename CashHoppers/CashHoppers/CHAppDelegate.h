@@ -35,7 +35,9 @@ extern NSString *const FBSessionStateChangedNotification;
 @property (nonatomic, assign) BOOL appUsageCheckEnabled;
 @property (assign, nonatomic) NetworkStatus netStatus;
 @property (strong, nonatomic) Reachability  *hostReach;
+@property (strong, nonatomic) Reachability  *serverReachability;
 @property (strong, nonatomic) id loginExpiredNotif;
+
 
 - (void)updateInterfaceWithReachability:(Reachability*) curReach;
 - (void)switchViewTo:(enum CHView)view;

@@ -17,6 +17,7 @@
 #import "CHMessagesManager.h"
 #import "TestFlight.h"
 #import "MKStoreManager.h"
+#include <netdb.h>
 
 
 NSString *const FBSessionStateChangedNotification =
@@ -78,6 +79,18 @@ NSString *const FBSessionStateChangedNotification =
                                                  name:kReachabilityChangedNotification
                                                object:nil];
     self.hostReach = [Reachability reachabilityWithHostName:@"www.apple.com"];
+    
+    
+    struct hostent *host_entry = gethostbyname([[CHAPIClient sharedClient].baseURL.host cStringUsingEncoding:NSUTF8StringEncoding]);
+    char *buff;
+    buff = inet_ntoa(*((struct in_addr *)host_entry->h_addr_list[0]));
+    
+    struct sockaddr_in anAddr;
+    anAddr.sin_family = AF_INET;
+    anAddr.sin_port = htons(3000);
+    anAddr.sin_addr.s_addr = inet_addr(buff);
+    
+    self.serverReachability = [Reachability reachabilityWithAddress:&anAddr];
     [hostReach startNotifier];
     [self updateInterfaceWithReachability: hostReach];
     
