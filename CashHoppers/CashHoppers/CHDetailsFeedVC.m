@@ -368,8 +368,25 @@
                 _feedItem.liked = @1;
                 _feedItem.numberOfLikes = @([_feedItem.numberOfLikes intValue]+1);
                 _countLikeLabel.text = [NSString stringWithFormat:@"%d", [_feedItem.numberOfLikes intValue]];
-            }
+                }
         }];
+        
+        NSMutableString *likersSrt = [NSMutableString new];
+        for (NSString* likerName in _feedItem.likers) {
+            [likersSrt appendString:likerName];
+            
+            if (likerName != [_feedItem.likers lastObject]) {
+                [likersSrt appendString:@", "];
+            }
+        }
+        
+        if (likersSrt.length == 0){
+            [likersSrt appendFormat:@"%@ %@ ",self.feedItem.user.first_name, self.feedItem.user.last_name];
+        }else{
+            [likersSrt appendFormat:@"%@, %@ %@ ", likersSrt, self.feedItem.user.first_name, self.feedItem.user.last_name];
+        }
+        
+        self.likedPersonsLabel.text = likersSrt;
     }
 }
 

@@ -261,27 +261,28 @@
 
 - (IBAction)sendMessageTapped:(id)sender
 {
-    ((UIButton*)sender).enabled = NO;
-    inputMessageTextView.editable = NO;
-    
-    NSMutableArray* recepientIDs = [NSMutableArray new];
-    
-    for (CHUser* user in selectedUserArray) {
-        [recepientIDs addObject:user.identifier];
-    }
-    
-    [[CHMessagesManager instance] postMessageWithText:inputMessageTextView.text toFriendsList:recepientIDs completionHandler:^(NSError* error){
+    if (![inputMessageTextView.text isEqualToString:@"Compose message..."]) {
+        ((UIButton*)sender).enabled = NO;
+        inputMessageTextView.editable = NO;
         
-        ((UIButton*)sender).enabled = YES;
-        inputMessageTextView.editable = YES;
-        
-        if (error == nil) {
-            inputMessageTextView.text = @"";
-            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"SUCCESS" message:@"Message sended" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            [av show];
+        NSMutableArray* recepientIDs = [NSMutableArray new];
+    
+        for (CHUser* user in selectedUserArray) {
+            [recepientIDs addObject:user.identifier];
         }
         
-    }];
+        [[CHMessagesManager instance] postMessageWithText:inputMessageTextView.text toFriendsList:recepientIDs completionHandler:^(NSError* error){
+            
+            ((UIButton*)sender).enabled = YES;
+            inputMessageTextView.editable = YES;
+        
+            if (error == nil) {
+                inputMessageTextView.text = @"";
+                UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"SUCCESS" message:@"Message sended" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                [av show];
+            }
+        }];
+    }
 }
 
 
