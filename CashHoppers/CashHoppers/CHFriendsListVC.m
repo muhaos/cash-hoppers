@@ -302,6 +302,12 @@
 }
 
 
+- (void)commentTappedInCell:(CHFriendsListCell*)cell
+{
+    [self performSegueWithIdentifier:@"detailsFeed" sender:self];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

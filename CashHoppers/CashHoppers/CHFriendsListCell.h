@@ -15,6 +15,7 @@
 
 - (void)likeTappedInCell:(CHFriendsListCell*)cell;
 - (void)addToFriendsTappedInCell:(CHFriendsListCell*)cell;
+- (void)commentTappedInCell:(CHFriendsListCell*)cell;
 
 @end
 

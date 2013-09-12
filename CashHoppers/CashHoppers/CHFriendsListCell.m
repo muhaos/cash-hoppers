@@ -31,12 +31,13 @@
 }
 
 - (IBAction)commentTapped:(id)sender {
+    [self.delegate commentTappedInCell:self];
+
 }
 
-- (IBAction)likeTapped:(id)sender {
-    
+- (IBAction)likeTapped:(id)sender
+{
     [_delegate likeTappedInCell:self];
-    
 }
 
 
