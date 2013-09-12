@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -2195,6 +2195,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
+                                            <outlet property="prewButton" destination="bVg-jl-bQ7" id="beM-6x-vGN"/>
                                             <outlet property="prewCountFeeLabel" destination="DHX-ul-yi1" id="xWg-R3-9HG"/>
                                             <outlet property="prewCountHopLabel" destination="Des-Fu-DaS" id="v2o-Jp-7Bt"/>
                                             <outlet property="prewDateHopLabel" destination="ZJZ-Yd-SXL" id="mfn-PG-gbC"/>
@@ -5023,6 +5024,7 @@
                 <relationship kind="outlet" name="lockImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="nameHopLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="namePrizeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="prewButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="prewCountFeeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="prewCountHopLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="prewDateHopLabel" candidateClass="UILabel"/>
@@ -5180,10 +5182,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="dTN-EH-Ojv"/>
         <segue reference="gri-tX-sSQ"/>
+        <segue reference="Bjs-zb-Rk3"/>
         <segue reference="SWG-0R-sWo"/>
         <segue reference="m1v-68-Zev"/>
-        <segue reference="Wv3-IZ-arJ"/>
-        <segue reference="Bjs-zb-Rk3"/>
     </inferredMetricsTieBreakers>
 </document>

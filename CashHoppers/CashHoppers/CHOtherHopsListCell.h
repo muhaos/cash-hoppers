@@ -26,6 +26,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *prewCountHopLabel;
 @property (strong, nonatomic) IBOutlet UILabel *prewFeeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *prewCountFeeLabel;
+@property (strong, nonatomic) IBOutlet UIButton *prewButton;
+
 
 @property (strong, nonatomic) IBOutlet UILabel *joinNameHopLabel;
 @property (strong, nonatomic) IBOutlet UILabel *joinDateHopLabel;

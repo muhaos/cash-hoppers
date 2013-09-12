@@ -56,6 +56,14 @@
     [[self prewFeeLabel] setText:@"Entry Fee:"];
     [[self prewCountFeeLabel] setText:[NSString stringWithFormat:@"$%i", [self.currentHop.price intValue]]];
     [[self prewVerticalIndicator] setImage:[UIImage imageNamed:@"av_indicator_cell"]];
+    
+    if ([self.currentHop.purchased boolValue] == YES) {
+        self.prewButton.hidden = YES;
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    } else {
+        self.prewButton.hidden = NO;
+        self.accessoryType = UITableViewCellAccessoryNone;
+    }
 }
 
 
