@@ -273,7 +273,25 @@
             }
             [DELEGATE.tabBarController performSegueWithIdentifier:@"homeScreen" sender:nil];
         } else {
-            [self performSegueWithIdentifier:@"news_feed_segue" sender:notif];
+            
+            CHFriendsFeedItem* feedItem = nil;
+            switch (notif.notificationType) {
+                case CHNotificationTypeComment: {
+                    feedItem = ((CHCommentNotification*)notif).feedItem;
+                    break;
+                }
+                case CHNotificationTypeLike: {
+                    feedItem = ((CHLikeNotification*)notif).feedItem;
+                    break;
+                }
+                default:{
+                    
+                }
+            }
+
+            if (feedItem != nil) {
+                [self performSegueWithIdentifier:@"news_feed_segue" sender:notif];
+            }
         }
     }
     

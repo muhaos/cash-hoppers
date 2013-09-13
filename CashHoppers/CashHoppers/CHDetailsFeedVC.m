@@ -392,14 +392,12 @@
 
 
 - (IBAction)postCommentTapped:(id)sender {
-    if (_feedItem.user.friendship_status != nil) {
-        if (![self.addComentTextView.text isEqual: @"Add coment ..."]) {
-            _postCommentButton.enabled = FALSE;
-            [[CHFriendsFeedManager instance] postCommentForFeedItem:_feedItem withText:_addComentTextView.text completionHandler:^(BOOL success) {
-                _postCommentButton.enabled = TRUE;
-                [self reloadData];
-            }];
-        }
+    if (![self.addComentTextView.text isEqual: @"Add coment ..."]) {
+        _postCommentButton.enabled = FALSE;
+        [[CHFriendsFeedManager instance] postCommentForFeedItem:_feedItem withText:_addComentTextView.text completionHandler:^(BOOL success) {
+            _postCommentButton.enabled = TRUE;
+            [self reloadData];
+        }];
     }
     self.addComentTextView.text = @"";
     [self.addComentTextView resignFirstResponder];
