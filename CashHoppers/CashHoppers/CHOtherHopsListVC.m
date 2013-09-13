@@ -207,16 +207,16 @@
         case CHHopTypeFree: {
         }
         case CHHopTypeWithEntryFee: {
-            if (self.isDailyHops) {
-                if ([tappedHop.tasks count] > 0) {
-                    [self performSegueWithIdentifier:@"new_hop_segue" sender:tappedHop];
-                } else {
-                    UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"No tasks for this hop" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                    [av show];
-                }
-            } else {
+//            if (self.isDailyHops) {
+//                if ([tappedHop.tasks count] > 0) {
+//                    [self performSegueWithIdentifier:@"new_hop_segue" sender:tappedHop];
+//                } else {
+//                    UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"No tasks for this hop" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//                    [av show];
+//                }
+//            } else {
                 [self performSegueWithIdentifier:@"tradeShowMulti" sender:tappedHop];
-            }
+//            }
             break;
         }
         case CHHopTypeWithCode: {
