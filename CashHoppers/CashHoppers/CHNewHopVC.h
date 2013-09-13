@@ -29,6 +29,9 @@
 @property (strong, nonatomic) IBOutlet UIImageView *taskLogoImageView;
 @property (strong, nonatomic) IBOutlet UILabel *hopTaskTitleLabel;
 @property (strong, nonatomic) IBOutlet UIView *sharingView;
+@property (strong, nonatomic) IBOutlet UILabel *itemLabel;
+@property (strong, nonatomic) IBOutlet UILabel *worthLabel;
+
 - (IBAction)shareButtonTapped:(id)sender;
 
 

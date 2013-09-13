@@ -18,6 +18,8 @@
 @property (nonatomic, strong) NSString* logoUrlString;
 @property (nonatomic, strong) NSString* photoUrlString;
 @property (nonatomic, strong) NSString* comment;
+@property (nonatomic, strong) NSNumber* points;
+
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
 - (NSURL*) logoURL;

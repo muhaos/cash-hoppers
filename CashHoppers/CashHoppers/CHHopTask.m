@@ -18,6 +18,7 @@
     self.logoUrlString = [CHBaseModel safeStringFrom:[dic objectForKey:@"logo"] defaultValue:nil];
     self.photoUrlString = [CHBaseModel safeStringFrom:[dic objectForKey:@"photo"] defaultValue:nil];
     self.comment = [CHBaseModel safeStringFrom:[dic objectForKey:@"comment"] defaultValue:@"No Comment"];
+    self.points = [CHBaseModel safeNumberFrom:[dic objectForKey:@"pts"] defaultValue:@0];
 }
 
 

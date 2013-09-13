@@ -97,6 +97,9 @@
     } else {
         self.sharingView.hidden = YES;
     }
+    
+    self.itemLabel.text = [NSString stringWithFormat:@"%i of %i", [self.currentHopTask.hop.tasks indexOfObject:self.currentHopTask]+1, self.currentHopTask.hop.tasks.count];
+    self.worthLabel.text = [NSString stringWithFormat:@"%i", [self.currentHopTask.points integerValue]];
 }
 
 
