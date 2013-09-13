@@ -50,6 +50,12 @@
 }
 
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
+
 - (void)viewDidUnload {
     [self setContentWebView:nil];
     [super viewDidUnload];
