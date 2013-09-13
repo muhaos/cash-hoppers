@@ -16,6 +16,7 @@
 #import "CHHelpVC.h"
 #import "GPPSignIn.h"
 #import "FHSTwitterEngine.h"
+#import "MHCustomTabBarController.h"
 
 @interface CHMenuSlidingVC () <UITableViewDataSource, UITableViewDelegate>
 @property (retain, nonatomic) NSString *link;
@@ -229,6 +230,8 @@
 
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"a_token"];
     
+    [DELEGATE.tabBarController performSegueWithIdentifier:@"homeScreen" sender:nil];
+
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:[NSBundle mainBundle]];
     self.view.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"main_login_vc"];
 }

@@ -37,6 +37,7 @@
     selectedUserViews = [NSMutableArray new];
     userListTable.hidden = YES;
     
+    
     searchResultUsers = @[];
     
     [[CHUserManager instance] loadFriendsWithCompletionHandler:^(NSArray* friends) {
@@ -252,6 +253,11 @@
             selectedUserView.view.frame = CGRectMake(i * 90+10, row * 30+5, 80, 25);
             [selectedUserViews addObject:selectedUserView];
             
+            selectedUserView.user = user;
+            
+            UITapGestureRecognizer* gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userViewTapped:)];
+            [selectedUserView.view addGestureRecognizer:gr];
+            
             bottomView.frame = CGRectMake(20, containerView.frame.origin.y+containerHeight+20, 280, 200);
         }
     }
@@ -263,7 +269,18 @@
         searchResultUsers = users;
         [userListTable reloadData];
     }];
-    
+}
+
+
+- (void) userViewTapped:(UIGestureRecognizer*) gr {
+    for (CHSelectedUserView* v in selectedUserViews) {
+        if (v.view == gr.view) {
+            [selectedUserArray removeObject:v.user];
+        }
+    }
+
+    [self loyoutSearchView];
+    [self.userListTable reloadData];
 }
 
 

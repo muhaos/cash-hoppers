@@ -140,7 +140,7 @@
         handler(nil, JSON);
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [self defaultErrorHandlerForReqest:request responce:response :error :JSON];
-        handler(error, nil);
+        handler(error, JSON);
     }];
     
     [operation start];
