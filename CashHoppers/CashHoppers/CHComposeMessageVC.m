@@ -73,7 +73,6 @@
     inputMessageTextView.layer.borderWidth = 1.0f;
     [inputMessageTextView setText:@"Compose message..."];
     [inputMessageTextView setTextColor:[UIColor colorWithRed:204.0f/256 green:204.0f/256 blue:204.0f/256 alpha:1.0f]];
-
 }
 
 
@@ -98,7 +97,7 @@
 -(void) textViewDidBeginEditing:(UITextView *)textView
 {
     [inputMessageTextView setText:@""];
-    [inputMessageTextView setTextColor:[UIColor colorWithRed:204.0f/256 green:204.0f/256 blue:204.0f/256 alpha:1.0f]];
+    inputMessageTextView.textColor = [UIColor darkGrayColor];
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3f];
@@ -130,6 +129,7 @@
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    textField.textColor = [UIColor darkGrayColor];
     userListTable.hidden = NO;
 }
 
@@ -261,6 +261,14 @@
             bottomView.frame = CGRectMake(20, containerView.frame.origin.y+containerHeight+20, 280, 200);
         }
     }
+}
+
+
+- (IBAction)changeSearchField:(id)sender {
+    [[CHUserManager instance] searchUsersWithQuery:self.searchTextField.text andCompletionHandler:^(NSArray *users) {
+        searchResultUsers = users;
+        [userListTable reloadData];
+    }];
 }
 
 

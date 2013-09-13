@@ -19,7 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scroolView;
 @property (strong, nonatomic) IBOutlet UIView *bottomHiddenView;
 
-
+- (IBAction)changeSearchField:(id)sender;
 - (IBAction)sendMessageTapped:(id)sender;
 
 @end
