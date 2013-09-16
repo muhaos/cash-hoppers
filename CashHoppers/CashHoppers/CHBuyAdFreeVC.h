@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (strong, nonatomic) IBOutlet UILabel *balanceLabel;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *balanceActivityView;
+@property (strong, nonatomic) IBOutlet UILabel *topDescription;
 
 
 - (IBAction)buyPressed:(id)sender;

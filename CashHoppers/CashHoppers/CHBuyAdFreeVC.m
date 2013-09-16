@@ -21,14 +21,14 @@
 
 @implementation CHBuyAdFreeVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad
 {
@@ -48,6 +48,7 @@
         self.balanceLabel.text = @"Already buyed!";
         self.buyNowButton.hidden = YES;
         self.balanceActivityView.hidden = YES;
+        self.topDescription.hidden = YES;
     } else {
         self.balanceLabel.hidden = YES;
         self.balanceActivityView.hidden = NO;
@@ -109,6 +110,7 @@
     [self setBuyNowButton:nil];
     [self setCheckMark:nil];
     [self setToolbar:nil];
+    [self setTopDescription:nil];
     [super viewDidUnload];
 }
 @end
