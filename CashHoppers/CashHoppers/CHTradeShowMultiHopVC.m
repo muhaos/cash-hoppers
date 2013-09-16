@@ -160,7 +160,15 @@
         CHNewHopVC* c = (CHNewHopVC*)segue.destinationViewController;
         c.currentHopTask = sender;
         c.view;
-        c.winnterButton.hidden = YES;
+        
+        NSLog(@"%c",c.currentHopTask.hop.daily_hop.boolValue);
+        
+        
+        if (c.currentHopTask.hop.daily_hop.boolValue) {
+            c.winnterButton.hidden = NO;
+        }else {
+            c.winnterButton.hidden = YES;
+        }
     }
 }
 

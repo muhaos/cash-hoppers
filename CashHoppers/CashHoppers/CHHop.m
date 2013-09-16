@@ -26,7 +26,7 @@
     self.code = [CHBaseModel safeStringFrom:[dic objectForKey:@"code"] defaultValue:@""];
     self.price = [CHBaseModel safeNumberFrom:[dic objectForKey:@"price"] defaultValue:@0];
     self.jackpot = [CHBaseModel safeNumberFrom:[dic objectForKey:@"jackpot"] defaultValue:@0];
-    self.daily_hop = [dic objectForKey:@"daily_hop"];
+    self.daily_hop = [dic objectForKey:@"daily"];
     self.close = [dic objectForKey:@"close"];
     self.event = [CHBaseModel safeStringFrom:[dic objectForKey:@"event"] defaultValue:@""];
     self.logoUrlString = [CHBaseModel safeStringFrom:[dic objectForKey:@"logo"] defaultValue:nil];

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -1378,7 +1378,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Aqv-xD-jWt">
-                                <rect key="frame" x="0.0" y="44" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1645,7 +1645,7 @@
             <objects>
                 <viewController id="OtY-Mi-bR2" customClass="CHAddFriendVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nI1-wd-KsW">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="mhL-Jd-Gsa">
@@ -5246,10 +5246,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Bjs-zb-Rk3"/>
-        <segue reference="gri-tX-sSQ"/>
         <segue reference="Wv3-IZ-arJ"/>
+        <segue reference="gri-tX-sSQ"/>
+        <segue reference="Bjs-zb-Rk3"/>
+        <segue reference="dQd-F6-f2d"/>
         <segue reference="SWG-0R-sWo"/>
-        <segue reference="ygN-Sf-oO2"/>
     </inferredMetricsTieBreakers>
 </document>
