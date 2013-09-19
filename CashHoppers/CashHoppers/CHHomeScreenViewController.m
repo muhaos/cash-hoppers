@@ -80,16 +80,11 @@
         }
     }];
 
-    
     self.currentUserUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_CURRENT_USER_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
-//        if (<#condition#>) {
-//            <#statements#>
-//        }
-        [self loadTopADS];
-        
-    }];
-
-    
+        if (self.bannerImView == nil) {
+            [self loadTopADS];
+        }
+    }];    
     
     [[CHHopsManager instance] refreshHops];
     [[CHFriendsFeedManager instance] refreshFeeds];
@@ -97,8 +92,6 @@
     [self updateDailyHopSection];
     [self updateOtherHopsSection];
     [self updateFriendsFeedSection];
-    
-//    [self loadTopADS];
 }
 
 

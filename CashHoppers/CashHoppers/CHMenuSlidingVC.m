@@ -17,6 +17,8 @@
 #import "GPPSignIn.h"
 #import "FHSTwitterEngine.h"
 #import "MHCustomTabBarController.h"
+#import "CHUserManager.h"
+#import "CHHopsManager.h"
 
 @interface CHMenuSlidingVC () <UITableViewDataSource, UITableViewDelegate>
 @property (retain, nonatomic) NSString *link;
@@ -220,6 +222,9 @@
         
         [operation start];
     }
+    [[CHUserManager instance] clearCacheWithName:@"users"];
+    [[CHHopsManager instance] clearCacheWithName:@"hops"];
+    
     [FBSession.activeSession closeAndClearTokenInformation];
     
     [[GPPSignIn sharedInstance] disconnect];
