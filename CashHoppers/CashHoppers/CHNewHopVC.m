@@ -100,6 +100,11 @@
     
     self.itemLabel.text = [NSString stringWithFormat:@"%i of %i", [self.currentHopTask.hop.tasks indexOfObject:self.currentHopTask]+1, self.currentHopTask.hop.tasks.count];
     self.worthLabel.text = [NSString stringWithFormat:@"%i", [self.currentHopTask.points integerValue]];
+    if (self.currentHopTask.hop.daily_hop.boolValue) {
+        [self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier];
+    }else{
+        [self showAdsWithType:@"SP" andHopID:nil];
+    }
 }
 
 
