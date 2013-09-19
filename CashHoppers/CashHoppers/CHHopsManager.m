@@ -273,5 +273,22 @@
 }
 
 
+-(void) disableHopPasswordWithHopId:(NSNumber*) hop_id withPassword:(NSString*) password {
+    NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
+    NSString *path = [NSString stringWithFormat:@"/api/hop/disable_password.json?api_key=%@&authentication_token=%@&hop_id=%@&password=%@",CH_API_KEY, aToken, hop_id, password];
+    
+    
+    NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"POST" path:path parameters:nil];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"%@",error);
+    }];
+    
+    [operation start];
+}
+
 
 @end

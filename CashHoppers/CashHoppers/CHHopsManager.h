@@ -37,4 +37,6 @@
 
 - (void) loadTasksForHop:(CHHop*) hop completionHandler:(void (^)(CHHop* hop)) handler;
 
+-(void) disableHopPasswordWithHopId:(NSNumber*) hop_id withPassword:(NSString*) password;
+
 @end

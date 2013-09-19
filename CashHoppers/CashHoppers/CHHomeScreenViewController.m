@@ -26,6 +26,7 @@
 @property (nonatomic, retain) id globalFeedUpdatedNotification;
 @property (nonatomic, retain) id feedItemUpdatedNotification;
 @property (nonatomic, retain) id hopTaskUpdatedNotification;
+@property (nonatomic, retain) id currentUserUpdatedNotification;
 @property (nonatomic, retain) CHFriendsFeedItem* currentFeedItem;
 
 @property (nonatomic, retain) NSURL* adsImageURL;
@@ -80,6 +81,14 @@
     }];
 
     
+    self.currentUserUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_CURRENT_USER_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
+//        if (<#condition#>) {
+//            <#statements#>
+//        }
+        [self loadTopADS];
+        
+    }];
+
     
     
     [[CHHopsManager instance] refreshHops];
@@ -89,7 +98,7 @@
     [self updateOtherHopsSection];
     [self updateFriendsFeedSection];
     
-    [self loadTopADS];
+//    [self loadTopADS];
 }
 
 
@@ -251,6 +260,8 @@
         [self performSegueWithIdentifier:@"friends_feed_segue" sender:self];
         DELEGATE.needOpenFriendsFeed = NO;
     }
+    [self loadTopADS];
+    [self showAdsWithType:@"FULL" andHopID:nil];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {

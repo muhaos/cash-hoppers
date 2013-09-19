@@ -39,6 +39,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self showAdsWithType:@"RPOU" andHopID:nil];
+
     NSMutableArray *collector = [[NSMutableArray alloc] initWithCapacity:0];
     ALAssetsLibrary *al = [CHGalleryVC defaultAssetsLibrary];
     

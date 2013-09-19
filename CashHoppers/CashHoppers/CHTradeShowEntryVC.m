@@ -9,6 +9,8 @@
 #import "CHTradeShowEntryVC.h"
 #import "CHHop.h"
 #import "AFNetworking.h"
+#import "CHAPIClient.h"
+#import "CHHopsManager.h"
 
 @interface CHTradeShowEntryVC ()
 
@@ -25,12 +27,6 @@
 
     tradeShowLabel.text = self.currentHop.name;
     [tradeShowImageView setImageWithURL: [self.currentHop logoURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -67,18 +63,12 @@
 }
 
 
-- (void)viewDidUnload {
-    [self setTradeShowImageView:nil];
-    [self setTradeShowLabel:nil];
-    [self setPasscodeTextField:nil];
-    [super viewDidUnload];
-}
-
-
 - (IBAction)startPlayingTapped:(id)sender {
     if ([self.passcodeTextField.text isEqualToString:self.currentHop.code]) {
         [self.view removeFromSuperview];
         [self.delegate tradeShowEntryVCClosedSucced:YES];
+        [[CHHopsManager instance] disableHopPasswordWithHopId:self.currentHop.identifier withPassword:self.currentHop.code];
+        self.currentHop.askPassword = @NO;
     } else {
         UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"PASSCODE" message:@"Incorrect passcode." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [av show];
@@ -95,5 +85,18 @@
 - (IBAction)helpTapped:(id)sender {
 }
 
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
+
+- (void)viewDidUnload {
+    [self setTradeShowImageView:nil];
+    [self setTradeShowLabel:nil];
+    [self setPasscodeTextField:nil];
+    [super viewDidUnload];
+}
 
 @end

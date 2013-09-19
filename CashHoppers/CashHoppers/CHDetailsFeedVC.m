@@ -30,7 +30,7 @@
     [super viewDidLoad];
     [self customUIElement];
     [self setupTriangleBackButton];
-    
+
     NSString *name = _feedItem.user.first_name;
     NSString *lastName = _feedItem.user.last_name;
     NSString *namePersonText = [name stringByAppendingFormat:@" %@",lastName];
@@ -41,7 +41,7 @@
     [self.photoHopImageView setImageWithURL:_feedItem.hopImageURL placeholderImage:[UIImage imageNamed: @"spinner.png"]];
     self.countLikeLabel.text = [_feedItem.numberOfLikes stringValue];
     _timeLabel.text = [NSString stringWithFormat:@"%@ ago", _feedItem.time_ago];
-    
+
     NSString* likersSrt = @"";
     for (NSString* likerName in _feedItem.likers) {
         likersSrt = [likersSrt stringByAppendingString:likerName];

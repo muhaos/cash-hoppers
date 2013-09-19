@@ -29,6 +29,7 @@ enum CHHopType {
 @property (nonatomic, strong) NSString* event;
 @property (nonatomic, strong) NSString* logoUrlString;
 @property (nonatomic, strong) NSNumber* purchased;
+@property (nonatomic, strong) NSNumber* askPassword;
 
 @property (nonatomic, strong) NSArray* tasks; // CHHopTask
 - (enum CHHopType) hopType;

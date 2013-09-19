@@ -33,6 +33,9 @@
     
     [self loadUserForID:nil completionHandler:^(CHUser* user) {
         _currentUser = user;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:CH_CURRENT_USER_UPDATED object:user];
+
     }];
     
     [self updateUserSettingsWithCompletionBlock:^(NSError* error){

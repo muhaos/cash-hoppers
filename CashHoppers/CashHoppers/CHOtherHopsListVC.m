@@ -1,4 +1,4 @@
-//
+ //
 //  CHOtherHopsListVC.m
 //  CashHoppers
 //
@@ -220,13 +220,15 @@
             break;
         }
         case CHHopTypeWithCode: {
-            self.currentPasswordVC = [[CHTradeShowEntryVC alloc] initWithNibName:@"CHTradeShowEntryVC" bundle:nil];
-            self.currentPasswordVC.currentHop = tappedHop;
-            self.currentPasswordVC.delegate = self;
-            self.currentPasswordVC.view.frame = self.view.frame;
-            [self.view addSubview:self.currentPasswordVC.view];
-            
-            break;
+            if (tappedHop.askPassword.boolValue == YES) {
+                self.currentPasswordVC = [[CHTradeShowEntryVC alloc] initWithNibName:@"CHTradeShowEntryVC" bundle:nil];
+                self.currentPasswordVC.currentHop = tappedHop;
+                self.currentPasswordVC.delegate = self;
+                self.currentPasswordVC.view.frame = self.view.frame;
+                [self.view addSubview:self.currentPasswordVC.view];
+            } else {
+                [self performSegueWithIdentifier:@"tradeShowMulti" sender:tappedHop];
+            }
         }
     }
 

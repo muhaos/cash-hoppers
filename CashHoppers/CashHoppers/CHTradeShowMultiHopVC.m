@@ -67,7 +67,16 @@
     [[CHHopsManager instance] scoreForHopID:self.currentHop.identifier completionHandler:^(NSNumber* score, NSNumber* rank, NSNumber* hoppers_count){
         self.scoreLabel.text = [NSString stringWithFormat:@"%i pts", [score intValue]];
         self.rankLabel.text = [NSString stringWithFormat:@"%i of %i", [rank intValue], [hoppers_count intValue]];
+        self.justScoreLabel.text = [NSString stringWithFormat:@"%i pts", [score intValue]];
     }];
+    
+    if (self.currentHop.daily_hop.boolValue) {
+        self.scoreAndRankView.hidden = YES;
+        self.scoreView.hidden = NO;
+    }else {
+        self.scoreAndRankView.hidden = NO;
+        self.scoreView.hidden = YES;
+    }
     
     [self.multiHopTable reloadData];
 }
@@ -193,6 +202,9 @@
     [self setGrandPrizeLabel:nil];
     [self setHopTitleLabel:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self.hopsTasksUpdatedNotification];
+    [self setScoreAndRankView:nil];
+    [self setScoreView:nil];
+    [self setJustScoreLabel:nil];
     [super viewDidUnload];
 }
 

@@ -9,6 +9,9 @@
 #import "CHBaseManager.h"
 #import "CHUser.h"
 
+#define CH_CURRENT_USER_UPDATED  @"CH_CURRENT_USER_UPDATED"
+
+
 @interface CHUserManager : CHBaseManager
 
 + (CHUserManager*) instance;

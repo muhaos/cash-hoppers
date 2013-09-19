@@ -79,7 +79,7 @@
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
     {
         SLComposeViewController *tw = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        [tw setInitialText:@"Message"];
+        [tw setInitialText:@" "];
         [tw addImage:self.imageToShare];
         tw.completionHandler = ^(SLComposeViewControllerResult result) {
             if (result == SLComposeViewControllerResultDone) {

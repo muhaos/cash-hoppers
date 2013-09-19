@@ -286,6 +286,11 @@
             fItem.liked = @1;
             fItem.numberOfLikes = @([fItem.numberOfLikes intValue]+1);
             cell.numberLikesLabel.text = [NSString stringWithFormat:@"%d", [fItem.numberOfLikes intValue]];
+            
+            NSMutableArray *mutArray = [[NSMutableArray alloc]  initWithArray:fItem.likers];
+            NSString *curentLikers = [NSString stringWithFormat:@"%@ %@",[CHUserManager instance].currentUser.first_name,  [CHUserManager instance].currentUser.last_name];
+            [mutArray addObject:curentLikers];
+            fItem.likers = mutArray;
         }
     }];
 }

@@ -70,7 +70,7 @@
 {
     [[CHPaymentsManager instance] buyHopWithID:self.currentHop.identifier block:^(NSError* error){
         if (error == nil) {
-            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"SUCCESS" message:@"Hop buyed!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"SUCCESS" message:@"Hop successfully purchased!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [av show];
             self.currentHop.purchased = @YES;
             [self.view removeFromSuperview];

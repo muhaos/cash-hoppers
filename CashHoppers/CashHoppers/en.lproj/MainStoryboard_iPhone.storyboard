@@ -1645,7 +1645,7 @@
             <objects>
                 <viewController id="OtY-Mi-bR2" customClass="CHAddFriendVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nI1-wd-KsW">
-                        <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="856"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="mhL-Jd-Gsa">
@@ -2340,9 +2340,9 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pnX-Pc-fZb">
-                                <rect key="frame" x="20" y="5" width="280" height="25"/>
+                                <rect key="frame" x="8" y="0.0" width="304" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -2373,6 +2373,37 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <view contentMode="scaleToFill" id="dzP-xC-01J">
+                                <rect key="frame" x="184" y="35" width="137" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="score_bg.png" id="qCY-N7-9Y0">
+                                        <rect key="frame" x="0.0" y="0.0" width="137" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5B3-zZ-hWY">
+                                        <rect key="frame" x="8" y="6" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="OpenSans-CondensedBold"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5wn-wG-5ab">
+                                        <rect key="frame" x="75" y="6" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans-Bold"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="image_separator.png" id="e5M-A9-SGe">
                                 <rect key="frame" x="0.0" y="154" width="320" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2528,9 +2559,12 @@
                         <outlet property="grandPrizeLabel" destination="2iV-EU-ajl" id="yg0-F5-iUe"/>
                         <outlet property="hopImageView" destination="PeR-mg-vXv" id="Xeq-EZ-zNG"/>
                         <outlet property="hopTitleLabel" destination="pnX-Pc-fZb" id="EOj-yq-3Lc"/>
+                        <outlet property="justScoreLabel" destination="5wn-wG-5ab" id="Aei-Ts-x0L"/>
                         <outlet property="multiHopTable" destination="E7h-I8-Ymt" id="Go9-xV-aAU"/>
                         <outlet property="rankLabel" destination="P23-B7-DpM" id="Hgk-CP-6bz"/>
+                        <outlet property="scoreAndRankView" destination="TAK-0b-mpm" id="4K9-lL-GWq"/>
                         <outlet property="scoreLabel" destination="bdz-xw-n8D" id="yk1-jk-IWs"/>
+                        <outlet property="scoreView" destination="dzP-xC-01J" id="6WO-KP-JKl"/>
                         <segue destination="R7Q-Wk-aGG" kind="push" identifier="new_hop_segue" id="Wv3-IZ-arJ"/>
                     </connections>
                 </viewController>
@@ -2555,9 +2589,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DAILY HOP - MONDAY, 5/13/13" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Z1-dT-ad6">
-                                        <rect key="frame" x="10" y="7" width="301" height="21"/>
+                                        <rect key="frame" x="10" y="0.0" width="301" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
@@ -4739,6 +4773,7 @@
         <image name="messages_icon.png" width="44" height="32"/>
         <image name="our_time.png" width="1456" height="1456"/>
         <image name="photos_icon.png" width="44" height="40"/>
+        <image name="score_bg.png" width="273" height="62"/>
         <image name="search_box.png" width="574" height="72"/>
         <image name="search_icon.png" width="30" height="30"/>
         <image name="send_email_invite.png" width="574" height="72"/>
@@ -4750,6 +4785,501 @@
         <image name="title_holder.png" width="661" height="89"/>
         <image name="yellow_button.png" width="234" height="109"/>
     </resources>
+    <classes>
+        <class className="CHAddFriendVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHAddFriendVC.h"/>
+            <relationships>
+                <relationship kind="action" name="addFriendTapped:"/>
+                <relationship kind="outlet" name="addFriendButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="countFriendsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="inviteSentCheckmarkImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="inviteSentLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="yourFriendsImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="CHAddFriendsCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHAddFriendsCell.h"/>
+            <relationships>
+                <relationship kind="action" name="addFriendTapped:"/>
+                <relationship kind="outlet" name="addButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="CHAddFriendsSocialNetworksVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHAddFriendsSocialNetworksVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="friendsTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CHAdditionalSigninFormVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHAdditionalSigninFormVC.h"/>
+            <relationships>
+                <relationship kind="action" name="registerButtonTapped:"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="zipTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CHBuyAdFreeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHBuyAdFreeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="buyPressed:"/>
+                <relationship kind="outlet" name="balanceActivityView" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="balanceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="buyNowButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="checkMark" candidateClass="CHCheckMarkView"/>
+                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="topDescription" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CHCheckMarkView" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHCheckMarkView.h"/>
+        </class>
+        <class className="CHCommentListCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHCommentListCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="commentLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoPerson" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="CHComposeMessageCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHComposeMessageCell.h"/>
+            <relationships>
+                <relationship kind="action" name="composeButtonTapped:"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="CHComposeMessageVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHComposeMessageVC.h"/>
+            <relationships>
+                <relationship kind="action" name="changeSearchField:"/>
+                <relationship kind="action" name="sendMessageTapped:"/>
+                <relationship kind="outlet" name="bottomHiddenView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="bottomView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="inputMessageTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="scroolView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="searchImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="searchTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userListTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CHDetailsFeedVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHDetailsFeedVC.h"/>
+            <relationships>
+                <relationship kind="action" name="addFriendButtonTapped:"/>
+                <relationship kind="action" name="likePressed:"/>
+                <relationship kind="action" name="postCommentTapped:"/>
+                <relationship kind="action" name="scrollViewTapped:"/>
+                <relationship kind="outlet" name="addComentTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="addFriendButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="commentTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="countCommentLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="countLikeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="likeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="likedPersonsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="myScroolView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="nameHopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="namePersonLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoHopImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="photoPersonImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="postCommentButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="taskCompletedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CHFindFriendsCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHFindFriendsCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="CHFindFriendsVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHFindFriendsVC.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelSearchButtonTapped:"/>
+                <relationship kind="action" name="facebookFriendsTapped:"/>
+                <relationship kind="action" name="googleFriendsTapped:"/>
+                <relationship kind="action" name="searchFieldChanged:"/>
+                <relationship kind="action" name="sendEmailTapped:"/>
+                <relationship kind="action" name="twitterFriendsTapped:"/>
+                <relationship kind="outlet" name="cancelSearchButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="contentView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="findFriendsSearchTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="searchTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CHFriendsListCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHFriendsListCell.h"/>
+            <relationships>
+                <relationship kind="action" name="addFriendTapped:"/>
+                <relationship kind="action" name="commentTapped:"/>
+                <relationship kind="action" name="likeTapped:"/>
+                <relationship kind="outlet" name="addFriendButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="commentButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="likeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="nameHopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="namePersonLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numberCommentsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numberLikesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoHopImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="photoPersonImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="taskCompletedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="verticalSeparatorImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="CHFriendsListVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHFriendsListVC.h"/>
+            <relationships>
+                <relationship kind="action" name="allHopppersButtonTapped:"/>
+                <relationship kind="action" name="friendsButtonTapped:"/>
+                <relationship kind="action" name="settingsButtonTapped:"/>
+                <relationship kind="outlet" name="allHoppersButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="friendsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="friendsTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="CHGalleryCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHGalleryCell.h"/>
+        </class>
+        <class className="CHGalleryVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHGalleryVC.h"/>
+            <relationships>
+                <relationship kind="action" name="settingsButtonTapped:"/>
+                <relationship kind="outlet" name="photoCollectionView" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+        <class className="CHHelpVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHHelpVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentWebView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="CHHomeScreenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHHomeScreenViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="action" name="dailyHopPressed:"/>
+                <relationship kind="action" name="menuTapped:"/>
+                <relationship kind="action" name="playNowPressed:"/>
+                <relationship kind="action" name="topBannerTapped:"/>
+                <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="bannerImView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="dailyHopButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dailyHopExists" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dailyHopImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="dailyHopIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="dailyHopNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="feedAvatarImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="feedContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="feedFriendNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="feedHopImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="feedHopNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="feedHopTaskNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="feedIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="feedTimeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="firstHopContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="firstHopNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="firstHopPrizeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="otherHopsCountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="otherHopsIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="secondHopContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="secondHopNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="secondHopPrizeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CHHopShopVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHHopShopVC.h"/>
+            <relationships>
+                <relationship kind="action" name="buy100RibbitsButtonTapped:"/>
+                <relationship kind="action" name="buy10RibbitsButtonTapped:"/>
+                <relationship kind="action" name="buy50RibbitsButtonTapped:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="yourBalanceLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CHIndividualMessageCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHIndividualMessageCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="avatarImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="messageTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CHIndividualMessageVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHIndividualMessageVC.h"/>
+            <relationships>
+                <relationship kind="action" name="composeNewMessageTapped:"/>
+                <relationship kind="action" name="replyMessageButtonTapped:"/>
+                <relationship kind="outlet" name="inputMessageTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="messagesTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CHLoginVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHLoginVC.h"/>
+            <relationships>
+                <relationship kind="action" name="hideKeyboard:"/>
+                <relationship kind="action" name="loginTapped:"/>
+                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CHMenuSlidingCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHMenuSlidingCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="icon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CHMenuSlidingVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHMenuSlidingVC.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutButtonTapped:"/>
+                <relationship kind="outlet" name="menuTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CHMessagesCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHMessagesCell.h"/>
+            <relationships>
+                <relationship kind="action" name="acceptTapped:"/>
+                <relationship kind="action" name="declineTapped:"/>
+                <relationship kind="action" name="deleteButtonTapped:"/>
+                <relationship kind="outlet" name="acceptButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="declineButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="deleteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="likeCommentImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="messageTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CHMessagesVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHMessagesVC.h"/>
+            <relationships>
+                <relationship kind="action" name="composeMessageTapped:"/>
+                <relationship kind="action" name="messagesTapped:"/>
+                <relationship kind="action" name="notificationsTapped:"/>
+                <relationship kind="action" name="settingsButtonTapped:"/>
+                <relationship kind="outlet" name="messagesButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="messagesTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="notificationsButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="CHNewHopVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHNewHopVC.h"/>
+            <relationships>
+                <relationship kind="action" name="menuTapped:"/>
+                <relationship kind="action" name="photoTapped:"/>
+                <relationship kind="action" name="resignResponder:"/>
+                <relationship kind="action" name="shareButtonTapped:"/>
+                <relationship kind="action" name="shareWithFacebookTapped:"/>
+                <relationship kind="action" name="shareWithGPlusTapped:"/>
+                <relationship kind="action" name="shareWithTwitterTapped:"/>
+                <relationship kind="action" name="submitPressed:"/>
+                <relationship kind="outlet" name="charCountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="hopTaskTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="hopTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="itemLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="myScroolView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="photoImView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="separatorView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="sharingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="submitButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="taskLogoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="winnterButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="worthLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CHOtherHopsListCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHOtherHopsListCell.h"/>
+            <relationships>
+                <relationship kind="action" name="joinButtonTapped:"/>
+                <relationship kind="action" name="previewButtonTapped:"/>
+                <relationship kind="outlet" name="countPrizeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateHopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="horizontalIndicatorImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="joinButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="joinCountHopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="joinDateHopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="joinNameHopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="joinPrizeHopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="joinVerticalIndicatorImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="lockImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameHopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="namePrizeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="prewButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="prewCountFeeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="prewCountHopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="prewDateHopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="prewFeeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="prewNameHopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="prewPrizeHopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="prewVerticalIndicator" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="prizeListButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="verticalIndicatorImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="CHOtherHopsListVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHOtherHopsListVC.h"/>
+            <relationships>
+                <relationship kind="action" name="prizeListButtonTapped:"/>
+                <relationship kind="outlet" name="hopsGroupTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="otherHopsTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CHProfileUserVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHProfileUserVC.h"/>
+            <relationships>
+                <relationship kind="action" name="photoButtonTapped:"/>
+                <relationship kind="action" name="saveTapped"/>
+                <relationship kind="outlet" name="bioTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="changePasswordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="confirmPasswordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="contactTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="facebookTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="googlePlusTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phoneTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="twitterTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="zipTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CHPushNotificationsCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHPushNotificationsCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="indicatorImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameNotificationLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CHPushNotificationsVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHPushNotificationsVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="notificationsTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CHRegisterVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHRegisterVC.h"/>
+            <relationships>
+                <relationship kind="action" name="addPhotoTapped:"/>
+                <relationship kind="action" name="registerTapped:"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="emailView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="requiredLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="zipTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="zipView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="CHResetPasswordVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHResetPasswordVC.h"/>
+            <relationships>
+                <relationship kind="action" name="signInTapped:"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CHSettingsProfileNotificationsVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHSettingsProfileNotificationsVC.h"/>
+            <relationships>
+                <relationship kind="action" name="notificationsButtonTapped:"/>
+                <relationship kind="action" name="profileButtonTapped:"/>
+                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="notificationsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="profileButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="CHStartVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHStartVC.h"/>
+            <relationships>
+                <relationship kind="action" name="loginGPlusTapped:"/>
+                <relationship kind="action" name="loginWithFBTapped:"/>
+                <relationship kind="action" name="loginWithTwitterTapped:"/>
+            </relationships>
+        </class>
+        <class className="CHTradeShowMultiHopCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHTradeShowMultiHopCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="compTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="compVerticalIndicatorImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="completeIndicatorImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="notCompTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="notCompVerticalIndicatorImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="CHTradeShowMultiHopVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHTradeShowMultiHopVC.h"/>
+            <relationships>
+                <relationship kind="action" name="prizeListButtonTapped:"/>
+                <relationship kind="outlet" name="grandPrizeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="hopImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="hopTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="justScoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="multiHopTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="rankLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scoreAndRankView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scoreView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="CHWinnerVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CHWinnerVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contactAsTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descrLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="MFSideMenuContainerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MFSideMenuContainerViewController.h"/>
+        </class>
+        <class className="MHCustomTabBarController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MHCustomTabBarController.h"/>
+            <relationships>
+                <relationship kind="action" name="friendsFeedTapped:"/>
+                <relationship kind="action" name="pictureTapped:"/>
+                <relationship kind="outlet" name="buttonView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="container" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -4759,7 +5289,7 @@
         <segue reference="Wv3-IZ-arJ"/>
         <segue reference="gri-tX-sSQ"/>
         <segue reference="Bjs-zb-Rk3"/>
-        <segue reference="dQd-F6-f2d"/>
         <segue reference="SWG-0R-sWo"/>
+        <segue reference="m1v-68-Zev"/>
     </inferredMetricsTieBreakers>
 </document>

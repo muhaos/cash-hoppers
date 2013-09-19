@@ -12,7 +12,7 @@
 
 @protocol CHTradeShowEntryVCDelegate <NSObject>
 
-- (void) tradeShowEntryVCClosedSucced:(BOOL) succed;
+-(void) tradeShowEntryVCClosedSucced:(BOOL) succed;
 
 @end
 

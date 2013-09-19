@@ -18,6 +18,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (strong, nonatomic) IBOutlet UILabel *rankLabel;
 @property (strong, nonatomic) IBOutlet UILabel *grandPrizeLabel;
+@property (strong, nonatomic) IBOutlet UIView *scoreAndRankView;
+@property (strong, nonatomic) IBOutlet UIView *scoreView;
+@property (strong, nonatomic) IBOutlet UILabel *justScoreLabel;
 
 @property (strong, nonatomic) CHHop* currentHop;
 

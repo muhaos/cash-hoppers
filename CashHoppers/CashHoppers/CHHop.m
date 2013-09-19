@@ -31,6 +31,7 @@
     self.event = [CHBaseModel safeStringFrom:[dic objectForKey:@"event"] defaultValue:@""];
     self.logoUrlString = [CHBaseModel safeStringFrom:[dic objectForKey:@"logo"] defaultValue:nil];
     self.purchased = [CHBaseModel safeNumberFrom:[dic objectForKey:@"purchased"] defaultValue:@NO];
+    self.askPassword = [CHBaseModel safeNumberFrom:[dic objectForKey:@"ask_password"] defaultValue:@YES];
     
     NSLog(@"%@ id:%i purchased: %i", self.name, [self.identifier integerValue], [self.purchased intValue]);
     
