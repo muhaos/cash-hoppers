@@ -69,6 +69,7 @@
         [self.delegate tradeShowEntryVCClosedSucced:YES];
         [[CHHopsManager instance] disableHopPasswordWithHopId:self.currentHop.identifier withPassword:self.currentHop.code];
         self.currentHop.askPassword = @NO;
+        
     } else {
         UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"PASSCODE" message:@"Incorrect passcode." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [av show];

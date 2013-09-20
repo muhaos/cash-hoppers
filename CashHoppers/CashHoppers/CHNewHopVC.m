@@ -87,7 +87,7 @@
     self.hopTitleLabel.text = [NSString stringWithFormat:@"%@   %@", self.currentHopTask.hop.name, [self.currentHopTask.hop dateString]];
     [self.taskLogoImageView setImageWithURL:[self.currentHopTask logoURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
     
-    [self setHopTaskName:[NSString stringWithFormat:@"%@: %@", self.currentHopTask.hop.name, self.currentHopTask.text] withBoldString:self.currentHopTask.hop.name];
+    [self setHopTaskName:[NSString stringWithFormat:@"%@", self.currentHopTask.text] withBoldString:self.currentHopTask.hop.name];
     if ([self.currentHopTask.completed boolValue] == YES) {
         self.textView.text = self.currentHopTask.comment;
         [self.photoImView setImageWithURL:[self.currentHopTask photoURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
@@ -111,17 +111,12 @@
 - (void) setHopTaskName:(NSString*) wholeStr withBoldString:(NSString*) boldPartStr {
     
     NSDictionary *boldAttribs = @{NSFontAttributeName: [UIFont fontWithName:@"DroidSans-Bold" size:12.0f], NSForegroundColorAttributeName:[UIColor colorWithRed:0.4f green:0.4f blue:0.4f alpha:1.0f]};
-    NSDictionary *normAttribs = @{NSFontAttributeName: [UIFont fontWithName:@"DroidSans" size:12.0f], NSForegroundColorAttributeName:[UIColor colorWithRed:0.6f green:0.6f blue:0.6f alpha:1.0f]};
     
     NSMutableAttributedString* mStr = [[NSMutableAttributedString alloc] initWithString:wholeStr];
     
     NSInteger str_length = [wholeStr length];
     
-    [mStr setAttributes:normAttribs range:NSMakeRange(0, str_length)];
-    if (boldPartStr != nil) {
-        [mStr setAttributes:boldAttribs range:[wholeStr rangeOfString:boldPartStr]];
-    }
-    
+    [mStr setAttributes:boldAttribs range:NSMakeRange(0, str_length)];
     self.hopTaskTitleLabel.attributedText = mStr;
 }
 
