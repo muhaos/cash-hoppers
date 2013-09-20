@@ -5265,6 +5265,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MHCustomTabBarController.h"/>
             <relationships>
                 <relationship kind="action" name="friendsFeedTapped:"/>
+                <relationship kind="action" name="hopChooseTapped:"/>
                 <relationship kind="action" name="pictureTapped:"/>
                 <relationship kind="outlet" name="buttonView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="container" candidateClass="UIView"/>

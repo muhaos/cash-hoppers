@@ -3,7 +3,7 @@
 #import "NSDataAdditions.h"
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! change port in app delegate for reachability checking!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-static NSString * const kToDoAPIBaseURLString = @"http://ec2-54-227-42-108.compute-1.amazonaws.com/";
+static NSString * const kToDoAPIBaseURLString = @"http://perechin.net:3000/";
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 @implementation CHAPIClient
