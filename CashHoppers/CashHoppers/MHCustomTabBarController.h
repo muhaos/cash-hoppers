@@ -32,6 +32,12 @@
 @property (weak, nonatomic) IBOutlet UIView *container;
 @property (weak, nonatomic) IBOutlet UIView *buttonView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *messagesIndicatorImage;
+@property (weak, nonatomic) IBOutlet UILabel *messagesIndicatorLabel;
+
+
+- (void) setNewMessagesBadge:(int) count;
+
 - (IBAction)pictureTapped:(id)sender;
 - (IBAction)friendsFeedTapped:(id)sender;
 

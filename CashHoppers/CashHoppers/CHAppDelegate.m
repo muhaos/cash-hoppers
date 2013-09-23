@@ -98,6 +98,12 @@ NSString *const FBSessionStateChangedNotification =
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
+    [NSTimer scheduledTimerWithTimeInterval:10
+                                     target:self
+                                   selector:@selector(onMessagesSyncTimer)
+                                   userInfo:nil
+                                    repeats:YES];
+    
     return YES;
 }
 

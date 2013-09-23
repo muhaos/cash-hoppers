@@ -31,6 +31,7 @@
 
 
 - (IBAction)previewButtonTapped:(id)sender {
+    [self.delegate previewTappedWithHop:self.currentHop];
 }
 
 

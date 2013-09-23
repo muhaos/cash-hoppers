@@ -23,6 +23,18 @@
 #import "MHCustomTabBarController.h"
 #import "CHAppDelegate.h"
 #import "CHHopChooserVC.h"
+#import "CHMessagesManager.h"
+
+
+@interface MHCustomTabBarController ()
+
+@property (nonatomic, strong) id arrivedMessagesNotification;
+@property (nonatomic, assign) int messagesBadgeCount;
+@property (nonatomic, retain) NSTimer *animationTimer;
+
+@end
+
+
 
 @implementation MHCustomTabBarController
 
@@ -33,7 +45,73 @@
 	// Do any additional setup after loading the view, typically from a nib.
     DELEGATE.tabBarController = self;
     [self performSegueWithIdentifier:@"homeScreen" sender:nil];
+    
+    [self setNewMessagesBadge:0];
+    self.arrivedMessagesNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_NEW_MESSAGES_ARRIVED object:nil queue:nil usingBlock:^(NSNotification* note) {
+        NSArray* messages = note.object;
+        if ([messages count] >= self.messagesBadgeCount) {
+            [self setNewMessagesBadge:[messages count]];
+        }
+    }];
+
 }
+
+
+- (void) setNewMessagesBadge:(int) count {
+    self.messagesBadgeCount = count;
+    if (count <= 0) {
+        self.messagesIndicatorImage.hidden = YES;
+        self.messagesIndicatorLabel.hidden = YES;
+        [self stopAnimationTimer];
+    } else {
+        self.messagesIndicatorImage.hidden = NO;
+        self.messagesIndicatorLabel.hidden = NO;
+        self.messagesIndicatorLabel.text = [NSString stringWithFormat:@"%i", count];
+
+        self.animationTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f
+                                                        target:self
+                                                      selector:@selector(animationNotification)
+                                                      userInfo:nil
+                                                       repeats:YES];
+    }
+}
+
+
+-(void) animationNotification
+{
+        [UIView animateWithDuration:1.5f delay:0.5f
+                            options:UIViewAnimationOptionCurveEaseOut
+                         animations:^{
+                             CGRect f1 = self.messagesIndicatorImage.frame;
+                             CGRect f2 = self.messagesIndicatorLabel.frame;
+                             f1.origin.y -= 5;
+                             f2.origin.y -= 5;
+                             self.messagesIndicatorImage.frame = f1;
+                             self.messagesIndicatorLabel.frame = f2;
+                         }
+                         completion:nil];
+        
+        [UIView animateWithDuration:1.5f delay:0.5f
+                            options:UIViewAnimationOptionCurveEaseIn 
+                         animations:^{
+                             CGRect f1 = self.messagesIndicatorImage.frame;
+                             CGRect f2 = self.messagesIndicatorLabel.frame;
+                             f1.origin.y += 5;
+                             f2.origin.y += 5;
+                             self.messagesIndicatorImage.frame = f1;
+                             self.messagesIndicatorLabel.frame = f2;
+                         }
+                         completion:nil];
+}
+
+
+-(void) stopAnimationTimer
+{
+    if ([self.animationTimer isValid]) {
+        [self.animationTimer invalidate];
+    }
+}
+
 
 -(void) viewWillAppear:(BOOL)animated
 {

@@ -37,15 +37,6 @@
 @implementation CHHomeScreenViewController
 @synthesize menuButton;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 
 - (void)viewDidLoad
 {
@@ -92,6 +83,13 @@
     [self updateDailyHopSection];
     [self updateOtherHopsSection];
     [self updateFriendsFeedSection];
+    
+    if ([CHUserManager instance].currentUser != nil && [[CHUserManager instance].currentUser.adEnabled boolValue] == NO) {
+        CGRect newFrame = self.scrollView.frame;
+        newFrame.origin.y -= 40;
+        newFrame.size.height += 40;
+        self.scrollView.frame = newFrame;
+    }
 }
 
 
@@ -114,17 +112,8 @@
         
         }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
             NSLog(@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]);
-//        UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//        [av show];
         }];
         [operation start];
-    }else{
-        if ([CHUserManager instance].currentUser != nil) {
-             CGRect newFrame = self.scrollView.frame;
-            newFrame.origin.y -= 40;
-            newFrame.size.height += 40;
-            self.scrollView.frame = newFrame;
-        }
     }
 }
 

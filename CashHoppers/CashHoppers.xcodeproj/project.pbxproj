@@ -279,6 +279,7 @@
 		AAFBE33517A148D100F408C2 /* CHIndividualMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFBE33417A148D100F408C2 /* CHIndividualMessageVC.m */; };
 		AAFBE33917A14E0500F408C2 /* button_reply_to_message.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFBE33817A14E0500F408C2 /* button_reply_to_message.png */; };
 		AAFBE33B17A1B30800F408C2 /* separator_left_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFBE33A17A1B30800F408C2 /* separator_left_menu.png */; };
+		AAFBE4EB17F0BFB800477294 /* red_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFBE4EA17F0BFB500477294 /* red_circle.png */; };
 		AAFDDBB117E1AFD800BB315D /* spinner.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFDDBB017E1AFD800BB315D /* spinner.png */; };
 		AAFF7459177D923D003883BD /* CHHopChooserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFF7457177D923C003883BD /* CHHopChooserVC.m */; };
 		AAFF745A177D923D003883BD /* CHHopChooserVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFF7458177D923D003883BD /* CHHopChooserVC.xib */; };
@@ -779,6 +780,7 @@
 		AAFBE33417A148D100F408C2 /* CHIndividualMessageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHIndividualMessageVC.m; sourceTree = "<group>"; };
 		AAFBE33817A14E0500F408C2 /* button_reply_to_message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_reply_to_message.png; sourceTree = "<group>"; };
 		AAFBE33A17A1B30800F408C2 /* separator_left_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = separator_left_menu.png; sourceTree = "<group>"; };
+		AAFBE4EA17F0BFB500477294 /* red_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_circle.png; sourceTree = "<group>"; };
 		AAFDDBB017E1AFD800BB315D /* spinner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spinner.png; sourceTree = "<group>"; };
 		AAFF7456177D923B003883BD /* CHHopChooserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHopChooserVC.h; sourceTree = "<group>"; };
 		AAFF7457177D923C003883BD /* CHHopChooserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHopChooserVC.m; sourceTree = "<group>"; };
@@ -1141,6 +1143,7 @@
 		5640158B176B433B00C028CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AAFBE4EA17F0BFB500477294 /* red_circle.png */,
 				AAE96EE617E9A24D0058B4FB /* score_bg.png */,
 				AAFDDBB017E1AFD800BB315D /* spinner.png */,
 				AAD8AFFE17D5DA4700D80071 /* nav_bar_not_label.png */,
@@ -2052,6 +2055,7 @@
 				AAD8AFFF17D5DA4700D80071 /* nav_bar_not_label.png in Resources */,
 				AAFDDBB117E1AFD800BB315D /* spinner.png in Resources */,
 				AAE96EE717E9A24D0058B4FB /* score_bg.png in Resources */,
+				AAFBE4EB17F0BFB800477294 /* red_circle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

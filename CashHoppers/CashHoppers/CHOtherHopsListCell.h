@@ -44,9 +44,10 @@
 - (void) configureHopWithCode;
 - (void) configureFreeHop;
 
+- (void) previewTappedWithHop:(CHHop*) tappedHop;
 
 @property (strong, nonatomic) IBOutlet UIButton *prizeListButton;
-
+@property (weak, nonatomic) id delegate;
 
 - (IBAction)previewButtonTapped:(id)sender;
 - (IBAction)joinButtonTapped:(id)sender;

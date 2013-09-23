@@ -15,6 +15,7 @@
 #import "CHTradeShowMultiHopVC.h"
 #import "CHNewHopVC.h"
 #import "CHPrizeListVC.h"
+#import "CHBuyHopVC.h"
 
 @interface CHOtherHopsListVC () <CHTradeShowEntryVCDelegate>
 
@@ -188,7 +189,14 @@
         }
     }
     
+    cell.delegate = self;
+    
     return cell;
+}
+
+
+- (void) previewTappedWithHop:(CHHop*) tappedHop {
+    [self performSegueWithIdentifier:@"tradeShowMulti" sender:tappedHop];
 }
 
 
@@ -203,8 +211,12 @@
     
     switch ([tappedHop hopType]) {
         case CHHopTypeCompleted: {
+            [self performSegueWithIdentifier:@"tradeShowMulti" sender:tappedHop];
+            break;
         }
         case CHHopTypeFree: {
+            [self performSegueWithIdentifier:@"tradeShowMulti" sender:tappedHop];
+            break;
         }
         case CHHopTypeWithEntryFee: {
 //            if (self.isDailyHops) {
@@ -215,8 +227,14 @@
 //                    [av show];
 //                }
 //            } else {
-                [self performSegueWithIdentifier:@"tradeShowMulti" sender:tappedHop];
+          //      [self performSegueWithIdentifier:@"tradeShowMulti" sender:tappedHop];
 //            }
+            
+            if ([tappedHop.price intValue] != 0 && [tappedHop.purchased boolValue] == NO) {
+                [[CHBuyHopVC sharedBuyHopVC] showInController:self.parentViewController.parentViewController withHop:tappedHop];
+            }else{
+                [self performSegueWithIdentifier:@"tradeShowMulti" sender:tappedHop];
+            }
             break;
         }
         case CHHopTypeWithCode: {
@@ -242,6 +260,7 @@
     }
     self.currentPasswordVC = nil;
 }
+
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"tradeShowMulti"]) {
