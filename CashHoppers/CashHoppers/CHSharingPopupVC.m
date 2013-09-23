@@ -38,7 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.logoToShare = [UIImage imageNamed:@"Icon-72@2x.png"];
 }
 
 
@@ -81,6 +81,8 @@
         SLComposeViewController *tw = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         [tw setInitialText:@" "];
         [tw addImage:self.imageToShare];
+        [tw addImage:self.logoToShare];
+
         tw.completionHandler = ^(SLComposeViewControllerResult result) {
             if (result == SLComposeViewControllerResultDone) {
                 [[CHHopsManager instance] notifiServerOfSharingWithService:@"facebook" andHopTaskID:self.hopTaskID];

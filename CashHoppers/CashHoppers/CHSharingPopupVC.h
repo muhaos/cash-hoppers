@@ -14,6 +14,8 @@
 @property (nonatomic, retain) NSURL *imageToShareURL;
 @property (nonatomic, strong) NSNumber* hopTaskID;
 @property (strong, nonatomic) UIImage* imageToShare;
+@property (strong, nonatomic) UIImage* logoToShare;
+
 @property (nonatomic, assign) UIViewController* currentController;
 
 - (void) showInController:(UIViewController*)controller;
