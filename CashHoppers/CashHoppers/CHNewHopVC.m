@@ -25,23 +25,19 @@
 
 @interface CHNewHopVC ()
 @property (assign) BOOL takePhoto;
+@property (assign) BOOL needSHowSharing;
 @end
 
 @implementation CHNewHopVC
 @synthesize menuButton, winnterButton, photoImView, takePhoto;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self registerForNotifications];
+    
     [self setupTriangleBackButton];
     
     takePhoto = NO;
@@ -75,6 +71,13 @@
     [menuButton addTarget:self action:@selector(menuTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
+-(void)registerForNotifications{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backButtonTapped) name:@"CloseSharingPopup" object:nil];
+}
+
+-(void)unregisterForNotifications{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
 
 - (void) backButtonTapped {
     [[self navigationController] popViewControllerAnimated:YES];
@@ -100,10 +103,11 @@
     
     self.itemLabel.text = [NSString stringWithFormat:@"%i of %i", [self.currentHopTask.hop.tasks indexOfObject:self.currentHopTask]+1, self.currentHopTask.hop.tasks.count];
     self.worthLabel.text = [NSString stringWithFormat:@"%i", [self.currentHopTask.points integerValue]];
+    self.needSHowSharing = NO;
     if (self.currentHopTask.hop.daily_hop.boolValue) {
         [self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier];
     }else{
-        [self showAdsWithType:@"SP" andHopID:nil];
+        [self showAdsWithType:@"SP" andHopID:self.currentHopTask.hop.identifier];
     }
 }
 
@@ -276,7 +280,7 @@
                     [CHSharingPopupVC instance].imageToShare = self.photoImView.image;
                     [[CHSharingPopupVC instance]showInController:self.parentViewController.parentViewController];
                 }
-                
+               
                 [[CHHopsManager instance] loadTasksForHop:self.currentHopTask.hop completionHandler:^(CHHop* hop){
                 
                 }];
@@ -306,10 +310,15 @@
 
 
 - (void) adsClosedTapped {
-    [CHSharingPopupVC instance].imageToShareURL = self.currentHopTask.photoURL;
-    [CHSharingPopupVC instance].hopTaskID = self.currentHopTask.identifier;
-    [CHSharingPopupVC instance].imageToShare = self.photoImView.image;
-    [[CHSharingPopupVC instance]showInController:self.parentViewController.parentViewController];
+    if (self.needSHowSharing == NO){
+        self.needSHowSharing  = YES;
+        return;
+    }else{
+        [CHSharingPopupVC instance].imageToShareURL = self.currentHopTask.photoURL;
+        [CHSharingPopupVC instance].hopTaskID = self.currentHopTask.identifier;
+        [CHSharingPopupVC instance].imageToShare = self.photoImView.image;
+        [[CHSharingPopupVC instance]showInController:self.parentViewController.parentViewController];
+    }
 }
 
 
@@ -354,6 +363,7 @@
 }
 
 - (void)viewDidUnload {
+    [self unregisterForNotifications];
     [self setTextView:nil];
     [self setCharCountLabel:nil];
     [self setPhotoImView:nil];

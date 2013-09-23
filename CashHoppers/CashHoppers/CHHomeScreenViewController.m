@@ -96,6 +96,7 @@
 
 
 - (void) loadTopADS {
+    
     if ([[CHUserManager instance].currentUser.adEnabled intValue] == YES) {
         NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
         NSString *path = [NSString stringWithFormat:@"/api/ads/get_ads.json?api_key=%@&authentication_token=%@&ad_type=%@", CH_API_KEY, aToken, @"RCH"];
@@ -118,10 +119,12 @@
         }];
         [operation start];
     }else{
-        CGRect newFrame = self.scrollView.frame;
-        newFrame.origin.y -= 40;
-        newFrame.size.height += 40;
-        self.scrollView.frame = newFrame;
+        if ([CHUserManager instance].currentUser != nil) {
+             CGRect newFrame = self.scrollView.frame;
+            newFrame.origin.y -= 40;
+            newFrame.size.height += 40;
+            self.scrollView.frame = newFrame;
+        }
     }
 }
 

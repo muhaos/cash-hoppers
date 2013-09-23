@@ -132,7 +132,8 @@
 }
 
 - (IBAction)cancelButtonTapped:(id)sender {
-    [self.view removeFromSuperview];   
+    [self.view removeFromSuperview];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"CloseSharingPopup" object:nil];
 }
 
 @end
