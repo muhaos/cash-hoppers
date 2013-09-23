@@ -18,7 +18,6 @@
 @property (strong, nonatomic) NSString* bonusPointsCount;
 
 @property (strong, nonatomic) IBOutlet UILabel *bonusPointsLabel;
-
 @property (nonatomic, assign) UIViewController* currentController;
 
 - (void) showInController:(UIViewController*)controller;

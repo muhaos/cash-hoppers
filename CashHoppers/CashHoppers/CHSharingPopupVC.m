@@ -39,8 +39,13 @@
 {
     [super viewDidLoad];
     self.logoToShare = [UIImage imageNamed:@"Icon-72@2x.png"];
-    NSString* bonusPoints = [[NSString alloc] initWithFormat:@"For %@ more points", self.bonusPointsCount];
-    self.bonusPointsLabel.text = bonusPoints;
+    NSString *bonusPointsStr;
+    if (self.bonusPointsCount == nil) {
+        bonusPointsStr= [[NSString alloc] initWithFormat:@"For 0 more points"];
+    }else{
+        bonusPointsStr = [[NSString alloc] initWithFormat:@"For %@ more points", self.bonusPointsCount];
+    }
+    self.bonusPointsLabel.text = bonusPointsStr;
 }
 
 
