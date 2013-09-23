@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSNumber* points;
 @property (nonatomic, strong) NSNumber* share;
 @property (nonatomic, strong) NSString* adUrlString;
+@property (nonatomic, strong) NSNumber* bonusPoints;
 
 
 - (void) updateFromDictionary:(NSDictionary*) dic;

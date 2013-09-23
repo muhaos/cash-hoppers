@@ -39,6 +39,8 @@
 {
     [super viewDidLoad];
     self.logoToShare = [UIImage imageNamed:@"Icon-72@2x.png"];
+    NSString* bonusPoints = [[NSString alloc] initWithFormat:@"For %@ more points", self.bonusPointsCount];
+    self.bonusPointsLabel.text = bonusPoints;
 }
 
 
@@ -138,4 +140,8 @@
     [[NSNotificationCenter defaultCenter]postNotificationName:@"CloseSharingPopup" object:nil];
 }
 
+- (void)viewDidUnload {
+    [self setBonusPointsLabel:nil];
+    [super viewDidUnload];
+}
 @end

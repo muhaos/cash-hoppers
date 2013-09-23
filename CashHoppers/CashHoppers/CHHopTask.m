@@ -21,6 +21,7 @@
     self.points = [CHBaseModel safeNumberFrom:[dic objectForKey:@"pts"] defaultValue:@0];
     self.share = [CHBaseModel safeNumberFrom:[dic objectForKey:@"share"] defaultValue:@0];
     self.adUrlString = [CHBaseModel safeStringFrom:[dic objectForKey:@"link"] defaultValue:nil];
+    self.bonusPoints = [CHBaseModel safeNumberFrom:[dic objectForKey:@"bonus"] defaultValue:nil];
 }
 
 

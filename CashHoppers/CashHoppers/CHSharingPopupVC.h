@@ -15,6 +15,9 @@
 @property (nonatomic, strong) NSNumber* hopTaskID;
 @property (strong, nonatomic) UIImage* imageToShare;
 @property (strong, nonatomic) UIImage* logoToShare;
+@property (strong, nonatomic) NSString* bonusPointsCount;
+
+@property (strong, nonatomic) IBOutlet UILabel *bonusPointsLabel;
 
 @property (nonatomic, assign) UIViewController* currentController;
 
