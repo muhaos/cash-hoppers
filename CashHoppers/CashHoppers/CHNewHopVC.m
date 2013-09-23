@@ -220,6 +220,12 @@
 
 #pragma mark - ibactions
 
+- (IBAction)adLinkTapped:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[self.currentHopTask adURL]];
+}
+
+
 - (IBAction)shareButtonTapped:(id)sender
 {
     [_textView resignFirstResponder];

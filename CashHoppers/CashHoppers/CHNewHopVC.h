@@ -33,8 +33,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *worthLabel;
 @property (strong, nonatomic) IBOutlet UIButton *shareButton;
 
+- (IBAction)adLinkTapped:(id)sender;
 - (IBAction)shareButtonTapped:(id)sender;
-
 - (IBAction)resignResponder:(id)sender;
 - (IBAction)photoTapped:(id)sender;
 - (IBAction)submitPressed:(id)sender;
