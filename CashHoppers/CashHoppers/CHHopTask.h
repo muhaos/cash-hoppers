@@ -19,10 +19,13 @@
 @property (nonatomic, strong) NSString* photoUrlString;
 @property (nonatomic, strong) NSString* comment;
 @property (nonatomic, strong) NSNumber* points;
+@property (nonatomic, strong) NSNumber* share;
+@property (nonatomic, strong) NSString* adUrlString;
 
 
 - (void) updateFromDictionary:(NSDictionary*) dic;
 - (NSURL*) logoURL;
 - (NSURL*) photoURL;
+- (NSURL*) adURL;
 
 @end

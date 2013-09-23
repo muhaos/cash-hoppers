@@ -31,9 +31,9 @@
 @property (strong, nonatomic) IBOutlet UIView *sharingView;
 @property (strong, nonatomic) IBOutlet UILabel *itemLabel;
 @property (strong, nonatomic) IBOutlet UILabel *worthLabel;
+@property (strong, nonatomic) IBOutlet UIButton *shareButton;
 
 - (IBAction)shareButtonTapped:(id)sender;
-
 
 - (IBAction)resignResponder:(id)sender;
 - (IBAction)photoTapped:(id)sender;

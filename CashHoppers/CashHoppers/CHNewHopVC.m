@@ -71,13 +71,16 @@
     [menuButton addTarget:self action:@selector(menuTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
+
 -(void)registerForNotifications{
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backButtonTapped) name:@"CloseSharingPopup" object:nil];
 }
 
+
 -(void)unregisterForNotifications{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
+
 
 - (void) backButtonTapped {
     [[self navigationController] popViewControllerAnimated:YES];
@@ -97,6 +100,10 @@
         self.textView.editable = NO;
         self.textView.textColor = [UIColor darkGrayColor];
         self.sharingView.hidden = NO;
+        if ([self.currentHopTask.share boolValue] == YES) {
+            [self.shareButton setTitle:@"Completed!" forState:UIControlStateNormal];
+            self.shareButton.enabled = NO;
+        }
     } else {
         self.sharingView.hidden = YES;
     }
@@ -142,11 +149,13 @@
     [self shiftViewUp];
 }
 
+
 -(void)textViewDidChange:(UITextView *)textView{
     
     NSInteger count = CH_NUMBER_OF_CHARACTERS-textView.text.length;
     _charCountLabel.text = [NSString stringWithFormat:@"%d", count];
 }
+
 
 -(void)textViewDidEndEditing:(UITextView *)textView{
     if([textView.text isEqualToString:@""]){
@@ -155,6 +164,7 @@
     }
     [self shiftViewToDefault];
 }
+
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
@@ -177,13 +187,13 @@
     
 }
 
+
 -(void)shiftViewToDefault{
     CGRect newFrame = self.view.frame;
     newFrame.origin.y = 0;
     [UIView animateWithDuration:.2 animations:^{
         self.view.frame = newFrame;
     }];
-    
 }
 
 
@@ -203,9 +213,7 @@
         }else{
             return CGSizeMake(1024, 370);
         }
-        
     }
-    
     return CGSizeZero;
 }
 
@@ -218,11 +226,13 @@
     [self adsClosedTapped];
 }
 
+
 - (IBAction)resignResponder:(id)sender {
     
     [_textView resignFirstResponder];
     
 }
+
 
 - (IBAction)photoTapped:(id)sender {
     if ([self.currentHopTask.completed boolValue] == NO) {
@@ -244,6 +254,7 @@
         [self presentViewController:poc animated:YES completion:nil];
     }
 }
+
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
@@ -373,6 +384,7 @@
     [self setMenuButton:nil];
     [self setWinnterButton:nil];
     [self setSharingView:nil];
+    [self setShareButton:nil];
     [super viewDidUnload];
 }
 
