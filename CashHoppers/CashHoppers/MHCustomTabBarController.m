@@ -68,7 +68,7 @@
         self.messagesIndicatorLabel.hidden = NO;
         self.messagesIndicatorLabel.text = [NSString stringWithFormat:@"%i", count];
 
-        self.animationTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f
+        self.animationTimer = [NSTimer scheduledTimerWithTimeInterval:1.4f
                                                         target:self
                                                       selector:@selector(animationNotification)
                                                       userInfo:nil
@@ -79,7 +79,7 @@
 
 -(void) animationNotification
 {
-        [UIView animateWithDuration:1.5f delay:0.5f
+        [UIView animateWithDuration:.5f delay:0.0
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
                              CGRect f1 = self.messagesIndicatorImage.frame;
@@ -89,19 +89,23 @@
                              self.messagesIndicatorImage.frame = f1;
                              self.messagesIndicatorLabel.frame = f2;
                          }
-                         completion:nil];
+                         completion:^(BOOL finished) {
+                             
+                             [UIView animateWithDuration:.5f delay:0.2f
+                                                 options:UIViewAnimationOptionCurveEaseIn
+                                              animations:^{
+                                                  CGRect f1 = self.messagesIndicatorImage.frame;
+                                                  CGRect f2 = self.messagesIndicatorLabel.frame;
+                                                  f1.origin.y += 5;
+                                                  f2.origin.y += 5;
+                                                  self.messagesIndicatorImage.frame = f1;
+                                                  self.messagesIndicatorLabel.frame = f2;
+                                              }
+                                              completion:nil];
+                             
+                         }];
         
-        [UIView animateWithDuration:1.5f delay:0.5f
-                            options:UIViewAnimationOptionCurveEaseIn 
-                         animations:^{
-                             CGRect f1 = self.messagesIndicatorImage.frame;
-                             CGRect f2 = self.messagesIndicatorLabel.frame;
-                             f1.origin.y += 5;
-                             f2.origin.y += 5;
-                             self.messagesIndicatorImage.frame = f1;
-                             self.messagesIndicatorLabel.frame = f2;
-                         }
-                         completion:nil];
+    
 }
 
 
