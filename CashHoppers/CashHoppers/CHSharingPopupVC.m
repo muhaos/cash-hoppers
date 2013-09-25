@@ -82,7 +82,7 @@
 
 
 - (IBAction)facebookButTapped:(id)sender {
-    NSString* shareString = [NSString stringWithFormat:@"%@: %@ /n",self.curentHop, self.commentToHopTask];
+    NSString* shareString = [NSString stringWithFormat:@"%@: %@",self.curentHop, self.commentToHopTask];
     
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
     {
