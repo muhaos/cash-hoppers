@@ -65,16 +65,15 @@
         self.postCommentButton.hidden = YES;
         self.addComentTextView.hidden = YES;
         [_likeButton setBackgroundImage:[UIImage imageNamed:@"like_icon_on"] forState:UIControlStateNormal];
-        if (self.comments.count == 0) {
-            self.addFriendButton.frame = CGRectMake(95, 500, 152, 44);
-        }
+
+    self.addFriendButton.frame = CGRectMake(95,(self.commentTable.frame.origin.y+self.commentTable.frame.size.height + 20) , 152, 44);
+        
     } else {
         self.addFriendButton.hidden = YES;
     }
     
     [self reloadData];
     [self registerForNotifications];
-    
 }
 
 

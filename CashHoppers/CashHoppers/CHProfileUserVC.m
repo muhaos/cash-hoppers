@@ -50,10 +50,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     
     self.scrollView.frame = CGRectMake(0, 0, 320, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height);
     self.scrollView.contentSize = CGSizeMake(320.0f, 850.0f);
+    self.saveButton.enabled = YES;
 }
 
 
 - (IBAction) saveTapped {
+    self.saveButton.enabled = NO;
+    [self resignFirstResponder];
     
     CHUser* user = [[CHUser alloc] init];
     user.first_name = self.firstNameTextField.text;
@@ -88,11 +91,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         if (error != nil) {
             UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [av show];
+            self.saveButton.enabled = YES;
         } else {
             UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"PROFILE" message:@"Profile updated!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [av show];
             [[CHUserManager instance] removeObjectWithID:[CHUserManager instance].currentUser.identifier fromCache:@"users"];
             [[CHUserManager instance] updateCurrentUser];
+            self.saveButton.enabled = YES;
         }
         
         [[CHLoadingVC sharedLoadingVC] hide];
