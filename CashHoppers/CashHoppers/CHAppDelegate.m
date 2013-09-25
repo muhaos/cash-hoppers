@@ -87,7 +87,7 @@ NSString *const FBSessionStateChangedNotification =
     
     struct sockaddr_in anAddr;
     anAddr.sin_family = AF_INET;
-    anAddr.sin_port = htons(3000);
+    anAddr.sin_port = htons(80);
     anAddr.sin_addr.s_addr = inet_addr(buff);
     
     self.serverReachability = [Reachability reachabilityWithAddress:&anAddr];

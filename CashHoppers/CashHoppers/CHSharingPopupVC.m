@@ -82,13 +82,14 @@
 
 
 - (IBAction)facebookButTapped:(id)sender {
+    NSString* shareString = [NSString stringWithFormat:@"%@: %@ /n",self.curentHop, self.commentToHopTask];
     
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
     {
         SLComposeViewController *tw = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        [tw setInitialText:@" "];
+        [tw setInitialText:shareString];
         [tw addImage:self.imageToShare];
-        [tw addImage:self.logoToShare];
+        [tw addURL:[NSURL URLWithString:@"http://ec2-54-227-42-108.compute-1.amazonaws.com/"]];
 
         tw.completionHandler = ^(SLComposeViewControllerResult result) {
             if (result == SLComposeViewControllerResultDone) {

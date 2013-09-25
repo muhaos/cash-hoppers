@@ -16,6 +16,8 @@
 @property (strong, nonatomic) UIImage* imageToShare;
 @property (strong, nonatomic) UIImage* logoToShare;
 @property (strong, nonatomic) NSString* bonusPointsCount;
+@property (strong, nonatomic) NSString* curentHop;
+@property (strong, nonatomic) NSString* commentToHopTask;
 
 @property (strong, nonatomic) IBOutlet UILabel *bonusPointsLabel;
 @property (nonatomic, assign) UIViewController* currentController;

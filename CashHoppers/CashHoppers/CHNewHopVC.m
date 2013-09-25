@@ -335,6 +335,8 @@
         [CHSharingPopupVC instance].imageToShareURL = self.currentHopTask.photoURL;
         [CHSharingPopupVC instance].hopTaskID = self.currentHopTask.identifier;
         [CHSharingPopupVC instance].imageToShare = self.photoImView.image;
+        [CHSharingPopupVC instance].curentHop = self.currentHopTask.hop.name;
+        [CHSharingPopupVC instance].commentToHopTask= self.textView.text;
         [CHSharingPopupVC instance].bonusPointsCount = [self.currentHopTask.bonusPoints stringValue];
         [[CHSharingPopupVC instance]showInController:self.parentViewController.parentViewController];
     }
