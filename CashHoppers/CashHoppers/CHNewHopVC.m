@@ -102,7 +102,6 @@
         self.sharingView.hidden = NO;
         if ([self.currentHopTask.share boolValue] == YES) {
             [self.shareButton setTitle:@"Completed!" forState:UIControlStateNormal];
-            self.shareButton.enabled = NO;
         }
     } else {
         self.sharingView.hidden = YES;
@@ -297,6 +296,7 @@
                     [CHSharingPopupVC instance].imageToShare = self.photoImView.image;
                     [CHSharingPopupVC instance].bonusPointsCount = [self.currentHopTask.bonusPoints stringValue];
                     [[CHSharingPopupVC instance]showInController:self.parentViewController.parentViewController];
+                    self.currentHopTask.share = @YES;
                 }
                
                 [[CHHopsManager instance] loadTasksForHop:self.currentHopTask.hop completionHandler:^(CHHop* hop){
