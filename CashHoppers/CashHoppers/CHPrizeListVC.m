@@ -23,6 +23,13 @@
 {
     prizesTextView.attributedText = nil;
     [super viewDidLoad];
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+        CGRect newFrame = self.view.frame;
+        newFrame.origin.y+=20;
+        newFrame.size.height -=20;
+        self.view.frame = newFrame;
+    }
 }
 
 
