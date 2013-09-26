@@ -202,8 +202,13 @@
     [self.inputMessageTextView setTextColor:[UIColor colorWithRed:204.0f/256 green:204.0f/256 blue:204.0f/256 alpha:1.0f]];
     
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3f];
-    CGRect frame = self.view.frame; frame.origin.y = -160;
+    [UIView setAnimationDuration:0.2f];
+    CGRect frame;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+        frame = self.view.frame; frame.origin.y = -110;
+    }else{
+        frame = self.view.frame; frame.origin.y = -160;
+    }
     [self.view setFrame:frame];
     [UIView commitAnimations];
 }
@@ -213,7 +218,12 @@
 {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.2f];
-    CGRect frame = self.view.frame; frame.origin.y = 0;
+    CGRect frame = self.view.frame;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7){
+        frame.origin.y = 50;
+    }else{
+        frame.origin.y = 0;
+    }
     [self.view setFrame:frame];
     [UIView commitAnimations];
 }
