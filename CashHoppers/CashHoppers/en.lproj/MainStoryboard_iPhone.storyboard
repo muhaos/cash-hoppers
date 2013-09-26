@@ -1670,7 +1670,7 @@
             <objects>
                 <viewController id="OtY-Mi-bR2" customClass="CHAddFriendVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nI1-wd-KsW">
-                        <rect key="frame" x="0.0" y="44" width="320" height="2724"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="2856"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="mhL-Jd-Gsa">
@@ -1766,11 +1766,11 @@
             <objects>
                 <viewController storyboardIdentifier="DetailFeedVC" id="jPZ-MB-CzT" customClass="CHDetailsFeedVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BRh-qX-Sku">
-                        <rect key="frame" x="0.0" y="44" width="320" height="2812"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="2900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="iYL-i3-iPO">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="2812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="2900"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="image_title_holder.png" id="PXN-ff-SaN">
@@ -2451,7 +2451,7 @@
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="uJ9-eW-rMo">
                                                     <rect key="frame" x="14" y="15" width="253" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <userDefinedRuntimeAttributes>
@@ -2480,7 +2480,7 @@
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o27-bJ-qox">
                                                     <rect key="frame" x="14" y="0.0" width="253" height="59"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <userDefinedRuntimeAttributes>
@@ -2857,7 +2857,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="j1R-8G-F7c">
-                                        <rect key="frame" x="89" y="150" width="140" height="140"/>
+                                        <rect key="frame" x="89" y="170" width="140" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Randomly selected from all the eligible entries." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sdj-qY-kxk">
@@ -2870,8 +2870,8 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="DroidSans"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Brian K." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aJx-qO-fjf">
-                                        <rect key="frame" x="20" y="94" width="280" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Brian K." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aJx-qO-fjf">
+                                        <rect key="frame" x="20" y="85" width="280" height="77"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.58039215690000001" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
@@ -4382,7 +4382,7 @@
             <objects>
                 <viewController id="KrS-aP-d9K" customClass="CHSettingsProfileNotificationsVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="94Y-h7-XZq">
-                        <rect key="frame" x="0.0" y="64" width="320" height="2676"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="2804"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YoX-rf-gPA">
@@ -4416,7 +4416,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="p0V-dh-tLS">
-                                <rect key="frame" x="0.0" y="43" width="320" height="2633"/>
+                                <rect key="frame" x="0.0" y="43" width="320" height="2761"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -4825,10 +4825,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="SWG-0R-sWo"/>
         <segue reference="Zbe-DI-nGM"/>
         <segue reference="gri-tX-sSQ"/>
-        <segue reference="dTN-EH-Ojv"/>
+        <segue reference="Wv3-IZ-arJ"/>
+        <segue reference="SWG-0R-sWo"/>
         <segue reference="m1v-68-Zev"/>
     </inferredMetricsTieBreakers>
 </document>

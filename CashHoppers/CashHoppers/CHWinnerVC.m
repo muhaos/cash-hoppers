@@ -54,7 +54,7 @@
             self.contactAsTextView.hidden = NO;
             
         } else {
-            self.nameLabel.text = @"No yesterday winner!";
+            self.nameLabel.text = @"There was no Daily HOP winner yesterday. Will you be today’s winner?";
         }
     }];
 }

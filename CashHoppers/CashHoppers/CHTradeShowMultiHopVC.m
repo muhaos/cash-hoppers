@@ -32,7 +32,16 @@
     [super viewDidLoad];
     [self setupTriangleBackButton];
     
-    self.hopTitleLabel.text = [NSString stringWithFormat:@"%@   %@", self.currentHop.name, [self.currentHop dateString]];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"MM/dd"];
+    NSString* startDate = [df stringFromDate:self.currentHop.time_start];
+    
+    if (self.currentHop.daily_hop.boolValue) {
+        self.hopTitleLabel.text = [NSString stringWithFormat:@"%@   %@", self.currentHop.name, startDate];
+    }else{
+        self.hopTitleLabel.text = [NSString stringWithFormat:@"%@   %@", self.currentHop.name, [self.currentHop dateString]];
+    }
+    
     self.hopImageView.image = [UIImage imageNamed:@"image_nbm_show.png"];
     self.scoreLabel.text = @"550 pts";
     self.rankLabel.text = @"3 of 46";
