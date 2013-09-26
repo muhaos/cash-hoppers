@@ -147,7 +147,7 @@
     dispatch_async(GCDBackgroundThread, ^{
         @autoreleasepool {
             [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-            NSError *error = [[FHSTwitterEngine sharedEngine]sendDirectMessage:@"CASHHOPPERS !!!" toUser:_userID isID:YES];
+            NSError *error = [[FHSTwitterEngine sharedEngine]sendDirectMessage:@"HEY! Come play CASHHOPPERS with me! It’s fun, FREE and you can win cash! WWW.CASHHOPPERS.COM)" toUser:_userID isID:YES];
             
             dispatch_sync(GCDMainThread, ^{
                 @autoreleasepool {
