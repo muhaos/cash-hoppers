@@ -213,7 +213,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
             } else {
                 errMsg = [error localizedDescription];
             }
-            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"LOGIN" message:[NSString stringWithFormat:@"Login failed - wrong email or password"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"LOGIN" message:[NSString stringWithFormat:@"%@",errMsg] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [av show];
             [[CHLoadingVC sharedLoadingVC] hide];
         }];

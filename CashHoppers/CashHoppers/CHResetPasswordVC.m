@@ -63,7 +63,7 @@
         
         AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Success"
-                                                         message:@"Confirmation instructions sended. Please check your email."
+                                                         message:@"Confirmation instructions sent. Please check your email."
                                                         delegate:nil
                                                cancelButtonTitle:@"OK"
                                                otherButtonTitles:nil];
