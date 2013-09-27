@@ -23,7 +23,7 @@ enum CHHopType {
 @property (nonatomic, strong) NSDate* time_end;
 @property (nonatomic, strong) NSString* code;
 @property (nonatomic, strong) NSNumber* price;
-@property (nonatomic, strong) NSNumber* jackpot;
+@property (nonatomic, strong) NSString* jackpot;
 @property (nonatomic, strong) NSNumber* daily_hop; //BOOL
 @property (nonatomic, strong) NSNumber* close; //BOOL
 @property (nonatomic, strong) NSString* event;

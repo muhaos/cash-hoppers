@@ -25,7 +25,7 @@
     
     self.code = [CHBaseModel safeStringFrom:[dic objectForKey:@"code"] defaultValue:@""];
     self.price = [CHBaseModel safeNumberFrom:[dic objectForKey:@"price"] defaultValue:@0];
-    self.jackpot = [CHBaseModel safeNumberFrom:[dic objectForKey:@"jackpot"] defaultValue:@0];
+    self.jackpot = [CHBaseModel safeStringFrom:[dic objectForKey:@"jackpot"] defaultValue:@""];
     self.daily_hop = [dic objectForKey:@"daily"];
     self.close = [dic objectForKey:@"close"];
     self.event = [CHBaseModel safeStringFrom:[dic objectForKey:@"event"] defaultValue:@""];
