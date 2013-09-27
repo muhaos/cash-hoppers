@@ -30,12 +30,15 @@ enum CHHopType {
 @property (nonatomic, strong) NSString* logoUrlString;
 @property (nonatomic, strong) NSNumber* purchased;
 @property (nonatomic, strong) NSNumber* askPassword;
+@property (nonatomic, strong) NSString* adUrlString;
+
 
 @property (nonatomic, strong) NSArray* tasks; // CHHopTask
 - (enum CHHopType) hopType;
 - (BOOL) isAllTasksCompleted;
 - (NSString*) dateString;
 - (NSURL*) logoURL;
+- (NSURL*) adURL;
 
 
 - (void) updateFromDictionary:(NSDictionary*) dic;

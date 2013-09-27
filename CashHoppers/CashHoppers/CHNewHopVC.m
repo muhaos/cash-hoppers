@@ -90,7 +90,17 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.submitButton.hidden = [self.currentHopTask.completed boolValue];
-    self.hopTitleLabel.text = [NSString stringWithFormat:@"%@   %@", self.currentHopTask.hop.name, [self.currentHopTask.hop dateString]];
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"MM/dd"];
+    NSString* startDate = [df stringFromDate:self.currentHopTask.hop.time_start];
+
+    if (self.currentHopTask.hop.daily_hop.boolValue) {
+        self.hopTitleLabel.text = [NSString stringWithFormat:@"%@   %@", self.currentHopTask.hop.name, startDate];
+    }else{
+        self.hopTitleLabel.text = [NSString stringWithFormat:@"%@   %@", self.currentHopTask.hop.name,[self.currentHopTask.hop dateString]];
+    }
+    
     [self.taskLogoImageView setImageWithURL:[self.currentHopTask logoURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
     
     [self setHopTaskName:[NSString stringWithFormat:@"%@", self.currentHopTask.text] withBoldString:self.currentHopTask.hop.name];

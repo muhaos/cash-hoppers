@@ -32,6 +32,7 @@
     self.logoUrlString = [CHBaseModel safeStringFrom:[dic objectForKey:@"logo"] defaultValue:nil];
     self.purchased = [CHBaseModel safeNumberFrom:[dic objectForKey:@"purchased"] defaultValue:@NO];
     self.askPassword = [CHBaseModel safeNumberFrom:[dic objectForKey:@"ask_password"] defaultValue:@YES];
+    self.adUrlString = [CHBaseModel safeStringFrom:[dic objectForKey:@"link"] defaultValue:nil];
     
     NSLog(@"%@ id:%i purchased: %i", self.name, [self.identifier integerValue], [self.purchased intValue]);
     
@@ -90,6 +91,10 @@
     return [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:self.logoUrlString]];
 }
 
+
+- (NSURL*) adURL {
+    return [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:self.adUrlString]];
+}
 
 
 @end

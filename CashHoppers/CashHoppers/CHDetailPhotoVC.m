@@ -20,7 +20,6 @@
 {
     [super viewDidLoad];
     [self setupTriangleBackButton];
- //   photoImageView.frame = CGRectMake(0, 30, 100, 100);
     photoImageView.image = _photoImage;
 }
 

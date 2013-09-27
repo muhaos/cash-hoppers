@@ -191,6 +191,11 @@
 }
 
 
+- (IBAction)hopLogoTapped:(id)sender {
+    [[UIApplication sharedApplication] openURL:[self.currentHop adURL]];
+}
+
+
 - (IBAction)prizeListButtonTapped:(id)sender {
     [[CHPrizeListVC sharedPrizeListVC] showInController:self.parentViewController.parentViewController forHopID:self.currentHop.identifier];
 }

@@ -1108,7 +1108,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Rvp-DB-PaI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Rvp-DB-PaI">
                                 <rect key="frame" x="0.0" y="65" width="320" height="503"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1133,7 +1133,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="lAR-g5-qx5">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="567.99999999999989"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="REGISTER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dgz-rd-yeU">
@@ -1183,7 +1183,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="GNs-J7-cFb" userLabel="First Name Input View">
-                                        <rect key="frame" x="17" y="132.99999999999997" width="287" height="36"/>
+                                        <rect key="frame" x="17" y="133" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="XK6-kW-wmx">
@@ -1381,7 +1381,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7ms-Rn-vRJ" userLabel="Button Register">
-                                        <rect key="frame" x="96" y="512.99999999999989" width="128" height="34"/>
+                                        <rect key="frame" x="96" y="513" width="128" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="button_register.png">
@@ -1695,7 +1695,7 @@
             <objects>
                 <viewController id="OtY-Mi-bR2" customClass="CHAddFriendVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nI1-wd-KsW">
-                        <rect key="frame" x="0.0" y="44" width="320" height="3912"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="4220"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="mhL-Jd-Gsa">
@@ -1791,11 +1791,11 @@
             <objects>
                 <viewController storyboardIdentifier="DetailFeedVC" id="jPZ-MB-CzT" customClass="CHDetailsFeedVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BRh-qX-Sku">
-                        <rect key="frame" x="0.0" y="44" width="320" height="4000"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="4264"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="iYL-i3-iPO">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="4000"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="4264"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="image_title_holder.png" id="PXN-ff-SaN">
@@ -2394,9 +2394,13 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="OpenSans-CondensedBold"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="PeR-mg-vXv">
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" id="PeR-mg-vXv">
                                 <rect key="frame" x="20" y="46" width="105" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="FTr-Cc-SzH" appends="YES" id="EuF-Gm-hwi"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Grand Prize:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qxd-7O-Q1z">
                                 <rect key="frame" x="150" y="104" width="98" height="21"/>
@@ -2614,6 +2618,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsu-wl-MEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="FTr-Cc-SzH">
+                    <connections>
+                        <action selector="hopLogoTapped:" destination="i5p-Hh-cf4" id="YfS-Br-fCO"/>
+                        <outlet property="delegate" destination="i5p-Hh-cf4" id="01Q-ji-0NY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3689" y="-592"/>
         </scene>
@@ -4407,7 +4417,7 @@
             <objects>
                 <viewController id="KrS-aP-d9K" customClass="CHSettingsProfileNotificationsVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="94Y-h7-XZq">
-                        <rect key="frame" x="0.0" y="64" width="320" height="4404"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="4788"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YoX-rf-gPA">
@@ -4441,7 +4451,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="p0V-dh-tLS">
-                                <rect key="frame" x="0.0" y="43" width="320" height="4361"/>
+                                <rect key="frame" x="0.0" y="43" width="320" height="4745"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
