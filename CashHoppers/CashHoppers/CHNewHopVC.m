@@ -304,15 +304,12 @@
                 self.textView.editable = NO;
                 self.textView.textColor = [UIColor darkGrayColor];
                 self.sharingView.hidden = NO;
-
-                if ([self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier]) {
-                } else {
-                    [CHSharingPopupVC instance].hopTaskID = self.currentHopTask.identifier;
-                    [CHSharingPopupVC instance].imageToShare = self.photoImView.image;
-                    [CHSharingPopupVC instance].bonusPointsCount = [self.currentHopTask.bonusPoints stringValue];
-                    [[CHSharingPopupVC instance]showInController:self.parentViewController.parentViewController];
-                    self.currentHopTask.share = @YES;
-                }
+                
+                [CHSharingPopupVC instance].hopTaskID = self.currentHopTask.identifier;
+                [CHSharingPopupVC instance].imageToShare = self.photoImView.image;
+                [CHSharingPopupVC instance].bonusPointsCount = [self.currentHopTask.bonusPoints stringValue];
+                [[CHSharingPopupVC instance]showInController:self.parentViewController.parentViewController];
+                self.currentHopTask.share = @YES;
                
                 [[CHHopsManager instance] loadTasksForHop:self.currentHopTask.hop completionHandler:^(CHHop* hop){
                 
