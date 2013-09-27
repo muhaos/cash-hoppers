@@ -273,6 +273,7 @@
 		AAD980EE17CF4C90004E94C9 /* CHHopAboutToEndNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD980ED17CF4C90004E94C9 /* CHHopAboutToEndNotification.m */; };
 		AAD980F217CF9605004E94C9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD980F117CF9605004E94C9 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AAE96EE717E9A24D0058B4FB /* score_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE96EE617E9A24D0058B4FB /* score_bg.png */; };
+		AAF2C47717F4AD9300CF4B05 /* CHDetailPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF2C47617F4AD9300CF4B05 /* CHDetailPhotoVC.m */; };
 		AAF9EE5717CB8E0600186342 /* CHHelpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9EE5617CB8E0600186342 /* CHHelpVC.m */; };
 		AAFBE33117A1422A00F408C2 /* button_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFBE32F17A1422A00F408C2 /* button_delete.png */; };
 		AAFBE33217A1422A00F408C2 /* compose_new_message.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFBE33017A1422A00F408C2 /* compose_new_message.png */; };
@@ -772,6 +773,8 @@
 		AAD980F017CF9605004E94C9 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		AAD980F117CF9605004E94C9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		AAE96EE617E9A24D0058B4FB /* score_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = score_bg.png; sourceTree = "<group>"; };
+		AAF2C47517F4AD9300CF4B05 /* CHDetailPhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDetailPhotoVC.h; sourceTree = "<group>"; };
+		AAF2C47617F4AD9300CF4B05 /* CHDetailPhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHDetailPhotoVC.m; sourceTree = "<group>"; };
 		AAF9EE5517CB8E0600186342 /* CHHelpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHelpVC.h; sourceTree = "<group>"; };
 		AAF9EE5617CB8E0600186342 /* CHHelpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHelpVC.m; sourceTree = "<group>"; };
 		AAFBE32F17A1422A00F408C2 /* button_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_delete.png; sourceTree = "<group>"; };
@@ -1270,6 +1273,8 @@
 				567BB52617BBD2C000C75F54 /* CHGalleryCell.m */,
 				567BB52717BBD2C000C75F54 /* CHGalleryVC.h */,
 				567BB52817BBD2C000C75F54 /* CHGalleryVC.m */,
+				AAF2C47517F4AD9300CF4B05 /* CHDetailPhotoVC.h */,
+				AAF2C47617F4AD9300CF4B05 /* CHDetailPhotoVC.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -2091,6 +2096,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56401557176B40D000C028CE /* main.m in Sources */,
+				AAF2C47717F4AD9300CF4B05 /* CHDetailPhotoVC.m in Sources */,
 				5640155B176B40D100C028CE /* CHAppDelegate.m in Sources */,
 				5640158A176B422D00C028CE /* CHStartVC.m in Sources */,
 				AA4C1FCC17904E920071D0F9 /* GTMNSString+URLArguments.m in Sources */,

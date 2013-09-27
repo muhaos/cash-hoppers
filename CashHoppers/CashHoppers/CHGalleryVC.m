@@ -10,6 +10,7 @@
 #import "CHAppDelegate.h"
 #import "MFSideMenuContainerViewController.h"
 #import "CHGalleryCell.h"
+#import "CHDetailPhotoVC.h"
 
 @interface CHGalleryVC ()
 
@@ -101,11 +102,18 @@
 }
 
 
-#pragma mark -
-#pragma mark UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    UIImage * selImage = [UIImage imageWithCGImage:[[self.photos objectAtIndex:indexPath.row] thumbnail]];
+    [self performSegueWithIdentifier:@"photo" sender:selImage];
+    [collectionView deselectItemAtIndexPath:indexPath animated:NO];
+}
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"photo"]) {
+        CHDetailPhotoVC* vc = segue.destinationViewController;
+        vc.photoImage  = sender;
+    }
 }
 
 
