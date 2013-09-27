@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="n2e-JQ-ciM">
     <dependencies>
-        <deployment version="1552" defaultVersion="1536" identifier="iOS"/>
+        <deployment version="1536" defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
@@ -1133,7 +1133,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="lAR-g5-qx5">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="567.99999999999989"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="REGISTER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dgz-rd-yeU">
@@ -1183,7 +1183,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="GNs-J7-cFb" userLabel="First Name Input View">
-                                        <rect key="frame" x="17" y="133" width="287" height="36"/>
+                                        <rect key="frame" x="17" y="132.99999999999997" width="287" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="input_bg.png" id="XK6-kW-wmx">
@@ -1381,7 +1381,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7ms-Rn-vRJ" userLabel="Button Register">
-                                        <rect key="frame" x="96" y="513" width="128" height="34"/>
+                                        <rect key="frame" x="96" y="512.99999999999989" width="128" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="button_register.png">
@@ -1695,7 +1695,7 @@
             <objects>
                 <viewController id="OtY-Mi-bR2" customClass="CHAddFriendVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nI1-wd-KsW">
-                        <rect key="frame" x="0.0" y="44" width="320" height="3780"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="3912"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="mhL-Jd-Gsa">
@@ -1791,11 +1791,11 @@
             <objects>
                 <viewController storyboardIdentifier="DetailFeedVC" id="jPZ-MB-CzT" customClass="CHDetailsFeedVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BRh-qX-Sku">
-                        <rect key="frame" x="0.0" y="44" width="320" height="3912"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="4000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="iYL-i3-iPO">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="3912"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="4000"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="image_title_holder.png" id="PXN-ff-SaN">
@@ -4407,7 +4407,7 @@
             <objects>
                 <viewController id="KrS-aP-d9K" customClass="CHSettingsProfileNotificationsVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="94Y-h7-XZq">
-                        <rect key="frame" x="0.0" y="64" width="320" height="4276"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="4404"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YoX-rf-gPA">
@@ -4441,7 +4441,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="p0V-dh-tLS">
-                                <rect key="frame" x="0.0" y="43" width="320" height="4233"/>
+                                <rect key="frame" x="0.0" y="43" width="320" height="4361"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -4793,17 +4793,13 @@
         <image name="buton_cancel_reclama.png" width="32" height="32"/>
         <image name="button_accept.png" width="86" height="34"/>
         <image name="button_add_as_friend.png" width="255" height="68"/>
-        <image name="button_add_as_friend.png" width="255" height="68"/>
         <image name="button_decline.png" width="86" height="34"/>
         <image name="button_facebook.png" width="497" height="81"/>
         <image name="button_forget_passwd.png" width="345" height="25"/>
         <image name="button_join.png" width="86" height="34"/>
         <image name="button_login.png" width="340" height="90"/>
-        <image name="button_login.png" width="340" height="90"/>
-        <image name="button_login.png" width="340" height="90"/>
         <image name="button_login_g+.png" width="497" height="81"/>
         <image name="button_logout.png" width="37" height="38"/>
-        <image name="button_photo_border.png" width="115" height="114"/>
         <image name="button_photo_border.png" width="115" height="114"/>
         <image name="button_preview.png" width="121" height="37"/>
         <image name="button_register.png" width="255" height="68"/>
@@ -4815,7 +4811,6 @@
         <image name="button_twitter.png" width="497" height="81"/>
         <image name="checkmark.png" width="48" height="48"/>
         <image name="comment_icon_on.png" width="43" height="44"/>
-        <image name="comment_icon_on.png" width="43" height="44"/>
         <image name="compose_new_message.png" width="640" height="81"/>
         <image name="edit_photo.png" width="27" height="27"/>
         <image name="feed_icon.png" width="42" height="42"/>
@@ -4823,50 +4818,13 @@
         <image name="find_twitter_friends.png" width="574" height="72"/>
         <image name="green_button.png" width="234" height="109"/>
         <image name="home_icon.png" width="47" height="41"/>
-        <image name="home_icon.png" width="47" height="41"/>
         <image name="hop_icon.png" width="77" height="99"/>
-        <image name="image_avatar.png" width="102" height="102"/>
         <image name="image_avatar.png" width="102" height="102"/>
         <image name="image_friends_status_field.png" width="640" height="71"/>
         <image name="image_score_box.png" width="273" height="128"/>
-        <image name="image_score_box.png" width="273" height="128"/>
         <image name="image_separator.png" width="640" height="2"/>
-        <image name="image_separator.png" width="640" height="2"/>
-        <image name="image_separator.png" width="640" height="2"/>
-        <image name="image_separator.png" width="640" height="2"/>
-        <image name="image_separator.png" width="640" height="2"/>
-        <image name="image_separator.png" width="640" height="2"/>
-        <image name="image_separator.png" width="640" height="2"/>
-        <image name="image_separator.png" width="640" height="2"/>
-        <image name="image_separator.png" width="640" height="2"/>
-        <image name="image_title_holder.png" width="640" height="87"/>
-        <image name="image_title_holder.png" width="640" height="87"/>
         <image name="image_title_holder.png" width="640" height="87"/>
         <image name="image_vertical_separator.png" width="4" height="71"/>
-        <image name="image_vertical_separator.png" width="4" height="71"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
-        <image name="input_bg.png" width="574" height="72"/>
         <image name="input_bg.png" width="574" height="72"/>
         <image name="lock_icon.png" width="18" height="23"/>
         <image name="logo.png" width="484" height="211"/>
@@ -4880,22 +4838,10 @@
         <image name="send_email_invite.png" width="574" height="72"/>
         <image name="separator_left_menu.png" width="508" height="3"/>
         <image name="settings_icon.png" width="46" height="46"/>
-        <image name="settings_icon.png" width="46" height="46"/>
-        <image name="settings_icon.png" width="46" height="46"/>
-        <image name="settings_icon.png" width="46" height="46"/>
         <image name="special_hops_holder.png" width="640" height="89"/>
         <image name="tabbar_bg.png" width="326" height="78"/>
         <image name="take_photo.png" width="194" height="185"/>
         <image name="title_holder.png" width="661" height="89"/>
-        <image name="title_holder.png" width="661" height="89"/>
-        <image name="title_holder.png" width="661" height="89"/>
-        <image name="title_holder.png" width="661" height="89"/>
-        <image name="yellow_button.png" width="234" height="109"/>
-        <image name="yellow_button.png" width="234" height="109"/>
-        <image name="yellow_button.png" width="234" height="109"/>
-        <image name="yellow_button.png" width="234" height="109"/>
-        <image name="yellow_button.png" width="234" height="109"/>
-        <image name="yellow_button.png" width="234" height="109"/>
         <image name="yellow_button.png" width="234" height="109"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

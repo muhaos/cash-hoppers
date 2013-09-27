@@ -47,7 +47,11 @@
     }
     self.bonusPointsLabel.text = bonusPointsStr;
     
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+    self.facebookButton.frame = CGRectMake(38, 259, 60, 60);
+    self.twitterButton.frame = CGRectMake(134, 259, 60, 60);
+    self.googleButton.frame = CGRectMake(231, 259, 60, 60);
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) {
         CGRect newFrame = self.view.frame;
         newFrame.origin.y+=20;
         newFrame.size.height -=20;

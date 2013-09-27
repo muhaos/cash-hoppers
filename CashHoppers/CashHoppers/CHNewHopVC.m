@@ -189,7 +189,12 @@
 
 -(void)shiftViewToDefault{
     CGRect newFrame = self.view.frame;
-    newFrame.origin.y = 0;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) {
+        newFrame.origin.y = 65;
+    }else{
+        newFrame.origin.y = 0;
+    }
+ 
     [UIView animateWithDuration:.2 animations:^{
         self.view.frame = newFrame;
     }];

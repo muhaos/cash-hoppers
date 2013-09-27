@@ -36,7 +36,8 @@ NSString *const FBSessionStateChangedNotification =
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+   
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) {
         UIView *statusBarBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.window.frame.size.width, 20)];
         statusBarBackgroundView.backgroundColor = [UIColor blackColor];
         [self.window addSubview:statusBarBackgroundView];
@@ -46,8 +47,8 @@ NSString *const FBSessionStateChangedNotification =
         newFrame.size.height +=20;
         
         application.statusBarStyle = UIStatusBarStyleLightContent;
-        self.window = [[UIWindow alloc] initWithFrame:newFrame];
-        self.window.clipsToBounds = YES;
+//        self.window = [[UIWindow alloc] initWithFrame:newFrame];
+//        self.window.clipsToBounds = YES;
     }
 
     

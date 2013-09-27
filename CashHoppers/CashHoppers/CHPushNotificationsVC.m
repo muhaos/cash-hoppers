@@ -21,8 +21,8 @@
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
+    notificationsTableView.frame = CGRectMake(0, 0, 320, 220);
 }
 
 

@@ -8,6 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CHSharingPopupVC">
             <connections>
                 <outlet property="bonusPointsLabel" destination="10" id="23"/>
+                <outlet property="facebookButton" destination="11" id="VSe-8t-iYR"/>
+                <outlet property="googleButton" destination="13" id="Daf-CL-LEg"/>
+                <outlet property="twitterButton" destination="12" id="D7s-bW-74J"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>

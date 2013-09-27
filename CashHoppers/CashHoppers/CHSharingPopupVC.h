@@ -18,6 +18,9 @@
 @property (strong, nonatomic) NSString* bonusPointsCount;
 @property (strong, nonatomic) NSString* curentHop;
 @property (strong, nonatomic) NSString* commentToHopTask;
+@property (strong, nonatomic) IBOutlet UIButton *facebookButton;
+@property (strong, nonatomic) IBOutlet UIButton *twitterButton;
+@property (strong, nonatomic) IBOutlet UIButton *googleButton;
 
 @property (strong, nonatomic) IBOutlet UILabel *bonusPointsLabel;
 @property (nonatomic, assign) UIViewController* currentController;
