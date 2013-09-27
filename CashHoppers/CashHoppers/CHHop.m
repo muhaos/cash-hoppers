@@ -93,7 +93,8 @@
 
 
 - (NSURL*) adURL {
-    return [NSURL URLWithString:[[CHAPIClient sharedClient].baseURL.absoluteString stringByAppendingPathComponent:self.adUrlString]];
+    return [NSURL URLWithString:self.adUrlString];
+
 }
 
 
