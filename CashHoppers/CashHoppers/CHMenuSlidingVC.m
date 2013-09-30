@@ -130,6 +130,9 @@
 {
     CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
     
+    UITableViewCell *cell = (UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    cell.contentView.backgroundColor = [UIColor blueColor];
+
     if (appDelegate.netStatus == NotReachable) {
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
                                                      message:@""
@@ -163,6 +166,7 @@
                 break;
         }
     }
+   
        [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
