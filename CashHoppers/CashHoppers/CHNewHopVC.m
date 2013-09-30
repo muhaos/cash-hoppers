@@ -83,6 +83,7 @@
 
 
 - (void) backButtonTapped {
+//    [self showAdsWithType:@"CS" andHopID:self.currentHopTask.hop.identifier];
     [[self navigationController] popViewControllerAnimated:YES];
 }
 

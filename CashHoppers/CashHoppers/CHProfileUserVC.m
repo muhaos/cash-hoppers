@@ -84,9 +84,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     if (self.changedAvatarImage == nil) {
         self.changedAvatarImage = self.photoImageView.image;
     }
-    if ([self.phoneTextField.text isEqualToString:@""]) {
-        self.phoneTextField.text = @"9";
-    }
+
     [[CHUserManager instance] updateUserProfileWithUser:user newPassword:newPassword newAvatar:self.changedAvatarImage completionHandler:^(NSError* error) {
         if (error != nil) {
             UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
@@ -99,7 +97,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
             [[CHUserManager instance] updateCurrentUser];
             self.saveButton.enabled = YES;
         }
-        
         [[CHLoadingVC sharedLoadingVC] hide];
     }];
 }
