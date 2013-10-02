@@ -179,11 +179,11 @@
 
         if ([link isEqualToString:@"how_to_play"])
         {
-            vc.url = [NSString stringWithFormat:@"http://perechin.net:3000/#how_to_play"];
+            vc.url = [NSString stringWithFormat:@"http://cashhoppers.com/#yellow-page"];
         }
         if ([link isEqualToString:@"faq"])
         {
-            vc.url = [NSString stringWithFormat:@"http://perechin.net:3000/pages/faq"];   
+            vc.url = [NSString stringWithFormat:@"http://cashhoppers.com/pages/faq"];
         }
     }
 }
