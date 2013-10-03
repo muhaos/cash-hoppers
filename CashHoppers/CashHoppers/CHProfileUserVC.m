@@ -45,6 +45,9 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [self.googlePlusTextField setText:user.google];
     [self.contactTextField setText:user.contact];
     [self.phoneTextField setText:user.phone];
+    self.changePasswordTextField.text = @"";
+    self.confirmPasswordTextField.text = @"";
+    
     
     [self.photoImageView setImageWithURL:[user avatarURL] placeholderImage:[UIImage imageNamed:@"image_avatar.png"]];
     
@@ -76,6 +79,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         } else {
             UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"Passwords are different." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [av show];
+            self.saveButton.enabled = YES;
             return;
         }
     }
