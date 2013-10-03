@@ -36,7 +36,6 @@
     self.friend_avatar = [CHBaseModel safeStringFrom:[dic objectForKey:@"friend_avatar_file_name"] defaultValue:@""];
     self.friend_first_name = [CHBaseModel safeStringFrom:[dic objectForKey:@"friend_first_name"] defaultValue:@"No First Name"];
     self.friend_last_name = [CHBaseModel safeStringFrom:[dic objectForKey:@"friend_last_name"] defaultValue:@"No Last Name"];
-    self.text = [CHBaseModel safeStringFrom:[messageDic objectForKey:@"text"] defaultValue:nil];
 }
 
 

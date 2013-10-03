@@ -21,6 +21,7 @@
 
 @interface CHHomeScreenViewController ()
 
+
 @property (nonatomic, retain) id hopsUpdatedNotification;
 @property (nonatomic, retain) id friendsFeedUpdatedNotification;
 @property (nonatomic, retain) id globalFeedUpdatedNotification;
@@ -31,6 +32,7 @@
 
 @property (nonatomic, retain) NSURL* adsImageURL;
 @property (nonatomic, retain) NSURL* adsLinkURL;
+
 
 @end
 
@@ -72,7 +74,7 @@
     }];
 
     self.currentUserUpdatedNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_CURRENT_USER_UPDATED object:nil queue:nil usingBlock:^(NSNotification* note) {
-        if (self.bannerImView == nil) {
+        if (self.bannerImView.image == nil) {
             [self loadTopADS];
         }
     }];    
@@ -90,11 +92,11 @@
         newFrame.size.height += 40;
         self.scrollView.frame = newFrame;
     }
+
 }
 
 
 - (void) loadTopADS {
-    
     if ([[CHUserManager instance].currentUser.adEnabled intValue] == YES) {
         NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
         NSString *path = [NSString stringWithFormat:@"/api/ads/get_ads.json?api_key=%@&authentication_token=%@&ad_type=%@", CH_API_KEY, aToken, @"RCH"];
@@ -114,7 +116,7 @@
             NSLog(@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]);
         }];
         [operation start];
-    }
+    }    
 }
 
 

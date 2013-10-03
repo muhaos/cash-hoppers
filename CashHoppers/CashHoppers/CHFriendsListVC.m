@@ -208,12 +208,12 @@
             }
             
             if([fItem.liked integerValue]==0){
-                [[cell likeButton] setBackgroundImage:[UIImage imageNamed:@"like_icon_off"] forState:UIControlStateNormal];
+                if ([fItem.user.identifier intValue] != [[CHUserManager instance].currentUser.identifier intValue]) {
+                    [[cell likeButton] setBackgroundImage:[UIImage imageNamed:@"like_icon_off"] forState:UIControlStateNormal];
+                }
             }else{
                 [[cell likeButton] setBackgroundImage:[UIImage imageNamed:@"like_icon_on"] forState:UIControlStateNormal];
-
             }
-            
         }
         
     } else {

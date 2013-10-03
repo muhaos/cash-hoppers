@@ -65,11 +65,13 @@
         self.postCommentButton.hidden = YES;
         self.addComentTextView.hidden = YES;
         [_likeButton setBackgroundImage:[UIImage imageNamed:@"like_icon_on"] forState:UIControlStateNormal];
-
-    self.addFriendButton.frame = CGRectMake(95,(self.commentTable.frame.origin.y+self.commentTable.frame.size.height + 20) , 152, 44);
-        
+        self.addFriendButton.frame = CGRectMake(95,(self.commentTable.frame.origin.y+self.commentTable.frame.size.height + 20) , 152, 44);
     } else {
         self.addFriendButton.hidden = YES;
+    }
+    
+    if ([_feedItem.user.identifier intValue] == [[CHUserManager instance].currentUser.identifier intValue] &&  [_feedItem.numberOfLikes integerValue] != 0) {
+        [_likeButton setBackgroundImage:[UIImage imageNamed:@"like_icon_on"] forState:UIControlStateNormal];
     }
     
     [self reloadData];
