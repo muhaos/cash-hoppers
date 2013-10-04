@@ -15,6 +15,6 @@
 - (IBAction)closeTapped:(id)sender;
 
 + (CHHopChooserVC*) sharedHopChooserVC;
-- (void) showInController:(UIViewController*) c;
+- (void) showInController:(UIView*) c;
 
 @end

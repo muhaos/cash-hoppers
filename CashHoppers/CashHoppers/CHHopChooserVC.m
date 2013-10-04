@@ -33,9 +33,9 @@
     [super viewDidLoad];
 }
 
-- (void) showInController:(UIViewController*) c {
-    [c.view addSubview:self.view];
-    self.view.frame = c.view.bounds;
+- (void) showInController:(UIView*) c {
+    [c addSubview:self.view];
+    self.view.frame = c.bounds;
 }
 
 

@@ -204,7 +204,7 @@
 
 
 - (IBAction)hopChooseTapped:(id)sender {
-    [[CHHopChooserVC sharedHopChooserVC] showInController:self];
+    [[CHHopChooserVC sharedHopChooserVC] showInController:self.container];
 }
 
 
