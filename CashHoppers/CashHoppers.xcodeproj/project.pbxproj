@@ -163,6 +163,8 @@
 		AA425FD917995EC0008E02E6 /* CHOptionalPopupSharingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA425FD717995EC0008E02E6 /* CHOptionalPopupSharingVC.xib */; };
 		AA425FDC1799611A008E02E6 /* button_no.png in Resources */ = {isa = PBXBuildFile; fileRef = AA425FDA1799611A008E02E6 /* button_no.png */; };
 		AA425FDD1799611B008E02E6 /* button_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = AA425FDB1799611A008E02E6 /* button_yes.png */; };
+		AA44189717FEA45E00CFD4FA /* CHAgreeToTermsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44189517FEA45E00CFD4FA /* CHAgreeToTermsVC.m */; };
+		AA44189817FEA45E00CFD4FA /* CHAgreeToTermsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA44189617FEA45E00CFD4FA /* CHAgreeToTermsVC.xib */; };
 		AA4550651774497900D3D0F6 /* button_nav_back.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4550641774497900D3D0F6 /* button_nav_back.png */; };
 		AA455071177490BC00D3D0F6 /* av_header_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = AA45506C177490BC00D3D0F6 /* av_header_cell.png */; };
 		AA455072177490BC00D3D0F6 /* av_indicator_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = AA45506D177490BC00D3D0F6 /* av_indicator_cell.png */; };
@@ -586,6 +588,9 @@
 		AA425FD717995EC0008E02E6 /* CHOptionalPopupSharingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHOptionalPopupSharingVC.xib; sourceTree = "<group>"; };
 		AA425FDA1799611A008E02E6 /* button_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_no.png; sourceTree = "<group>"; };
 		AA425FDB1799611A008E02E6 /* button_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_yes.png; sourceTree = "<group>"; };
+		AA44189417FEA45E00CFD4FA /* CHAgreeToTermsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAgreeToTermsVC.h; sourceTree = "<group>"; };
+		AA44189517FEA45E00CFD4FA /* CHAgreeToTermsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAgreeToTermsVC.m; sourceTree = "<group>"; };
+		AA44189617FEA45E00CFD4FA /* CHAgreeToTermsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHAgreeToTermsVC.xib; sourceTree = "<group>"; };
 		AA4550641774497900D3D0F6 /* button_nav_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_nav_back.png; sourceTree = "<group>"; };
 		AA45506C177490BC00D3D0F6 /* av_header_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = av_header_cell.png; sourceTree = "<group>"; };
 		AA45506D177490BC00D3D0F6 /* av_indicator_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = av_indicator_cell.png; sourceTree = "<group>"; };
@@ -1399,6 +1404,9 @@
 				AA9991AE1773498B005A56EF /* CHRegisterVC.m */,
 				AA18AE0417C242A800C4F259 /* CHAdditionalSigninFormVC.h */,
 				AA18AE0517C242A800C4F259 /* CHAdditionalSigninFormVC.m */,
+				AA44189417FEA45E00CFD4FA /* CHAgreeToTermsVC.h */,
+				AA44189517FEA45E00CFD4FA /* CHAgreeToTermsVC.m */,
+				AA44189617FEA45E00CFD4FA /* CHAgreeToTermsVC.xib */,
 			);
 			name = "Login Related";
 			sourceTree = "<group>";
@@ -1984,6 +1992,7 @@
 				AAFF745A177D923D003883BD /* CHHopChooserVC.xib in Resources */,
 				AAFF745C177D9642003883BD /* image_popover.png in Resources */,
 				AAFF745F177D981D003883BD /* button_daily_hop.png in Resources */,
+				AA44189817FEA45E00CFD4FA /* CHAgreeToTermsVC.xib in Resources */,
 				AAFF7460177D981D003883BD /* button_special_hops.png in Resources */,
 				AABEE14D178AE12C008F2DD2 /* CHTradeShowEntryVC.xib in Resources */,
 				AABEE150178AE4A8008F2DD2 /* button_start_playing.png in Resources */,
@@ -2134,6 +2143,7 @@
 				AACE4231177C5C7E006E2E46 /* CHOtherHopsListVC.m in Sources */,
 				AACE4234177C5D16006E2E46 /* CHOtherHopsListCell.m in Sources */,
 				AAFF7459177D923D003883BD /* CHHopChooserVC.m in Sources */,
+				AA44189717FEA45E00CFD4FA /* CHAgreeToTermsVC.m in Sources */,
 				E1CF6C1817816F80003D9624 /* NSDataAdditions.m in Sources */,
 				AABEE14C178AE12C008F2DD2 /* CHTradeShowEntryVC.m in Sources */,
 				AABEE154178AED80008F2DD2 /* CHTradeShowMultiHopVC.m in Sources */,

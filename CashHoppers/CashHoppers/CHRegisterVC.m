@@ -12,6 +12,7 @@
 #import "AFJSONRequestOperation.h"
 #import "CHLoadingVC.h"
 #import "CHAPIClient.h"
+#import "CHAgreeToTermsVC.h"
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
@@ -40,6 +41,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [zipView setBackgroundColor:[UIColor clearColor]];
     [requiredLabel setTextColor:[UIColor redColor]];
     [self setupTriangleBackButton];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(registrationUser)
+                                                 name:@"AgreeToTerms"
+                                               object:nil];
 }
 
 
@@ -84,14 +90,21 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [self setEmailView:nil];
     [self setZipView:nil];
     [self setPhotoImageView:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super viewDidUnload];
 }
 
 
-- (IBAction)registerTapped:(id)sender {
-    
+- (IBAction)registerTapped:(id)sender
+{
+    [[CHAgreeToTermsVC sharedAgreeToTermsVC] showInController:self];
+}
+
+
+-(void)registrationUser
+{
     NSString *image64string = [CHAPIClient base64stringFromImage:photoImageView.image];
-//    NSLog(@"image string=%@",image64string);
+    //    NSLog(@"image string=%@",image64string);
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:_emailTextField.text/*@"jekahy343@gmail.com"*/ forKey:@"email"];
     [params setObject:passwordTextField.text/*@"123456789"*/ forKey:@"password"];
@@ -102,15 +115,15 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [params setObject:userNameTextField.text forKey:@"user_name"];
     [params setObject:@"image/jpeg" forKey:@"avatar_content_type"];
     [params setObject:@"myavatar.jpg" forKey:@"avatar_original_filename"];
-
+    
     [params setObject:image64string forKey:@"base64avatar"];
     [params setObject:@"myavatar.jpg" forKey:@"avatar_original_filename"];
     [params setObject:zipTextField.text/*@"123456789"*/ forKey:@"zip"];
-
+    
     NSError *error = nil;
     NSData *json = [NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
-//    NSLog(@"json=%@",json);
-
+    //    NSLog(@"json=%@",json);
+    
     if (!error){
         [[CHLoadingVC sharedLoadingVC] showInController:self withText:@"Processing..."];
         
@@ -121,7 +134,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         [request setHTTPBody:json];
         [request setHTTPShouldHandleCookies:YES];
         NSLog(@"req=%@",request);
-
+        
         AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             
             NSInteger success = [[JSON  objectForKey:@"success"]integerValue];
@@ -130,11 +143,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
                 message = [NSString stringWithFormat:@"Registration successful: %@",[JSON objectForKey:@"message"]];
                 message = @"Registration successful: Check your email and confirm registration.";
                 [self backButtonTapped];
-
+                
             }else{
                 message = [NSString stringWithFormat:@"Registration unsuccessful: %@",[JSON objectForKey:@"errors"]];
             }
-
+            
             
             NSLog(@"json=%@",JSON);
             
@@ -144,7 +157,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
             [[CHLoadingVC sharedLoadingVC] hide];
         }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
             NSLog(@"json=%@",JSON);
-
+            
             NSString* errMsg = nil;
             if (JSON != nil) {
                 errMsg = [JSON  objectForKey:@"info"];
@@ -158,7 +171,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         
         [operation start];
     }
-
 }
 
 

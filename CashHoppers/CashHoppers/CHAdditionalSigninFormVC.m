@@ -12,6 +12,7 @@
 #import "CHHomeScreenViewController.h"
 #import "CHAppDelegate.h"
 #import "CHLoadingVC.h"
+#import "CHAgreeToTermsVC.h"
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
@@ -56,11 +57,21 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         }
         
     }];
-    
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(registration)
+                                                 name:@"AgreeToTerms"
+                                               object:nil];
 }
 
 
 - (IBAction)registerButtonTapped:(id)sender
+{
+    [[CHAgreeToTermsVC sharedAgreeToTermsVC] showInController:self];
+}
+
+
+-(void)registration
 {
     if (self.zipTextField.text == nil || [self.zipTextField.text isEqualToString:@""]) {
         [self showAlertWithText:@"Zip is reqired"];
