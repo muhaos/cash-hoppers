@@ -118,7 +118,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     picker.delegate = self;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:picker animated:YES completion:nil];
-
 }
 
 
@@ -129,14 +128,26 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-	[picker dismissModalViewControllerAnimated:YES];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 	self.photoImageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     self.changedAvatarImage = self.photoImageView.image;
+   
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) {
+        UIView *statusBarBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.window.frame.size.width, 20)];
+        statusBarBackgroundView.backgroundColor = [UIColor blackColor];
+        [self.view.window addSubview:statusBarBackgroundView];
+        
+        CGRect newFrame = [UIScreen mainScreen].applicationFrame;
+        newFrame.origin.y-=20;
+        newFrame.size.height +=20;
+        
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    }
 }
 
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
