@@ -21,6 +21,7 @@
 #import "AFNetworking.h"
 #import "ALAssetsLibrary+CustomPhotoAlbum.h"
 #import "UIImage+FixOrientation.h"
+#import "CHUserManager.h"
 
 
 @interface CHNewHopVC ()
@@ -62,18 +63,14 @@
     
     _myScroolView.frame = (CGRect){_myScroolView.frame.origin, CGSizeMake(320, 502)};
     _myScroolView.contentSize = CGSizeMake(320, 504);
-    
-//    if (![self.slidingViewController.underLeftViewController isKindOfClass:[CHMenuSlidingVC class]]) {
-//        self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
-//    }
-    
- //   [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+ 
     [menuButton addTarget:self action:@selector(menuTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
 -(void)registerForNotifications{
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backButtonTapped) name:@"CloseSharingPopup" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showCSAd) name:@"CloseSharingPopup" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backButtonTapped) name:@"CloseCSAd" object:nil];
 }
 
 
@@ -83,8 +80,17 @@
 
 
 - (void) backButtonTapped {
-//    [self showAdsWithType:@"CS" andHopID:self.currentHopTask.hop.identifier];
     [[self navigationController] popViewControllerAnimated:YES];
+}
+
+
+-(void) showCSAd {
+    if ([[CHUserManager instance].currentUser.adEnabled intValue] == NO) {
+        [[self navigationController] popViewControllerAnimated:YES];
+    } else {
+        self.needSHowSharing = NO;
+        [self showAdsWithType:@"CS" andHopID:self.currentHopTask.hop.identifier];
+    }
 }
 
 
@@ -121,11 +127,6 @@
     self.itemLabel.text = [NSString stringWithFormat:@"%i of %i", [self.currentHopTask.hop.tasks indexOfObject:self.currentHopTask]+1, self.currentHopTask.hop.tasks.count];
     self.worthLabel.text = [NSString stringWithFormat:@"%i", [self.currentHopTask.points integerValue]];
     self.needSHowSharing = NO;
-    if (self.currentHopTask.hop.daily_hop.boolValue) {
-        [self showAdsWithType:@"ROFL" andHopID:self.currentHopTask.hop.identifier];
-    }else{
-        [self showAdsWithType:@"SP" andHopID:self.currentHopTask.hop.identifier];
-    }
 }
 
 
@@ -393,8 +394,8 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
 
 - (void)viewDidUnload {
     [self unregisterForNotifications];

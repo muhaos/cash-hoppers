@@ -59,10 +59,6 @@ static BOOL isAdsShowed = false;
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [self closeTapped:nil];
         NSLog(@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]);
-        
-//        UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"ERROR" message:[NSString stringWithFormat:@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//        [av show];
-    
     }];
     
     [operation start];
@@ -93,19 +89,14 @@ static BOOL isAdsShowed = false;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewDidUnload {
-    
-    
-    
     [super viewDidUnload];
 }
 
@@ -120,8 +111,8 @@ static BOOL isAdsShowed = false;
 }
 
 
-
 - (IBAction)closeTapped:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"CloseCSAd" object:nil];
     
     [CHAdvertisingVC hide];
     
