@@ -22,8 +22,7 @@
     
     NSDictionary *dict = [NSDictionary new];
     if ([messageDic isEqualToDictionary:dict]) {
-            messageDic = [dic objectForKey:@"message"];
-        
+        messageDic = [dic objectForKey:@"message"];
     }else {
         NSDictionary *emptyDic = [NSDictionary dictionaryWithObject:@"" forKey:@"text"];
         messageDic = emptyDic;

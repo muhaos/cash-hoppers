@@ -24,6 +24,7 @@
 #import "CHAppDelegate.h"
 #import "CHHopChooserVC.h"
 #import "CHMessagesManager.h"
+#import "CHUserManager.h"
 
 
 @interface MHCustomTabBarController ()
@@ -45,15 +46,20 @@
 	// Do any additional setup after loading the view, typically from a nib.
     DELEGATE.tabBarController = self;
     [self performSegueWithIdentifier:@"homeScreen" sender:nil];
-    
+
     [self setNewMessagesBadge:0];
     self.arrivedMessagesNotification = [[NSNotificationCenter defaultCenter] addObserverForName:CH_NEW_MESSAGES_ARRIVED object:nil queue:nil usingBlock:^(NSNotification* note) {
         NSArray* messages = note.object;
-        if ([messages count] >= self.messagesBadgeCount) {
-            [self setNewMessagesBadge:[messages count]];
+        
+        for (int i = 0; i < messages.count; i++) {
+            CHMessage *ms = [messages objectAtIndex:i];
+            if (![ms.sender_id isEqual:[CHUserManager instance].currentUser.identifier]) {
+                self.messagesBadgeCount++;
+            }
         }
+        
+        [self setNewMessagesBadge:self.messagesBadgeCount];
     }];
-
 }
 
 
@@ -79,15 +85,15 @@
 
 -(void) animationNotification
 {
-        [UIView animateWithDuration:.5f delay:0.0
-                            options:UIViewAnimationOptionCurveEaseOut
-                         animations:^{
-                             CGRect f1 = self.messagesIndicatorImage.frame;
-                             CGRect f2 = self.messagesIndicatorLabel.frame;
-                             f1.origin.y -= 5;
-                             f2.origin.y -= 5;
-                             self.messagesIndicatorImage.frame = f1;
-                             self.messagesIndicatorLabel.frame = f2;
+    [UIView animateWithDuration:.5f delay:0.0
+                        options:UIViewAnimationOptionCurveEaseOut
+                        animations:^{
+                            CGRect f1 = self.messagesIndicatorImage.frame;
+                            CGRect f2 = self.messagesIndicatorLabel.frame;
+                            f1.origin.y -= 5;
+                            f2.origin.y -= 5;
+                            self.messagesIndicatorImage.frame = f1;
+                            self.messagesIndicatorLabel.frame = f2;
                          }
                          completion:^(BOOL finished) {
                              
@@ -102,10 +108,7 @@
                                                   self.messagesIndicatorLabel.frame = f2;
                                               }
                                               completion:nil];
-                             
                          }];
-        
-    
 }
 
 
@@ -136,6 +139,7 @@
 {
     [self.presentingViewController endAppearanceTransition];
 }
+
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
