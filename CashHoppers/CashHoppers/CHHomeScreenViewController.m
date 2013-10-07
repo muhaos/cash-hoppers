@@ -200,7 +200,7 @@
         if (otherHopsCount > 1) {
             self.secondHopContainer.hidden = NO;
             self.secondHopNameLabel.text = [[CHHopsManager instance].otherHops[1] name];
-            self.secondHopPrizeLabel.text = [NSString stringWithFormat:@"$%i", [[[CHHopsManager instance].otherHops[1] jackpot] intValue]];
+            self.secondHopPrizeLabel.text = [NSString stringWithFormat:@"%@", [[CHHopsManager instance].otherHops[1] jackpot]];
         } else {
             self.secondHopContainer.hidden = YES;
         }
