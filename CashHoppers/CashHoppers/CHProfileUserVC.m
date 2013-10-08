@@ -64,6 +64,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     CHUser* user = [[CHUser alloc] init];
     user.first_name = self.firstNameTextField.text;
     user.last_name = self.lastNameTextField.text;
+    user.user_name = self.usernameTextField.text;
     user.contact = self.contactTextField.text;
     user.phone = self.phoneTextField.text;
     user.bio = self.bioTextView.text;

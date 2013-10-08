@@ -42,6 +42,7 @@
 - (void) fillForm:(id <AFMultipartFormData>)formData {
     [formData appendPartWithFormData:[self.first_name dataUsingEncoding:NSUTF8StringEncoding] name:@"first_name"];
     [formData appendPartWithFormData:[self.last_name dataUsingEncoding:NSUTF8StringEncoding] name:@"last_name"];
+    [formData appendPartWithFormData:[self.user_name dataUsingEncoding:NSUTF8StringEncoding] name:@"user_name"];
     [formData appendPartWithFormData:[self.contact dataUsingEncoding:NSUTF8StringEncoding] name:@"contact"];
     [formData appendPartWithFormData:[self.phone dataUsingEncoding:NSUTF8StringEncoding] name:@"phone"];
     [formData appendPartWithFormData:[self.bio dataUsingEncoding:NSUTF8StringEncoding] name:@"bio"];
