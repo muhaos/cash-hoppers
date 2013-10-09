@@ -173,6 +173,10 @@
             cell = (CHOtherHopsListCell*) [tableView dequeueReusableCellWithIdentifier:joinHopsCellIdentifier];
             cell.currentHop = hop;
             [cell configureHopWithCode];
+            if (hop.askPassword.boolValue == NO) {
+                cell.lockImageView.hidden = YES;
+                cell.joinButton.hidden = YES;
+            }
             break;
         }
         case CHHopTypeWithEntryFee: {
