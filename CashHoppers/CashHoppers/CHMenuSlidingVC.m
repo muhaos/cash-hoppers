@@ -131,7 +131,7 @@
     CHAppDelegate *appDelegate = (CHAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     UITableViewCell *cell = (UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    cell.contentView.backgroundColor = [UIColor blueColor];
+    cell.contentView.backgroundColor = [UIColor colorWithRed:74/255.0f green:125/255.0f blue:237/255.0f alpha:1.0f];
 
     if (appDelegate.netStatus == NotReachable) {
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Internet Connection Absent"
