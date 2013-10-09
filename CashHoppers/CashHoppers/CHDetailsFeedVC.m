@@ -194,7 +194,6 @@
     self.countLikeLabel.layer.cornerRadius = 3.0f;
     self.countCommentLabel.layer.cornerRadius = 3.0f;
     self.addComentTextView.layer.cornerRadius = 5.0f;
-    self.postCommentButton.layer.cornerRadius = 10.0f;
     self.addComentTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.addComentTextView.layer.borderWidth = 1.0f;
 }

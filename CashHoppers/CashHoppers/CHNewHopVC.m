@@ -53,11 +53,7 @@
     _charCountLabel.backgroundColor = CH_GRAY_COLOR;
     
     photoImView.layer.cornerRadius = 3;
-    
-    UIImage *submitBgIm = [[UIImage imageNamed:@"yellow_button"]
-                                  resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
-    [_submitButton setBackgroundImage:submitBgIm forState:UIControlStateNormal];
-    
+        
     _separatorView.backgroundColor = CH_GRAY_COLOR;
 	// Do any additional setup after loading the view.
     
