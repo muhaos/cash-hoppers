@@ -81,12 +81,8 @@
 
 
 -(void) showCSAd {
-    if ([[CHUserManager instance].currentUser.adEnabled intValue] == NO) {
-        [[self navigationController] popViewControllerAnimated:YES];
-    } else {
-        self.needSHowSharing = NO;
-        [self showAdsWithType:@"CS" andHopID:self.currentHopTask.hop.identifier];
-    }
+    self.needSHowSharing = NO;
+    [self showAdsWithType:@"CS" andHopID:self.currentHopTask.hop.identifier];
 }
 
 
@@ -282,7 +278,7 @@
 #pragma mark - imagePicker delegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-	[picker dismissModalViewControllerAnimated:YES];
+    [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage *chosenImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     
    	photoImView.image = chosenImage;

@@ -32,7 +32,7 @@ static CHAdvertisingVC* vc = nil;
     if ([CHUserManager instance].currentUser == nil) {
         [[CHUserManager instance] updateCurrentUser];
     } else {
-        if ([[CHUserManager instance].currentUser.adEnabled intValue] == NO) {
+        if ([[CHUserManager instance].currentUser.adEnabled intValue] == NO && ![adsType isEqual: @"CS"]) {
             return NO;
         }
     }
