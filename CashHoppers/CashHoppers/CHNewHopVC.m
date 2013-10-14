@@ -283,6 +283,19 @@
     
    	photoImView.image = chosenImage;
     
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) {
+        UIView *statusBarBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.window.frame.size.width, 20)];
+        statusBarBackgroundView.backgroundColor = [UIColor blackColor];
+        [self.view.window addSubview:statusBarBackgroundView];
+        
+        CGRect newFrame = [UIScreen mainScreen].applicationFrame;
+        newFrame.origin.y-=20;
+        newFrame.size.height +=20;
+        
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    }
+
+    
 }
 
 
