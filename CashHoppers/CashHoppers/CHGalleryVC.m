@@ -40,8 +40,6 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self showAdsWithType:@"RPOU" andHopID:nil];
-
     NSMutableArray *collector = [[NSMutableArray alloc] initWithCapacity:0];
     ALAssetsLibrary *al = [CHGalleryVC defaultAssetsLibrary];
     
@@ -62,6 +60,15 @@
      }
                     failureBlock:^(NSError *error) { NSLog(@"Boom!!!");}
      ];
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (self.isViewLoaded && self.view.window) {
+        [self showAdsWithType:@"RPOU" andHopID:nil];
+    }
 }
 
 

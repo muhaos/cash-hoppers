@@ -94,7 +94,6 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
-    [self showAdsWithType:@"RPOU" andHopID:nil];
     [[CHFriendsFeedManager instance] refreshFeeds];
 }
 
@@ -102,6 +101,9 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    if (self.isViewLoaded && self.view.window) {
+        [self showAdsWithType:@"RPOU" andHopID:nil];
+    }
 }
 
 

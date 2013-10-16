@@ -248,12 +248,20 @@
         DELEGATE.needOpenFriendsFeed = NO;
     }
     [self loadTopADS];
-    [self showAdsWithType:@"FULL" andHopID:nil];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if (self.isViewLoaded && self.view.window) {
+        [self showAdsWithType:@"FULL" andHopID:nil];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -103,6 +103,7 @@
     [self.taskLogoImageView setImageWithURL:[self.currentHopTask logoURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
     
     [self setHopTaskName:[NSString stringWithFormat:@"%@", self.currentHopTask.text] withBoldString:self.currentHopTask.hop.name];
+    
     if ([self.currentHopTask.completed boolValue] == YES) {
         self.textView.text = self.currentHopTask.comment;
         [self.photoImView setImageWithURL:[self.currentHopTask photoURL] placeholderImage:[UIImage imageNamed: @"spinner.png"]];
@@ -359,34 +360,6 @@
         [CHSharingPopupVC instance].bonusPointsCount = [self.currentHopTask.bonusPoints stringValue];
         [[CHSharingPopupVC instance]showInController:self.parentViewController.parentViewController];
     }
-}
-
-
-- (IBAction)menuTapped:(id)sender {
-    [self.slidingViewController anchorTopViewTo:ECRight];
-}
-
-
-- (IBAction)shareWithFacebookTapped:(id)sender {
-    [CHOptionalPopupSharingVC sharedOptionalPopupVC].imageToShare = self.photoImView.image;
-    [CHOptionalPopupSharingVC sharedOptionalPopupVC].currentSharingService = CH_SHARING_SERVICE_FACEBOOK;
-    [[CHOptionalPopupSharingVC sharedOptionalPopupVC] showInController:self withText:@"Sharing to facebook will get you"];
-}
-
-
-- (IBAction)shareWithTwitterTapped:(id)sender {
-    [CHOptionalPopupSharingVC sharedOptionalPopupVC].imageToShare = self.photoImView.image;
-    [CHOptionalPopupSharingVC sharedOptionalPopupVC].currentSharingService = CH_SHARING_SERVICE_TWITTER;
-    [[CHOptionalPopupSharingVC sharedOptionalPopupVC] showInController:self withText:@"Sharing to twitter will get you"];
-    
-//    [tweeterEngine sendUpdate:@"cashhopppers"];
-}
-
-
-- (IBAction)shareWithGPlusTapped:(id)sender {
-    [CHOptionalPopupSharingVC sharedOptionalPopupVC].imageToShare = self.photoImView.image;
-    [CHOptionalPopupSharingVC sharedOptionalPopupVC].currentSharingService = CH_SHARING_SERVICE_GOOGLE;
-    [[CHOptionalPopupSharingVC sharedOptionalPopupVC] showInController:self withText:@"Sharing to google plus will get you"];
 }
 
 

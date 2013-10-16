@@ -78,8 +78,16 @@
 {
     [super viewWillAppear:animated];
     [self reloadData];
-    [self showAdsWithType:@"RPOU" andHopID:nil];
     [DELEGATE.tabBarController setNewMessagesBadge:0];
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (self.isViewLoaded && self.view.window) {
+        [self showAdsWithType:@"RPOU" andHopID:nil];
+    }
 }
 
 
