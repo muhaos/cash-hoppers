@@ -72,9 +72,13 @@
     self.rankLabel.text = @"-";
 
     [[CHHopsManager instance] scoreForHopID:self.currentHop.identifier completionHandler:^(NSNumber* score, NSNumber* rank, NSNumber* hoppers_count){
-        self.scoreLabel.text = [NSString stringWithFormat:@"%i pts", [score intValue]];
-        self.rankLabel.text = [NSString stringWithFormat:@"%i of %i", [rank intValue], [hoppers_count intValue]];
-        self.justScoreLabel.text = [NSString stringWithFormat:@"%i pts", [score intValue]];
+        
+        if (![score isKindOfClass:[NSNull class]] && ![rank isKindOfClass:[NSNull class]]) {
+            self.scoreLabel.text = [NSString stringWithFormat:@"%i pts", [score intValue]];
+            self.rankLabel.text = [NSString stringWithFormat:@"%i of %i", [rank intValue], [hoppers_count intValue]];
+            self.justScoreLabel.text = [NSString stringWithFormat:@"%i pts", [score intValue]];
+        }
+        
     }];
     
     if (self.currentHop.daily_hop.boolValue) {

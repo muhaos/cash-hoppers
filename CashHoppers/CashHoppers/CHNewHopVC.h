@@ -38,10 +38,6 @@
 - (IBAction)resignResponder:(id)sender;
 - (IBAction)photoTapped:(id)sender;
 - (IBAction)submitPressed:(id)sender;
-- (IBAction)menuTapped:(id)sender;
-- (IBAction)shareWithFacebookTapped:(id)sender;
-- (IBAction)shareWithTwitterTapped:(id)sender;
-- (IBAction)shareWithGPlusTapped:(id)sender;
 
 -(BOOL)resignWinnerButton;
 

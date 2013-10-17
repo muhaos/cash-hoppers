@@ -138,7 +138,6 @@
 
 
 -(void)viewWillDisappear:(BOOL)animated {
- //   [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillDisappear:animated];
 }
 
@@ -303,15 +302,20 @@
 - (IBAction)submitPressed:(id)sender {
     [self.textView resignFirstResponder];
     [[CHLoadingVC sharedLoadingVC] showInController:self.view.window.rootViewController withText:@"Processing..."];
+
     if (takePhoto == YES) {
         [[CHHopsManager instance] completeHopTask:self.currentHopTask withPhoto:[photoImView.image normalizedImage] comment:_textView.text completionHandler:^(BOOL success) {
             if (success) {
+                [[CHLoadingVC sharedLoadingVC] hide];
+
                 self.currentHopTask.completed = @YES;
                 [self saveImageCopyToGalery];
                 self.submitButton.hidden = YES;
                 self.textView.editable = NO;
                 self.textView.textColor = [UIColor darkGrayColor];
                 self.sharingView.hidden = NO;
+                
+                [[CHLoadingVC sharedLoadingVC] hide];
                 
                 [CHSharingPopupVC instance].hopTaskID = self.currentHopTask.identifier;
                 [CHSharingPopupVC instance].imageToShare = self.photoImView.image;
@@ -324,15 +328,18 @@
                 }];
             }
             [[CHLoadingVC sharedLoadingVC] hide];
+
         }];
     } else {
+        [[CHLoadingVC sharedLoadingVC] hide];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Photo is required !"
                                                      message:@"Please, take a photo"
                                                     delegate:nil
                                            cancelButtonTitle:@"OK"
                                            otherButtonTitles:nil];
         [av show];
-        [[CHLoadingVC sharedLoadingVC] hide]; 
     }
 }
 

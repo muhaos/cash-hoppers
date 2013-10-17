@@ -54,7 +54,7 @@
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) {
         CGRect newFrame = self.view.frame;
         newFrame.origin.y+=20;
-        newFrame.size.height -=20;
+        newFrame.size.height +=20;
         self.view.frame = newFrame;
     }
 }
