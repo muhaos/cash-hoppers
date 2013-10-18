@@ -314,12 +314,12 @@
                 self.textView.editable = NO;
                 self.textView.textColor = [UIColor darkGrayColor];
                 self.sharingView.hidden = NO;
-                
-                [[CHLoadingVC sharedLoadingVC] hide];
-                
+                                
                 [CHSharingPopupVC instance].hopTaskID = self.currentHopTask.identifier;
                 [CHSharingPopupVC instance].imageToShare = self.photoImView.image;
                 [CHSharingPopupVC instance].bonusPointsCount = [self.currentHopTask.bonusPoints stringValue];
+                [CHSharingPopupVC instance].curentHop = self.currentHopTask.hop.name;
+                [CHSharingPopupVC instance].commentToHopTask = self.currentHopTask.text;
                 [[CHSharingPopupVC instance]showInController:self.parentViewController.parentViewController];
                 self.currentHopTask.share = @YES;
                

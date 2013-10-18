@@ -138,6 +138,8 @@
         tweetSheet.completionHandler = ^(SLComposeViewControllerResult result) {
             if (result == SLComposeViewControllerResultDone) {
                 [[CHHopsManager instance] notifiServerOfSharingWithService:@"twitter" andHopTaskID:self.hopTaskID];
+                [tweetSheet dismissViewControllerAnimated:YES completion:nil];
+
             }
         };
 
