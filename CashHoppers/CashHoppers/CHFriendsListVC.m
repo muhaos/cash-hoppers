@@ -175,7 +175,6 @@
     [[cell taskCompletedLabel] setText:[fItem completedTaskName]];
     [[cell addFriendButton] setImage:[UIImage imageNamed:@"button_add_friend"] forState:UIControlStateNormal];
     
-    //cell.timeLabel.text = [NSString stringWithFormat:@"%i m",timeSinceCompleted];
     cell.numberLikesLabel.text = [fItem.numberOfLikes stringValue];
     cell.numberCommentsLabel.text = [fItem.numberOfComments stringValue];
     

@@ -103,7 +103,7 @@
 }
 
 
-/////////////////////////////////twitter
+//twitter
 - (void)listResults {
     dict = nil;
     dispatch_async(GCDBackgroundThread, ^{

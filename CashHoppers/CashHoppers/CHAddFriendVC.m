@@ -82,9 +82,6 @@
             self.addFriendButton.enabled = YES;
         }
     }];
-
-    
-//    [self.yourFriendsImageView setImage:[UIImage imageNamed:@"you_are_friends.png"]];
 }
 
 

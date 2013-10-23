@@ -985,9 +985,6 @@
 		5640153E176B40D000C028CE = {
 			isa = PBXGroup;
 			children = (
-				567BB55817C6299B00C75F54 /* StoreKit.framework */,
-				567BB53917BD1B5A00C75F54 /* libz.dylib */,
-				567BB51F17BBD26900C75F54 /* AssetsLibrary.framework */,
 				56401550176B40D000C028CE /* CashHoppers */,
 				56401577176B40D100C028CE /* CashHoppersTests */,
 				56401549176B40D000C028CE /* Frameworks */,
@@ -1007,6 +1004,9 @@
 		56401549176B40D000C028CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				567BB53917BD1B5A00C75F54 /* libz.dylib */,
+				567BB55817C6299B00C75F54 /* StoreKit.framework */,
+				567BB51F17BBD26900C75F54 /* AssetsLibrary.framework */,
 				567BB51F17BBD26900C75F54 /* AssetsLibrary.framework */,
 				AA27E3CA17AFA87700C98B6C /* MessageUI.framework */,
 				AA732C8717AA4F6F002CC6C7 /* FacebookSDKResources.bundle */,

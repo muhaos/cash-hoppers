@@ -224,7 +224,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 }
 
 -(void)goToTabBar{
-//    [self performSegueWithIdentifier:@"tabbar" sender:self];
     [self presentViewController:DELEGATE.menuContainerVC animated:YES completion:nil];
 }
 

@@ -86,10 +86,7 @@
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(resizeViewForKeyboard) name:UIKeyboardWillShowNotification object:nil];
     [nc addObserver:self selector:@selector(resizeViewToNormalSize) name:UIKeyboardWillHideNotification object:nil];
-//    [nc addObserver:self selector:@selector(refreshData) name:CH_COMMENTS_RECEIVED object:nil];
     [nc addObserver:self selector:@selector(refreshComment:) name:CH_FEED_ITEM_COMMENT_UPDATED object:nil];
-
-    
 }
 
 -(void)unregisterForNotifications{

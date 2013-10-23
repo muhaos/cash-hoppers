@@ -17,8 +17,4 @@
 @property (retain, nonatomic) NSArray *peopleList;
 @property (retain, nonatomic) NSMutableArray *peopleImageList;
 
-//- (void)listPeople:(NSString *)collection;
-//- (void)reportAuthStatus;
-//- (void)fetchPeopleImages;
-
 @end

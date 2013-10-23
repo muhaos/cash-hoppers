@@ -142,7 +142,7 @@
                                 GTLPlusPerson *person,
                                 NSError *error) {
                 if (error) {
-//                    GTMLoggerError(@"Error: %@", error);
+
                 } else {
                     personData = person;
                     [self performSegueWithIdentifier:@"additional_signin" sender:self];

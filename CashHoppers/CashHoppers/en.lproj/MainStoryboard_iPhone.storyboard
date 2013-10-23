@@ -1698,7 +1698,7 @@
             <objects>
                 <viewController id="OtY-Mi-bR2" customClass="CHAddFriendVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nI1-wd-KsW">
-                        <rect key="frame" x="0.0" y="44" width="320" height="1836"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="1924"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="mhL-Jd-Gsa">
@@ -1794,11 +1794,11 @@
             <objects>
                 <viewController storyboardIdentifier="DetailFeedVC" id="jPZ-MB-CzT" customClass="CHDetailsFeedVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BRh-qX-Sku">
-                        <rect key="frame" x="0.0" y="44" width="320" height="1924"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="1968"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="iYL-i3-iPO">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="1924"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="1968"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="image_title_holder.png" id="PXN-ff-SaN">
@@ -4424,7 +4424,7 @@
             <objects>
                 <viewController id="KrS-aP-d9K" customClass="CHSettingsProfileNotificationsVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="94Y-h7-XZq">
-                        <rect key="frame" x="0.0" y="64" width="320" height="7220"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="7284"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YoX-rf-gPA">
@@ -4458,7 +4458,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="p0V-dh-tLS">
-                                <rect key="frame" x="0.0" y="43" width="320" height="7177"/>
+                                <rect key="frame" x="0.0" y="43" width="320" height="7241"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -4709,7 +4709,7 @@
                                 <rect key="frame" x="20" y="291" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Buy 50 RIBBITS for 0.99 $ USD" backgroundImage="yellow_button.png">
+                                <state key="normal" title="Buy 50 RIBBITS for 2.99 $ USD" backgroundImage="yellow_button.png">
                                     <color key="titleColor" red="0.0" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -4724,7 +4724,7 @@
                                 <rect key="frame" x="20" y="343" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Buy 100 RIBBITS for 0.99 $ USD" backgroundImage="yellow_button.png">
+                                <state key="normal" title="Buy 100 RIBBITS for 4.99 $ USD" backgroundImage="yellow_button.png">
                                     <color key="titleColor" red="0.0" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

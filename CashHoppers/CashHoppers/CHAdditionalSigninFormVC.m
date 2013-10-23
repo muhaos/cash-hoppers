@@ -40,12 +40,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     emailTextField.text = emailUser;
     [self setupTriangleBackButton];
     
-    
-//    [[CHLoadingVC sharedLoadingVC] showInController:self withText:@"Please wait..."];
-    
     [[CHUserManager instance] isUserExistsForService:self.provider userID:self.idUser completionHandler:^(NSError* error, BOOL exist){
-
-//        [[CHLoadingVC sharedLoadingVC] hide];
         
         if (exist) {
             NSMutableDictionary* params = [NSMutableDictionary new];

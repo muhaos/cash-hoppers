@@ -131,12 +131,6 @@
 
 - (void) loadTasksForHop:(CHHop*) hop completionHandler:(void (^)(CHHop* hop)) handler {
     
-//    if (hop.tasks != nil &&  hop.tasks.count > 0) {
-//        handler(hop);
-//        return;
-//    }
-    
-    
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
     NSString *path = [NSString stringWithFormat:@"/api/hop/get_tasks.json?api_key=%@&hop_id=%i&authentication_token=%@", CH_API_KEY, [hop.identifier intValue], aToken];
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
