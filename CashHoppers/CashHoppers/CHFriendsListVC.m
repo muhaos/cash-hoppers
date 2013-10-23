@@ -260,7 +260,6 @@
 
 
 - (IBAction)addFriendTapped:(id)sender {
-    NSLog(@"");
 }
 
 -(void)activeButton:(BOOL)friendsButton {

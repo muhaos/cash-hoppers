@@ -58,7 +58,7 @@
                   
          self.photos = collector;
      }
-                    failureBlock:^(NSError *error) { NSLog(@"Boom!!!");}
+                    failureBlock:^(NSError *error) { }
      ];
 }
 

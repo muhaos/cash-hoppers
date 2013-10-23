@@ -40,7 +40,6 @@
         
         NSMutableArray* resultNotifs = [NSMutableArray new];
         NSArray* notifsList = [JSON objectForKey:@"events"];
-        NSLog(@"%@",JSON);
         
         if (notifsList) {
             for (NSDictionary* notifDic in notifsList) {

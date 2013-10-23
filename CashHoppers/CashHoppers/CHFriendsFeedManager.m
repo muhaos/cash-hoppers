@@ -173,7 +173,7 @@
     
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
     NSString *path = [NSString stringWithFormat:@"/api/task/get_comments.json?api_key=%@&authentication_token=%@&user_hop_task_id=%d", CH_API_KEY,aToken,[feedItem.identifier integerValue]];
-    NSLog(@"feedItem.identifier=%@",feedItem.identifier);
+
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {

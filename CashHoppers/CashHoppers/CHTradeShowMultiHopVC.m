@@ -181,9 +181,6 @@
         c.currentHopTask = sender;
         c.view;
         
-        NSLog(@"%c",c.currentHopTask.hop.daily_hop.boolValue);
-        
-        
         if (c.currentHopTask.hop.daily_hop.boolValue) {
             c.winnterButton.hidden = NO;
         }else {

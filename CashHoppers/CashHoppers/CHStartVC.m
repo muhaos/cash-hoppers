@@ -111,10 +111,7 @@
 
 - (void)didDisconnectWithError:(NSError *)error {
     if (error) {
-        NSLog(@"Received error %@", error);
     } else {
-        // Пользователь вышел и отключился.
-        // Удалим данные пользователя в соответствии с Условиями использования Google+.
     }
 }
 
@@ -234,7 +231,6 @@ static BOOL needLoginWithFacebook = NO;
         static CHStartVC* selfRef;
         selfRef = self;
         [[FHSTwitterEngine sharedEngine]showOAuthLoginControllerFromViewController:self withCompletion:^(BOOL success) {
-            NSLog(success?@"L0L success":@"O noes!!! Loggen faylur!!!");
             [selfRef userTwitterDetails];
         }];
     }

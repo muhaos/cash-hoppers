@@ -199,9 +199,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
                 
                 [av show];
             }
-            
-//            NSLog(@"json=%@",JSON);
-            
+                        
             [[CHLoadingVC sharedLoadingVC] hide];
             
             [[CHUserManager instance] updateCurrentUser];

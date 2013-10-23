@@ -113,7 +113,7 @@
             }
         
         }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-            NSLog(@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]);
+
         }];
         [operation start];
     }    

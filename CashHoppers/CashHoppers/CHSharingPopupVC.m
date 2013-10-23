@@ -85,9 +85,8 @@
 - (void)finishedSharing: (BOOL)shared {
     if (shared) {
         [[CHHopsManager instance] notifiServerOfSharingWithService:@"google" andHopTaskID:self.hopTaskID];
-        NSLog(@"User successfully shared!");
     } else {
-        NSLog(@"User didn't share.");
+
     }
 }
 

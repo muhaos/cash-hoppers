@@ -58,7 +58,6 @@ static BOOL isAdsShowed = false;
         
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [self closeTapped:nil];
-        NSLog(@"Can't load url: %@ \n %@", request.URL, [error localizedDescription]);
     }];
     
     [operation start];

@@ -13,6 +13,4 @@
 @property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 
-- (IBAction)composeButtonTapped:(id)sender;
-
 @end

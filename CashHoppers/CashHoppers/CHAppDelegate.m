@@ -279,8 +279,7 @@ NSString *const FBSessionStateChangedNotification =
                                                      FBSessionState status,
                                                      NSError *error) {
                                      if (error) {
-                                         NSLog(@"Error using cached token to open a session: %@",
-                                               error.localizedDescription);
+                                        
                                      }
                                  }];
 }
@@ -295,7 +294,6 @@ NSString *const FBSessionStateChangedNotification =
                         options:0
                         error:&error];
     if (!jsonData) {
-        NSLog(@"JSON error: %@", error);
         return;
     }
     
@@ -313,21 +311,17 @@ NSString *const FBSessionStateChangedNotification =
      handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
          if (error) {
              // Error launching the dialog or sending the request.
-             NSLog(@"Error sending request.");
          } else {
              if (result == FBWebDialogResultDialogNotCompleted) {
                  // User clicked the "x" icon
-                 NSLog(@"User canceled request.");
              } else {
                  // Handle the send request callback
                  NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
                  if (![urlParams valueForKey:@"request"]) {
                      // User clicked the Cancel button
-                     NSLog(@"User canceled request.");
                  } else {
                      // User clicked the Send button
                      NSString *requestID = [urlParams valueForKey:@"request"];
-                     NSLog(@"Request ID: %@", requestID);
                  }
              }
          }
@@ -344,7 +338,6 @@ NSString *const FBSessionStateChangedNotification =
                         options:0
                         error:&error];
     if (error) {
-        NSLog(@"JSON error: %@", error);
         return;
     }
     
@@ -372,17 +365,14 @@ NSString *const FBSessionStateChangedNotification =
          } else {
              if (result == FBWebDialogResultDialogNotCompleted) {
                  // User clicked the "x" icon
-                 NSLog(@"User canceled request.");
              } else {
                  // Handle the send request callback
                  NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
                  if (![urlParams valueForKey:@"request"]) {
                      // User clicked the Cancel button
-                     NSLog(@"User canceled request.");
                  } else {
                      // User clicked the Send button
                      NSString *requestID = [urlParams valueForKey:@"request"];
-                     NSLog(@"Request ID: %@", requestID);
                  }
              }
          }
@@ -406,7 +396,6 @@ NSString *const FBSessionStateChangedNotification =
                                       NSString *jsonString = result[@"data"];
                                       NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
                                       if (!jsonData) {
-                                          NSLog(@"JSON decode error: %@", error);
                                           return;
                                       }
                                       NSError *jsonError = nil;
@@ -415,7 +404,6 @@ NSString *const FBSessionStateChangedNotification =
                                                                       options:0
                                                                         error:&jsonError];
                                       if (jsonError) {
-                                          NSLog(@"JSON decode error: %@", error);
                                           return;
                                       }
                                       message =
@@ -454,7 +442,6 @@ NSString *const FBSessionStateChangedNotification =
                                               id result,
                                               NSError *error) {
                               if (!error) {
-                                  NSLog(@"Request deleted");
                               }
                           }];
 }

@@ -348,7 +348,6 @@
     ALAssetsLibrary* library = [[ALAssetsLibrary alloc] init];
     [library saveImage:photoImView.image toAlbum:@"CASHHOPPERS" withCompletionBlock:^(NSError *error) {
         if (error!=nil) {
-            NSLog(@"Big error: %@", [error description]);
         }
     }];
 }

@@ -22,7 +22,6 @@
 
 + (CHOptionalPopupSharingVC*) sharedOptionalPopupVC;
 - (void) showInController:(UIViewController*) c withText:(NSString*) text;
-- (void) hide;
 
 @property (nonatomic, assign) int currentSharingService;
 

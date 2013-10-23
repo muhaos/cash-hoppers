@@ -82,9 +82,8 @@
 
 - (void)finishedSharing: (BOOL)shared {
     if (shared) {
-        NSLog(@"User successfully shared!");
+        
     } else {
-        NSLog(@"User didn't share.");
     }
 }
 

@@ -203,7 +203,6 @@
             [vc removeFromParentViewController];
         }
     }
-    NSLog(@"amount of children: %d", [self.childViewControllers count]);
 }
 
 

@@ -27,7 +27,7 @@
 
 
 - (void) backButtonTapped {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

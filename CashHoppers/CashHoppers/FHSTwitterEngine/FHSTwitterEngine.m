@@ -1815,7 +1815,7 @@ static NSString * const url_friends_list = @"https://api.twitter.com/1.1/friends
     FHSTwitterEngineController *vc = [[[FHSTwitterEngineController alloc]init]autorelease];
     vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     objc_setAssociatedObject(authBlockKey, "FHSTwitterEngineOAuthCompletion", block, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [sender presentModalViewController:vc animated:YES];
+    [sender presentViewController:vc animated:YES completion:nil];
 }
 
 + (BOOL)isConnectedToInternet {

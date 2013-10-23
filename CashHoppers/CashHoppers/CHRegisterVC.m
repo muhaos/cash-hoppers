@@ -20,7 +20,7 @@ static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
 static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
-@interface CHRegisterVC ()
+@interface CHRegisterVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     CGFloat animatedDistance;
 }
@@ -104,7 +104,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 -(void)registrationUser
 {
     NSString *image64string = [CHAPIClient base64stringFromImage:photoImageView.image];
-    //    NSLog(@"image string=%@",image64string);
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:_emailTextField.text/*@"jekahy343@gmail.com"*/ forKey:@"email"];
     [params setObject:passwordTextField.text/*@"123456789"*/ forKey:@"password"];
@@ -122,7 +121,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     
     NSError *error = nil;
     NSData *json = [NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
-    //    NSLog(@"json=%@",json);
     
     if (!error){
         [[CHLoadingVC sharedLoadingVC] showInController:self withText:@"Processing..."];
@@ -133,7 +131,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         [request setHTTPBody:json];
         [request setHTTPShouldHandleCookies:YES];
-        NSLog(@"req=%@",request);
         
         AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             
@@ -148,15 +145,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
                 message = [NSString stringWithFormat:@"Registration unsuccessful: %@",[JSON objectForKey:@"errors"]];
             }
             
-            
-            NSLog(@"json=%@",JSON);
-            
             UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"REGISTRATION" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             
             [av show];
             [[CHLoadingVC sharedLoadingVC] hide];
         }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-            NSLog(@"json=%@",JSON);
             
             NSString* errMsg = nil;
             if (JSON != nil) {
@@ -190,13 +183,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-	[picker dismissModalViewControllerAnimated:YES];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 	photoImageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
 }
 
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

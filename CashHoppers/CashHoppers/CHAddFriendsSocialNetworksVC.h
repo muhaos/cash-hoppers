@@ -20,6 +20,5 @@
 //- (void)listPeople:(NSString *)collection;
 //- (void)reportAuthStatus;
 //- (void)fetchPeopleImages;
-- (void)sendDirectMessage;
 
 @end

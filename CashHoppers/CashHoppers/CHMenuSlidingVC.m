@@ -175,7 +175,7 @@
     if ([segue.identifier isEqualToString:@"how_to_play_faq"])
     {
         UINavigationController *navController = (UINavigationController*)[segue destinationViewController];
-        CHHelpVC *vc  = [navController topViewController];
+        CHHelpVC *vc  = (CHHelpVC*)[navController topViewController];
 
         if ([link isEqualToString:@"how_to_play"])
         {
@@ -221,7 +221,6 @@
             } else {
                 errMsg = [error localizedDescription];
             }
-            NSLog(@"Logout failed: %@", errMsg);
         }];
         
         [operation start];

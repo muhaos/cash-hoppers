@@ -55,7 +55,7 @@
 
 
 - (void) backButtonTapped {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -131,7 +131,6 @@
         [self performSegueWithIdentifier:@"friends" sender:self];
     } else {
         [[FHSTwitterEngine sharedEngine]showOAuthLoginControllerFromViewController:self withCompletion:^(BOOL success) {
-            NSLog(success?@"L0L success":@"O noes!!! Loggen faylur!!!");
         }];
     }}
 }
@@ -205,7 +204,7 @@
 
 
 -(void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
