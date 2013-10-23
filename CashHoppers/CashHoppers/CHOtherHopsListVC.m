@@ -54,7 +54,9 @@
             int hopsCount = [self.currentHopsList count];
             if (hopsCount > 0) {
                 CHHop* h = self.currentHopsList[rand() % hopsCount];
-                [self showAdsWithType:@"SP" andHopID:h.identifier];
+                if (self.isViewLoaded && self.view.window) {
+                    [self showAdsWithType:@"SP" andHopID:h.identifier];
+                }
                 self.needShowAD = NO;
             }
         }

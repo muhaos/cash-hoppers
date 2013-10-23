@@ -82,7 +82,7 @@
 
 -(void) showCSAd {
     self.needSHowSharing = NO;
-    [self showAdsWithType:@"CS" andHopID:self.currentHopTask.hop.identifier];
+    [self showAdsWithType:@"CS" andHopID:self.currentHopTask.identifier];
 }
 
 
