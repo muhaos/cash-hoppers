@@ -2418,6 +2418,7 @@
 					"\"$(SRCROOT)/lib/TestFlight\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2447,6 +2448,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "A46CE048-F613-4E4C-AB8F-D6CA2A4ECA01";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A46CE048-F613-4E4C-AB8F-D6CA2A4ECA01";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
