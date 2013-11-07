@@ -40,9 +40,7 @@
 
     isShoweTerms = YES;
     [[NSUserDefaults standardUserDefaults] setBool:isShoweTerms forKey:@"ShoweTerms"];
-                            
-                            
-
+    
     NSURL *terms = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"terms" ofType:@"html"]];
 
     [self.webView loadRequest:[NSURLRequest requestWithURL:terms]];

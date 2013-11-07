@@ -20,8 +20,9 @@
     [super viewDidLoad];
     [self setupTriangleBackButton];
 
-    NSURL *link = [NSURL URLWithString:@"http://cashhoppers.com/pages/terms"];
-    [webView loadRequest:[NSURLRequest requestWithURL:link]];
+    NSURL *terms = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"terms" ofType:@"html"]];
+    
+    [webView loadRequest:[NSURLRequest requestWithURL:terms]];
 }
 
 
