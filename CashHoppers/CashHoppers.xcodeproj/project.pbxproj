@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		560BF23C18183069006DF522 /* CH_app_icon76.png in Resources */ = {isa = PBXBuildFile; fileRef = 560BF23918183069006DF522 /* CH_app_icon76.png */; };
+		560BF23D18183069006DF522 /* CH_app_icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 560BF23A18183069006DF522 /* CH_app_icon120.png */; };
+		560BF23E18183069006DF522 /* CH_app_icon152.png in Resources */ = {isa = PBXBuildFile; fileRef = 560BF23B18183069006DF522 /* CH_app_icon152.png */; };
 		56115543179EA4A200DAA76E /* DroidSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5611553E179EA4A200DAA76E /* DroidSans-Bold.ttf */; };
 		56115544179EA4A200DAA76E /* DroidSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5611553F179EA4A200DAA76E /* DroidSans.ttf */; };
 		56115545179EA4A200DAA76E /* OpenSans-CondBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56115540179EA4A200DAA76E /* OpenSans-CondBold.ttf */; };
@@ -366,6 +369,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		560BF23918183069006DF522 /* CH_app_icon76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CH_app_icon76.png; path = ../../CH_app_icon76.png; sourceTree = "<group>"; };
+		560BF23A18183069006DF522 /* CH_app_icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CH_app_icon120.png; path = ../../CH_app_icon120.png; sourceTree = "<group>"; };
+		560BF23B18183069006DF522 /* CH_app_icon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CH_app_icon152.png; path = ../../CH_app_icon152.png; sourceTree = "<group>"; };
 		5611553E179EA4A200DAA76E /* DroidSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidSans-Bold.ttf"; sourceTree = "<group>"; };
 		5611553F179EA4A200DAA76E /* DroidSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DroidSans.ttf; sourceTree = "<group>"; };
 		56115540179EA4A200DAA76E /* OpenSans-CondBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondBold.ttf"; sourceTree = "<group>"; };
@@ -1124,6 +1130,9 @@
 		56401551176B40D000C028CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				560BF23918183069006DF522 /* CH_app_icon76.png */,
+				560BF23A18183069006DF522 /* CH_app_icon120.png */,
+				560BF23B18183069006DF522 /* CH_app_icon152.png */,
 				567BB51717BBAC8900C75F54 /* Icon-72.png */,
 				567BB51817BBAC8900C75F54 /* Icon-72@2x.png */,
 				567BB51917BBAC8900C75F54 /* Icon.png */,
@@ -1948,6 +1957,7 @@
 				E1179B08177460E500FA2069 /* banner.png in Resources */,
 				E1179B0A177464D900FA2069 /* title_holder.png in Resources */,
 				E1179B0E1774664000FA2069 /* green_button.png in Resources */,
+				560BF23D18183069006DF522 /* CH_app_icon120.png in Resources */,
 				E1179B10177469AB00FA2069 /* yellow_button.png in Resources */,
 				E1179B1217746B9E00FA2069 /* Friend-Feed-Group.png in Resources */,
 				E1179B1417746D4000FA2069 /* ht_alt_logo.png in Resources */,
@@ -2040,7 +2050,9 @@
 				AA32A73C179FEF6A003563FB /* find_google_friends.png in Resources */,
 				AA32A73D179FEF6A003563FB /* find_twitter_friends.png in Resources */,
 				AA32A73E179FEF6A003563FB /* search_box.png in Resources */,
+				560BF23C18183069006DF522 /* CH_app_icon76.png in Resources */,
 				AA32A73F179FEF6A003563FB /* send_email_invite.png in Resources */,
+				560BF23E18183069006DF522 /* CH_app_icon152.png in Resources */,
 				AA32A74117A00810003563FB /* add_icon_in_cell.png in Resources */,
 				5611555F17A6A17400DAA76E /* button_save.png in Resources */,
 				AAFBE33117A1422A00F408C2 /* button_delete.png in Resources */,
@@ -2422,6 +2434,7 @@
 					"\"$(SRCROOT)/lib/TestFlight\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2430,7 +2443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = armv7;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2449,8 +2462,9 @@
 					"\"$(SRCROOT)/lib/TestFlight\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "A46CE048-F613-4E4C-AB8F-D6CA2A4ECA01";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A46CE048-F613-4E4C-AB8F-D6CA2A4ECA01";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
