@@ -234,6 +234,8 @@
 		AA5863A517B414F50074F0AB /* buy_add_free_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA5863A417B414F50074F0AB /* buy_add_free_icon.png */; };
 		AA732C8617AA4F62002CC6C7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA732C8517AA4F62002CC6C7 /* FacebookSDK.framework */; };
 		AA732C8817AA4F6F002CC6C7 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AA732C8717AA4F6F002CC6C7 /* FacebookSDKResources.bundle */; };
+		AA742F3C182B8D38003C5FB6 /* CHFirstTimeSetUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA742F3A182B8D38003C5FB6 /* CHFirstTimeSetUpVC.m */; };
+		AA742F3D182B8D38003C5FB6 /* CHFirstTimeSetUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA742F3B182B8D38003C5FB6 /* CHFirstTimeSetUpVC.xib */; };
 		AA8557D217C6358D002E8775 /* take_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = AA8557D117C63589002E8775 /* take_photo.png */; };
 		AA9991AA177329D7005A56EF /* CHResetPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9991A9177329D7005A56EF /* CHResetPasswordVC.m */; };
 		AA9991AC177332BD005A56EF /* button_sign_in.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9991AB177332BD005A56EF /* button_sign_in.png */; };
@@ -252,6 +254,7 @@
 		AABEE156178AF0BD008F2DD2 /* image_title_holder.png in Resources */ = {isa = PBXBuildFile; fileRef = AABEE155178AF0BC008F2DD2 /* image_title_holder.png */; };
 		AABEE158178AF191008F2DD2 /* image_score_box.png in Resources */ = {isa = PBXBuildFile; fileRef = AABEE157178AF190008F2DD2 /* image_score_box.png */; };
 		AABEE15B178B0108008F2DD2 /* CHTradeShowMultiHopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AABEE15A178B0107008F2DD2 /* CHTradeShowMultiHopCell.m */; };
+		AAC674ED182A8DCF00D95E32 /* CHTermsOfUseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC674EC182A8DCF00D95E32 /* CHTermsOfUseVC.m */; };
 		AACE4231177C5C7E006E2E46 /* CHOtherHopsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AACE4230177C5C7E006E2E46 /* CHOtherHopsListVC.m */; };
 		AACE4234177C5D16006E2E46 /* CHOtherHopsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AACE4233177C5D16006E2E46 /* CHOtherHopsListCell.m */; };
 		AACE423A177C683E006E2E46 /* button_join.png in Resources */ = {isa = PBXBuildFile; fileRef = AACE4235177C683E006E2E46 /* button_join.png */; };
@@ -715,6 +718,9 @@
 		AA5863A417B414F50074F0AB /* buy_add_free_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy_add_free_icon.png; sourceTree = "<group>"; };
 		AA732C8517AA4F62002CC6C7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		AA732C8717AA4F6F002CC6C7 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		AA742F39182B8D38003C5FB6 /* CHFirstTimeSetUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHFirstTimeSetUpVC.h; sourceTree = "<group>"; };
+		AA742F3A182B8D38003C5FB6 /* CHFirstTimeSetUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHFirstTimeSetUpVC.m; sourceTree = "<group>"; };
+		AA742F3B182B8D38003C5FB6 /* CHFirstTimeSetUpVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHFirstTimeSetUpVC.xib; sourceTree = "<group>"; };
 		AA8557D117C63589002E8775 /* take_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = take_photo.png; sourceTree = "<group>"; };
 		AA9991A8177329D7005A56EF /* CHResetPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHResetPasswordVC.h; sourceTree = "<group>"; };
 		AA9991A9177329D7005A56EF /* CHResetPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHResetPasswordVC.m; sourceTree = "<group>"; };
@@ -738,6 +744,8 @@
 		AABEE157178AF190008F2DD2 /* image_score_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_score_box.png; sourceTree = "<group>"; };
 		AABEE159178B0107008F2DD2 /* CHTradeShowMultiHopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTradeShowMultiHopCell.h; sourceTree = "<group>"; };
 		AABEE15A178B0107008F2DD2 /* CHTradeShowMultiHopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTradeShowMultiHopCell.m; sourceTree = "<group>"; };
+		AAC674EB182A8DCE00D95E32 /* CHTermsOfUseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTermsOfUseVC.h; sourceTree = "<group>"; };
+		AAC674EC182A8DCF00D95E32 /* CHTermsOfUseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTermsOfUseVC.m; sourceTree = "<group>"; };
 		AACE422F177C5C7E006E2E46 /* CHOtherHopsListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHOtherHopsListVC.h; sourceTree = "<group>"; };
 		AACE4230177C5C7E006E2E46 /* CHOtherHopsListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHOtherHopsListVC.m; sourceTree = "<group>"; };
 		AACE4232177C5D16006E2E46 /* CHOtherHopsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHOtherHopsListCell.h; sourceTree = "<group>"; };
@@ -1104,6 +1112,11 @@
 				AAF9EE5617CB8E0600186342 /* CHHelpVC.m */,
 				AA121E5617D0CB2000FC87BD /* CHHopShopVC.h */,
 				AA121E5717D0CB2000FC87BD /* CHHopShopVC.m */,
+				AAC674EB182A8DCE00D95E32 /* CHTermsOfUseVC.h */,
+				AAC674EC182A8DCF00D95E32 /* CHTermsOfUseVC.m */,
+				AA742F39182B8D38003C5FB6 /* CHFirstTimeSetUpVC.h */,
+				AA742F3A182B8D38003C5FB6 /* CHFirstTimeSetUpVC.m */,
+				AA742F3B182B8D38003C5FB6 /* CHFirstTimeSetUpVC.xib */,
 			);
 			path = CashHoppers;
 			sourceTree = "<group>";
@@ -1980,6 +1993,7 @@
 				E1CF6BE1177C83EE003D9624 /* README.md in Resources */,
 				E1CF6BF1177CBE62003D9624 /* CHLoadingVC.xib in Resources */,
 				AACE423A177C683E006E2E46 /* button_join.png in Resources */,
+				AA742F3D182B8D38003C5FB6 /* CHFirstTimeSetUpVC.xib in Resources */,
 				AACE423B177C683E006E2E46 /* button_preview.png in Resources */,
 				AACE423C177C683E006E2E46 /* horizontal_indicator_green.png in Resources */,
 				AACE423D177C683E006E2E46 /* lock_icon.png in Resources */,
@@ -2144,6 +2158,7 @@
 				AABEE14C178AE12C008F2DD2 /* CHTradeShowEntryVC.m in Sources */,
 				AABEE154178AED80008F2DD2 /* CHTradeShowMultiHopVC.m in Sources */,
 				AABEE15B178B0108008F2DD2 /* CHTradeShowMultiHopCell.m in Sources */,
+				AA742F3C182B8D38003C5FB6 /* CHFirstTimeSetUpVC.m in Sources */,
 				AA010547178C3C72004DF5F4 /* CHDetailsFeedVC.m in Sources */,
 				AA01054A178C4CD0004DF5F4 /* CHCommentListCell.m in Sources */,
 				AA169459178D941500D09372 /* ECSlidingViewController.m in Sources */,
@@ -2188,6 +2203,7 @@
 				AA4C1FCD17904E920071D0F9 /* GTMOAuth2Authentication.m in Sources */,
 				AA4C1FCE17904E920071D0F9 /* GTMOAuth2SignIn.m in Sources */,
 				AA4C1FCF17904E920071D0F9 /* GTMOAuth2ViewControllerTouch.m in Sources */,
+				AAC674ED182A8DCF00D95E32 /* CHTermsOfUseVC.m in Sources */,
 				AA4C1FD117904E920071D0F9 /* GTMObjC2Runtime.m in Sources */,
 				AA4C1FD217904E920071D0F9 /* OpenInChromeController.m in Sources */,
 				56D59AF51796CD4B005A05F3 /* CHBaseModel.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHAgreeToTermsVC : UIViewController
+@interface CHAgreeToTermsVC : UIViewController <UIWebViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 

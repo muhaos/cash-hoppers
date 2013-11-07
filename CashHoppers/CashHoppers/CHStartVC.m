@@ -18,6 +18,7 @@
 #import "GTLPlusPerson.h"
 #import "CHAdditionalSigninFormVC.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CHFirstTimeSetUpVC.h"
 
 
 @interface CHStartVC ()<FBWebDialogsDelegate>
@@ -48,6 +49,11 @@
 {
     [super viewDidLoad];
     
+    BOOL showeTerms = [[NSUserDefaults standardUserDefaults] boolForKey:@"ShoweTerms"];
+    if (showeTerms == NO) {
+        [[CHFirstTimeSetUpVC sharedFirstTimeSetUpVC] showInController:self];
+    }
+   
     DELEGATE.startVC = self;
     
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg_gradient"]];

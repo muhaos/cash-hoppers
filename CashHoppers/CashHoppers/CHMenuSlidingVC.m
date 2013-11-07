@@ -72,7 +72,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 7;
 }
 
 
@@ -111,6 +111,11 @@
             case 5:
                 cell.label.text = @"Shop Ribbits";
                 cell.icon.image = [UIImage imageNamed:@"buy_add_free_icon.png"];
+                break;
+            case 6:
+                cell.label.text = @"Terms of Use";
+                cell.icon.image = [UIImage imageNamed:@"play_icon.png"];
+                break;
             default:
                 break;
         }
@@ -161,6 +166,9 @@
                 break;
             case 5:
                 [self performSegueWithIdentifier:@"hop_shop" sender:self];
+                break;
+            case 6:
+                [self performSegueWithIdentifier:@"terms_of_use" sender:self];
                 break;
             default:
                 break;
