@@ -40,9 +40,11 @@
 
     isShoweTerms = YES;
     [[NSUserDefaults standardUserDefaults] setBool:isShoweTerms forKey:@"ShoweTerms"];
+                            
+                            
 
-    NSString *urlString = [NSString stringWithFormat:@"http://cashhoppers.com/pages/terms"];
-    NSURL *terms = [NSURL URLWithString:urlString];
+    NSURL *terms = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"terms" ofType:@"html"]];
+
     [self.webView loadRequest:[NSURLRequest requestWithURL:terms]];
 }
 
