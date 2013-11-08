@@ -88,7 +88,7 @@
 
 - (void) loadMessagesHistoryForFriendID:(NSNumber*) friendID withCompletionHandler:(void (^)(NSArray* messages)) handler {
     NSString* aToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_token"];
-    NSString *path = [NSString stringWithFormat:@"/api/messages/history.json?api_key=%@&authentication_token=%@&friend_id=%i&page=1&per_page=50",CH_API_KEY,aToken, [friendID intValue]];
+    NSString *path = [NSString stringWithFormat:@"/api/messages/history.json?api_key=%@&authentication_token=%@&friend_id=%i&page=1&per_page=100500",CH_API_KEY,aToken, [friendID intValue]];
     
     NSMutableURLRequest *request = [[CHAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
     

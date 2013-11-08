@@ -2447,8 +2447,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = armv7;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Big Loretta, LLC (9QP2FC7D78)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Big Loretta, LLC (9QP2FC7D78)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2466,8 +2466,8 @@
 					"\"$(SRCROOT)/lib/TestFlight\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A46CE048-F613-4E4C-AB8F-D6CA2A4ECA01";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A46CE048-F613-4E4C-AB8F-D6CA2A4ECA01";
+				PROVISIONING_PROFILE = "5E7C33A8-8ACF-4AB5-BC5C-2D2B8DBC3C0C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5E7C33A8-8ACF-4AB5-BC5C-2D2B8DBC3C0C";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
