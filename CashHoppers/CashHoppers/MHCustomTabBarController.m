@@ -60,6 +60,7 @@
         
         [self setNewMessagesBadge:self.messagesBadgeCount];
     }];
+    
 }
 
 
