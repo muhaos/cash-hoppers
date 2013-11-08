@@ -205,7 +205,7 @@
     [UIView setAnimationDuration:0.2f];
     CGRect frame;
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) {
-        frame = self.view.frame; frame.origin.y = -110;
+        frame = self.view.frame; frame.origin.y = -108;
     }else{
         frame = self.view.frame; frame.origin.y = -160;
     }
@@ -220,7 +220,7 @@
     [UIView setAnimationDuration:0.2f];
     CGRect frame = self.view.frame;
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f){
-        frame.origin.y = 50;
+        frame.origin.y = 60;
     }else{
         frame.origin.y = 0;
     }
