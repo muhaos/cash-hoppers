@@ -90,6 +90,8 @@
 		56D59AFB1796CD80005A05F3 /* CHHopTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AFA1796CD80005A05F3 /* CHHopTask.m */; };
 		56D59AFE1796CDB4005A05F3 /* CHBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59AFD1796CDB4005A05F3 /* CHBaseManager.m */; };
 		56D59B011796CDD3005A05F3 /* CHHopsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D59B001796CDD2005A05F3 /* CHHopsManager.m */; };
+		72CB1CD519F69673007D46BE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CB1CD319F69673007D46BE /* FacebookSDK.framework */; };
+		72CB1CD619F69673007D46BE /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 72CB1CD419F69673007D46BE /* FacebookSDKResources.bundle */; };
 		AA002738177AE56A00D9D204 /* button_all_hops_ac.png in Resources */ = {isa = PBXBuildFile; fileRef = AA002734177AE56A00D9D204 /* button_all_hops_ac.png */; };
 		AA002739177AE56A00D9D204 /* button_all_hops_no.png in Resources */ = {isa = PBXBuildFile; fileRef = AA002735177AE56A00D9D204 /* button_all_hops_no.png */; };
 		AA00273A177AE56A00D9D204 /* button_friends_ac.png in Resources */ = {isa = PBXBuildFile; fileRef = AA002736177AE56A00D9D204 /* button_friends_ac.png */; };
@@ -235,8 +237,6 @@
 		AA55051217983620009BF936 /* button_notifications_n.png in Resources */ = {isa = PBXBuildFile; fileRef = AA55050E17983620009BF936 /* button_notifications_n.png */; };
 		AA5863A317B3C7390074F0AB /* CHFindFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5863A217B3C7390074F0AB /* CHFindFriendsCell.m */; };
 		AA5863A517B414F50074F0AB /* buy_add_free_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA5863A417B414F50074F0AB /* buy_add_free_icon.png */; };
-		AA732C8617AA4F62002CC6C7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA732C8517AA4F62002CC6C7 /* FacebookSDK.framework */; };
-		AA732C8817AA4F6F002CC6C7 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AA732C8717AA4F6F002CC6C7 /* FacebookSDKResources.bundle */; };
 		AA742F3C182B8D38003C5FB6 /* CHFirstTimeSetUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA742F3A182B8D38003C5FB6 /* CHFirstTimeSetUpVC.m */; };
 		AA742F3D182B8D38003C5FB6 /* CHFirstTimeSetUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA742F3B182B8D38003C5FB6 /* CHFirstTimeSetUpVC.xib */; };
 		AA742F3F182BF080003C5FB6 /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = AA742F3E182BF080003C5FB6 /* terms.html */; };
@@ -496,6 +496,8 @@
 		56D59AFD1796CDB4005A05F3 /* CHBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHBaseManager.m; sourceTree = "<group>"; };
 		56D59AFF1796CDD2005A05F3 /* CHHopsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHopsManager.h; sourceTree = "<group>"; };
 		56D59B001796CDD2005A05F3 /* CHHopsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHopsManager.m; sourceTree = "<group>"; };
+		72CB1CD319F69673007D46BE /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		72CB1CD419F69673007D46BE /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		AA002734177AE56A00D9D204 /* button_all_hops_ac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_all_hops_ac.png; sourceTree = "<group>"; };
 		AA002735177AE56A00D9D204 /* button_all_hops_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_all_hops_no.png; sourceTree = "<group>"; };
 		AA002736177AE56A00D9D204 /* button_friends_ac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_friends_ac.png; sourceTree = "<group>"; };
@@ -723,8 +725,6 @@
 		AA5863A117B3C7390074F0AB /* CHFindFriendsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHFindFriendsCell.h; sourceTree = "<group>"; };
 		AA5863A217B3C7390074F0AB /* CHFindFriendsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHFindFriendsCell.m; sourceTree = "<group>"; };
 		AA5863A417B414F50074F0AB /* buy_add_free_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy_add_free_icon.png; sourceTree = "<group>"; };
-		AA732C8517AA4F62002CC6C7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		AA732C8717AA4F6F002CC6C7 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		AA742F39182B8D38003C5FB6 /* CHFirstTimeSetUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHFirstTimeSetUpVC.h; sourceTree = "<group>"; };
 		AA742F3A182B8D38003C5FB6 /* CHFirstTimeSetUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHFirstTimeSetUpVC.m; sourceTree = "<group>"; };
 		AA742F3B182B8D38003C5FB6 /* CHFirstTimeSetUpVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHFirstTimeSetUpVC.xib; sourceTree = "<group>"; };
@@ -931,8 +931,8 @@
 				5640154D176B40D000C028CE /* Foundation.framework in Frameworks */,
 				5640154F176B40D000C028CE /* CoreGraphics.framework in Frameworks */,
 				AA4C1F5017904E710071D0F9 /* libGooglePlusUniversal.a in Frameworks */,
-				AA732C8617AA4F62002CC6C7 /* FacebookSDK.framework in Frameworks */,
 				567BB53817BD1AF500C75F54 /* libTestFlight.a in Frameworks */,
+				72CB1CD519F69673007D46BE /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1020,13 +1020,12 @@
 		56401549176B40D000C028CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				72CB1CD319F69673007D46BE /* FacebookSDK.framework */,
+				72CB1CD419F69673007D46BE /* FacebookSDKResources.bundle */,
 				567BB53917BD1B5A00C75F54 /* libz.dylib */,
 				567BB55817C6299B00C75F54 /* StoreKit.framework */,
 				567BB51F17BBD26900C75F54 /* AssetsLibrary.framework */,
-				567BB51F17BBD26900C75F54 /* AssetsLibrary.framework */,
 				AA27E3CA17AFA87700C98B6C /* MessageUI.framework */,
-				AA732C8717AA4F6F002CC6C7 /* FacebookSDKResources.bundle */,
-				AA732C8517AA4F62002CC6C7 /* FacebookSDK.framework */,
 				AAABFF4B17A997D8000B6C2F /* Accounts.framework */,
 				AA4C1F4517904E3D0071D0F9 /* SystemConfiguration.framework */,
 				AA4C1F43178FFAFD0071D0F9 /* Security.framework */,
@@ -1903,7 +1902,7 @@
 			name = CashHoppersTests;
 			productName = CashHoppersTests;
 			productReference = 56401570176B40D100C028CE /* CashHoppersTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -1966,6 +1965,7 @@
 				E1179B1217746B9E00FA2069 /* Friend-Feed-Group.png in Resources */,
 				E1179B1417746D4000FA2069 /* ht_alt_logo.png in Resources */,
 				E1179B1617746DD300FA2069 /* Bottom-Nav.png in Resources */,
+				72CB1CD619F69673007D46BE /* FacebookSDKResources.bundle in Resources */,
 				E1179B181774707A00FA2069 /* bk_round.png in Resources */,
 				AA4550651774497900D3D0F6 /* button_nav_back.png in Resources */,
 				AA455071177490BC00D3D0F6 /* av_header_cell.png in Resources */,
@@ -2068,7 +2068,6 @@
 				AA2D1BEC17A2A89F00474E9B /* compose_icon.png in Resources */,
 				AA0B685317A6F40E00820A9A /* search_icon.png in Resources */,
 				567FCAC117A7CD7A00F150A8 /* CHSelectedUserView.xib in Resources */,
-				AA732C8817AA4F6F002CC6C7 /* FacebookSDKResources.bundle in Resources */,
 				E1A699BF17A92A8C008584BE /* checkmark.png in Resources */,
 				567FCACF17AAA12400F150A8 /* button_edit.png in Resources */,
 				567FCAD117AAA58500F150A8 /* button_done.png in Resources */,
@@ -2423,12 +2422,17 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
 					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
+					"$(PROJECT_DIR)",
+					.,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CashHoppers/CashHoppers-Prefix.pch";
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					"\"$(SRCROOT)\"",
+				);
 				INFOPLIST_FILE = "CashHoppers/CashHoppers-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -2451,12 +2455,17 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Big Loretta, LLC (9QP2FC7D78)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
 					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
+					"$(PROJECT_DIR)",
+					.,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CashHoppers/CashHoppers-Prefix.pch";
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					"\"$(SRCROOT)\"",
+				);
 				INFOPLIST_FILE = "CashHoppers/CashHoppers-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -2480,6 +2489,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					.,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CashHoppers/CashHoppers-Prefix.pch";
@@ -2497,6 +2507,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					.,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CashHoppers/CashHoppers-Prefix.pch";
