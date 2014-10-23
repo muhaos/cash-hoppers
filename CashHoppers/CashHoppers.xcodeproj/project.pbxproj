@@ -38,7 +38,6 @@
 		56401573176B40D100C028CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640154A176B40D000C028CE /* UIKit.framework */; };
 		56401574176B40D100C028CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640154C176B40D000C028CE /* Foundation.framework */; };
 		5640157C176B40D100C028CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5640157A176B40D100C028CE /* InfoPlist.strings */; };
-		5640157F176B40D100C028CE /* CashHoppersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5640157E176B40D100C028CE /* CashHoppersTests.m */; };
 		5640158A176B422D00C028CE /* CHStartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56401589176B422D00C028CE /* CHStartVC.m */; };
 		5640158D176B433C00C028CE /* bg_gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 5640158C176B433C00C028CE /* bg_gradient.png */; };
 		5640158F176B452600C028CE /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5640158E176B452600C028CE /* logo.png */; };
@@ -322,8 +321,6 @@
 		E1B074E2177878EA00D7BCD0 /* share_gray_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B074E1177878E900D7BCD0 /* share_gray_bg.png */; };
 		E1B074F0177AEBDA00D7BCD0 /* tabbar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B074EE177AEBD900D7BCD0 /* tabbar_bg@2x.png */; };
 		E1B074F3177AED3F00D7BCD0 /* home_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B074F2177AED3F00D7BCD0 /* home_icon.png */; };
-		E1B074F9177B58D300D7BCD0 /* MHCustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B074F6177B58CF00D7BCD0 /* MHCustomTabBarController.m */; };
-		E1B074FA177B58D300D7BCD0 /* MHTabBarSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B074F8177B58D100D7BCD0 /* MHTabBarSegue.m */; };
 		E1B074FC177B5AB100D7BCD0 /* MHCustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B074F6177B58CF00D7BCD0 /* MHCustomTabBarController.m */; };
 		E1B074FD177B5AB400D7BCD0 /* MHTabBarSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B074F8177B58D100D7BCD0 /* MHTabBarSegue.m */; };
 		E1B07502177B600E00D7BCD0 /* messages_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B074FE177B600D00D7BCD0 /* messages_icon.png */; };
@@ -2301,9 +2298,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5640157F176B40D100C028CE /* CashHoppersTests.m in Sources */,
-				E1B074F9177B58D300D7BCD0 /* MHCustomTabBarController.m in Sources */,
-				E1B074FA177B58D300D7BCD0 /* MHTabBarSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
