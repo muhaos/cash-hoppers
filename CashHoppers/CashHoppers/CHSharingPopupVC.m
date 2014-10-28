@@ -99,7 +99,7 @@
         SLComposeViewController *tw = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         [tw setInitialText:shareString];
         [tw addImage:self.imageToShare];
-        [tw addURL:[NSURL URLWithString:@"http://cashhoppers.com/"]];
+        [tw addURL:[NSURL URLWithString:@"http://192.168.2.190:9990/"]];
 
         tw.completionHandler = ^(SLComposeViewControllerResult result) {
             if (result == SLComposeViewControllerResultDone) {

@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
     
-    NSString *urlString = [NSString stringWithFormat:@"http://cashhoppers.com/pages/terms"];
+    NSString *urlString = [NSString stringWithFormat:@"http://192.168.2.190:9990/pages/terms"];
     NSURL *terms = [NSURL URLWithString:urlString];
     [self.webView loadRequest:[NSURLRequest requestWithURL:terms]];
 }

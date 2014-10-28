@@ -187,11 +187,11 @@
 
         if ([link isEqualToString:@"how_to_play"])
         {
-            vc.url = [NSString stringWithFormat:@"http://cashhoppers.com/#yellow-page"];
+            vc.url = [NSString stringWithFormat:@"http://192.168.2.190:9990/#yellow-page"];
         }
         if ([link isEqualToString:@"faq"])
         {
-            vc.url = [NSString stringWithFormat:@"http://cashhoppers.com/pages/faq"];
+            vc.url = [NSString stringWithFormat:@"http://192.168.2.190:9990/pages/faq"];
         }
     }
 }

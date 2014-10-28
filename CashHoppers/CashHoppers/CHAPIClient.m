@@ -3,7 +3,7 @@
 #import "NSDataAdditions.h"
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! change port in app delegate for reachability checking!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-static NSString * const kToDoAPIBaseURLString = @"https://georgi.pagekite.me/";
+static NSString * const kToDoAPIBaseURLString = @"http://192.168.2.190:9990/";
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 @implementation CHAPIClient
